@@ -1,21 +1,32 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+*.swp
 
-# C extensions
-*.so
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
+# pip project
+# pip wheel and build artifacts
+pip-wheel-metadata/
+*.whl
+
+# pipenv
+Pipfile.lock
+Pipfile
+
+# pip cache
+pip-log.txt
+pip-delete-this-directory.txt
 parts/
 sdist/
 var/
