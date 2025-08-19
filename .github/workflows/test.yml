@@ -1,0 +1,80 @@
+name: Test Package
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.7', '3.8', '3.9', '3.10', '3.11', '3.12']
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -e .
+        pip install pytest pytest-cov
+    
+    - name: Test package imports
+      run: |
+        python -c "from sa_mock_address_generator import generate_sa_addresses, lookup_sa_address; print('Package imports successful')"
+    
+    - name: Test CLI commands
+      run: |
+        sa-lookup-address "Adelaide" --json
+        sa-generate-addresses 2 --seed 42
+    
+    - name: Test basic functionality
+      run: |
+        python -c "
+        from sa_mock_address_generator import generate_sa_addresses, lookup_sa_address
+        # Test lookup
+        result = lookup_sa_address('Adelaide')
+        assert result is not None
+        assert result['suburb'] == 'ADELAIDE'
+        assert result['state'] == 'SA'
+        print('Lookup test passed')
+        
+        # Test generation
+        addresses = generate_sa_addresses(count=3, random_seed=42)
+        assert len(addresses) == 3
+        assert 'street_address' in addresses.columns
+        assert 'suburb' in addresses.columns
+        assert 'latitude' in addresses.columns
+        assert 'longitude' in addresses.columns
+        print('Generation test passed')
+        "
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 black
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 sa_mock_address_generator --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings
+        flake8 sa_mock_address_generator --count --exit-zero --max-complexity=10 --max-line-length=100 --statistics
+    - name: Check formatting with black
+      run: |
+        black --check sa_mock_address_generator
