@@ -2,329 +2,282 @@
 
 A Python package for generating realistic South Australian addresses with customizable distribution parameters based on remoteness and socio-economic data.
 
+Available as both a command-line tool and a Python module.
+
 ## Features
 
-- **Realistic Address Generation**: Generate South Australian addresses with proper street names, suburbs, and postcodes
-- **Customizable Distribution**: Control the distribution of addresses based on remoteness and socio-economic factors
-- **Mapbox Integration**: Uses Mapbox API for geocoding and coordinate validation
-- **Multiple Output Formats**: Generate addresses as DataFrames or save to CSV
-- **Address Lookup**: Look up existing address details
-- **SOLID Architecture**: Built with dependency injection and clean architecture principles
+- **Command-line tool** for quick address generation
+- **Python module** for integration into your projects
+- Generate addresses with customizable distribution
+- Control remoteness levels (city, regional, remote)
+- Control socio-economic levels (low, high)
+- **Geo coordinates** (latitude/longitude) for all addresses
+- Export results to CSV files
+- Look up address details by suburb or postcode
+- Simple, maintainable code structure
 
-## Quick Start
+## Installation
 
-### Installation
-
-1. Clone the repository:
+### Option 1: Development Installation
+1. Clone the repository
+2. Create virtual environment:
 ```bash
-git clone <repository-url>
-cd SA-Mock-Address-Generator
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Set up your Mapbox API key in a `.env` file:
+### Option 2: Package Installation (Recommended)
 ```bash
-MAPBOX_API_KEY=your_mapbox_token
+# Install as editable package for development
+pip install -e .
+
+# Or install from source
+python setup.py install
 ```
 
-### Basic Usage
+## Usage
 
-#### Simple Example Script
+### Command Line Tool
 
-Run the example script to see the generator in action:
+#### Generate Addresses
+
+Generate 10 addresses with default distribution:
 ```bash
-python simple_example.py
+python sa_mock_address_generator/demo/simple_generator.py 10
 ```
 
-This will demonstrate:
-- Available distribution presets
-- Default address generation
-- City-focused distribution
-- Custom remoteness weights
-- Custom socio-economic weights
-- Address lookup functionality
+Generate 5 addresses focused on cities:
+```bash
+python sa_mock_address_generator/demo/simple_generator.py 5 --remoteness city
+```
 
-#### Python API Usage
+Generate 5 addresses in high socio-economic areas:
+```bash
+python sa_mock_address_generator/demo/simple_generator.py 5 --socio high
+```
+
+Generate addresses with reproducible results:
+```bash
+python sa_mock_address_generator/demo/simple_generator.py 10 --seed 42
+```
+
+Export results to CSV file:
+```bash
+python sa_mock_address_generator/demo/simple_generator.py 10 --output results.csv
+```
+
+### Look Up Addresses
+
+Look up by suburb name:
+```bash
+python sa_mock_address_generator/demo/simple_generator.py --lookup "Adelaide"
+```
+
+Look up by postcode:
+```bash
+python sa_mock_address_generator/demo/simple_generator.py --lookup "5000"
+```
+
+### Show Available Options
+
+```bash
+python sa_mock_address_generator/demo/simple_generator.py --presets
+```
+
+### Demo Version
+
+For a standalone demo version with CSV export functionality, use the demo script:
+```bash
+python sa_mock_address_generator/demo/simple_generator.py 10 --output my_addresses.csv
+```
+
+### Python Module
+
+After installation, you can use the package in your Python code:
 
 ```python
-from api import generate_sa_addresses, lookup_sa_address
+import sa_mock_address_generator as sa_gen
 
-# Generate 10 addresses with default distribution
-addresses = generate_sa_addresses(10)
+# Generate a single address
+address = sa_gen.generate_address()
+print(address['full_address'])
 
-# Generate with city-focused distribution
-addresses = generate_sa_addresses(count=50, preset='city_focused')
+# Generate multiple addresses
+addresses = sa_gen.generate_addresses(count=10)
+print(addresses)
 
-# Generate with custom weights
-custom_weights = {
-    'Major Cities of Australia': 0.8,
-    'Inner Regional Australia': 0.2,
-    'Outer Regional Australia': 0.0,
-    'Remote Australia': 0.0,
-    'Very Remote Australia': 0.0,
-    'Not Applicable': 0.0
+# Access geo coordinates
+for idx, row in addresses.iterrows():
+    print(f"Address: {row['full_address']}")
+    print(f"Coordinates: {row['latitude']}, {row['longitude']}")
+
+# Export to CSV
+sa_gen.export_to_csv(addresses, "my_addresses.csv")
+
+# Address lookup
+result = sa_gen.lookup_address("Adelaide")
+print(result['full_address'])
+
+# Custom distribution weights
+city_weights = {
+    "Major Cities of Australia": 0.8,
+    "Inner Regional Australia": 0.2,
+    "Outer Regional Australia": 0.0,
+    "Remote Australia": 0.0,
+    "Very Remote Australia": 0.0
 }
-addresses = generate_sa_addresses(count=20, remoteness_weights=custom_weights)
 
-# Look up an address
-result = lookup_sa_address("Adelaide")
+city_addresses = sa_gen.generate_addresses(
+    count=5, 
+    remoteness_weights=city_weights
+)
 ```
+
+See `example_usage.py` for more detailed examples.
+
+## Geo Coordinates
+
+All generated addresses include accurate latitude and longitude coordinates for South Australian locations. These coordinates can be used for:
+
+- **Mapping applications**: Plot addresses on interactive maps
+- **Distance calculations**: Calculate distances between addresses
+- **Geospatial analysis**: Perform location-based analytics
+- **API integration**: Use with mapping services like Google Maps, Mapbox, etc.
+
+### Coordinate Accuracy
+
+The coordinates represent the approximate center of each suburb/town in South Australia:
+- **Adelaide**: -34.9285, 138.6007
+- **North Adelaide**: -34.9089, 138.5994
+- **Whyalla**: -33.0327, 137.5648
+- **Mount Gambier**: -37.8312, 140.7792
+- **Port Lincoln**: -34.7261, 135.8575
+- **Port Augusta**: -32.4924, 137.7728
+- **Murray Bridge**: -35.1197, 139.2734
+- **Victor Harbor**: -35.5500, 138.6167
+- **Coober Pedy**: -29.0139, 134.7544
+- **Roxby Downs**: -30.5631, 136.8953
 
 ## Distribution Parameters
 
 ### Remoteness Levels
 
-The system uses the Australian Bureau of Statistics (ABS) remoteness classification:
+- **city**: Focus on Adelaide and major cities (80% cities, 20% regional)
+- **regional**: Focus on regional towns (10% cities, 50% regional, 30% rural, 10% remote)
+- **remote**: Include more remote areas (0% cities, 20% regional, 30% rural, 30% remote, 20% very remote)
 
-- **Major Cities of Australia**: Adelaide and major urban centers
-- **Inner Regional Australia**: Regional cities and towns
-- **Outer Regional Australia**: Rural towns and communities  
-- **Remote Australia**: Remote areas like Port Lincoln
-- **Very Remote Australia**: Very remote areas
-- **Not Applicable**: Areas not classified (excluded from generation)
+### Socio-Economic Levels
 
-### Socio-Economic Index
+- **low**: Focus on lower socio-economic areas (30% low, 40% below average, 20% average, 10% above average, 0% high)
+- **high**: Focus on higher socio-economic areas (0% low, 10% below average, 30% average, 40% above average, 20% high)
 
-Based on the ABS Socio-Economic Indexes for Areas (SEIFA):
+## Project Structure
 
-- **0**: Very low socio-economic status
-- **1**: Low socio-economic status
-- **2**: Below average socio-economic status
-- **3**: Average socio-economic status
-- **4**: Above average socio-economic status
-- **5**: High socio-economic status
-
-## Customizing Distribution
-
-### Method 1: Direct Weight Configuration
-
-```python
-from sa_mock_address_generator import generate_sa_addresses
-
-# Custom remoteness distribution
-remoteness_weights = {
-    'Major Cities of Australia': 0.7,      # 70% in cities
-    'Inner Regional Australia': 0.2,       # 20% in regional areas
-    'Outer Regional Australia': 0.08,      # 8% in rural areas
-    'Remote Australia': 0.02,              # 2% in remote areas
-    'Very Remote Australia': 0.0,          # 0% in very remote areas
-    'Not Applicable': 0.0
-}
-
-# Custom socio-economic distribution
-socioeconomic_weights = {
-    0: 0.02,  # 2% very low
-    1: 0.05,  # 5% low
-    2: 0.15,  # 15% below average
-    3: 0.35,  # 35% average
-    4: 0.30,  # 30% above average
-    5: 0.13   # 13% high
-}
-
-addresses = generate_sa_addresses(
-    count=100,
-    remoteness_weights=remoteness_weights,
-    socioeconomic_weights=socioeconomic_weights
-)
+```
+SA Mock Address Generator/
+├── sa_mock_address_generator/     # Main Python package
+│   ├── __init__.py               # Package exports
+│   ├── config.py                 # Configuration settings
+│   ├── data/                     # Sample data files
+│   └── demo/                     # Demo scripts and examples
+│       ├── simple_generator.py   # Command-line interface
+│       └── config.py             # Demo configuration
+├── example_usage.py              # Module usage examples
+├── quick_demo.py                 # Quick demonstration script
+├── setup.py                      # Package installation script
+├── requirements.txt              # Dependencies
+└── README.md                     # Documentation
 ```
 
-### Method 2: Using Presets
+### Core Functions
+
+The package provides these main functions:
+
+- `generate_address()`: Generate a single address
+- `generate_addresses()`: Generate multiple addresses  
+- `lookup_address()`: Look up address details
+- `export_to_csv()`: Export results to CSV file
+- `get_available_presets()`: Show distribution presets
+
+## Customization
+
+To modify the distribution weights, edit the constants in the script:
 
 ```python
-# Available presets
-presets = [
-    'city_focused',      # Focus on Adelaide and major cities
-    'regional_focused',  # Focus on regional towns
-    'remote_focused',    # Include more remote areas
-    'high_socio',        # Higher socioeconomic areas
-    'low_socio'          # Lower socioeconomic areas
-]
-
-addresses = generate_sa_addresses(count=100, preset='city_focused')
-```
-
-### Method 3: Modifying Default Weights
-
-You can modify the default weights in `config.py`:
-
-```python
-# In config.py
+# Default distribution weights
 DEFAULT_REMOTENESS_WEIGHTS = {
-    'Major Cities of Australia': 0.5,      # Increase city focus
-    'Inner Regional Australia': 0.3,       # Increase regional focus
-    'Outer Regional Australia': 0.15,      # Increase rural focus
-    'Remote Australia': 0.05,              # Include some remote areas
-    'Very Remote Australia': 0.0,          # Exclude very remote areas
-    'Not Applicable': 0.0
+    "Major Cities of Australia": 0.4,
+    "Inner Regional Australia": 0.25,
+    "Outer Regional Australia": 0.20,
+    "Remote Australia": 0.10,
+    "Very Remote Australia": 0.05
 }
 
-DEFAULT_SOCIOECONOMIC_WEIGHTS = {
-    0: 0.03,  # Reduce very low socio-economic
-    1: 0.08,  # Reduce low socio-economic
-    2: 0.18,  # Slightly reduce below average
-    3: 0.30,  # Keep average as baseline
-    4: 0.28,  # Increase above average
-    5: 0.13   # Increase high socio-economic
+DEFAULT_SOCIO_WEIGHTS = {
+    1: 0.10,  # Low socio-economic
+    2: 0.20,  # Below average
+    3: 0.25,  # Average
+    4: 0.25,  # Above average
+    5: 0.20   # High socio-economic
 }
 ```
-
-## Advanced Usage
-
-### Using the API Class
-
-```python
-from sa_mock_address_generator import SAAddressAPI
-
-# Initialize API
-api = SAAddressAPI()
-
-# Generate addresses with custom configuration
-addresses = api.generate_addresses(
-    count=100,
-    remoteness_weights={'Major Cities of Australia': 1.0},  # Only cities
-    socioeconomic_weights={3: 1.0},  # Only average socio-economic
-    random_seed=42  # For reproducible results
-)
-
-# Get distribution summary
-summary = api.get_distribution_summary(addresses)
-print(f"Generated {summary['total_addresses']} addresses across {summary['unique_suburbs']} suburbs")
-```
-
-### Address Lookup
-
-```python
-from sa_mock_address_generator import lookup_sa_address
-
-# Look up by suburb name
-result = lookup_sa_address("Adelaide")
-
-# Look up by postcode
-result = lookup_sa_address("5000")
-
-# Look up by suburb and postcode
-result = lookup_sa_address("Whyalla 5600")
-
-if result:
-    print(f"Address: {result['full_address']}")
-    print(f"Coordinates: ({result['latitude']}, {result['longitude']})")
-    print(f"Remoteness: {result['remoteness']}")
-    print(f"Socio-Economic Index: {result['socio_economic_index']}")
-```
-
-## Configuration
-
-### Environment Variables
-
-Create a `.env` file in the project root:
-
-```bash
-# Required
-MAPBOX_API_KEY=your_mapbox_token
-
-# Optional (for backward compatibility)
-MAPBOX_ACCESS_TOKEN=your_mapbox_token
-```
-
-### Mapbox API Setup
-
-1. Sign up for a Mapbox account at https://www.mapbox.com/
-2. Create an access token
-3. Add the token to your `.env` file as `MAPBOX_API_KEY`
 
 ## Output Format
 
-Generated addresses include the following fields:
+Generated addresses include:
+- Street number and name
+- Suburb and postcode
+- State (SA)
+- Remoteness classification
+- Socio-economic index (1-5)
+- **Geo coordinates** (latitude/longitude)
 
-- `street_address`: Full street address (e.g., "123 Main Street")
-- `suburb`: Suburb name (e.g., "Adelaide")
-- `state`: State abbreviation (e.g., "SA")
-- `postcode`: Postcode (e.g., "5000")
-- `council`: Local government area
-- `remoteness`: ABS remoteness classification
-- `socio_economic_index`: SEIFA index (0-5)
-- `latitude`: Geographic latitude
-- `longitude`: Geographic longitude
+### CSV Export
 
-## Examples
+When using the `--output` option, results are saved to CSV files with all address details including:
+- Complete street address
+- Full formatted address string
+- All distribution parameters
+- Geo coordinates for mapping applications
 
-### City-Focused Generation
+## Example Output
 
-```python
-# Generate addresses primarily in Adelaide and major cities
-addresses = generate_sa_addresses(
-    count=50,
-    remoteness_weights={
-        'Major Cities of Australia': 0.8,
-        'Inner Regional Australia': 0.15,
-        'Outer Regional Australia': 0.05,
-        'Remote Australia': 0.0,
-        'Very Remote Australia': 0.0,
-        'Not Applicable': 0.0
-    }
-)
+```
+Generating 5 South Australian addresses...
+
+Generated 5 addresses:
+==================================================
+ street_number    street_name         suburb postcode                remoteness  socio_economic_index    latitude  longitude
+            12  Garden Street        Whyalla     5600  Inner Regional Australia                     2    -33.0327    137.5648
+           146   Ocean Street    Roxby Downs     5725     Very Remote Australia                     2    -30.5631    136.8953
+           542   River Street        Whyalla     5600  Inner Regional Australia                     2    -33.0327    137.5648
+           272  Church Street North Adelaide     5006 Major Cities of Australia                     5    -34.9089    138.5994
+           898 William Street        Whyalla     5600  Inner Regional Australia                     2    -33.0327    137.5648
+
+Distribution Summary:
+==============================
+Remoteness Distribution:
+  Inner Regional Australia    3 ( 60.0%)
+  Very Remote Australia       1 ( 20.0%)
+  Major Cities of Australia   1 ( 20.0%)
+
+Socio-Economic Distribution:
+  Level 2             4 ( 80.0%)
+  Level 5  (High)     1 ( 20.0%)
 ```
 
-### High Socio-Economic Focus
+## Dependencies
 
-```python
-# Generate addresses in higher socio-economic areas
-addresses = generate_sa_addresses(
-    count=30,
-    socioeconomic_weights={
-        0: 0.0,   # No very low socio-economic areas
-        1: 0.0,   # No low socio-economic areas
-        2: 0.1,   # 10% below average
-        3: 0.3,   # 30% average
-        4: 0.4,   # 40% above average
-        5: 0.2    # 20% high socio-economic
-    }
-)
-```
-
-### Regional Focus
-
-```python
-# Generate addresses in regional areas
-addresses = generate_sa_addresses(
-    count=40,
-    remoteness_weights={
-        'Major Cities of Australia': 0.1,   # 10% in cities
-        'Inner Regional Australia': 0.5,    # 50% in inner regional
-        'Outer Regional Australia': 0.3,    # 30% in outer regional
-        'Remote Australia': 0.1,            # 10% in remote areas
-        'Very Remote Australia': 0.0,
-        'Not Applicable': 0.0
-    }
-)
-```
-
-## Architecture
-
-The project follows SOLID principles and uses dependency injection:
-
-- **Interfaces**: Define contracts for address generation, data processing, and geocoding
-- **Core**: Contains the dependency container and main business logic
-- **Generators**: Implement address generation algorithms
-- **Processors**: Handle data processing and validation
-- **Providers**: Manage external services (Mapbox geocoding)
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+- Python 3.6+
+- pandas
+- argparse (built-in)
+- random (built-in)
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Support
-
-For questions or issues, please open an issue on the GitHub repository.
+MIT License
