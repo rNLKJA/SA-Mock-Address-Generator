@@ -147,3 +147,4 @@ env.bak/
 venv.bak/
 
 test/
+/.cursor/rules
