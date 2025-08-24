@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Simple CLI for SA Address Generation
+Modern CLI for SA Address Generation using SOLID architecture
 """
 import argparse
 import sys
 import json
-from . import generate_sa_addresses, SAAddressAPI, lookup_sa_address
-from . import DEFAULT_REMOTENESS_WEIGHTS, DEFAULT_SOCIOECONOMIC_WEIGHTS
+from .api import generate_sa_addresses, lookup_sa_address, get_available_presets
+from .config import DEFAULT_REMOTENESS_WEIGHTS, DEFAULT_SOCIOECONOMIC_WEIGHTS
 
 
 def main():
@@ -94,6 +94,9 @@ Socio-Economic Levels:
         # Validate count argument for address generation
         if args.count is None:
             parser.error("count is required for address generation (use --lookup for address lookup)")
+        count: int = args.count  # type: ignore
+        if count <= 0:
+            parser.error("count must be positive")
         # Prepare custom weights based on arguments
         remoteness_weights = None
         socioeconomic_weights = None
@@ -137,7 +140,7 @@ Socio-Economic Levels:
         
         # Generate addresses
         addresses = generate_sa_addresses(
-            count=args.count,
+            count=count,
             preset=args.preset if not (args.remoteness or (hasattr(args, 'socio_economic') and args.socio_economic)) else None,
             remoteness_weights=remoteness_weights,
             socioeconomic_weights=socioeconomic_weights,
@@ -159,15 +162,19 @@ Socio-Economic Levels:
         
         # Show summary if requested
         if args.show_summary:
+            from .api import SAAddressAPI
             api = SAAddressAPI()
             summary = api.get_distribution_summary(addresses)
             
             print(f"\nDistribution Summary:")
-            print(f"Unique suburbs: {summary['unique_suburbs']}")
+            print(f"Total addresses: {summary.get('total_addresses', 0)}")
+            print(f"Unique suburbs: {summary.get('unique_suburbs', 0)}")
             print(f"Remoteness distribution:")
-            for level, count in summary['remoteness_distribution'].items():
-                pct = (count / summary['total_count']) * 100
-                print(f"  {level}: {count} ({pct:.1f}%)")
+            remoteness_dist = summary.get('remoteness_distribution', {})
+            total = summary.get('total_addresses', 1)
+            for level, count_val in remoteness_dist.items():
+                pct = (count_val / total) * 100
+                print(f"  {level}: {count_val} ({pct:.1f}%)")
         
         if args.output:
             print(f"\nSaved to: {args.output}")

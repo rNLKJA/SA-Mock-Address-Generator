@@ -7,12 +7,12 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Google Maps API Configuration - get from environment variable
-GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY', '')
-GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY', GOOGLE_API_KEY)  # Support both variable names
+# Mapbox API Configuration
+MAPBOX_ACCESS_TOKEN = os.getenv('MAPBOX_ACCESS_TOKEN', '')
+MAPBOX_API_KEY = os.getenv('MAPBOX_API_KEY', MAPBOX_ACCESS_TOKEN)  # Support both variable names
 
 # Address Generation Configuration
-MAX_VALIDATION_RETRIES = int(os.getenv('MAX_VALIDATION_RETRIES', '3'))
+# Note: MAX_VALIDATION_RETRIES was removed as it's not used in the implementation
 
 # Default Distribution Weights
 DEFAULT_REMOTENESS_WEIGHTS = {
