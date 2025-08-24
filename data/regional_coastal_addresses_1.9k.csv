@@ -1,0 +1,1001 @@
+street_address,street_number,street_name,suburb,postcode,full_address,council,latitude,longitude,socio_economic_status,remoteness_level,validation_source
+317 King Street,317,King Street,ADELAIDE,5000,"317 King Street, Pennington South Australia 5013, Australia",CITY OF ADELAIDE,-34.858919,138.536472,4,Major Cities of Australia,mapbox_api
+813 Pulteney Street,813,Pulteney Street,ADELAIDE,5000,"813 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.934638,138.606464,4,Major Cities of Australia,mapbox_api
+36 Prospect Road,36,Prospect Road,ADELAIDE,5000,"36 Prospect Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.894015,138.594131,4,Major Cities of Australia,mapbox_api
+493 Henley Beach Road,493,Henley Beach Road,ADELAIDE,5000,"493 Henley Beach Road, Fulham South Australia 5024, Australia",CITY OF ADELAIDE,-34.926753,138.519651,4,Major Cities of Australia,mapbox_api
+35 Pirie Street,35,Pirie Street,ADELAIDE,5000,"35 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92607,138.601434,4,Major Cities of Australia,mapbox_api
+483 Magill Road,483,Magill Road,ADELAIDE,5000,"483 Magill Road, Tranmere South Australia 5073, Australia",CITY OF ADELAIDE,-34.913472,138.662012,4,Major Cities of Australia,mapbox_api
+229 Currie Street,229,Currie Street,ADELAIDE,5000,"229 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924644,138.595504,4,Major Cities of Australia,mapbox_api
+103 Pirie Street,103,Pirie Street,ADELAIDE,5000,"103 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925625,138.60247,4,Major Cities of Australia,mapbox_api
+19 Waymouth Street,19,Waymouth Street,ADELAIDE,5000,"19 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925809,138.598909,4,Major Cities of Australia,mapbox_api
+242 Elizabeth Street,242,Elizabeth Street,MURRAY BRIDGE,5253,"242 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118184,139.263291,2,Inner Regional Australia,mapbox_api
+990 Pulteney Street,990,Pulteney Street,ADELAIDE,5000,"990 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935372,138.606516,4,Major Cities of Australia,mapbox_api
+873 Uley Road,873,Unley Road,ADELAIDE,5000,"873 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698379,138.713159,4,Major Cities of Australia,mapbox_api
+231 Wellington Square,231,Wellington Square,ADELAIDE,5000,"231 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907148,138.590658,4,Major Cities of Australia,mapbox_api
+957 Lower North East Road,957,Lower North East Road,ADELAIDE,5000,"957 Lower North East Road, Dernancourt South Australia 5075, Australia",CITY OF ADELAIDE,-34.860623,138.684421,4,Major Cities of Australia,mapbox_api
+378 Wellington Square,378,Wellington Square,ADELAIDE,5000,"378 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.90627,138.591206,4,Major Cities of Australia,mapbox_api
+937 Franklin Street,937,Franklin Street,ADELAIDE,5000,"937 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927729,138.588352,4,Major Cities of Australia,mapbox_api
+Whitmore Square,361,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+867 Henley Beach Road,867,Henley Beach Road,ADELAIDE,5000,"867 Henley Beach Road, Fulham South Australia 5024, Australia",CITY OF ADELAIDE,-34.926593,138.514486,4,Major Cities of Australia,mapbox_api
+250 Brighton Road,250,Brighton Road,ADELAIDE,5000,"250 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-34.999407,138.52202,4,Major Cities of Australia,mapbox_api
+731 Queen Street,731,Queen Street,ADELAIDE,5000,"731 Queen Street, Norwood South Australia 5067, Australia",CITY OF ADELAIDE,-34.923952,138.639002,4,Major Cities of Australia,mapbox_api
+Whitmore Square,257,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+653 Waymouth Street,653,Waymouth Street,ADELAIDE,5000,"653 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589085,4,Major Cities of Australia,mapbox_api
+Palmer Place,972,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+964 Franklin Street,964,Franklin Street,ADELAIDE,5000,"964 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927663,138.589728,4,Major Cities of Australia,mapbox_api
+501 Churchill Road,501,Churchill Road,ADELAIDE,5000,"501 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.854878,138.583093,4,Major Cities of Australia,mapbox_api
+99 Whitmore Square,99,Whitmore Square,ADELAIDE,5000,"99 Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932359,138.594894,4,Major Cities of Australia,mapbox_api
+590 Light Square,590,Light Square,ADELAIDE,5000,"590 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925291,138.594281,4,Major Cities of Australia,mapbox_api
+26 Churchill Road,26,Churchill Road,VICTOR HARBOR,5211,"26 Churchill Road, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.552853,138.614574,3,Inner Regional Australia,mapbox_api
+81 High Street,81,High Street,VICTOR HARBOR,5211,"81 High Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.546329,138.623918,3,Inner Regional Australia,mapbox_api
+Palmer Place,721,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+930 Glen Osmond Road,930,Glen Osmond Road,ADELAIDE,5000,"930 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945929,138.624415,4,Major Cities of Australia,mapbox_api
+908 Main Street,908,Main Street,ADELAIDE,5000,"908 Main Street, Mawson Lakes South Australia 5095, Australia",CITY OF ADELAIDE,-34.808377,138.616965,4,Major Cities of Australia,mapbox_api
+868 Magill Road,868,Magill Road,ADELAIDE,5000,"868 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914571,138.645265,4,Major Cities of Australia,mapbox_api
+756 Pirie Street,756,Pirie Street,ADELAIDE,5000,"756 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.611748,4,Major Cities of Australia,mapbox_api
+899 Wellington Square,899,Wellington Square,ADELAIDE,5000,"899 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907062,138.590625,4,Major Cities of Australia,mapbox_api
+338 Wellington Square,338,Wellington Square,ADELAIDE,5000,"338 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906265,138.5912,4,Major Cities of Australia,mapbox_api
+552 Lower North East Road,552,Lower North East Road,ADELAIDE,5000,"552 Lower North East Road, Campbelltown South Australia 5074, Australia",CITY OF ADELAIDE,-34.884647,138.659919,4,Major Cities of Australia,mapbox_api
+257 Wellington Square,257,Wellington Square,ADELAIDE,5000,"257 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907145,138.590657,4,Major Cities of Australia,mapbox_api
+890 Grand Junction Road,890,Grand Junction Road,ADELAIDE,5000,"890 Grand Junction Road, Gilles Plains South Australia 5086, Australia",CITY OF ADELAIDE,-34.84532,138.665007,4,Major Cities of Australia,mapbox_api
+344 Pirie Street,344,Pirie Street,ADELAIDE,5000,"344 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.611751,4,Major Cities of Australia,mapbox_api
+242 Pulteney Street,242,Pulteney Street,ADELAIDE,5000,"242 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.928543,138.606312,4,Major Cities of Australia,mapbox_api
+515 Brighton Road,515,Brighton Road,ADELAIDE,5000,"515 Brighton Road, Brighton South Australia 5048, Australia",CITY OF ADELAIDE,-35.021141,138.522983,4,Major Cities of Australia,mapbox_api
+428 Henley Beach Road,428,Henley Beach Road,ADELAIDE,5000,"428 Henley Beach Road, Lockleys South Australia 5032, Australia",CITY OF ADELAIDE,-34.925822,138.530344,4,Major Cities of Australia,mapbox_api
+42 Grand Junction Road,42,Grand Junction Road,ADELAIDE,5000,"42 Grand Junction Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.849662,138.583927,4,Major Cities of Australia,mapbox_api
+437 Torrens Road,437,Torrens Road,ADELAIDE,5000,"437 Torrens Road, Woodville Park South Australia 5011, Australia",CITY OF ADELAIDE,-34.876604,138.550283,4,Major Cities of Australia,mapbox_api
+Palmer Place,444,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+407 Churchill Road,407,Churchill Road,ADELAIDE,5000,"407 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861888,138.583659,4,Major Cities of Australia,mapbox_api
+221 Cross Road,221,Cross Road,ADELAIDE,5000,"221 Cross Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.966466,138.58913,4,Major Cities of Australia,mapbox_api
+574 Waymouth Street,574,Waymouth Street,ADELAIDE,5000,"574 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589634,4,Major Cities of Australia,mapbox_api
+434 Waymouth Street,434,Waymouth Street,ADELAIDE,5000,"434 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589635,4,Major Cities of Australia,mapbox_api
+574 Prospect Road,574,Prospect Road,ADELAIDE,5000,"574 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.852022,138.590868,4,Major Cities of Australia,mapbox_api
+804 Prospect Road,804,Prospect Road,ADELAIDE,5000,"804 Prospect Road, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.899925,138.594509,4,Major Cities of Australia,mapbox_api
+311 Morphett Street,311,Morphett Street,ADELAIDE,5000,"311 Morphett Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931479,138.593774,4,Major Cities of Australia,mapbox_api
+686 Goodwood Road,686,Goodwood Road,ADELAIDE,5000,"686 Goodwood Road, Daw Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.988919,138.592145,4,Major Cities of Australia,mapbox_api
+Palmer Place,232,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+730 Hindley Street,730,Hindley Street,ADELAIDE,5000,"730 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+849 Port Road,849,Port Road,ADELAIDE,5000,"849 Port Road, Woodville South Australia 5011, Australia",CITY OF ADELAIDE,-34.876852,138.530288,4,Major Cities of Australia,mapbox_api
+880 Main North Road,880,Main North Road,ADELAIDE,5000,"880 Main North Road, Pooraka South Australia 5095, Australia",CITY OF ADELAIDE,-34.826523,138.615098,4,Major Cities of Australia,mapbox_api
+607 Currie Street,607,Currie Street,ADELAIDE,5000,"607 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924643,138.595534,4,Major Cities of Australia,mapbox_api
+467 Prospect Road,467,Prospect Road,ADELAIDE,5000,"467 Prospect Road, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.899116,138.594732,4,Major Cities of Australia,mapbox_api
+470 Pulteney Street,470,Pulteney Street,ADELAIDE,5000,"470 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.93491,138.606706,4,Major Cities of Australia,mapbox_api
+432 Prospect Road,432,Prospect Road,ADELAIDE,5000,"432 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.860991,138.591967,4,Major Cities of Australia,mapbox_api
+127 Light Square,127,Light Square,ADELAIDE,5000,"127 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925627,138.593017,4,Major Cities of Australia,mapbox_api
+317 Churchill Road,317,Churchill Road,ADELAIDE,5000,"317 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891258,138.585311,4,Major Cities of Australia,mapbox_api
+461 Waymouth Street,461,Waymouth Street,ADELAIDE,5000,"461 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589086,4,Major Cities of Australia,mapbox_api
+245 Rundle Street,245,Rundle Street,ADELAIDE,5000,"245 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922625,138.606799,4,Major Cities of Australia,mapbox_api
+70 George Street,70,George Street,ADELAIDE,5000,"70 George Street, Glenelg North South Australia 5045, Australia",CITY OF ADELAIDE,-34.973866,138.514328,4,Major Cities of Australia,mapbox_api
+827 Currie Street,827,Currie Street,ADELAIDE,5000,"827 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924642,138.595551,4,Major Cities of Australia,mapbox_api
+31 Cross Road,31,Cross Road,ADELAIDE,5000,"31 Cross Road, Kingswood South Australia 5062, Australia",CITY OF ADELAIDE,-34.965537,138.613565,4,Major Cities of Australia,mapbox_api
+King Street,230,King Street,VICTOR HARBOR,5211,"King Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.556928,138.618675,3,Inner Regional Australia,mapbox_api
+356 Goodwood Road,356,Goodwood Road,ADELAIDE,5000,"356 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970319,138.591068,4,Major Cities of Australia,mapbox_api
+525 Goodwood Road,525,Goodwood Road,ADELAIDE,5000,"525 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970188,138.591058,4,Major Cities of Australia,mapbox_api
+85 Main Street,85,Main Street,ADELAIDE,5000,"85 Main Street, Eastwood South Australia 5063, Australia",CITY OF ADELAIDE,-34.944324,138.624177,4,Major Cities of Australia,mapbox_api
+Portrush Road,938,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+Queen Street,611,Queen Street,ADELAIDE,5000,"Queen Street, Glenelg North South Australia 5045, Australia",CITY OF ADELAIDE,-34.974879,138.515072,4,Major Cities of Australia,mapbox_api
+147 Palmer Place,147,Palmer Place,ADELAIDE,5000,"147 Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.909829,138.595278,4,Major Cities of Australia,mapbox_api
+512 Prospect Road,512,Prospect Road,ADELAIDE,5000,"512 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.856721,138.591632,4,Major Cities of Australia,mapbox_api
+907 Flinders Street,907,Flinders Street,ADELAIDE,5000,"907 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92664,138.610284,4,Major Cities of Australia,mapbox_api
+989 Grenfell Street,989,Grenfell Street,ADELAIDE,5000,"989 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.608695,4,Major Cities of Australia,mapbox_api
+236 Queen Street,236,Queen Street,ADELAIDE,5000,"236 Queen Street, Alberton South Australia 5014, Australia",CITY OF ADELAIDE,-34.864116,138.517827,4,Major Cities of Australia,mapbox_api
+229 Pirie Street,229,Pirie Street,ADELAIDE,5000,"229 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925625,138.602478,4,Major Cities of Australia,mapbox_api
+941 Port Road,941,Port Road,ADELAIDE,5000,"941 Port Road, Cheltenham South Australia 5014, Australia",CITY OF ADELAIDE,-34.871959,138.522898,4,Major Cities of Australia,mapbox_api
+824 Main North Road,824,Main North Road,ADELAIDE,5000,"824 Main North Road, Pooraka South Australia 5095, Australia",CITY OF ADELAIDE,-34.823448,138.619094,4,Major Cities of Australia,mapbox_api
+275 Hindley Street,275,Hindley Street,ADELAIDE,5000,"275 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92348,138.589647,4,Major Cities of Australia,mapbox_api
+382 Magill Road,382,Magill Road,ADELAIDE,5000,"382 Magill Road, Kensington Park South Australia 5068, Australia",CITY OF ADELAIDE,-34.914317,138.656459,4,Major Cities of Australia,mapbox_api
+131 West Terrace,131,West Terrace,ADELAIDE,5000,"131 West Terrace, Kensington Gardens South Australia 5068, Australia",CITY OF ADELAIDE,-34.92536,138.661939,4,Major Cities of Australia,mapbox_api
+72 Goodwood Road,72,Goodwood Road,ADELAIDE,5000,"72 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.971284,138.591141,4,Major Cities of Australia,mapbox_api
+Queen Street,944,Queen Street,ADELAIDE,5000,"Queen Street, Glenelg North South Australia 5045, Australia",CITY OF ADELAIDE,-34.974879,138.515072,4,Major Cities of Australia,mapbox_api
+575 Flinders Street,575,Flinders Street,ADELAIDE,5000,"575 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92664,138.61028,4,Major Cities of Australia,mapbox_api
+Portrush Road,789,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+924 Magill Road,924,Magill Road,ADELAIDE,5000,"924 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914571,138.645273,4,Major Cities of Australia,mapbox_api
+51 Adelaide Street,51,Adelaide Street,ADELAIDE,5000,"51 Adelaide Street, Maylands South Australia 5069, Australia",CITY OF ADELAIDE,-34.910219,138.638951,4,Major Cities of Australia,mapbox_api
+806 Cross Road,806,Cross Road,ADELAIDE,5000,"806 Cross Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965139,138.613714,4,Major Cities of Australia,mapbox_api
+270 Elizabeth Street,270,Elizabeth Street,MURRAY BRIDGE,5253,"270 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118187,139.263288,2,Inner Regional Australia,mapbox_api
+226 Flinders Street,226,Flinders Street,ADELAIDE,5000,"226 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.922065,138.622692,4,Major Cities of Australia,mapbox_api
+897 Victoria Street,897,Victoria Street,ADELAIDE,5000,"897 Victoria Street, Payneham South Australia 5070, Australia",CITY OF ADELAIDE,-34.899645,138.636336,4,Major Cities of Australia,mapbox_api
+55 Marion Road,55,Marion Road,ADELAIDE,5000,"55 Marion Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.929325,138.552548,4,Major Cities of Australia,mapbox_api
+588 Lower North East Road,588,Lower North East Road,ADELAIDE,5000,"588 Lower North East Road, Campbelltown South Australia 5074, Australia",CITY OF ADELAIDE,-34.880909,138.661959,4,Major Cities of Australia,mapbox_api
+747 Grenfell Street,747,Grenfell Street,ADELAIDE,5000,"747 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.608693,4,Major Cities of Australia,mapbox_api
+887 Prospect Road,887,Prospect Road,ADELAIDE,5000,"887 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.857527,138.592003,4,Major Cities of Australia,mapbox_api
+899 Elizabeth Street,899,Elizabeth Street,MURRAY BRIDGE,5253,"899 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118245,139.263227,2,Inner Regional Australia,mapbox_api
+368 Grand Junction Road,368,Grand Junction Road,ADELAIDE,5000,"368 Grand Junction Road, Mansfield Park South Australia 5012, Australia",CITY OF ADELAIDE,-34.850893,138.54697,4,Major Cities of Australia,mapbox_api
+365 Waymouth Street,365,Waymouth Street,ADELAIDE,5000,"365 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589086,4,Major Cities of Australia,mapbox_api
+882 Grenfell Street,882,Grenfell Street,ADELAIDE,5000,"882 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.609408,4,Major Cities of Australia,mapbox_api
+172 Franklin Street,172,Franklin Street,ADELAIDE,5000,"172 Franklin Street, Sturt South Australia 5047, Australia",CITY OF ADELAIDE,-35.023589,138.554783,4,Major Cities of Australia,mapbox_api
+83 Port Road,83,Port Road,ADELAIDE,5000,"83 Port Road, Thebarton South Australia 5031, Australia",CITY OF ADELAIDE,-34.91278,138.5776,4,Major Cities of Australia,mapbox_api
+Upper Sturt Road,975,Upper Sturt Road,ADELAIDE,5000,"Upper Sturt Road, Belair South Australia 5052, Australia",CITY OF ADELAIDE,-34.999194,138.632515,4,Major Cities of Australia,mapbox_api
+86 Grand Junction Road,86,Grand Junction Road,ADELAIDE,5000,"86 Grand Junction Road, Gepps Cross South Australia 5094, Australia",CITY OF ADELAIDE,-34.848246,138.596261,4,Major Cities of Australia,mapbox_api
+South Terrace,829,South Terrace,ADELAIDE,5000,"South Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935572,138.596249,4,Major Cities of Australia,mapbox_api
+19 King Street,19,King Street,ADELAIDE,5000,"19 King Street, Glenelg North South Australia 5045, Australia",CITY OF ADELAIDE,-34.9718,138.512063,4,Major Cities of Australia,mapbox_api
+863 Magill Road,863,Magill Road,ADELAIDE,5000,"863 Magill Road, Adelaide South Australia 5069, Australia",CITY OF ADELAIDE,-34.9151,138.634282,4,Major Cities of Australia,mapbox_api
+544 North Terrace,544,North Terrace,ADELAIDE,5000,"544 North Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921258,138.603944,4,Major Cities of Australia,mapbox_api
+128 Portrush Road,128,Portrush Road,ADELAIDE,5000,"128 Portrush Road, Payneham South South Australia 5070, Australia",CITY OF ADELAIDE,-34.906528,138.640293,4,Major Cities of Australia,mapbox_api
+334 Hindley Street,334,Hindley Street,ADELAIDE,5000,"334 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590154,4,Major Cities of Australia,mapbox_api
+Church Street,551,Church Street,ADELAIDE,5000,"Church Street, Glenelg South South Australia 5045, Australia",CITY OF ADELAIDE,-34.991075,138.515159,4,Major Cities of Australia,mapbox_api
+888 Port Road,888,Port Road,ADELAIDE,5000,"888 Port Road, Woodville South South Australia 5011, Australia",CITY OF ADELAIDE,-34.880126,138.533241,4,Major Cities of Australia,mapbox_api
+39 Carrington Street,39,Carrington Street,ADELAIDE,5000,"39 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931713,138.601745,4,Major Cities of Australia,mapbox_api
+649 Grand Junction Road,649,Grand Junction Road,ADELAIDE,5000,"649 Grand Junction Road, Gepps Cross South Australia 5094, Australia",CITY OF ADELAIDE,-34.847506,138.605609,4,Major Cities of Australia,mapbox_api
+115 George Street,115,George Street,ADELAIDE,5000,"115 George Street, Marion South Australia 5043, Australia",CITY OF ADELAIDE,-35.009065,138.554924,4,Major Cities of Australia,mapbox_api
+709 Torrens Road,709,Torrens Road,ADELAIDE,5000,"709 Torrens Road, Renown Park South Australia 5008, Australia",CITY OF ADELAIDE,-34.895391,138.581777,4,Major Cities of Australia,mapbox_api
+217 Flinders Street,217,Flinders Street,ADELAIDE,5000,"217 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927035,138.608797,4,Major Cities of Australia,mapbox_api
+671 Gawler Place,671,Gawler Place,ADELAIDE,5000,"671 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92517,138.602027,4,Major Cities of Australia,mapbox_api
+121 Carrington Street,121,Carrington Street,ADELAIDE,5000,"121 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931505,138.604685,4,Major Cities of Australia,mapbox_api
+489 Prospect Road,489,Prospect Road,ADELAIDE,5000,"489 Prospect Road, Blair Athol South Australia 5084, Australia",CITY OF ADELAIDE,-34.850451,138.591716,4,Major Cities of Australia,mapbox_api
+495 Goodwood Road,495,Goodwood Road,ADELAIDE,5000,"495 Goodwood Road, Colonel Light Gardens South Australia 5041, Australia",CITY OF ADELAIDE,-34.980525,138.592331,4,Major Cities of Australia,mapbox_api
+Palmer Place,636,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+819 Marion Road,819,Marion Road,ADELAIDE,5000,"819 Marion Road, Mitchell Park South Australia 5043, Australia",CITY OF ADELAIDE,-34.999791,138.557817,4,Major Cities of Australia,mapbox_api
+730 Grand Junction Road,730,Grand Junction Road,ADELAIDE,5000,"730 Grand Junction Road, Pennington South Australia 5013, Australia",CITY OF ADELAIDE,-34.851247,138.53371,4,Major Cities of Australia,mapbox_api
+559 Portrush Road,559,Portrush Road,ADELAIDE,5000,"559 Portrush Road, Glenunga South Australia 5064, Australia",CITY OF ADELAIDE,-34.949541,138.642669,4,Major Cities of Australia,mapbox_api
+865 Hindley Street,865,Hindley Street,ADELAIDE,5000,"865 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923481,138.589634,4,Major Cities of Australia,mapbox_api
+307 Portrush Road,307,Portrush Road,ADELAIDE,5000,"307 Portrush Road, Norwood South Australia 5067, Australia",CITY OF ADELAIDE,-34.925052,138.641251,4,Major Cities of Australia,mapbox_api
+788 South Terrace,788,South Terrace,ADELAIDE,5000,"788 South Terrace, Wingfield South Australia 5013, Australia",CITY OF ADELAIDE,-34.83948,138.549416,4,Major Cities of Australia,mapbox_api
+63 Elizabeth Street,63,Elizabeth Street,ADELAIDE,5000,"63 Elizabeth Street, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.889509,138.583996,4,Major Cities of Australia,mapbox_api
+802 Pirie Street,802,Pirie Street,ADELAIDE,5000,"802 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.611747,4,Major Cities of Australia,mapbox_api
+20 Halifax Street,20,Halifax Street,ADELAIDE,5000,"20 Halifax Street, Hilton South Australia 5033, Australia",CITY OF ADELAIDE,-34.930833,138.564216,4,Major Cities of Australia,mapbox_api
+349 Churchill Road,349,Churchill Road,ADELAIDE,5000,"349 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.86746,138.583992,4,Major Cities of Australia,mapbox_api
+110 Victoria Street,110,Victoria Street,ADELAIDE,5000,"110 Victoria Street, Glandore South Australia 5037, Australia",CITY OF ADELAIDE,-34.962582,138.567302,4,Major Cities of Australia,mapbox_api
+809 Goodwood Road,809,Goodwood Road,ADELAIDE,5000,"809 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970184,138.591058,4,Major Cities of Australia,mapbox_api
+133 Hurtle Square,133,Hurtle Square,ADELAIDE,5000,"133 Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.933227,138.606423,4,Major Cities of Australia,mapbox_api
+510 Brighton Road,510,Brighton Road,ADELAIDE,5000,"510 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-34.999315,138.521678,4,Major Cities of Australia,mapbox_api
+743 Grenfell Street,743,Grenfell Street,ADELAIDE,5000,"743 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.608693,4,Major Cities of Australia,mapbox_api
+Palmer Place,378,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+562 Lower North East Road,562,Lower North East Road,ADELAIDE,5000,"562 Lower North East Road, Campbelltown South Australia 5074, Australia",CITY OF ADELAIDE,-34.883772,138.660512,4,Major Cities of Australia,mapbox_api
+442 Carrington Street,442,Carrington Street,ADELAIDE,5000,"442 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.9313,138.604416,4,Major Cities of Australia,mapbox_api
+Whitmore Square,690,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+Church Street,211,Church Street,ADELAIDE,5000,"Church Street, Glenelg South South Australia 5045, Australia",CITY OF ADELAIDE,-34.991075,138.515159,4,Major Cities of Australia,mapbox_api
+South Terrace,112,South Terrace,MURRAY BRIDGE,5253,"South Terrace, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.119932,139.275992,2,Inner Regional Australia,mapbox_api
+66 Pulteney Street,66,Pulteney Street,ADELAIDE,5000,"66 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921789,138.605512,4,Major Cities of Australia,mapbox_api
+21 Currie Street,21,Currie Street,ADELAIDE,5000,"21 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924723,138.591846,4,Major Cities of Australia,mapbox_api
+432 Grand Junction Road,432,Grand Junction Road,ADELAIDE,5000,"432 Grand Junction Road, Clearview South Australia 5085, Australia",CITY OF ADELAIDE,-34.847821,138.61256,4,Major Cities of Australia,mapbox_api
+748 Henley Beach Road,748,Henley Beach Road,ADELAIDE,5000,"748 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.569599,4,Major Cities of Australia,mapbox_api
+319 Churchill Road,319,Churchill Road,ADELAIDE,5000,"319 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891258,138.585311,4,Major Cities of Australia,mapbox_api
+818 Goodwood Road,818,Goodwood Road,ADELAIDE,5000,"818 Goodwood Road, Goodwood South Australia 5034, Australia",CITY OF ADELAIDE,-34.948595,138.589431,4,Major Cities of Australia,mapbox_api
+569 Gawler Place,569,Gawler Place,ADELAIDE,5000,"569 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925171,138.602027,4,Major Cities of Australia,mapbox_api
+116 Torrens Road,116,Torrens Road,ADELAIDE,5000,"116 Torrens Road, Croydon Park South Australia 5008, Australia",CITY OF ADELAIDE,-34.883785,138.562642,4,Major Cities of Australia,mapbox_api
+286 George Street,286,George Street,ADELAIDE,5000,"286 George Street, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.905149,138.59618,4,Major Cities of Australia,mapbox_api
+170 Hurtle Square,170,Hurtle Square,ADELAIDE,5000,"170 Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.933227,138.606423,4,Major Cities of Australia,mapbox_api
+50 West Terrace,50,West Terrace,ADELAIDE,5000,"50 West Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92671,138.58777,4,Major Cities of Australia,mapbox_api
+East Terrace,506,East Terrace,MURRAY BRIDGE,5253,"East Terrace, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118247,139.278758,2,Inner Regional Australia,mapbox_api
+792 Goodwood Road,792,Goodwood Road,ADELAIDE,5000,"792 Goodwood Road, Goodwood South Australia 5034, Australia",CITY OF ADELAIDE,-34.948594,138.589431,4,Major Cities of Australia,mapbox_api
+437 Main Street,437,Main Street,ADELAIDE,5000,"437 Main Street, Seaford South Australia 5169, Australia",CITY OF ADELAIDE,-35.187133,138.47768,4,Major Cities of Australia,mapbox_api
+103 Whitmore Square,103,Whitmore Square,ADELAIDE,5000,"103 Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932359,138.594894,4,Major Cities of Australia,mapbox_api
+255 Port Road,255,Port Road,ADELAIDE,5000,"255 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.903533,138.570633,4,Major Cities of Australia,mapbox_api
+284 Light Square,284,Light Square,ADELAIDE,5000,"284 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925342,138.594284,4,Major Cities of Australia,mapbox_api
+King Street,630,King Street,VICTOR HARBOR,5211,"King Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.556928,138.618675,3,Inner Regional Australia,mapbox_api
+622 Gawler Place,622,Gawler Place,ADELAIDE,5000,"622 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925171,138.602027,4,Major Cities of Australia,mapbox_api
+Halifax Street,713,Halifax Street,KEITH,5267,"Halifax Street, Keith South Australia 5267, Australia",THE DISTRICT COUNCIL OF TATIARA,-36.095752,140.348204,0,Outer Regional Australia,mapbox_api
+Hurtle Square,672,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+118 Grand Junction Road,118,Grand Junction Road,ADELAIDE,5000,"118 Grand Junction Road, Blair Athol South Australia 5084, Australia",CITY OF ADELAIDE,-34.848771,138.592695,4,Major Cities of Australia,mapbox_api
+511 Gawler Place,511,Gawler Place,ADELAIDE,5000,"511 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925172,138.602027,4,Major Cities of Australia,mapbox_api
+King Street,248,King Street,PORT AUGUSTA,5700,"King Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.489067,137.780398,2,Outer Regional Australia,mapbox_api
+174 Victoria Street,174,Victoria Street,ADELAIDE,5000,"174 Victoria Street, Glandore South Australia 5037, Australia",CITY OF ADELAIDE,-34.962582,138.567291,4,Major Cities of Australia,mapbox_api
+323 Unley Road,323,Unley Road,ADELAIDE,5000,"323 Unley Road, Unley Park South Australia 5061, Australia",CITY OF ADELAIDE,-34.960696,138.608258,4,Major Cities of Australia,mapbox_api
+188 Palmer Place,188,Palmer Place,ADELAIDE,5000,"188 Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.909829,138.595278,4,Major Cities of Australia,mapbox_api
+371 Main North Road,371,Main North Road,ADELAIDE,5000,"371 Main North Road, Enfield South Australia 5085, Australia",CITY OF ADELAIDE,-34.86381,138.601658,4,Major Cities of Australia,mapbox_api
+544 Flinders Street,544,Flinders Street,ADELAIDE,5000,"544 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.921931,138.62288,4,Major Cities of Australia,mapbox_api
+594 Henley Beach Road,594,Henley Beach Road,ADELAIDE,5000,"594 Henley Beach Road, Fulham South Australia 5024, Australia",CITY OF ADELAIDE,-34.926463,138.509491,4,Major Cities of Australia,mapbox_api
+574 Light Square,574,Light Square,ADELAIDE,5000,"574 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925294,138.594281,4,Major Cities of Australia,mapbox_api
+768 Port Road,768,Port Road,ADELAIDE,5000,"768 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.905356,138.571739,4,Major Cities of Australia,mapbox_api
+536 Hindley Street,536,Hindley Street,ADELAIDE,5000,"536 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+818 Gawler Place,818,Gawler Place,ADELAIDE,5000,"818 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925169,138.602027,4,Major Cities of Australia,mapbox_api
+13 Port Road,13,Port Road,ADELAIDE,5000,"13 Port Road, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921559,138.586981,4,Major Cities of Australia,mapbox_api
+981 Prospect Road,981,Prospect Road,ADELAIDE,5000,"981 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.857527,138.592004,4,Major Cities of Australia,mapbox_api
+834 Uley Road,834,Unley Road,ADELAIDE,5000,"834 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698456,138.713344,4,Major Cities of Australia,mapbox_api
+Elizabeth Street,904,Elizabeth Street,ADELAIDE,5000,"Elizabeth Street, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.981097,138.512282,4,Major Cities of Australia,mapbox_api
+654 Hindley Street,654,Hindley Street,ADELAIDE,5000,"654 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+147 Hurtle Square,147,Hurtle Square,ADELAIDE,5000,"147 Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.933227,138.606423,4,Major Cities of Australia,mapbox_api
+578 Hindley Street,578,Hindley Street,ADELAIDE,5000,"578 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+Upper Sturt Road,690,Upper Sturt Road,ADELAIDE,5000,"Upper Sturt Road, Belair South Australia 5052, Australia",CITY OF ADELAIDE,-34.999194,138.632515,4,Major Cities of Australia,mapbox_api
+344 Port Road,344,Port Road,ADELAIDE,5000,"344 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.90274,138.567124,4,Major Cities of Australia,mapbox_api
+460 Hindley Street,460,Hindley Street,ADELAIDE,5000,"460 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+461 Goodwood Road,461,Goodwood Road,ADELAIDE,5000,"461 Goodwood Road, Colonel Light Gardens South Australia 5041, Australia",CITY OF ADELAIDE,-34.9777,138.591743,4,Major Cities of Australia,mapbox_api
+177 Whitmore Square,177,Whitmore Square,ADELAIDE,5000,"177 Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932359,138.594894,4,Major Cities of Australia,mapbox_api
+10 Brighton Road,10,Brighton Road,ADELAIDE,5000,"10 Brighton Road, Glenelg East South Australia 5045, Australia",CITY OF ADELAIDE,-34.977223,138.520407,4,Major Cities of Australia,mapbox_api
+343 Wellington Square,343,Wellington Square,ADELAIDE,5000,"343 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907134,138.590652,4,Major Cities of Australia,mapbox_api
+405 Unley Road,405,Unley Road,ADELAIDE,5000,"405 Unley Road, Unley Park South Australia 5061, Australia",CITY OF ADELAIDE,-34.960203,138.60822,4,Major Cities of Australia,mapbox_api
+219 Hindley Street,219,Hindley Street,ADELAIDE,5000,"219 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923382,138.591581,4,Major Cities of Australia,mapbox_api
+32 Whitmore Square,32,Whitmore Square,ADELAIDE,5000,"32 Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932792,138.595215,4,Major Cities of Australia,mapbox_api
+164 Currie Street,164,Currie Street,ADELAIDE,5000,"164 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924495,138.596578,4,Major Cities of Australia,mapbox_api
+916 Torrens Road,916,Torrens Road,ADELAIDE,5000,"916 Torrens Road, Pennington South Australia 5013, Australia",CITY OF ADELAIDE,-34.864212,138.530396,4,Major Cities of Australia,mapbox_api
+864 Halifax Street,864,Halifax Street,ADELAIDE,5000,"864 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932089,138.616601,4,Major Cities of Australia,mapbox_api
+851 Glen Osmond Road,851,Glen Osmond Road,ADELAIDE,5000,"851 Glen Osmond Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.963364,138.644124,4,Major Cities of Australia,mapbox_api
+184 Cross Road,184,Cross Road,ADELAIDE,5000,"184 Cross Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965049,138.610127,4,Major Cities of Australia,mapbox_api
+575 Port Road,575,Port Road,ADELAIDE,5000,"575 Port Road, West Croydon South Australia 5008, Australia",CITY OF ADELAIDE,-34.89281,138.55429,4,Major Cities of Australia,mapbox_api
+879 Goodwood Road,879,Goodwood Road,ADELAIDE,5000,"879 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970183,138.591057,4,Major Cities of Australia,mapbox_api
+740 Grenfell Street,740,Grenfell Street,ADELAIDE,5000,"740 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.609408,4,Major Cities of Australia,mapbox_api
+385 Grenfell Street,385,Grenfell Street,ADELAIDE,5000,"385 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.60869,4,Major Cities of Australia,mapbox_api
+146 Grenfell Street,146,Grenfell Street,ADELAIDE,5000,"146 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924106,138.604438,4,Major Cities of Australia,mapbox_api
+223 Rundle Street,223,Rundle Street,ADELAIDE,5000,"223 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922625,138.606799,4,Major Cities of Australia,mapbox_api
+276 Halifax Street,276,Halifax Street,ADELAIDE,5000,"276 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932659,138.604193,4,Major Cities of Australia,mapbox_api
+210 East Terrace,210,East Terrace,ADELAIDE,5000,"210 East Terrace, Henley Beach South Australia 5022, Australia",CITY OF ADELAIDE,-34.908139,138.49677,4,Major Cities of Australia,mapbox_api
+585 Light Square,585,Light Square,ADELAIDE,5000,"585 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925979,138.593218,4,Major Cities of Australia,mapbox_api
+414 Elizabeth Street,414,Elizabeth Street,MURRAY BRIDGE,5253,"414 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.1182,139.263274,2,Inner Regional Australia,mapbox_api
+300 Marion Road,300,Marion Road,ADELAIDE,5000,"300 Marion Road, Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.961,138.554508,4,Major Cities of Australia,mapbox_api
+334 Grenfell Street,334,Grenfell Street,ADELAIDE,5000,"334 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.60941,4,Major Cities of Australia,mapbox_api
+733 Pulteney Street,733,Pulteney Street,ADELAIDE,5000,"733 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.934637,138.606464,4,Major Cities of Australia,mapbox_api
+520 Light Square,520,Light Square,ADELAIDE,5000,"520 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925303,138.594282,4,Major Cities of Australia,mapbox_api
+510 Marion Road,510,Marion Road,ADELAIDE,5000,"510 Marion Road, Plympton Park South Australia 5038, Australia",CITY OF ADELAIDE,-34.974749,138.555296,4,Major Cities of Australia,mapbox_api
+200 Grenfell Street,200,Grenfell Street,ADELAIDE,5000,"200 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923954,138.607599,4,Major Cities of Australia,mapbox_api
+82 Upper Sturt Road,82,Upper Sturt Road,ADELAIDE,5000,"82 Upper Sturt Road, Belair South Australia 5051, Australia",CITY OF ADELAIDE,-35.016068,138.639156,4,Major Cities of Australia,mapbox_api
+219 Morphett Street,219,Morphett Street,ADELAIDE,5000,"219 Morphett Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.928088,138.593502,4,Major Cities of Australia,mapbox_api
+137 Halifax Street,137,Halifax Street,ADELAIDE,5000,"137 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932848,138.602289,4,Major Cities of Australia,mapbox_api
+891 Brighton Road,891,Brighton Road,ADELAIDE,5000,"891 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-35.001594,138.521719,4,Major Cities of Australia,mapbox_api
+438 Carrington Street,438,Carrington Street,ADELAIDE,5000,"438 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.9313,138.604417,4,Major Cities of Australia,mapbox_api
+152 Port Road,152,Port Road,ADELAIDE,5000,"152 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.906227,138.572366,4,Major Cities of Australia,mapbox_api
+605 Rundle Street,605,Rundle Street,ADELAIDE,5000,"605 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609331,4,Major Cities of Australia,mapbox_api
+324 Magill Road,324,Magill Road,ADELAIDE,5000,"324 Magill Road, Kensington Park South Australia 5068, Australia",CITY OF ADELAIDE,-34.914533,138.651177,4,Major Cities of Australia,mapbox_api
+622 Cross Road,622,Cross Road,ADELAIDE,5000,"622 Cross Road, Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.968122,138.552418,4,Major Cities of Australia,mapbox_api
+787 Pulteney Street,787,Pulteney Street,ADELAIDE,5000,"787 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.934638,138.606464,4,Major Cities of Australia,mapbox_api
+753 Marion Road,753,Marion Road,ADELAIDE,5000,"753 Marion Road, Ascot Park South Australia 5043, Australia",CITY OF ADELAIDE,-34.983791,138.556329,4,Major Cities of Australia,mapbox_api
+Church Street,900,Church Street,ADELAIDE,5000,"Church Street, Glenelg South South Australia 5045, Australia",CITY OF ADELAIDE,-34.991075,138.515159,4,Major Cities of Australia,mapbox_api
+7 Torrens Road,7,Torrens Road,ADELAIDE,5000,"7 Torrens Road, Ovingham South Australia 5082, Australia",CITY OF ADELAIDE,-34.898778,138.586837,4,Major Cities of Australia,mapbox_api
+319 East Terrace,319,West Terrace,ADELAIDE,5000,"319 East Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922883,138.610859,4,Major Cities of Australia,mapbox_api
+295 Unley Road,295,Unley Road,ADELAIDE,5000,"295 Unley Road, Unley South Australia 5061, Australia",CITY OF ADELAIDE,-34.948866,138.607339,4,Major Cities of Australia,mapbox_api
+858 Cross Road,858,Cross Road,ADELAIDE,5000,"858 Cross Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965139,138.613712,4,Major Cities of Australia,mapbox_api
+308 Rundle Street,308,Rundle Street,ADELAIDE,5000,"308 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922473,138.609705,4,Major Cities of Australia,mapbox_api
+9 Hurtle Square,9,Hurtle Square,ADELAIDE,5000,"9 Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931337,138.605457,4,Major Cities of Australia,mapbox_api
+544 Rundle Street,544,Rundle Street,ADELAIDE,5000,"544 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922473,138.609706,4,Major Cities of Australia,mapbox_api
+154 Wellington Square,154,Wellington Square,ADELAIDE,5000,"154 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906243,138.591171,4,Major Cities of Australia,mapbox_api
+830 Marion Road,830,Marion Road,ADELAIDE,5000,"830 Marion Road, Plympton Park South Australia 5038, Australia",CITY OF ADELAIDE,-34.979905,138.555908,4,Major Cities of Australia,mapbox_api
+190 Pulteney Street,190,Pulteney Street,ADELAIDE,5000,"190 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92173,138.605508,4,Major Cities of Australia,mapbox_api
+106 Churchill Road,106,Churchill Road,ADELAIDE,5000,"106 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891266,138.585312,4,Major Cities of Australia,mapbox_api
+911 Port Road,911,Port Road,ADELAIDE,5000,"911 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.908466,138.576487,4,Major Cities of Australia,mapbox_api
+814 Uley Road,814,Unley Road,ADELAIDE,5000,"814 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698451,138.713333,4,Major Cities of Australia,mapbox_api
+969 Torrens Road,969,Torrens Road,ADELAIDE,5000,"969 Torrens Road, Renown Park South Australia 5008, Australia",CITY OF ADELAIDE,-34.895483,138.581966,4,Major Cities of Australia,mapbox_api
+715 Light Square,715,Light Square,ADELAIDE,5000,"715 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926016,138.593335,4,Major Cities of Australia,mapbox_api
+195 Gawler Place,195,Gawler Place,ADELAIDE,5000,"195 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925175,138.602027,4,Major Cities of Australia,mapbox_api
+651 Gawler Place,651,Gawler Place,ADELAIDE,5000,"651 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925171,138.602027,4,Major Cities of Australia,mapbox_api
+320 Grenfell Street,320,Grenfell Street,ADELAIDE,5000,"320 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.60941,4,Major Cities of Australia,mapbox_api
+403 Brighton Road,403,Brighton Road,ADELAIDE,5000,"403 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-35.001587,138.521718,4,Major Cities of Australia,mapbox_api
+666 Rundle Street,666,Rundle Street,ADELAIDE,5000,"666 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922473,138.609706,4,Major Cities of Australia,mapbox_api
+770 Churchill Road,770,Churchill Road,ADELAIDE,5000,"770 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861237,138.58314,4,Major Cities of Australia,mapbox_api
+713 Wellington Square,713,Wellington Square,ADELAIDE,5000,"713 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907086,138.590634,4,Major Cities of Australia,mapbox_api
+491 Halls Road,491,Torrens Road,ADELAIDE,5000,"491 Halls Road, Highbury South Australia 5089, Australia",CITY OF ADELAIDE,-34.849477,138.720989,4,Major Cities of Australia,mapbox_api
+370 Cross Road,370,Cross Road,ADELAIDE,5000,"370 Cross Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965138,138.613726,4,Major Cities of Australia,mapbox_api
+King Street,208,King Street,VICTOR HARBOR,5211,"King Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.556928,138.618675,3,Inner Regional Australia,mapbox_api
+691 Uley Road,691,Unley Road,ADELAIDE,5000,"691 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698522,138.713498,4,Major Cities of Australia,mapbox_api
+500 Henley Beach Road,500,Henley Beach Road,ADELAIDE,5000,"500 Henley Beach Road, Fulham South Australia 5024, Australia",CITY OF ADELAIDE,-34.925997,138.519334,4,Major Cities of Australia,mapbox_api
+695 Grenfell Street,695,Grenfell Street,ADELAIDE,5000,"695 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.608693,4,Major Cities of Australia,mapbox_api
+406 Carrington Street,406,Carrington Street,ADELAIDE,5000,"406 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.930531,138.615449,4,Major Cities of Australia,mapbox_api
+369 Pirie Street,369,Pirie Street,ADELAIDE,5000,"369 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609834,4,Major Cities of Australia,mapbox_api
+564 Portrush Road,564,Portrush Road,ADELAIDE,5000,"564 Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.958932,138.643968,4,Major Cities of Australia,mapbox_api
+Portrush Road,793,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+443 Grenfell Street,443,Grenfell Street,ADELAIDE,5000,"443 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.60869,4,Major Cities of Australia,mapbox_api
+256 Glen Osmond Road,256,Glen Osmond Road,ADELAIDE,5000,"256 Glen Osmond Road, Fullarton South Australia 5063, Australia",CITY OF ADELAIDE,-34.951748,138.633972,4,Major Cities of Australia,mapbox_api
+78 Churchill Road,78,Churchill Road,ADELAIDE,5000,"78 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891547,138.58487,4,Major Cities of Australia,mapbox_api
+627 Brighton Road,627,Brighton Road,ADELAIDE,5000,"627 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-35.001591,138.521718,4,Major Cities of Australia,mapbox_api
+156 Goodwood Road,156,Goodwood Road,ADELAIDE,5000,"156 Goodwood Road, Goodwood South Australia 5034, Australia",CITY OF ADELAIDE,-34.95285,138.589222,4,Major Cities of Australia,mapbox_api
+Franklin Street,685,Franklin Street,PORT AUGUSTA,5700,"Franklin Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.490177,137.765999,2,Outer Regional Australia,mapbox_api
+330 Franklin Street,330,Franklin Street,ADELAIDE,5000,"330 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927663,138.589732,4,Major Cities of Australia,mapbox_api
+598 Light Square,598,Light Square,ADELAIDE,5000,"598 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92529,138.594281,4,Major Cities of Australia,mapbox_api
+979 Uley Road,979,Unley Road,ADELAIDE,5000,"979 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698298,138.712961,4,Major Cities of Australia,mapbox_api
+893 Marion Road,893,Marion Road,ADELAIDE,5000,"893 Marion Road, Ascot Park South Australia 5043, Australia",CITY OF ADELAIDE,-34.98379,138.556329,4,Major Cities of Australia,mapbox_api
+117 Portrush Road,117,Portrush Road,ADELAIDE,5000,"117 Portrush Road, Evandale South Australia 5069, Australia",CITY OF ADELAIDE,-34.905903,138.639498,4,Major Cities of Australia,mapbox_api
+863 Pirie Street,863,Pirie Street,ADELAIDE,5000,"863 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609837,4,Major Cities of Australia,mapbox_api
+551 Portrush Road,551,Portrush Road,ADELAIDE,5000,"551 Portrush Road, Glenside South Australia 5065, Australia",CITY OF ADELAIDE,-34.940267,138.642471,4,Major Cities of Australia,mapbox_api
+578 Cross Road,578,Cross Road,ADELAIDE,5000,"578 Cross Road, South Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.96761,138.560237,4,Major Cities of Australia,mapbox_api
+419 Portrush Road,419,Portrush Road,ADELAIDE,5000,"419 Portrush Road, Toorak Gardens South Australia 5065, Australia",CITY OF ADELAIDE,-34.93885,138.64195,4,Major Cities of Australia,mapbox_api
+300 Unley Road,300,Unley Road,ADELAIDE,5000,"300 Unley Road, Hyde Park South Australia 5061, Australia",CITY OF ADELAIDE,-34.956712,138.607614,4,Major Cities of Australia,mapbox_api
+797 Henley Beach Road,797,Henley Beach Road,ADELAIDE,5000,"797 Henley Beach Road, Fulham South Australia 5024, Australia",CITY OF ADELAIDE,-34.926593,138.514485,4,Major Cities of Australia,mapbox_api
+522 Gawler Place,522,Gawler Place,ADELAIDE,5000,"522 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925172,138.602027,4,Major Cities of Australia,mapbox_api
+909 Flinders Street,909,Flinders Street,ADELAIDE,5000,"909 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92664,138.610284,4,Major Cities of Australia,mapbox_api
+King Street,841,King Street,PORT AUGUSTA,5700,"King Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.489067,137.780398,2,Outer Regional Australia,mapbox_api
+19 Henley Beach Road,19,Henley Beach Road,ADELAIDE,5000,"19 Henley Beach Road, Mile End South Australia 5031, Australia",CITY OF ADELAIDE,-34.923801,138.577382,4,Major Cities of Australia,mapbox_api
+576 Goodwood Road,576,Goodwood Road,ADELAIDE,5000,"576 Goodwood Road, Daw Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.981808,138.591924,4,Major Cities of Australia,mapbox_api
+574 Portrush Road,574,Portrush Road,ADELAIDE,5000,"574 Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.96032,138.644486,4,Major Cities of Australia,mapbox_api
+797 Henley Beach Road,797,Henley Beach Road,ADELAIDE,5000,"797 Henley Beach Road, Fulham South Australia 5024, Australia",CITY OF ADELAIDE,-34.926593,138.514485,4,Major Cities of Australia,mapbox_api
+79 Glen Osmond Road,79,Glen Osmond Road,ADELAIDE,5000,"79 Glen Osmond Road, Eastwood South Australia 5063, Australia",CITY OF ADELAIDE,-34.943868,138.621347,4,Major Cities of Australia,mapbox_api
+291 Wellington Square,291,Wellington Square,ADELAIDE,5000,"291 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907141,138.590655,4,Major Cities of Australia,mapbox_api
+23 Unley Road,23,Unley Road,ADELAIDE,5000,"23 Unley Road, Unley South Australia 5000, Australia",CITY OF ADELAIDE,-34.94098,138.606747,4,Major Cities of Australia,mapbox_api
+972 Uley Road,972,Unley Road,ADELAIDE,5000,"972 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698488,138.713419,4,Major Cities of Australia,mapbox_api
+832 Elizabeth Street,832,Elizabeth Street,MURRAY BRIDGE,5253,"832 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118238,139.263233,2,Inner Regional Australia,mapbox_api
+957 Pulteney Street,957,Pulteney Street,ADELAIDE,5000,"957 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.934638,138.606464,4,Major Cities of Australia,mapbox_api
+Hurtle Square,502,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+628 Henley Beach Road,628,Henley Beach Road,ADELAIDE,5000,"628 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.569603,4,Major Cities of Australia,mapbox_api
+603 Goodwood Road,603,Goodwood Road,ADELAIDE,5000,"603 Goodwood Road, Panorama South Australia 5041, Australia",CITY OF ADELAIDE,-34.993392,138.592877,4,Major Cities of Australia,mapbox_api
+636 Wellington Square,636,Wellington Square,ADELAIDE,5000,"636 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.9063,138.591248,4,Major Cities of Australia,mapbox_api
+379 Prospect Road,379,Prospect Road,ADELAIDE,5000,"379 Prospect Road, Blair Athol South Australia 5084, Australia",CITY OF ADELAIDE,-34.860725,138.592559,4,Major Cities of Australia,mapbox_api
+888 Pirie Street,888,Pirie Street,ADELAIDE,5000,"888 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.611747,4,Major Cities of Australia,mapbox_api
+30 Brighton Road,30,Brighton Road,ADELAIDE,5000,"30 Brighton Road, Glenelg East South Australia 5045, Australia",CITY OF ADELAIDE,-34.978762,138.52056,4,Major Cities of Australia,mapbox_api
+385 Waymouth Street,385,Waymouth Street,ADELAIDE,5000,"385 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589086,4,Major Cities of Australia,mapbox_api
+665 Lower North East Road,665,Lower North East Road,ADELAIDE,5000,"665 Lower North East Road, Paradise South Australia 5075, Australia",CITY OF ADELAIDE,-34.874352,138.667419,4,Major Cities of Australia,mapbox_api
+449 Port Road,449,Port Road,ADELAIDE,5000,"449 Port Road, Croydon South Australia 5008, Australia",CITY OF ADELAIDE,-34.898146,138.562802,4,Major Cities of Australia,mapbox_api
+391 Flinders Street,391,Flinders Street,ADELAIDE,5000,"391 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92664,138.610278,4,Major Cities of Australia,mapbox_api
+208 Goodwood Road,208,Goodwood Road,ADELAIDE,5000,"208 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970822,138.591106,4,Major Cities of Australia,mapbox_api
+356 Marion Road,356,Marion Road,ADELAIDE,5000,"356 Marion Road, North Plympton South Australia 5037, Australia",CITY OF ADELAIDE,-34.958465,138.554027,4,Major Cities of Australia,mapbox_api
+Portrush Road,894,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+723 Main North Road,723,Main North Road,ADELAIDE,5000,"723 Main North Road, Munno Para South Australia 5115, Australia",CITY OF ADELAIDE,-34.677868,138.696861,4,Major Cities of Australia,mapbox_api
+15 Grand Junction Road,15,Grand Junction Road,ADELAIDE,5000,"15 Grand Junction Road, Hope Valley South Australia 5090, Australia",CITY OF ADELAIDE,-34.843881,138.692549,4,Major Cities of Australia,mapbox_api
+936 Hindley Street,936,Hindley Street,ADELAIDE,5000,"936 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590152,4,Major Cities of Australia,mapbox_api
+711 North Terrace,711,North Terrace,ADELAIDE,5000,"711 North Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921756,138.596593,4,Major Cities of Australia,mapbox_api
+787 Grand Junction Road,787,Grand Junction Road,ADELAIDE,5000,"787 Grand Junction Road, Northfield South Australia 5085, Australia",CITY OF ADELAIDE,-34.847285,138.620793,4,Major Cities of Australia,mapbox_api
+138 Flinders Street,138,Flinders Street,ADELAIDE,5000,"138 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.922106,138.622644,4,Major Cities of Australia,mapbox_api
+66 Magill Road,66,Magill Road,ADELAIDE,5000,"66 Magill Road, Norwood South Australia 5067, Australia",CITY OF ADELAIDE,-34.915819,138.627479,4,Major Cities of Australia,mapbox_api
+269 Glen Osmond Road,269,Glen Osmond Road,ADELAIDE,5000,"269 Glen Osmond Road, Frewville South Australia 5063, Australia",CITY OF ADELAIDE,-34.951057,138.633664,4,Major Cities of Australia,mapbox_api
+77 Halifax Street,77,Halifax Street,ADELAIDE,5000,"77 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932848,138.602283,4,Major Cities of Australia,mapbox_api
+263 Hindley Street,263,Hindley Street,ADELAIDE,5000,"263 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92348,138.589647,4,Major Cities of Australia,mapbox_api
+949 Pirie Street,949,Pirie Street,ADELAIDE,5000,"949 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609837,4,Major Cities of Australia,mapbox_api
+Whitmore Square,886,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+King Street,596,King Street,VICTOR HARBOR,5211,"King Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.556928,138.618675,3,Inner Regional Australia,mapbox_api
+410 Prospect Road,410,Prospect Road,ADELAIDE,5000,"410 Prospect Road, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.898974,138.59474,4,Major Cities of Australia,mapbox_api
+618 Halifax Street,618,Halifax Street,ADELAIDE,5000,"618 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932089,138.616601,4,Major Cities of Australia,mapbox_api
+Church Street,955,Church Street,ADELAIDE,5000,"Church Street, Glenelg South South Australia 5045, Australia",CITY OF ADELAIDE,-34.991075,138.515159,4,Major Cities of Australia,mapbox_api
+279 Magill Road,279,Magill Road,ADELAIDE,5000,"279 Magill Road, Trinity Gardens South Australia 5068, Australia",CITY OF ADELAIDE,-34.914505,138.642665,4,Major Cities of Australia,mapbox_api
+942 Glen Osmond Road,942,Glen Osmond Road,ADELAIDE,5000,"942 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945929,138.624415,4,Major Cities of Australia,mapbox_api
+80 Cross Road,80,Cross Road,ADELAIDE,5000,"80 Cross Road, Myrtle Bank South Australia 5064, Australia",CITY OF ADELAIDE,-34.964164,138.628644,4,Major Cities of Australia,mapbox_api
+296 North Terrace,296,North Terrace,ADELAIDE,5000,"296 North Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921817,138.595381,4,Major Cities of Australia,mapbox_api
+216 Franklin Street,216,Franklin Street,ADELAIDE,5000,"216 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927295,138.596106,4,Major Cities of Australia,mapbox_api
+328 Angas Street,328,Angas Street,ADELAIDE,5000,"328 Angas Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.929202,138.613305,4,Major Cities of Australia,mapbox_api
+618 Goodwood Road,618,Goodwood Road,ADELAIDE,5000,"618 Goodwood Road, Colonel Light Gardens South Australia 5041, Australia",CITY OF ADELAIDE,-34.984058,138.591754,4,Major Cities of Australia,mapbox_api
+415 Torrens Road,415,Torrens Road,ADELAIDE,5000,"415 Torrens Road, Kilkenny South Australia 5009, Australia",CITY OF ADELAIDE,-34.877779,138.552175,4,Major Cities of Australia,mapbox_api
+612 Magill Road,612,Magill Road,ADELAIDE,5000,"612 Magill Road, Magill South Australia 5072, Australia",CITY OF ADELAIDE,-34.913049,138.681177,4,Major Cities of Australia,mapbox_api
+443 Wellington Square,443,Wellington Square,ADELAIDE,5000,"443 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907121,138.590647,4,Major Cities of Australia,mapbox_api
+782 Port Road,782,Port Road,ADELAIDE,5000,"782 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.905356,138.571739,4,Major Cities of Australia,mapbox_api
+214 Port Road,214,Port Road,ADELAIDE,5000,"214 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.905077,138.570628,4,Major Cities of Australia,mapbox_api
+69 Lower North East Road,69,Lower North East Road,ADELAIDE,5000,"69 Lower North East Road, Highbury South Australia 5089, Australia",CITY OF ADELAIDE,-34.840439,138.74053,4,Major Cities of Australia,mapbox_api
+296 Waymouth Street,296,Waymouth Street,ADELAIDE,5000,"296 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589635,4,Major Cities of Australia,mapbox_api
+785 Gawler Place,785,Gawler Place,ADELAIDE,5000,"785 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925169,138.602027,4,Major Cities of Australia,mapbox_api
+872 Carrington Street,872,Carrington Street,ADELAIDE,5000,"872 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931302,138.604375,4,Major Cities of Australia,mapbox_api
+825 Light Square,825,Light Square,ADELAIDE,5000,"825 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926044,138.593435,4,Major Cities of Australia,mapbox_api
+531 Brighton Road,531,Brighton Road,ADELAIDE,5000,"531 Brighton Road, Brighton South Australia 5048, Australia",CITY OF ADELAIDE,-35.021919,138.522768,4,Major Cities of Australia,mapbox_api
+428 Hindley Street,428,Hindley Street,ADELAIDE,5000,"428 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590154,4,Major Cities of Australia,mapbox_api
+2 Upper Sturt Road,2,Upper Sturt Road,ADELAIDE,5000,"2 Upper Sturt Road, Belair South Australia 5052, Australia",CITY OF ADELAIDE,-35.004427,138.632482,4,Major Cities of Australia,mapbox_api
+309 Gawler Place,309,Gawler Place,ADELAIDE,5000,"309 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925174,138.602027,4,Major Cities of Australia,mapbox_api
+208 Cross Road,208,Cross Road,ADELAIDE,5000,"208 Cross Road, Unley Park South Australia 5061, Australia",CITY OF ADELAIDE,-34.965293,138.606214,4,Major Cities of Australia,mapbox_api
+743 Rundle Street,743,Rundle Street,ADELAIDE,5000,"743 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609332,4,Major Cities of Australia,mapbox_api
+875 Currie Street,875,Currie Street,ADELAIDE,5000,"875 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924642,138.595555,4,Major Cities of Australia,mapbox_api
+528 Prospect Road,528,Prospect Road,ADELAIDE,5000,"528 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.855802,138.591566,4,Major Cities of Australia,mapbox_api
+143 Rundle Street,143,Rundle Street,ADELAIDE,5000,"143 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922535,138.608553,4,Major Cities of Australia,mapbox_api
+380 Flinders Street,380,Flinders Street,ADELAIDE,5000,"380 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.921996,138.622781,4,Major Cities of Australia,mapbox_api
+760 Main Street,760,Main Street,ADELAIDE,5000,"760 Main Street, Mawson Lakes South Australia 5095, Australia",CITY OF ADELAIDE,-34.808338,138.616966,4,Major Cities of Australia,mapbox_api
+778 Flinders Street,778,Flinders Street,ADELAIDE,5000,"778 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.921858,138.623032,4,Major Cities of Australia,mapbox_api
+370 Lower North East Road,370,Lower North East Road,ADELAIDE,5000,"370 Lower North East Road, Dernancourt South Australia 5075, Australia",CITY OF ADELAIDE,-34.866167,138.678893,4,Major Cities of Australia,mapbox_api
+711 Elizabeth Street,711,Elizabeth Street,MURRAY BRIDGE,5253,"711 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118228,139.263245,2,Inner Regional Australia,mapbox_api
+308 Brighton Road,308,Brighton Road,ADELAIDE,5000,"308 Brighton Road, North Brighton South Australia 5048, Australia",CITY OF ADELAIDE,-35.004599,138.522325,4,Major Cities of Australia,mapbox_api
+360 Angas Street,360,Angas Street,ADELAIDE,5000,"360 Angas Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.929142,138.614422,4,Major Cities of Australia,mapbox_api
+751 Lower North East Road,751,Lower North East Road,ADELAIDE,5000,"751 Lower North East Road, Paradise South Australia 5075, Australia",CITY OF ADELAIDE,-34.865938,138.674656,4,Major Cities of Australia,mapbox_api
+South Terrace,785,South Terrace,ADELAIDE,5000,"South Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935572,138.596249,4,Major Cities of Australia,mapbox_api
+689 East Terrace,689,East Terrace,ADELAIDE,5000,"689 East Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922917,138.610861,4,Major Cities of Australia,mapbox_api
+18 Light Square,18,Light Square,ADELAIDE,5000,"18 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924511,138.593025,4,Major Cities of Australia,mapbox_api
+818 Goodwood Road,818,Goodwood Road,ADELAIDE,5000,"818 Goodwood Road, Goodwood South Australia 5034, Australia",CITY OF ADELAIDE,-34.948595,138.589431,4,Major Cities of Australia,mapbox_api
+29 Queen Street,29,Queen Street,ADELAIDE,5000,"29 Queen Street, Unley South Australia 5061, Australia",CITY OF ADELAIDE,-34.951371,138.602399,4,Major Cities of Australia,mapbox_api
+23 Cross Road,23,Cross Road,ADELAIDE,5000,"23 Cross Road, Kingswood South Australia 5062, Australia",CITY OF ADELAIDE,-34.96557,138.614531,4,Major Cities of Australia,mapbox_api
+South Terrace,330,South Terrace,MURRAY BRIDGE,5253,"South Terrace, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.119932,139.275992,2,Inner Regional Australia,mapbox_api
+28 Victoria Street,28,Victoria Street,VICTOR HARBOR,5211,"28 Victoria Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.557519,138.615963,3,Inner Regional Australia,mapbox_api
+101 Morphett Street,101,Morphett Street,ADELAIDE,5000,"101 Morphett Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.919851,138.594187,4,Major Cities of Australia,mapbox_api
+West Terrace,267,West Terrace,CLARE,5453,"West Terrace, Clare South Australia 5453, Australia",CLARE AND GILBERT VALLEYS COUNCIL,-33.831694,138.60428,3,Inner Regional Australia,mapbox_api
+King Street,431,King Street,PORT AUGUSTA,5700,"King Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.489067,137.780398,2,Outer Regional Australia,mapbox_api
+525 Gawler Place,525,Gawler Place,ADELAIDE,5000,"525 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925172,138.602027,4,Major Cities of Australia,mapbox_api
+89 Waymouth Street,89,Waymouth Street,ADELAIDE,5000,"89 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925878,138.597656,4,Major Cities of Australia,mapbox_api
+718 Henley Beach Road,718,Henley Beach Road,ADELAIDE,5000,"718 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.5696,4,Major Cities of Australia,mapbox_api
+760 Currie Street,760,Currie Street,ADELAIDE,5000,"760 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924843,138.589531,4,Major Cities of Australia,mapbox_api
+469 Main Street,469,Main Street,PORT AUGUSTA,5700,"469 Main Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.49708,137.781016,2,Outer Regional Australia,mapbox_api
+854 Glen Osmond Road,854,Glen Osmond Road,ADELAIDE,5000,"854 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945928,138.624415,4,Major Cities of Australia,mapbox_api
+919 Port Road,919,Port Road,ADELAIDE,5000,"919 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.908466,138.576487,4,Major Cities of Australia,mapbox_api
+79 Currie Street,79,Currie Street,ADELAIDE,5000,"79 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924731,138.591684,4,Major Cities of Australia,mapbox_api
+652 Churchill Road,652,Churchill Road,ADELAIDE,5000,"652 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861236,138.58314,4,Major Cities of Australia,mapbox_api
+547 Pirie Street,547,Pirie Street,ADELAIDE,5000,"547 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609835,4,Major Cities of Australia,mapbox_api
+903 Marian Road,903,Marion Road,ADELAIDE,5000,"903 Marian Road, Payneham South South Australia 5070, Australia",CITY OF ADELAIDE,-34.901532,138.645721,4,Major Cities of Australia,mapbox_api
+812 Pulteney Street,812,Pulteney Street,ADELAIDE,5000,"812 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935372,138.606516,4,Major Cities of Australia,mapbox_api
+Hurtle Square,479,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+860 Grand Junction Road,860,Grand Junction Road,ADELAIDE,5000,"860 Grand Junction Road, Gilles Plains South Australia 5086, Australia",CITY OF ADELAIDE,-34.845486,138.661853,4,Major Cities of Australia,mapbox_api
+323 Currie Street,323,Currie Street,ADELAIDE,5000,"323 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924644,138.595512,4,Major Cities of Australia,mapbox_api
+238 Prospect Road,238,Prospect Road,ADELAIDE,5000,"238 Prospect Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.877665,138.593009,4,Major Cities of Australia,mapbox_api
+778 Port Road,778,Port Road,ADELAIDE,5000,"778 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.905356,138.571739,4,Major Cities of Australia,mapbox_api
+369 Unley Road,369,Unley Road,ADELAIDE,5000,"369 Unley Road, Unley Park South Australia 5061, Australia",CITY OF ADELAIDE,-34.960419,138.608237,4,Major Cities of Australia,mapbox_api
+251 Light Square,251,Light Square,ADELAIDE,5000,"251 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925744,138.593031,4,Major Cities of Australia,mapbox_api
+688 Waymouth Street,688,Waymouth Street,ADELAIDE,5000,"688 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589634,4,Major Cities of Australia,mapbox_api
+Elizabeth Street,511,Elizabeth Street,ADELAIDE,5000,"Elizabeth Street, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.981097,138.512282,4,Major Cities of Australia,mapbox_api
+317 Henley Beach Road,317,Henley Beach Road,ADELAIDE,5000,"317 Henley Beach Road, Brooklyn Park South Australia 5032, Australia",CITY OF ADELAIDE,-34.925241,138.545757,4,Major Cities of Australia,mapbox_api
+682 Magill Road,682,Magill Road,ADELAIDE,5000,"682 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914573,138.645238,4,Major Cities of Australia,mapbox_api
+266 Marion Road,266,Marion Road,ADELAIDE,5000,"266 Marion Road, Netley South Australia 5037, Australia",CITY OF ADELAIDE,-34.94874,138.55331,4,Major Cities of Australia,mapbox_api
+44 Churchill Road,44,Churchill Road,VICTOR HARBOR,5211,"44 Churchill Road, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.553618,138.613247,3,Inner Regional Australia,mapbox_api
+Whitmore Square,983,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+38 Lower North East Road,38,Lower North East Road,ADELAIDE,5000,"38 Lower North East Road, Paradise South Australia 5075, Australia",CITY OF ADELAIDE,-34.87635,138.665968,4,Major Cities of Australia,mapbox_api
+415 Cross Road,415,Cross Road,ADELAIDE,5000,"415 Cross Road, Edwardstown South Australia 5039, Australia",CITY OF ADELAIDE,-34.967846,138.566995,4,Major Cities of Australia,mapbox_api
+George Street,734,George Street,PORT AUGUSTA,5700,"George Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.494312,137.761365,2,Outer Regional Australia,mapbox_api
+9 Hurtle Square,9,Hurtle Square,ADELAIDE,5000,"9 Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931337,138.605457,4,Major Cities of Australia,mapbox_api
+918 Brighton Road,918,Brighton Road,ADELAIDE,5000,"918 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-34.999305,138.521677,4,Major Cities of Australia,mapbox_api
+Palmer Place,936,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+839 Marion Road,839,Marion Road,ADELAIDE,5000,"839 Marion Road, Mitchell Park South Australia 5043, Australia",CITY OF ADELAIDE,-35.002082,138.557984,4,Major Cities of Australia,mapbox_api
+27 Marion Road,27,Marion Road,ADELAIDE,5000,"27 Marion Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.927185,138.552478,4,Major Cities of Australia,mapbox_api
+423 Carrington Street,423,Carrington Street,ADELAIDE,5000,"423 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.930936,138.616108,4,Major Cities of Australia,mapbox_api
+323 Waymouth Street,323,Waymouth Street,ADELAIDE,5000,"323 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589086,4,Major Cities of Australia,mapbox_api
+109 Churchill Road,109,Churchill Road,ADELAIDE,5000,"109 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.888162,138.585422,4,Major Cities of Australia,mapbox_api
+418 Currie Street,418,Currie Street,ADELAIDE,5000,"418 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924843,138.589533,4,Major Cities of Australia,mapbox_api
+291 Pirie Street,291,Pirie Street,ADELAIDE,5000,"291 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609833,4,Major Cities of Australia,mapbox_api
+26 Waymouth Street,26,Waymouth Street,ADELAIDE,5000,"26 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925622,138.598611,4,Major Cities of Australia,mapbox_api
+839 Churchill Road,839,Churchill Road,ADELAIDE,5000,"839 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891239,138.58531,4,Major Cities of Australia,mapbox_api
+941 Glen Osmond Road,941,Glen Osmond Road,ADELAIDE,5000,"941 Glen Osmond Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.963364,138.644124,4,Major Cities of Australia,mapbox_api
+Whitmore Square,411,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+582 Hindley Street,582,Hindley Street,ADELAIDE,5000,"582 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+242 Gawler Place,242,Gawler Place,ADELAIDE,5000,"242 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925175,138.602027,4,Major Cities of Australia,mapbox_api
+494 Unley Road,494,Unley Road,ADELAIDE,5000,"494 Unley Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965106,138.608597,4,Major Cities of Australia,mapbox_api
+285 Halifax Street,285,Halifax Street,ADELAIDE,5000,"285 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932493,138.608246,4,Major Cities of Australia,mapbox_api
+57 Marion Road,57,Marion Road,ADELAIDE,5000,"57 Marion Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.929471,138.55256,4,Major Cities of Australia,mapbox_api
+83 Rundle Street,83,Rundle Street,ADELAIDE,5000,"83 Rundle Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.919832,138.619658,4,Major Cities of Australia,mapbox_api
+109 Henley Beach Road,109,Henley Beach Road,ADELAIDE,5000,"109 Henley Beach Road, Henley Beach South Australia 5022, Australia",CITY OF ADELAIDE,-34.925208,138.503913,4,Major Cities of Australia,mapbox_api
+George Street,507,George Street,PORT AUGUSTA,5700,"George Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.494312,137.761365,2,Outer Regional Australia,mapbox_api
+345 Elizabeth Street,345,Elizabeth Street,MURRAY BRIDGE,5253,"345 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118195,139.26328,2,Inner Regional Australia,mapbox_api
+356 Rundle Street,356,Rundle Street,ADELAIDE,5000,"356 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922473,138.609705,4,Major Cities of Australia,mapbox_api
+885 Hindley Street,885,Hindley Street,ADELAIDE,5000,"885 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923481,138.589634,4,Major Cities of Australia,mapbox_api
+714 Halifax Street,714,Halifax Street,ADELAIDE,5000,"714 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932089,138.616601,4,Major Cities of Australia,mapbox_api
+164 Hindley Street,164,Hindley Street,ADELAIDE,5000,"164 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923112,138.592927,4,Major Cities of Australia,mapbox_api
+127 Goodwood Road,127,Goodwood Road,ADELAIDE,5000,"127 Goodwood Road, Goodwood South Australia 5034, Australia",CITY OF ADELAIDE,-34.948652,138.589475,4,Major Cities of Australia,mapbox_api
+296 Port Road,296,Port Road,ADELAIDE,5000,"296 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.903566,138.568393,4,Major Cities of Australia,mapbox_api
+104 Port Road,104,Port Road,ADELAIDE,5000,"104 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.905355,138.571737,4,Major Cities of Australia,mapbox_api
+385 King Street,385,King Street,ADELAIDE,5000,"385 King Street, Glenelg North South Australia 5045, Australia",CITY OF ADELAIDE,-34.971775,138.51223,4,Major Cities of Australia,mapbox_api
+Whitmore Square,462,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+57 Prospect Road,57,Prospect Road,ADELAIDE,5000,"57 Prospect Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.890829,138.594576,4,Major Cities of Australia,mapbox_api
+645 Gawler Place,645,Gawler Place,ADELAIDE,5000,"645 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925171,138.602027,4,Major Cities of Australia,mapbox_api
+419 Churchill Road North,419,Churchill Road,ADELAIDE,5000,"419 Churchill Road North, Dry Creek South Australia 5094, Australia",CITY OF ADELAIDE,-34.836754,138.587887,4,Major Cities of Australia,mapbox_api
+255 Gawler Place,255,Gawler Place,ADELAIDE,5000,"255 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925175,138.602027,4,Major Cities of Australia,mapbox_api
+56 Whitmore Square,56,Whitmore Square,ADELAIDE,5000,"56 Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.933691,138.595274,4,Major Cities of Australia,mapbox_api
+264 Pirie Street,264,Pirie Street,ADELAIDE,5000,"264 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925624,138.60248,4,Major Cities of Australia,mapbox_api
+411 Grenfell Street,411,Grenfell Street,ADELAIDE,5000,"411 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.60869,4,Major Cities of Australia,mapbox_api
+Unley Road,940,Upper Sturt Road,ADELAIDE,5000,"Unley Road, Unley South Australia 5061, Australia",CITY OF ADELAIDE,-34.951235,138.60753,4,Major Cities of Australia,mapbox_api
+Portrush Road,723,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+Whitmore Square,212,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+627 Hindley Street,627,Hindley Street,ADELAIDE,5000,"627 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92348,138.589639,4,Major Cities of Australia,mapbox_api
+East Terrace,655,East Terrace,CLARE,5453,"East Terrace, Clare South Australia 5453, Australia",CLARE AND GILBERT VALLEYS COUNCIL,-33.838764,138.619025,3,Inner Regional Australia,mapbox_api
+647 Goodwood Road,647,Goodwood Road,ADELAIDE,5000,"647 Goodwood Road, Panorama South Australia 5041, Australia",CITY OF ADELAIDE,-34.997533,138.593199,4,Major Cities of Australia,mapbox_api
+768 Torrens Road,768,Torrens Road,ADELAIDE,5000,"768 Torrens Road, Rosewater South Australia 5013, Australia",CITY OF ADELAIDE,-34.858451,138.521317,4,Major Cities of Australia,mapbox_api
+525 Glen Osmond Road,525,Glen Osmond Road,ADELAIDE,5000,"525 Glen Osmond Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.963364,138.644124,4,Major Cities of Australia,mapbox_api
+942 Prospect Road,942,Prospect Road,ADELAIDE,5000,"942 Prospect Road, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.900261,138.594445,4,Major Cities of Australia,mapbox_api
+Hurtle Square,389,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+186 Rundle Street,186,Rundle Street,ADELAIDE,5000,"186 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922483,138.606573,4,Major Cities of Australia,mapbox_api
+645 Lower North East Road,645,Lower North East Road,ADELAIDE,5000,"645 Lower North East Road, Dernancourt South Australia 5075, Australia",CITY OF ADELAIDE,-34.864276,138.679989,4,Major Cities of Australia,mapbox_api
+772 Pirie Street,772,Pirie Street,ADELAIDE,5000,"772 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.611748,4,Major Cities of Australia,mapbox_api
+103 Hurtle Square,103,Hurtle Square,ADELAIDE,5000,"103 Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.933234,138.606263,4,Major Cities of Australia,mapbox_api
+965 Light Square,965,Light Square,ADELAIDE,5000,"965 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926089,138.593559,4,Major Cities of Australia,mapbox_api
+294 Gawler Place,294,Gawler Place,ADELAIDE,5000,"294 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925174,138.602027,4,Major Cities of Australia,mapbox_api
+642 Halifax Street,642,Halifax Street,ADELAIDE,5000,"642 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932089,138.616601,4,Major Cities of Australia,mapbox_api
+444 Portrush Road,444,Portrush Road,ADELAIDE,5000,"444 Portrush Road, Linden Park South Australia 5065, Australia",CITY OF ADELAIDE,-34.943639,138.643097,4,Major Cities of Australia,mapbox_api
+Hurtle Square,351,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+903 Light Square,903,Light Square,ADELAIDE,5000,"903 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926066,138.593505,4,Major Cities of Australia,mapbox_api
+680 Grenfell Street,680,Grenfell Street,ADELAIDE,5000,"680 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.609408,4,Major Cities of Australia,mapbox_api
+154 Wellington Square,154,Wellington Square,ADELAIDE,5000,"154 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906243,138.591171,4,Major Cities of Australia,mapbox_api
+242 Magill Road,242,Magill Road,ADELAIDE,5000,"242 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914959,138.642922,4,Major Cities of Australia,mapbox_api
+182 Grenfell Street,182,Grenfell Street,ADELAIDE,5000,"182 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923954,138.6076,4,Major Cities of Australia,mapbox_api
+213 Angas Street,213,Angas Street,ADELAIDE,5000,"213 Angas Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.929947,138.608916,4,Major Cities of Australia,mapbox_api
+64 Prospect Road,64,Prospect Road,ADELAIDE,5000,"64 Prospect Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891678,138.593904,4,Major Cities of Australia,mapbox_api
+199 Wellington Square,199,Wellington Square,ADELAIDE,5000,"199 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907152,138.59066,4,Major Cities of Australia,mapbox_api
+906 Glen Osmond Road,906,Glen Osmond Road,ADELAIDE,5000,"906 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945929,138.624415,4,Major Cities of Australia,mapbox_api
+394 Grand Junction Road,394,Grand Junction Road,ADELAIDE,5000,"394 Grand Junction Road, Enfield South Australia 5085, Australia",CITY OF ADELAIDE,-34.848037,138.6083,4,Major Cities of Australia,mapbox_api
+210 Flinders Street,210,Flinders Street,ADELAIDE,5000,"210 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926682,138.600908,4,Major Cities of Australia,mapbox_api
+Hurtle Square,210,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+937 Cross Road,937,Cross Road,ADELAIDE,5000,"937 Cross Road, Edwardstown South Australia 5039, Australia",CITY OF ADELAIDE,-34.967507,138.569356,4,Major Cities of Australia,mapbox_api
+928 Marion Road,928,Marion Road,ADELAIDE,5000,"928 Marion Road, Sturt South Australia 5047, Australia",CITY OF ADELAIDE,-35.022193,138.558864,4,Major Cities of Australia,mapbox_api
+414 Pirie Street,414,Pirie Street,ADELAIDE,5000,"414 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.61175,4,Major Cities of Australia,mapbox_api
+471 Grenfell Street,471,Grenfell Street,ADELAIDE,5000,"471 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.60869,4,Major Cities of Australia,mapbox_api
+931 Waymouth Street,931,Waymouth Street,ADELAIDE,5000,"931 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589084,4,Major Cities of Australia,mapbox_api
+540 Wellington Square,540,Wellington Square,ADELAIDE,5000,"540 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906289,138.591232,4,Major Cities of Australia,mapbox_api
+243 Pulteney Street,243,Pulteney Street,ADELAIDE,5000,"243 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92205,138.605532,4,Major Cities of Australia,mapbox_api
+376 Henley Beach Road,376,Henley Beach Road,ADELAIDE,5000,"376 Henley Beach Road, Lockleys South Australia 5032, Australia",CITY OF ADELAIDE,-34.92695,138.537497,4,Major Cities of Australia,mapbox_api
+297 Waymouth Street,297,Waymouth Street,ADELAIDE,5000,"297 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926557,138.588722,4,Major Cities of Australia,mapbox_api
+674 Cross Road,674,Cross Road,ADELAIDE,5000,"674 Cross Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965139,138.613718,4,Major Cities of Australia,mapbox_api
+302 Hindley Street,302,Hindley Street,ADELAIDE,5000,"302 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590154,4,Major Cities of Australia,mapbox_api
+966 Cross Road,966,Cross Road,ADELAIDE,5000,"966 Cross Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965139,138.613709,4,Major Cities of Australia,mapbox_api
+661 Pulteney Street,661,Pulteney Street,ADELAIDE,5000,"661 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.934637,138.606464,4,Major Cities of Australia,mapbox_api
+766 Light Square,766,Light Square,ADELAIDE,5000,"766 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925262,138.594279,4,Major Cities of Australia,mapbox_api
+121 George Street,121,George Street,ADELAIDE,5000,"121 George Street, Paradise South Australia 5075, Australia",CITY OF ADELAIDE,-34.868615,138.687216,4,Major Cities of Australia,mapbox_api
+Palmer Place,529,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+431 Goodwood Road,431,Goodwood Road,ADELAIDE,5000,"431 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970189,138.591058,4,Major Cities of Australia,mapbox_api
+902 Wellington Square,902,Wellington Square,ADELAIDE,5000,"902 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906332,138.59129,4,Major Cities of Australia,mapbox_api
+684 Main Street,684,Main Street,ADELAIDE,5000,"684 Main Street, Mawson Lakes South Australia 5095, Australia",CITY OF ADELAIDE,-34.808319,138.616966,4,Major Cities of Australia,mapbox_api
+265 Pulteney Street,265,Pulteney Street,ADELAIDE,5000,"265 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922054,138.605532,4,Major Cities of Australia,mapbox_api
+345 Wellington Square,345,Wellington Square,ADELAIDE,5000,"345 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907134,138.590652,4,Major Cities of Australia,mapbox_api
+918 Pulteney Street,918,Pulteney Street,ADELAIDE,5000,"918 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935372,138.606516,4,Major Cities of Australia,mapbox_api
+243 Unley Road,243,Unley Road,ADELAIDE,5000,"243 Unley Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.955498,138.608271,4,Major Cities of Australia,mapbox_api
+903 Rundle Street,903,Rundle Street,ADELAIDE,5000,"903 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609332,4,Major Cities of Australia,mapbox_api
+910 Lower North East Road,910,Lower North East Road,ADELAIDE,5000,"910 Lower North East Road, Highbury South Australia 5089, Australia",CITY OF ADELAIDE,-34.857711,138.691024,4,Major Cities of Australia,mapbox_api
+942 Churchill Road,942,Churchill Road,ADELAIDE,5000,"942 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861239,138.58314,4,Major Cities of Australia,mapbox_api
+65 Goodwood Road,65,Goodwood Road,ADELAIDE,5000,"65 Goodwood Road, Wayville South Australia 5034, Australia",CITY OF ADELAIDE,-34.947818,138.589721,4,Major Cities of Australia,mapbox_api
+959 Light Square,959,Light Square,ADELAIDE,5000,"959 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926086,138.593554,4,Major Cities of Australia,mapbox_api
+616 Magill Road,616,Magill Road,ADELAIDE,5000,"616 Magill Road, Magill South Australia 5072, Australia",CITY OF ADELAIDE,-34.913046,138.681521,4,Major Cities of Australia,mapbox_api
+22 Halifax Street,22,Halifax Street,ADELAIDE,5000,"22 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932636,138.601216,4,Major Cities of Australia,mapbox_api
+Elizabeth Street,992,Elizabeth Street,ADELAIDE,5000,"Elizabeth Street, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.981097,138.512282,4,Major Cities of Australia,mapbox_api
+994 Hindley Street,994,Hindley Street,ADELAIDE,5000,"994 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590152,4,Major Cities of Australia,mapbox_api
+847 Pirie Street,847,Pirie Street,ADELAIDE,5000,"847 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609837,4,Major Cities of Australia,mapbox_api
+High Street,940,High Street,VICTOR HARBOR,5211,"High Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.54685,138.623414,3,Inner Regional Australia,mapbox_api
+517 Prospect Road,517,Prospect Road,ADELAIDE,5000,"517 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.857524,138.592003,4,Major Cities of Australia,mapbox_api
+Palmer Place,688,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+429 Franklin Street,429,Franklin Street,ADELAIDE,5000,"429 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92773,138.588342,4,Major Cities of Australia,mapbox_api
+339 Brighton Road,339,Brighton Road,ADELAIDE,5000,"339 Brighton Road, North Brighton South Australia 5048, Australia",CITY OF ADELAIDE,-35.007462,138.522001,4,Major Cities of Australia,mapbox_api
+114 Pirie Street,114,Pirie Street,ADELAIDE,5000,"114 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925625,138.602471,4,Major Cities of Australia,mapbox_api
+380 Brighton Road,380,Brighton Road,ADELAIDE,5000,"380 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-34.999318,138.521678,4,Major Cities of Australia,mapbox_api
+544 Cross Road,544,Cross Road,ADELAIDE,5000,"544 Cross Road, South Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.967498,138.563378,4,Major Cities of Australia,mapbox_api
+879 Port Road,879,Port Road,ADELAIDE,5000,"879 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.908465,138.576486,4,Major Cities of Australia,mapbox_api
+672 High Street,672,High Street,ADELAIDE,5000,"672 High Street, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.981346,138.520048,4,Major Cities of Australia,mapbox_api
+857 Port Road,857,Port Road,ADELAIDE,5000,"857 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.908465,138.576485,4,Major Cities of Australia,mapbox_api
+922 Cross Road,922,Cross Road,ADELAIDE,5000,"922 Cross Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965139,138.61371,4,Major Cities of Australia,mapbox_api
+219 Halifax Street,219,Halifax Street,ADELAIDE,5000,"219 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932644,138.610012,4,Major Cities of Australia,mapbox_api
+840 Churchill Road,840,Churchill Road,ADELAIDE,5000,"840 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861238,138.58314,4,Major Cities of Australia,mapbox_api
+982 Rundle Street,982,Rundle Street,ADELAIDE,5000,"982 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922473,138.609708,4,Major Cities of Australia,mapbox_api
+Prospect Road,620,Adelaide Street,ADELAIDE,5000,"Prospect Road, Fitzroy South Australia 5082, Australia",CITY OF ADELAIDE,-34.898208,138.594698,4,Major Cities of Australia,mapbox_api
+Whitmore Square,259,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+723 Port Road,723,Port Road,ADELAIDE,5000,"723 Port Road, Woodville Park South Australia 5011, Australia",CITY OF ADELAIDE,-34.884015,138.541104,4,Major Cities of Australia,mapbox_api
+241 Lower North East Road,241,Lower North East Road,ADELAIDE,5000,"241 Lower North East Road, Dernancourt South Australia 5075, Australia",CITY OF ADELAIDE,-34.866779,138.67808,4,Major Cities of Australia,mapbox_api
+64 High Street,64,High Street,ADELAIDE,5000,"64 High Street, Burnside South Australia 5066, Australia",CITY OF ADELAIDE,-34.936381,138.668002,4,Major Cities of Australia,mapbox_api
+495 Portrush Road,495,Portrush Road,ADELAIDE,5000,"495 Portrush Road, Glenside South Australia 5065, Australia",CITY OF ADELAIDE,-34.939882,138.642445,4,Major Cities of Australia,mapbox_api
+586 Marion Road,586,Marion Road,ADELAIDE,5000,"586 Marion Road, Plympton Park South Australia 5038, Australia",CITY OF ADELAIDE,-34.981787,138.555746,4,Major Cities of Australia,mapbox_api
+384 Pulteney Street,384,Pulteney Street,ADELAIDE,5000,"384 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.929101,138.606062,4,Major Cities of Australia,mapbox_api
+Portrush Road,807,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+924 Grand Junction Road,924,Grand Junction Road,ADELAIDE,5000,"924 Grand Junction Road, Gilles Plains South Australia 5086, Australia",CITY OF ADELAIDE,-34.845338,138.668678,4,Major Cities of Australia,mapbox_api
+213 Cross Road,213,Cross Road,ADELAIDE,5000,"213 Cross Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.966437,138.589837,4,Major Cities of Australia,mapbox_api
+East Terrace,740,East Terrace,MURRAY BRIDGE,5253,"East Terrace, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118247,139.278758,2,Inner Regional Australia,mapbox_api
+134 Cross Road,134,Cross Road,ADELAIDE,5000,"134 Cross Road, Highgate South Australia 5063, Australia",CITY OF ADELAIDE,-34.964643,138.619246,4,Major Cities of Australia,mapbox_api
+333 Grenfell Street,333,Grenfell Street,ADELAIDE,5000,"333 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.608689,4,Major Cities of Australia,mapbox_api
+242 Pulteney Street,242,Pulteney Street,ADELAIDE,5000,"242 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.928543,138.606312,4,Major Cities of Australia,mapbox_api
+209 Henley Beach Road,209,Henley Beach Road,ADELAIDE,5000,"209 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.924633,138.557946,4,Major Cities of Australia,mapbox_api
+846 Currie Street,846,Currie Street,ADELAIDE,5000,"846 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924843,138.58953,4,Major Cities of Australia,mapbox_api
+586 Churchill Road,586,Churchill Road,ADELAIDE,5000,"586 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861235,138.58314,4,Major Cities of Australia,mapbox_api
+165 Pulteney Street,165,Pulteney Street,ADELAIDE,5000,"165 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922036,138.605531,4,Major Cities of Australia,mapbox_api
+18 Cross Road,18,Cross Road,ADELAIDE,5000,"18 Cross Road, Netherby South Australia 5063, Australia",CITY OF ADELAIDE,-34.964918,138.619536,4,Major Cities of Australia,mapbox_api
+261 Goodwood Road,261,Goodwood Road,ADELAIDE,5000,"261 Goodwood Road, Kings Park South Australia 5034, Australia",CITY OF ADELAIDE,-34.959592,138.590557,4,Major Cities of Australia,mapbox_api
+King Street,858,King Street,CLARE,5453,"King Street, Clare South Australia 5453, Australia",CLARE AND GILBERT VALLEYS COUNCIL,-33.832307,138.607815,3,Inner Regional Australia,mapbox_api
+439 Hindley Street,439,Hindley Street,ADELAIDE,5000,"439 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92348,138.589643,4,Major Cities of Australia,mapbox_api
+6 Waymouth Street,6,Waymouth Street,ADELAIDE,5000,"6 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925667,138.599273,4,Major Cities of Australia,mapbox_api
+685 Light Square,685,Light Square,ADELAIDE,5000,"685 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92601,138.593307,4,Major Cities of Australia,mapbox_api
+675 Churchill Road,675,Churchill Road,ADELAIDE,5000,"675 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891245,138.585311,4,Major Cities of Australia,mapbox_api
+67 King Street,67,King Street,CLARE,5453,"67 King Street, Clare South Australia 5453, Australia",CLARE AND GILBERT VALLEYS COUNCIL,-33.828568,138.605868,3,Inner Regional Australia,mapbox_api
+667 Prospect Road,667,Prospect Road,ADELAIDE,5000,"667 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.857525,138.592003,4,Major Cities of Australia,mapbox_api
+924 Flinders Street,924,Flinders Street,ADELAIDE,5000,"924 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.92182,138.623131,4,Major Cities of Australia,mapbox_api
+215 Main North Road,215,Main North Road,ADELAIDE,5000,"215 Main North Road, Elizabeth Grove South Australia 5112, Australia",CITY OF ADELAIDE,-34.734058,138.675146,4,Major Cities of Australia,mapbox_api
+646 Uley Road,646,Unley Road,ADELAIDE,5000,"646 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698413,138.713242,4,Major Cities of Australia,mapbox_api
+221 Wellington Square,221,Wellington Square,ADELAIDE,5000,"221 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.90715,138.590659,4,Major Cities of Australia,mapbox_api
+596 Waymouth Street,596,Waymouth Street,ADELAIDE,5000,"596 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589634,4,Major Cities of Australia,mapbox_api
+533 Pulteney Street,533,Pulteney Street,ADELAIDE,5000,"533 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.934637,138.606464,4,Major Cities of Australia,mapbox_api
+246 Gawler Place,246,Gawler Place,ADELAIDE,5000,"246 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925175,138.602027,4,Major Cities of Australia,mapbox_api
+101 Wellington Square,101,Wellington Square,ADELAIDE,5000,"101 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907165,138.590665,4,Major Cities of Australia,mapbox_api
+81 Glen Osmond Road,81,Glen Osmond Road,ADELAIDE,5000,"81 Glen Osmond Road, Eastwood South Australia 5063, Australia",CITY OF ADELAIDE,-34.943796,138.621592,4,Major Cities of Australia,mapbox_api
+252 Grenfell Street,252,Grenfell Street,ADELAIDE,5000,"252 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.60941,4,Major Cities of Australia,mapbox_api
+451 Port Road,451,Port Road,ADELAIDE,5000,"451 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.908455,138.576469,4,Major Cities of Australia,mapbox_api
+35 Portrush Road,35,Portrush Road,ADELAIDE,5000,"35 Portrush Road, Payneham South Australia 5070, Australia",CITY OF ADELAIDE,-34.899466,138.63903,4,Major Cities of Australia,mapbox_api
+Hurtle Square,610,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+Whitmore Square,389,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+824 Carrington Street,824,Carrington Street,ADELAIDE,5000,"824 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931301,138.604379,4,Major Cities of Australia,mapbox_api
+728 Flinders Street,728,Flinders Street,ADELAIDE,5000,"728 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.921871,138.622998,4,Major Cities of Australia,mapbox_api
+Whitmore Square,254,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+702 Marion Road,702,Marion Road,ADELAIDE,5000,"702 Marion Road, Marion South Australia 5043, Australia",CITY OF ADELAIDE,-34.999994,138.557116,4,Major Cities of Australia,mapbox_api
+617 Halifax Street,617,Halifax Street,ADELAIDE,5000,"617 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932131,138.615724,4,Major Cities of Australia,mapbox_api
+271 Halifax Street,271,Halifax Street,ADELAIDE,5000,"271 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932493,138.608246,4,Major Cities of Australia,mapbox_api
+960 Waymouth Street,960,Waymouth Street,ADELAIDE,5000,"960 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589634,4,Major Cities of Australia,mapbox_api
+797 Light Square,797,Light Square,ADELAIDE,5000,"797 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926036,138.593409,4,Major Cities of Australia,mapbox_api
+120 Currie Street,120,Currie Street,ADELAIDE,5000,"120 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924243,138.595048,4,Major Cities of Australia,mapbox_api
+365 Portrush Road,365,Portrush Road,ADELAIDE,5000,"365 Portrush Road, Toorak Gardens South Australia 5065, Australia",CITY OF ADELAIDE,-34.933767,138.641588,4,Major Cities of Australia,mapbox_api
+394 Torrens Road,394,Torrens Road,ADELAIDE,5000,"394 Torrens Road, Kilkenny South Australia 5009, Australia",CITY OF ADELAIDE,-34.87855,138.554573,4,Major Cities of Australia,mapbox_api
+76 Portrush Road,76,Portrush Road,ADELAIDE,5000,"76 Portrush Road, Payneham South South Australia 5070, Australia",CITY OF ADELAIDE,-34.902467,138.639655,4,Major Cities of Australia,mapbox_api
+Elizabeth Street,303,Elizabeth Street,ADELAIDE,5000,"Elizabeth Street, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.981097,138.512282,4,Major Cities of Australia,mapbox_api
+337 Grand Junction Road,337,Grand Junction Road,ADELAIDE,5000,"337 Grand Junction Road, Gepps Cross South Australia 5094, Australia",CITY OF ADELAIDE,-34.847384,138.613082,4,Major Cities of Australia,mapbox_api
+770 Port Road,770,Port Road,ADELAIDE,5000,"770 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.905356,138.571739,4,Major Cities of Australia,mapbox_api
+936 Goodwood Road,936,Goodwood Road,ADELAIDE,5000,"936 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970182,138.591057,4,Major Cities of Australia,mapbox_api
+879 Magill Road,879,Magill Road,ADELAIDE,5000,"879 Magill Road, Adelaide South Australia 5069, Australia",CITY OF ADELAIDE,-34.9151,138.63428,4,Major Cities of Australia,mapbox_api
+Palmer Place,450,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+Peace Avenue,796,Palmer Place,VICTOR HARBOR,5211,"Peace Avenue, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.547579,138.623755,3,Inner Regional Australia,mapbox_api
+145 Waymouth Street,145,Waymouth Street,ADELAIDE,5000,"145 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926065,138.59432,4,Major Cities of Australia,mapbox_api
+Hurtle Square,850,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605518,4,Major Cities of Australia,mapbox_api
+388 Elizabeth Street,388,Elizabeth Street,MURRAY BRIDGE,5253,"388 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118197,139.263277,2,Inner Regional Australia,mapbox_api
+192 Portrush Road,192,Portrush Road,ADELAIDE,5000,"192 Portrush Road, Trinity Gardens South Australia 5068, Australia",CITY OF ADELAIDE,-34.912417,138.640375,4,Major Cities of Australia,mapbox_api
+339 Waymouth Street,339,Waymouth Street,ADELAIDE,5000,"339 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589086,4,Major Cities of Australia,mapbox_api
+774 Cross Road,774,Cross Road,ADELAIDE,5000,"774 Cross Road, Malvern South Australia 5061, Australia",CITY OF ADELAIDE,-34.965139,138.613715,4,Major Cities of Australia,mapbox_api
+750 Brighton Road,750,Brighton Road,ADELAIDE,5000,"750 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-34.999309,138.521677,4,Major Cities of Australia,mapbox_api
+610 Wellington Square,610,Wellington Square,ADELAIDE,5000,"610 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906297,138.591243,4,Major Cities of Australia,mapbox_api
+234 Grand Junction Road,234,Grand Junction Road,ADELAIDE,5000,"234 Grand Junction Road, Regency Park South Australia 5010, Australia",CITY OF ADELAIDE,-34.849845,138.574853,4,Major Cities of Australia,mapbox_api
+105 Magill Road,105,Magill Road,ADELAIDE,5000,"105 Magill Road, Beulah Park South Australia 5068, Australia",CITY OF ADELAIDE,-34.91475,138.64124,4,Major Cities of Australia,mapbox_api
+58 Henley Beach Road,58,Henley Beach Road,ADELAIDE,5000,"58 Henley Beach Road, Henley Beach South Australia 5022, Australia",CITY OF ADELAIDE,-34.925009,138.502774,4,Major Cities of Australia,mapbox_api
+254 Cross Road,254,Cross Road,ADELAIDE,5000,"254 Cross Road, Kings Park South Australia 5034, Australia",CITY OF ADELAIDE,-34.965926,138.59312,4,Major Cities of Australia,mapbox_api
+816 Henley Beach Road,816,Henley Beach Road,ADELAIDE,5000,"816 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.569596,4,Major Cities of Australia,mapbox_api
+170 Henley Beach Road,170,Henley Beach Road,ADELAIDE,5000,"170 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923804,138.562064,4,Major Cities of Australia,mapbox_api
+373 Currie Street,373,Currie Street,ADELAIDE,5000,"373 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924644,138.595516,4,Major Cities of Australia,mapbox_api
+382 Pirie Street,382,Pirie Street,ADELAIDE,5000,"382 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.61175,4,Major Cities of Australia,mapbox_api
+340 High Street,340,High Street,ADELAIDE,5000,"340 High Street, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.981354,138.519878,4,Major Cities of Australia,mapbox_api
+877 Wellington Square,877,Wellington Square,ADELAIDE,5000,"877 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907065,138.590626,4,Major Cities of Australia,mapbox_api
+597 Uley Road,597,Unley Road,ADELAIDE,5000,"597 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698596,138.713673,4,Major Cities of Australia,mapbox_api
+122 Main Street,122,Main Street,PORT AUGUSTA,5700,"122 Main Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.496924,137.780891,2,Outer Regional Australia,mapbox_api
+502 Flinders Street,502,Flinders Street,ADELAIDE,5000,"502 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.921948,138.622855,4,Major Cities of Australia,mapbox_api
+733 Magill Road,733,Magill Road,ADELAIDE,5000,"733 Magill Road, Adelaide South Australia 5069, Australia",CITY OF ADELAIDE,-34.915099,138.634297,4,Major Cities of Australia,mapbox_api
+936 Pulteney Street,936,Pulteney Street,ADELAIDE,5000,"936 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935372,138.606516,4,Major Cities of Australia,mapbox_api
+896 Flinders Street,896,Flinders Street,PORT AUGUSTA,5700,"896 Flinders Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.488446,137.774803,2,Outer Regional Australia,mapbox_api
+355 Henley Beach Road,355,Henley Beach Road,ADELAIDE,5000,"355 Henley Beach Road, Brooklyn Park South Australia 5032, Australia",CITY OF ADELAIDE,-34.925848,138.542167,4,Major Cities of Australia,mapbox_api
+99 Flinders Street,99,Flinders Street,ADELAIDE,5000,"99 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92711,138.601547,4,Major Cities of Australia,mapbox_api
+110 Carrington Street,110,Carrington Street,ADELAIDE,5000,"110 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931414,138.602134,4,Major Cities of Australia,mapbox_api
+657 Gawler Place,657,Gawler Place,ADELAIDE,5000,"657 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925171,138.602027,4,Major Cities of Australia,mapbox_api
+446 Hindley Street,446,Hindley Street,ADELAIDE,5000,"446 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+260 Flinders Street,260,Flinders Street,ADELAIDE,5000,"260 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926373,138.610033,4,Major Cities of Australia,mapbox_api
+688 Port Road,688,Port Road,ADELAIDE,5000,"688 Port Road, Beverley South Australia 5009, Australia",CITY OF ADELAIDE,-34.889203,138.546955,4,Major Cities of Australia,mapbox_api
+151 Portrush Road,151,Portrush Road,ADELAIDE,5000,"151 Portrush Road, Maylands South Australia 5069, Australia",CITY OF ADELAIDE,-34.907974,138.63963,4,Major Cities of Australia,mapbox_api
+372 Magill Road,372,Magill Road,ADELAIDE,5000,"372 Magill Road, Kensington Park South Australia 5068, Australia",CITY OF ADELAIDE,-34.914242,138.655715,4,Major Cities of Australia,mapbox_api
+676 Marion Road,676,Marion Road,ADELAIDE,5000,"676 Marion Road, Plympton Park South Australia 5038, Australia",CITY OF ADELAIDE,-34.979904,138.555908,4,Major Cities of Australia,mapbox_api
+197 Rundle Street,197,Rundle Street,ADELAIDE,5000,"197 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922625,138.606799,4,Major Cities of Australia,mapbox_api
+201 Marion Road,201,Marion Road,ADELAIDE,5000,"201 Marion Road, Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.961951,138.554579,4,Major Cities of Australia,mapbox_api
+744 Waymouth Street,744,Waymouth Street,ADELAIDE,5000,"744 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589634,4,Major Cities of Australia,mapbox_api
+727 Wellington Square,727,Wellington Square,ADELAIDE,5000,"727 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907085,138.590633,4,Major Cities of Australia,mapbox_api
+831 King Street,831,King Street,ADELAIDE,5000,"831 King Street, Glenelg North South Australia 5045, Australia",CITY OF ADELAIDE,-34.971744,138.512435,4,Major Cities of Australia,mapbox_api
+896 Waymouth Street,896,Waymouth Street,ADELAIDE,5000,"896 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589634,4,Major Cities of Australia,mapbox_api
+188 Pirie Street,188,Pirie Street,ADELAIDE,5000,"188 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925625,138.602476,4,Major Cities of Australia,mapbox_api
+Hurtle Square,277,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+326 Marion Road,326,Marion Road,ADELAIDE,5000,"326 Marion Road, Netley South Australia 5037, Australia",CITY OF ADELAIDE,-34.953602,138.553676,4,Major Cities of Australia,mapbox_api
+237 Main North Road,237,Main North Road,ADELAIDE,5000,"237 Main North Road, Smithfield South Australia 5114, Australia",CITY OF ADELAIDE,-34.680337,138.695306,4,Major Cities of Australia,mapbox_api
+295 Magill Road,295,Magill Road,ADELAIDE,5000,"295 Magill Road, Trinity Gardens South Australia 5068, Australia",CITY OF ADELAIDE,-34.914339,138.644297,4,Major Cities of Australia,mapbox_api
+94 Pulteney Street,94,Pulteney Street,ADELAIDE,5000,"94 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921776,138.605511,4,Major Cities of Australia,mapbox_api
+839 Torrens Road,839,Torrens Road,ADELAIDE,5000,"839 Torrens Road, Renown Park South Australia 5008, Australia",CITY OF ADELAIDE,-34.895437,138.581871,4,Major Cities of Australia,mapbox_api
+497 Portrush Road,497,Portrush Road,ADELAIDE,5000,"497 Portrush Road, Glenside South Australia 5065, Australia",CITY OF ADELAIDE,-34.939896,138.642447,4,Major Cities of Australia,mapbox_api
+364 King Street,364,King Street,CLARE,5453,"364 King Street, Clare South Australia 5453, Australia",CLARE AND GILBERT VALLEYS COUNCIL,-33.828568,138.605868,3,Inner Regional Australia,mapbox_api
+542 Hindley Street,542,Hindley Street,ADELAIDE,5000,"542 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+745 Goodwood Road,745,Goodwood Road,ADELAIDE,5000,"745 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970185,138.591058,4,Major Cities of Australia,mapbox_api
+864 Churchill Road,864,Churchill Road,ADELAIDE,5000,"864 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891238,138.58531,4,Major Cities of Australia,mapbox_api
+111 Churchill Road,111,Churchill Road,ADELAIDE,5000,"111 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.888015,138.585319,4,Major Cities of Australia,mapbox_api
+821 Churchill Road,821,Churchill Road,ADELAIDE,5000,"821 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891239,138.58531,4,Major Cities of Australia,mapbox_api
+391 Henley Beach Road,391,Henley Beach Road,ADELAIDE,5000,"391 Henley Beach Road, Brooklyn Park South Australia 5032, Australia",CITY OF ADELAIDE,-34.92747,138.53841,4,Major Cities of Australia,mapbox_api
+198 Grand Junction Road,198,Grand Junction Road,ADELAIDE,5000,"198 Grand Junction Road, Pennington South Australia 5013, Australia",CITY OF ADELAIDE,-34.851485,138.532588,4,Major Cities of Australia,mapbox_api
+833 Uley Road,833,Unley Road,ADELAIDE,5000,"833 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.69841,138.713234,4,Major Cities of Australia,mapbox_api
+87 Grand Junction Road,87,Grand Junction Road,ADELAIDE,5000,"87 Grand Junction Road, Rosewater South Australia 5013, Australia",CITY OF ADELAIDE,-34.851492,138.521329,4,Major Cities of Australia,mapbox_api
+519 Brighton Road,519,Brighton Road,ADELAIDE,5000,"519 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-35.001589,138.521718,4,Major Cities of Australia,mapbox_api
+605 Gawler Place,605,Gawler Place,ADELAIDE,5000,"605 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925171,138.602027,4,Major Cities of Australia,mapbox_api
+King Street,939,King Street,PORT AUGUSTA,5700,"King Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.489067,137.780398,2,Outer Regional Australia,mapbox_api
+Palmer Place,649,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+560 Cross Road,560,Cross Road,ADELAIDE,5000,"560 Cross Road, South Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.967544,138.561755,4,Major Cities of Australia,mapbox_api
+560 Cross Road,560,Cross Road,ADELAIDE,5000,"560 Cross Road, South Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.967544,138.561755,4,Major Cities of Australia,mapbox_api
+788 Magill Road,788,Magill Road,ADELAIDE,5000,"788 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914572,138.645253,4,Major Cities of Australia,mapbox_api
+886 Magill Road,886,Magill Road,ADELAIDE,5000,"886 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914571,138.645267,4,Major Cities of Australia,mapbox_api
+18 Upper Sturt Road,18,Upper Sturt Road,ADELAIDE,5000,"18 Upper Sturt Road, Belair South Australia 5052, Australia",CITY OF ADELAIDE,-35.000457,138.632277,4,Major Cities of Australia,mapbox_api
+83 Goodwood Road,83,Goodwood Road,ADELAIDE,5000,"83 Goodwood Road, Goodwood South Australia 5034, Australia",CITY OF ADELAIDE,-34.949203,138.589822,4,Major Cities of Australia,mapbox_api
+124 Torrens Road,124,Torrens Road,ADELAIDE,5000,"124 Torrens Road, Renown Park South Australia 5008, Australia",CITY OF ADELAIDE,-34.891431,138.575569,4,Major Cities of Australia,mapbox_api
+523 Halls Road,523,Torrens Road,ADELAIDE,5000,"523 Halls Road, Highbury South Australia 5089, Australia",CITY OF ADELAIDE,-34.849655,138.721004,4,Major Cities of Australia,mapbox_api
+650 Henley Beach Road,650,Henley Beach Road,ADELAIDE,5000,"650 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.569602,4,Major Cities of Australia,mapbox_api
+686 Henley Beach Road,686,Henley Beach Road,ADELAIDE,5000,"686 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.569601,4,Major Cities of Australia,mapbox_api
+462 Glen Osmond Road,462,Glen Osmond Road,ADELAIDE,5000,"462 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945926,138.624411,4,Major Cities of Australia,mapbox_api
+454 Magill Road,454,Magill Road,ADELAIDE,5000,"454 Magill Road, Kensington Gardens South Australia 5068, Australia",CITY OF ADELAIDE,-34.913932,138.663819,4,Major Cities of Australia,mapbox_api
+Palmer Place,585,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+906 Churchill Road,906,Churchill Road,ADELAIDE,5000,"906 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861239,138.58314,4,Major Cities of Australia,mapbox_api
+691 Currie Street,691,Currie Street,ADELAIDE,5000,"691 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924643,138.595541,4,Major Cities of Australia,mapbox_api
+660 Hindley Street,660,Hindley Street,ADELAIDE,5000,"660 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590153,4,Major Cities of Australia,mapbox_api
+440 Franklin Street,440,Franklin Street,ADELAIDE,5000,"440 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927663,138.589731,4,Major Cities of Australia,mapbox_api
+838 Grand Junction Road,838,Grand Junction Road,ADELAIDE,5000,"838 Grand Junction Road, Gilles Plains South Australia 5086, Australia",CITY OF ADELAIDE,-34.845888,138.658922,4,Major Cities of Australia,mapbox_api
+815 Gawler Place,815,Gawler Place,ADELAIDE,5000,"815 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925169,138.602027,4,Major Cities of Australia,mapbox_api
+742 Brighton Road,742,Brighton Road,ADELAIDE,5000,"742 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-34.999309,138.521677,4,Major Cities of Australia,mapbox_api
+Hurtle Square,827,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605518,4,Major Cities of Australia,mapbox_api
+161 Brighton Road,161,Brighton Road,ADELAIDE,5000,"161 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-34.991274,138.520739,4,Major Cities of Australia,mapbox_api
+45 Grenfell Street,45,Grenfell Street,ADELAIDE,5000,"45 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924538,138.601373,4,Major Cities of Australia,mapbox_api
+496 Rundle Street,496,Rundle Street,ADELAIDE,5000,"496 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922473,138.609706,4,Major Cities of Australia,mapbox_api
+608 Churchill Road,608,Churchill Road,ADELAIDE,5000,"608 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861235,138.58314,4,Major Cities of Australia,mapbox_api
+587 Light Square,587,Light Square,ADELAIDE,5000,"587 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92598,138.59322,4,Major Cities of Australia,mapbox_api
+512 Light Square,512,Light Square,ADELAIDE,5000,"512 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925304,138.594282,4,Major Cities of Australia,mapbox_api
+558 Torrens Road,558,Torrens Road,ADELAIDE,5000,"558 Torrens Road, Woodville North South Australia 5012, Australia",CITY OF ADELAIDE,-34.870284,138.541014,4,Major Cities of Australia,mapbox_api
+249 Rundle Street,249,Rundle Street,ADELAIDE,5000,"249 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922744,138.608961,4,Major Cities of Australia,mapbox_api
+George Street,430,George Street,PORT AUGUSTA,5700,"George Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.494312,137.761365,2,Outer Regional Australia,mapbox_api
+442 Portrush Road,442,Portrush Road,ADELAIDE,5000,"442 Portrush Road, Linden Park South Australia 5065, Australia",CITY OF ADELAIDE,-34.943437,138.643213,4,Major Cities of Australia,mapbox_api
+Palmer Place,255,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+591 Marion Road,591,Marion Road,ADELAIDE,5000,"591 Marion Road, South Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.978546,138.555945,4,Major Cities of Australia,mapbox_api
+269 Halifax Street,269,Halifax Street,ADELAIDE,5000,"269 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.93256,138.61173,4,Major Cities of Australia,mapbox_api
+391 Grand Junction Road,391,Grand Junction Road,ADELAIDE,5000,"391 Grand Junction Road, Wingfield South Australia 5013, Australia",CITY OF ADELAIDE,-34.850345,138.5476,4,Major Cities of Australia,mapbox_api
+647 Flinders Street,647,Flinders Street,ADELAIDE,5000,"647 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92664,138.610281,4,Major Cities of Australia,mapbox_api
+310 Pirie Street,310,Pirie Street,ADELAIDE,5000,"310 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.611751,4,Major Cities of Australia,mapbox_api
+833 Hindley Street,833,Hindley Street,ADELAIDE,5000,"833 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923481,138.589635,4,Major Cities of Australia,mapbox_api
+105 Hindley Street,105,Hindley Street,ADELAIDE,5000,"105 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923424,138.59565,4,Major Cities of Australia,mapbox_api
+697 Currie Street,697,Currie Street,ADELAIDE,5000,"697 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924643,138.595541,4,Major Cities of Australia,mapbox_api
+53 Brighton Road,53,Brighton Road,ADELAIDE,5000,"53 Brighton Road, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.982418,138.51969,4,Major Cities of Australia,mapbox_api
+222 Elizabeth Street,222,Elizabeth Street,MURRAY BRIDGE,5253,"222 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118182,139.263293,2,Inner Regional Australia,mapbox_api
+439 Light Square,439,Light Square,ADELAIDE,5000,"439 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925901,138.593105,4,Major Cities of Australia,mapbox_api
+631 Elizabeth Street,631,Elizabeth Street,MURRAY BRIDGE,5253,"631 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118221,139.263252,2,Inner Regional Australia,mapbox_api
+Hurtle Square,529,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+147 Hurtle Square,147,Hurtle Square,ADELAIDE,5000,"147 Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.933227,138.606423,4,Major Cities of Australia,mapbox_api
+850 Currie Street,850,Currie Street,ADELAIDE,5000,"850 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924843,138.58953,4,Major Cities of Australia,mapbox_api
+70 Queen Street,70,Queen Street,ADELAIDE,5000,"70 Queen Street, Glenelg North South Australia 5045, Australia",CITY OF ADELAIDE,-34.974863,138.514903,4,Major Cities of Australia,mapbox_api
+297 Rundle Street,297,Rundle Street,ADELAIDE,5000,"297 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609331,4,Major Cities of Australia,mapbox_api
+565 Rundle Street,565,Rundle Street,ADELAIDE,5000,"565 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609331,4,Major Cities of Australia,mapbox_api
+656 Franklin Street,656,Franklin Street,ADELAIDE,5000,"656 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927663,138.58973,4,Major Cities of Australia,mapbox_api
+617 Grenfell Street,617,Grenfell Street,ADELAIDE,5000,"617 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.608692,4,Major Cities of Australia,mapbox_api
+196 Gawler Place,196,Gawler Place,ADELAIDE,5000,"196 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925175,138.602027,4,Major Cities of Australia,mapbox_api
+77 Goodwood Road,77,Goodwood Road,ADELAIDE,5000,"77 Goodwood Road, Goodwood South Australia 5034, Australia",CITY OF ADELAIDE,-34.948684,138.589489,4,Major Cities of Australia,mapbox_api
+888 Church Street,888,Church Street,ADELAIDE,5000,"888 Church Street, Marden South Australia 5070, Australia",CITY OF ADELAIDE,-34.888413,138.636976,4,Major Cities of Australia,mapbox_api
+128 Gawler Place,128,Gawler Place,ADELAIDE,5000,"128 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925176,138.602027,4,Major Cities of Australia,mapbox_api
+Church Street,913,Church Street,ADELAIDE,5000,"Church Street, Glenelg South South Australia 5045, Australia",CITY OF ADELAIDE,-34.991075,138.515159,4,Major Cities of Australia,mapbox_api
+167 Port Road,167,Port Road,ADELAIDE,5000,"167 Port Road, Aldinga South Australia 5173, Australia",CITY OF ADELAIDE,-35.267363,138.47884,4,Major Cities of Australia,mapbox_api
+116 Currie Street,116,Currie Street,ADELAIDE,5000,"116 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924495,138.596579,4,Major Cities of Australia,mapbox_api
+848 Magill Road,848,Magill Road,ADELAIDE,5000,"848 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914571,138.645262,4,Major Cities of Australia,mapbox_api
+662 Carrington Street,662,Carrington Street,ADELAIDE,5000,"662 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931301,138.604395,4,Major Cities of Australia,mapbox_api
+559 Rundle Street,559,Rundle Street,ADELAIDE,5000,"559 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609331,4,Major Cities of Australia,mapbox_api
+817 Franklin Street,817,Franklin Street,ADELAIDE,5000,"817 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927729,138.58835,4,Major Cities of Australia,mapbox_api
+807 Port Road,807,Port Road,ADELAIDE,5000,"807 Port Road, Woodville South Australia 5011, Australia",CITY OF ADELAIDE,-34.879308,138.533991,4,Major Cities of Australia,mapbox_api
+226 Carrington Street,226,Carrington Street,ADELAIDE,5000,"226 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931299,138.604437,4,Major Cities of Australia,mapbox_api
+457 Waymouth Street,457,Waymouth Street,ADELAIDE,5000,"457 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589086,4,Major Cities of Australia,mapbox_api
+793 Rundle Street,793,Rundle Street,ADELAIDE,5000,"793 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609332,4,Major Cities of Australia,mapbox_api
+959 Morphett Street,959,Morphett Street,ADELAIDE,5000,"959 Morphett Street, Windsor Gardens South Australia 5087, Australia",CITY OF ADELAIDE,-34.861312,138.652972,4,Major Cities of Australia,mapbox_api
+621 Marion Road,621,Marion Road,ADELAIDE,5000,"621 Marion Road, South Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.974957,138.55563,4,Major Cities of Australia,mapbox_api
+558 Grand Junction Road,558,Grand Junction Road,ADELAIDE,5000,"558 Grand Junction Road, Pennington South Australia 5013, Australia",CITY OF ADELAIDE,-34.851247,138.533716,4,Major Cities of Australia,mapbox_api
+254 Carrington Street,254,Carrington Street,ADELAIDE,5000,"254 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.930852,138.609657,4,Major Cities of Australia,mapbox_api
+296 Goodwood Road,296,Goodwood Road,ADELAIDE,5000,"296 Goodwood Road, Clarence Park South Australia 5034, Australia",CITY OF ADELAIDE,-34.962927,138.590164,4,Major Cities of Australia,mapbox_api
+506 Churchill Road,506,Churchill Road,ADELAIDE,5000,"506 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861234,138.58314,4,Major Cities of Australia,mapbox_api
+264 Grand Junction Road,264,Grand Junction Road,ADELAIDE,5000,"264 Grand Junction Road, Athol Park South Australia 5012, Australia",CITY OF ADELAIDE,-34.851468,138.543473,4,Major Cities of Australia,mapbox_api
+304 Morphett Street,304,Morphett Street,ADELAIDE,5000,"304 Morphett Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.93132,138.594382,4,Major Cities of Australia,mapbox_api
+872 Grand Junction Road,872,Grand Junction Road,ADELAIDE,5000,"872 Grand Junction Road, Gilles Plains South Australia 5086, Australia",CITY OF ADELAIDE,-34.845419,138.663115,4,Major Cities of Australia,mapbox_api
+166 Waymouth Street,166,Waymouth Street,ADELAIDE,5000,"166 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925879,138.59765,4,Major Cities of Australia,mapbox_api
+332 Grand Junction Road,332,Grand Junction Road,ADELAIDE,5000,"332 Grand Junction Road, Enfield South Australia 5085, Australia",CITY OF ADELAIDE,-34.848343,138.601999,4,Major Cities of Australia,mapbox_api
+139 Flinders Street,139,Flinders Street,ADELAIDE,5000,"139 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927362,138.601021,4,Major Cities of Australia,mapbox_api
+767 Prospect Road,767,Prospect Road,ADELAIDE,5000,"767 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.857526,138.592003,4,Major Cities of Australia,mapbox_api
+831 Currie Street,831,Currie Street,ADELAIDE,5000,"831 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924642,138.595552,4,Major Cities of Australia,mapbox_api
+458 Prospect Road,458,Prospect Road,ADELAIDE,5000,"458 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.85945,138.591837,4,Major Cities of Australia,mapbox_api
+314 George Street,314,George Street,ADELAIDE,5000,"314 George Street, Norwood South Australia 5067, Australia",CITY OF ADELAIDE,-34.926577,138.637012,4,Major Cities of Australia,mapbox_api
+349 Marion Road,349,Marion Road,ADELAIDE,5000,"349 Marion Road, North Plympton South Australia 5037, Australia",CITY OF ADELAIDE,-34.958076,138.554651,4,Major Cities of Australia,mapbox_api
+957 Franklin Street,957,Franklin Street,ADELAIDE,5000,"957 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927729,138.588353,4,Major Cities of Australia,mapbox_api
+104 Port Road,104,Port Road,ADELAIDE,5000,"104 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.905355,138.571737,4,Major Cities of Australia,mapbox_api
+132 Halifax Street,132,Halifax Street,ADELAIDE,5000,"132 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932659,138.604194,4,Major Cities of Australia,mapbox_api
+899 Elizabeth Street,899,Elizabeth Street,MURRAY BRIDGE,5253,"899 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118245,139.263227,2,Inner Regional Australia,mapbox_api
+784 Wellington Square,784,Wellington Square,ADELAIDE,5000,"784 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906318,138.591271,4,Major Cities of Australia,mapbox_api
+535 Uley Road,535,Unley Road,ADELAIDE,5000,"535 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698645,138.713788,4,Major Cities of Australia,mapbox_api
+732 Pulteney Street,732,Pulteney Street,ADELAIDE,5000,"732 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935373,138.606516,4,Major Cities of Australia,mapbox_api
+707 Main North Road,707,Main North Road,ADELAIDE,5000,"707 Main North Road, Munno Para South Australia 5115, Australia",CITY OF ADELAIDE,-34.677949,138.69681,4,Major Cities of Australia,mapbox_api
+Hurtle Square,915,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+291 Brighton Road,291,Brighton Road,ADELAIDE,5000,"291 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-35.001238,138.521394,4,Major Cities of Australia,mapbox_api
+559 Waymouth Street,559,Waymouth Street,ADELAIDE,5000,"559 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589085,4,Major Cities of Australia,mapbox_api
+438 Elizabeth Street,438,Elizabeth Street,MURRAY BRIDGE,5253,"438 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118202,139.263272,2,Inner Regional Australia,mapbox_api
+Hurtle Square,508,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+755 Prospect Road,755,Prospect Road,ADELAIDE,5000,"755 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.857526,138.592003,4,Major Cities of Australia,mapbox_api
+810 Wellington Square,810,Wellington Square,ADELAIDE,5000,"810 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906321,138.591275,4,Major Cities of Australia,mapbox_api
+Palmer Place,382,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+240 Torrens Road,240,Torrens Road,ADELAIDE,5000,"240 Torrens Road, Croydon Park South Australia 5008, Australia",CITY OF ADELAIDE,-34.88549,138.565876,4,Major Cities of Australia,mapbox_api
+249 Grand Junction Road,249,Grand Junction Road,ADELAIDE,5000,"249 Grand Junction Road, Gepps Cross South Australia 5094, Australia",CITY OF ADELAIDE,-34.847338,138.614162,4,Major Cities of Australia,mapbox_api
+135 Victoria Street,135,Victoria Street,ADELAIDE,5000,"135 Victoria Street, Glandore South Australia 5037, Australia",CITY OF ADELAIDE,-34.962582,138.567298,4,Major Cities of Australia,mapbox_api
+158 Halifax Street,158,Halifax Street,ADELAIDE,5000,"158 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932659,138.604194,4,Major Cities of Australia,mapbox_api
+987 Port Road,987,Port Road,ADELAIDE,5000,"987 Port Road, Cheltenham South Australia 5014, Australia",CITY OF ADELAIDE,-34.868987,138.519441,4,Major Cities of Australia,mapbox_api
+7 Henley Beach Road,7,Henley Beach Road,ADELAIDE,5000,"7 Henley Beach Road, Mile End South Australia 5031, Australia",CITY OF ADELAIDE,-34.9238,138.577753,4,Major Cities of Australia,mapbox_api
+300 Unley Road,300,Unley Road,ADELAIDE,5000,"300 Unley Road, Hyde Park South Australia 5061, Australia",CITY OF ADELAIDE,-34.956712,138.607614,4,Major Cities of Australia,mapbox_api
+King Street,451,King Street,PORT AUGUSTA,5700,"King Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.489067,137.780398,2,Outer Regional Australia,mapbox_api
+222 Unley Road,222,Unley Road,ADELAIDE,5000,"222 Unley Road, Unley South Australia 5061, Australia",CITY OF ADELAIDE,-34.942166,138.606834,4,Major Cities of Australia,mapbox_api
+Church Street,607,Church Street,ADELAIDE,5000,"Church Street, Glenelg South South Australia 5045, Australia",CITY OF ADELAIDE,-34.991075,138.515159,4,Major Cities of Australia,mapbox_api
+278 Grand Junction Road,278,Grand Junction Road,ADELAIDE,5000,"278 Grand Junction Road, Athol Park South Australia 5012, Australia",CITY OF ADELAIDE,-34.851292,138.545006,4,Major Cities of Australia,mapbox_api
+81 Franklin Street,81,Franklin Street,ADELAIDE,5000,"81 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927778,138.596237,4,Major Cities of Australia,mapbox_api
+Hurtle Square,471,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+853 Prospect Road,853,Prospect Road,ADELAIDE,5000,"853 Prospect Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.857527,138.592003,4,Major Cities of Australia,mapbox_api
+982 Hindley Street,982,Hindley Street,ADELAIDE,5000,"982 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923454,138.590152,4,Major Cities of Australia,mapbox_api
+Portrush Road,730,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+870 Marion Road,870,Marion Road,ADELAIDE,5000,"870 Marion Road, Marion South Australia 5043, Australia",CITY OF ADELAIDE,-35.015962,138.558396,4,Major Cities of Australia,mapbox_api
+524 Marion Road,524,Marion Road,ADELAIDE,5000,"524 Marion Road, Plympton Park South Australia 5038, Australia",CITY OF ADELAIDE,-34.975973,138.555291,4,Major Cities of Australia,mapbox_api
+835 Henley Beach Road,835,Henley Beach Road,ADELAIDE,5000,"835 Henley Beach Road, Fulham South Australia 5024, Australia",CITY OF ADELAIDE,-34.926593,138.514486,4,Major Cities of Australia,mapbox_api
+Church Street,304,Church Street,ADELAIDE,5000,"Church Street, Glenelg South South Australia 5045, Australia",CITY OF ADELAIDE,-34.991075,138.515159,4,Major Cities of Australia,mapbox_api
+36 Glen Osmond Road,36,Glen Osmond Road,ADELAIDE,5000,"36 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.941882,138.617472,4,Major Cities of Australia,mapbox_api
+426 Flinders Street,426,Flinders Street,ADELAIDE,5000,"426 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.921978,138.622809,4,Major Cities of Australia,mapbox_api
+399 Victoria Street,399,Victoria Street,ADELAIDE,5000,"399 Victoria Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922762,138.596083,4,Major Cities of Australia,mapbox_api
+373 Flinders Street,373,Flinders Street,ADELAIDE,5000,"373 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92664,138.610278,4,Major Cities of Australia,mapbox_api
+21 Pirie Street,21,Pirie Street,ADELAIDE,5000,"21 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926102,138.600817,4,Major Cities of Australia,mapbox_api
+157 Pirie Street,157,Pirie Street,ADELAIDE,5000,"157 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925625,138.602473,4,Major Cities of Australia,mapbox_api
+414 Flinders Street,414,Flinders Street,ADELAIDE,5000,"414 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.921983,138.622801,4,Major Cities of Australia,mapbox_api
+252 Magill Road,252,Magill Road,ADELAIDE,5000,"252 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914951,138.643544,4,Major Cities of Australia,mapbox_api
+458 Magill Road,458,Magill Road,ADELAIDE,5000,"458 Magill Road, Kensington Gardens South Australia 5068, Australia",CITY OF ADELAIDE,-34.913912,138.664243,4,Major Cities of Australia,mapbox_api
+63 Goodwood Road,63,Goodwood Road,ADELAIDE,5000,"63 Goodwood Road, Wayville South Australia 5034, Australia",CITY OF ADELAIDE,-34.947574,138.589813,4,Major Cities of Australia,mapbox_api
+105 Gawler Place,105,Gawler Place,ADELAIDE,5000,"105 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925583,138.602056,4,Major Cities of Australia,mapbox_api
+994 Victoria Street,994,Victoria Street,VICTOR HARBOR,5211,"994 Victoria Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.55839,138.613469,3,Inner Regional Australia,mapbox_api
+980 Franklin Street,980,Franklin Street,ADELAIDE,5000,"980 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927663,138.589728,4,Major Cities of Australia,mapbox_api
+642 Glen Osmond Road,642,Glen Osmond Road,ADELAIDE,5000,"642 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945927,138.624413,4,Major Cities of Australia,mapbox_api
+234 Angas Street,234,Angas Street,ADELAIDE,5000,"234 Angas Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.929738,138.607674,4,Major Cities of Australia,mapbox_api
+627 King Street,627,King Street,ADELAIDE,5000,"627 King Street, Norwood South Australia 5067, Australia",CITY OF ADELAIDE,-34.91747,138.627039,4,Major Cities of Australia,mapbox_api
+331 Grenfell Street,331,Grenfell Street,ADELAIDE,5000,"331 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923979,138.608689,4,Major Cities of Australia,mapbox_api
+708 Grand Junction Road,708,Grand Junction Road,ADELAIDE,5000,"708 Grand Junction Road, Pennington South Australia 5013, Australia",CITY OF ADELAIDE,-34.851247,138.533711,4,Major Cities of Australia,mapbox_api
+684 Carrington Street,684,Carrington Street,ADELAIDE,5000,"684 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931301,138.604393,4,Major Cities of Australia,mapbox_api
+485 Rundle Street,485,Rundle Street,ADELAIDE,5000,"485 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609331,4,Major Cities of Australia,mapbox_api
+936 Marion Road,936,Marion Road,ADELAIDE,5000,"936 Marion Road, Sturt South Australia 5047, Australia",CITY OF ADELAIDE,-35.022954,138.558781,4,Major Cities of Australia,mapbox_api
+601 Uley Road,601,Unley Road,ADELAIDE,5000,"601 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698593,138.713666,4,Major Cities of Australia,mapbox_api
+891 Wellington Square,891,Wellington Square,ADELAIDE,5000,"891 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907063,138.590625,4,Major Cities of Australia,mapbox_api
+550 Cross Road,550,Cross Road,ADELAIDE,5000,"550 Cross Road, South Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.96742,138.562668,4,Major Cities of Australia,mapbox_api
+Palmer Place,619,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+Whitmore Square,297,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+8 Brighton Road,8,Brighton Road,ADELAIDE,5000,"8 Brighton Road, Glenelg East South Australia 5045, Australia",CITY OF ADELAIDE,-34.977087,138.520397,4,Major Cities of Australia,mapbox_api
+961 Hindley Street,961,Hindley Street,ADELAIDE,5000,"961 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923481,138.589632,4,Major Cities of Australia,mapbox_api
+867 Port Road,867,Port Road,ADELAIDE,5000,"867 Port Road, Hindmarsh South Australia 5007, Australia",CITY OF ADELAIDE,-34.908465,138.576485,4,Major Cities of Australia,mapbox_api
+751 Lower North East Road,751,Lower North East Road,ADELAIDE,5000,"751 Lower North East Road, Paradise South Australia 5075, Australia",CITY OF ADELAIDE,-34.865938,138.674656,4,Major Cities of Australia,mapbox_api
+773 Gawler Place,773,Gawler Place,ADELAIDE,5000,"773 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925169,138.602027,4,Major Cities of Australia,mapbox_api
+323 Waymouth Street,323,Waymouth Street,ADELAIDE,5000,"323 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926308,138.589086,4,Major Cities of Australia,mapbox_api
+105 Halifax Street,105,Halifax Street,ADELAIDE,5000,"105 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.933137,138.604255,4,Major Cities of Australia,mapbox_api
+289 Wellington Square,289,Wellington Square,ADELAIDE,5000,"289 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907141,138.590655,4,Major Cities of Australia,mapbox_api
+Hurtle Square,564,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+411 Magill Road,411,Magill Road,ADELAIDE,5000,"411 Magill Road, St Morris South Australia 5068, Australia",CITY OF ADELAIDE,-34.913774,138.653656,4,Major Cities of Australia,mapbox_api
+335 Gawler Place,335,Gawler Place,ADELAIDE,5000,"335 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925174,138.602027,4,Major Cities of Australia,mapbox_api
+Whitmore Square,353,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+412 Henley Beach Road,412,Henley Beach Road,ADELAIDE,5000,"412 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923686,138.569611,4,Major Cities of Australia,mapbox_api
+578 Pulteney Street,578,Pulteney Street,ADELAIDE,5000,"578 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935373,138.606516,4,Major Cities of Australia,mapbox_api
+497 Marion Road,497,Marion Road,ADELAIDE,5000,"497 Marion Road, South Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.973042,138.55569,4,Major Cities of Australia,mapbox_api
+359 Brighton Road,359,Brighton Road,ADELAIDE,5000,"359 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-35.001587,138.521718,4,Major Cities of Australia,mapbox_api
+503 Carrington Street,503,Carrington Street,ADELAIDE,5000,"503 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.930804,138.614228,4,Major Cities of Australia,mapbox_api
+337 Pulteney Street,337,Pulteney Street,ADELAIDE,5000,"337 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922067,138.605533,4,Major Cities of Australia,mapbox_api
+973 Brighton Road,973,Brighton Road,ADELAIDE,5000,"973 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-35.001595,138.521719,4,Major Cities of Australia,mapbox_api
+959 Hindley Street,959,Hindley Street,ADELAIDE,5000,"959 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923481,138.589632,4,Major Cities of Australia,mapbox_api
+454 Elizabeth Street,454,Elizabeth Street,MURRAY BRIDGE,5253,"454 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118204,139.26327,2,Inner Regional Australia,mapbox_api
+222 Marion Road,222,Marion Road,ADELAIDE,5000,"222 Marion Road, Plympton South Australia 5038, Australia",CITY OF ADELAIDE,-34.960074,138.554447,4,Major Cities of Australia,mapbox_api
+213 Wellington Square,213,Wellington Square,ADELAIDE,5000,"213 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907151,138.590659,4,Major Cities of Australia,mapbox_api
+560 Magill Road,560,Magill Road,ADELAIDE,5000,"560 Magill Road, Magill South Australia 5072, Australia",CITY OF ADELAIDE,-34.913339,138.675302,4,Major Cities of Australia,mapbox_api
+106 Rundle Street,106,Rundle Street,ADELAIDE,5000,"106 Rundle Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.918984,138.622064,4,Major Cities of Australia,mapbox_api
+464 Magill Road,464,Magill Road,ADELAIDE,5000,"464 Magill Road, Kensington Gardens South Australia 5068, Australia",CITY OF ADELAIDE,-34.913883,138.66484,4,Major Cities of Australia,mapbox_api
+294 Grenfell Street,294,Grenfell Street,ADELAIDE,5000,"294 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.60941,4,Major Cities of Australia,mapbox_api
+35 High Street,35,High Street,VICTOR HARBOR,5211,"35 High Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.546399,138.62385,3,Inner Regional Australia,mapbox_api
+276 Angas Street,276,Angas Street,ADELAIDE,5000,"276 Angas Street, Alberton South Australia 5014, Australia",CITY OF ADELAIDE,-34.858232,138.515592,4,Major Cities of Australia,mapbox_api
+853 Henley Beach Road,853,Henley Beach Road,ADELAIDE,5000,"853 Henley Beach Road, Fulham South Australia 5024, Australia",CITY OF ADELAIDE,-34.926593,138.514486,4,Major Cities of Australia,mapbox_api
+985 Marion Road,985,Marion Road,ADELAIDE,5000,"985 Marion Road, Ascot Park South Australia 5043, Australia",CITY OF ADELAIDE,-34.983789,138.556329,4,Major Cities of Australia,mapbox_api
+249 Angas Street,249,Angas Street,ADELAIDE,5000,"249 Angas Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.930069,138.610141,4,Major Cities of Australia,mapbox_api
+209 Elizabeth Street,209,Elizabeth Street,ADELAIDE,5000,"209 Elizabeth Street, Norwood South Australia 5067, Australia",CITY OF ADELAIDE,-34.927104,138.630194,4,Major Cities of Australia,mapbox_api
+561 South Terrace,561,South Terrace,ADELAIDE,5000,"561 South Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.936053,138.592902,4,Major Cities of Australia,mapbox_api
+273 Pulteney Street,273,Pulteney Street,ADELAIDE,5000,"273 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922055,138.605532,4,Major Cities of Australia,mapbox_api
+384 Rundle Street,384,Rundle Street,ADELAIDE,5000,"384 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922473,138.609705,4,Major Cities of Australia,mapbox_api
+742 Halifax Street,742,Halifax Street,ADELAIDE,5000,"742 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932089,138.616601,4,Major Cities of Australia,mapbox_api
+766 Lower North East Road,766,Lower North East Road,ADELAIDE,5000,"766 Lower North East Road, Dernancourt South Australia 5075, Australia",CITY OF ADELAIDE,-34.867101,138.678412,4,Major Cities of Australia,mapbox_api
+135 Hindley Street,135,Hindley Street,ADELAIDE,5000,"135 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923476,138.594524,4,Major Cities of Australia,mapbox_api
+737 Torrens Road,737,Torrens Road,ADELAIDE,5000,"737 Torrens Road, Renown Park South Australia 5008, Australia",CITY OF ADELAIDE,-34.895401,138.581797,4,Major Cities of Australia,mapbox_api
+984 Henley Beach Road,984,Henley Beach Road,ADELAIDE,5000,"984 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.56959,4,Major Cities of Australia,mapbox_api
+433 Churchill Road,433,Churchill Road,ADELAIDE,5000,"433 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.859684,138.583504,4,Major Cities of Australia,mapbox_api
+290 Waymouth Street,290,Waymouth Street,ADELAIDE,5000,"290 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589635,4,Major Cities of Australia,mapbox_api
+776 East Terrace,776,West Terrace,ADELAIDE,5000,"776 East Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931869,138.616884,4,Major Cities of Australia,mapbox_api
+139 Portrush Road,139,Portrush Road,ADELAIDE,5000,"139 Portrush Road, Evandale South Australia 5069, Australia",CITY OF ADELAIDE,-34.907096,138.639584,4,Major Cities of Australia,mapbox_api
+937 Marian Road,937,Marion Road,ADELAIDE,5000,"937 Marian Road, Payneham South South Australia 5070, Australia",CITY OF ADELAIDE,-34.901532,138.645728,4,Major Cities of Australia,mapbox_api
+243 Marion Road,243,Marion Road,ADELAIDE,5000,"243 Marion Road, Marleston South Australia 5033, Australia",CITY OF ADELAIDE,-34.946649,138.553922,4,Major Cities of Australia,mapbox_api
+199 Cross Road,199,Cross Road,ADELAIDE,5000,"199 Cross Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.966702,138.588915,4,Major Cities of Australia,mapbox_api
+267 Victoria Street,267,Victoria Street,ADELAIDE,5000,"267 Victoria Street, Glandore South Australia 5037, Australia",CITY OF ADELAIDE,-34.962583,138.567276,4,Major Cities of Australia,mapbox_api
+892 Currie Street,892,Currie Street,ADELAIDE,5000,"892 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924843,138.58953,4,Major Cities of Australia,mapbox_api
+Palmer Place,253,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+479 High Street,479,High Street,ADELAIDE,5000,"479 High Street, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.98135,138.519949,4,Major Cities of Australia,mapbox_api
+269 Waymouth Street,269,Waymouth Street,ADELAIDE,5000,"269 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926175,138.591769,4,Major Cities of Australia,mapbox_api
+735 Churchill Road,735,Churchill Road,ADELAIDE,5000,"735 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891243,138.585311,4,Major Cities of Australia,mapbox_api
+102 Elizabeth Street,102,Elizabeth Street,ADELAIDE,5000,"102 Elizabeth Street, Banksia Park South Australia 5091, Australia",CITY OF ADELAIDE,-34.80891,138.725862,4,Major Cities of Australia,mapbox_api
+634 Glen Osmond Road,634,Glen Osmond Road,ADELAIDE,5000,"634 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945927,138.624413,4,Major Cities of Australia,mapbox_api
+663 Main North Road,663,Main North Road,ADELAIDE,5000,"663 Main North Road, Elizabeth North South Australia 5113, Australia",CITY OF ADELAIDE,-34.698121,138.683571,4,Major Cities of Australia,mapbox_api
+38 Henley Beach Road,38,Henley Beach Road,ADELAIDE,5000,"38 Henley Beach Road, Mile End South Australia 5031, Australia",CITY OF ADELAIDE,-34.923443,138.575099,4,Major Cities of Australia,mapbox_api
+Church Street,715,Church Street,PORT AUGUSTA,5700,"Church Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.493347,137.761689,2,Outer Regional Australia,mapbox_api
+940 Lower North East Road,940,Lower North East Road,ADELAIDE,5000,"940 Lower North East Road, Highbury South Australia 5089, Australia",CITY OF ADELAIDE,-34.856311,138.693383,4,Major Cities of Australia,mapbox_api
+178 Flinders Street,178,Flinders Street,ADELAIDE,5000,"178 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.922087,138.622666,4,Major Cities of Australia,mapbox_api
+525 Uley Road,525,Unley Road,ADELAIDE,5000,"525 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698653,138.713807,4,Major Cities of Australia,mapbox_api
+876 Gawler Place,876,Gawler Place,ADELAIDE,5000,"876 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925168,138.602026,4,Major Cities of Australia,mapbox_api
+935 Wellington Square,935,Wellington Square,ADELAIDE,5000,"935 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.907057,138.590623,4,Major Cities of Australia,mapbox_api
+762 Prospect Road,762,Prospect Road,ADELAIDE,5000,"762 Prospect Road, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.899825,138.594539,4,Major Cities of Australia,mapbox_api
+69 Magill Road,69,Magill Road,ADELAIDE,5000,"69 Magill Road, Stepney South Australia 5069, Australia",CITY OF ADELAIDE,-34.915171,138.62838,4,Major Cities of Australia,mapbox_api
+828 Victoria Street,828,Victoria Street,ADELAIDE,5000,"828 Victoria Street, Payneham South Australia 5070, Australia",CITY OF ADELAIDE,-34.899667,138.636375,4,Major Cities of Australia,mapbox_api
+397 Glen Osmond Road,397,Glen Osmond Road,ADELAIDE,5000,"397 Glen Osmond Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.962002,138.643219,4,Major Cities of Australia,mapbox_api
+312 Goodwood Road,312,Goodwood Road,ADELAIDE,5000,"312 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.970469,138.591079,4,Major Cities of Australia,mapbox_api
+250 Flinders Street,250,Flinders Street,ADELAIDE,5000,"250 Flinders Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926168,138.609844,4,Major Cities of Australia,mapbox_api
+820 Pulteney Street,820,Pulteney Street,ADELAIDE,5000,"820 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.935372,138.606516,4,Major Cities of Australia,mapbox_api
+King Street,850,King Street,VICTOR HARBOR,5211,"King Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.556928,138.618675,3,Inner Regional Australia,mapbox_api
+517 Portrush Road,517,Portrush Road,ADELAIDE,5000,"517 Portrush Road, Glenside South Australia 5065, Australia",CITY OF ADELAIDE,-34.940033,138.642459,4,Major Cities of Australia,mapbox_api
+264 Grenfell Street,264,Grenfell Street,ADELAIDE,5000,"264 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.60941,4,Major Cities of Australia,mapbox_api
+489 Church Street,489,Church Street,ADELAIDE,5000,"489 Church Street, Port Adelaide South Australia 5015, Australia",CITY OF ADELAIDE,-34.849226,138.503673,4,Major Cities of Australia,mapbox_api
+295 Hindley Street,295,Hindley Street,ADELAIDE,5000,"295 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92348,138.589646,4,Major Cities of Australia,mapbox_api
+423 Carrington Street,423,Carrington Street,ADELAIDE,5000,"423 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.930936,138.616108,4,Major Cities of Australia,mapbox_api
+296 Pirie Street,296,Pirie Street,ADELAIDE,5000,"296 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925624,138.602482,4,Major Cities of Australia,mapbox_api
+Portrush Road,915,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+443 Halifax Street,443,Halifax Street,ADELAIDE,5000,"443 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932131,138.615723,4,Major Cities of Australia,mapbox_api
+653 Brighton Road,653,Brighton Road,ADELAIDE,5000,"653 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-35.001591,138.521718,4,Major Cities of Australia,mapbox_api
+704 George Street,704,George Street,ADELAIDE,5000,"704 George Street, Torrens Park South Australia 5062, Australia",CITY OF ADELAIDE,-34.985928,138.6126,4,Major Cities of Australia,mapbox_api
+428 Goodwood Road,428,Goodwood Road,ADELAIDE,5000,"428 Goodwood Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.972565,138.591024,4,Major Cities of Australia,mapbox_api
+996 Henley Beach Road,996,Henley Beach Road,ADELAIDE,5000,"996 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.56959,4,Major Cities of Australia,mapbox_api
+21 Marion Road,21,Marion Road,ADELAIDE,5000,"21 Marion Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.926712,138.552366,4,Major Cities of Australia,mapbox_api
+826 Flinders Street,826,Flinders Street,ADELAIDE,5000,"826 Flinders Street, Kent Town South Australia 5067, Australia",CITY OF ADELAIDE,-34.921846,138.623065,4,Major Cities of Australia,mapbox_api
+541 Carrington Street,541,Carrington Street,ADELAIDE,5000,"541 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.930804,138.614228,4,Major Cities of Australia,mapbox_api
+139 Angas Street,139,Angas Street,ADELAIDE,5000,"139 Angas Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.92958,138.610896,4,Major Cities of Australia,mapbox_api
+891 Hindley Street,891,Hindley Street,ADELAIDE,5000,"891 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923481,138.589634,4,Major Cities of Australia,mapbox_api
+755 Port Road,755,Port Road,ADELAIDE,5000,"755 Port Road, Woodville South Australia 5011, Australia",CITY OF ADELAIDE,-34.882112,138.538013,4,Major Cities of Australia,mapbox_api
+Peace Avenue,502,Palmer Place,VICTOR HARBOR,5211,"Peace Avenue, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.547579,138.623755,3,Inner Regional Australia,mapbox_api
+264 Pirie Street,264,Pirie Street,ADELAIDE,5000,"264 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925624,138.60248,4,Major Cities of Australia,mapbox_api
+Whitmore Square,709,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+353 Glen Osmond Road,353,Glen Osmond Road,ADELAIDE,5000,"353 Glen Osmond Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.95891,138.640621,4,Major Cities of Australia,mapbox_api
+96 Wellington Square,96,Wellington Square,ADELAIDE,5000,"96 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906149,138.591418,4,Major Cities of Australia,mapbox_api
+423 Torrens Road,423,Torrens Road,ADELAIDE,5000,"423 Torrens Road, Kilkenny South Australia 5009, Australia",CITY OF ADELAIDE,-34.877504,138.551679,4,Major Cities of Australia,mapbox_api
+464 Glen Osmond Road,464,Glen Osmond Road,ADELAIDE,5000,"464 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945926,138.624412,4,Major Cities of Australia,mapbox_api
+719 Pulteney Street,719,Pulteney Street,ADELAIDE,5000,"719 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.934637,138.606464,4,Major Cities of Australia,mapbox_api
+16 Waymouth Street,16,Waymouth Street,ADELAIDE,5000,"16 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925596,138.598993,4,Major Cities of Australia,mapbox_api
+526 Cross Road,526,Cross Road,ADELAIDE,5000,"526 Cross Road, Glandore South Australia 5037, Australia",CITY OF ADELAIDE,-34.967349,138.565135,4,Major Cities of Australia,mapbox_api
+144 Light Square,144,Light Square,ADELAIDE,5000,"144 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925365,138.594286,4,Major Cities of Australia,mapbox_api
+32 Unley Road,32,Unley Road,ADELAIDE,5000,"32 Unley Road, Unley South Australia 5061, Australia",CITY OF ADELAIDE,-34.942902,138.606451,4,Major Cities of Australia,mapbox_api
+191 Whitmore Square,191,Whitmore Square,ADELAIDE,5000,"191 Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932359,138.594894,4,Major Cities of Australia,mapbox_api
+142 Gawler Place,142,Gawler Place,ADELAIDE,5000,"142 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926425,138.602333,4,Major Cities of Australia,mapbox_api
+250 Rundle Street,250,Rundle Street,ADELAIDE,5000,"250 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922591,138.607494,4,Major Cities of Australia,mapbox_api
+803 Halifax Street,803,Halifax Street,ADELAIDE,5000,"803 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932131,138.615724,4,Major Cities of Australia,mapbox_api
+115 Grand Junction Road,115,Grand Junction Road,ADELAIDE,5000,"115 Grand Junction Road, Northfield South Australia 5085, Australia",CITY OF ADELAIDE,-34.84672,138.637032,4,Major Cities of Australia,mapbox_api
+Palmer Place,314,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+342 Elizabeth Street,342,Elizabeth Street,MURRAY BRIDGE,5253,"342 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118193,139.263281,2,Inner Regional Australia,mapbox_api
+526 Pirie Street,526,Pirie Street,ADELAIDE,5000,"526 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925152,138.611749,4,Major Cities of Australia,mapbox_api
+727 George Street,727,George Street,ADELAIDE,5000,"727 George Street, Marion South Australia 5043, Australia",CITY OF ADELAIDE,-35.009094,138.555052,4,Major Cities of Australia,mapbox_api
+623 Churchill Road,623,Churchill Road,ADELAIDE,5000,"623 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891247,138.585311,4,Major Cities of Australia,mapbox_api
+599 Pirie Street,599,Pirie Street,ADELAIDE,5000,"599 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609835,4,Major Cities of Australia,mapbox_api
+234 Victoria Street,234,Victoria Street,ADELAIDE,5000,"234 Victoria Street, Glandore South Australia 5037, Australia",CITY OF ADELAIDE,-34.962583,138.567281,4,Major Cities of Australia,mapbox_api
+69 Hindley Street,69,Hindley Street,ADELAIDE,5000,"69 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923127,138.596733,4,Major Cities of Australia,mapbox_api
+499 Pirie Street,499,Pirie Street,ADELAIDE,5000,"499 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609834,4,Major Cities of Australia,mapbox_api
+889 Victoria Street,889,Victoria Street,ADELAIDE,5000,"889 Victoria Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922241,138.596052,4,Major Cities of Australia,mapbox_api
+778 Waymouth Street,778,Waymouth Street,ADELAIDE,5000,"778 Waymouth Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.926281,138.589634,4,Major Cities of Australia,mapbox_api
+2 Gawler Place,2,Gawler Place,ADELAIDE,5000,"2 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924307,138.601967,4,Major Cities of Australia,mapbox_api
+112 Marion Road,112,Marion Road,ADELAIDE,5000,"112 Marion Road, Brooklyn Park South Australia 5032, Australia",CITY OF ADELAIDE,-34.935007,138.552617,4,Major Cities of Australia,mapbox_api
+457 Brighton Road,457,Brighton Road,ADELAIDE,5000,"457 Brighton Road, Brighton South Australia 5048, Australia",CITY OF ADELAIDE,-35.017421,138.522685,4,Major Cities of Australia,mapbox_api
+654 Flinders Street,654,Flinders Street,PORT AUGUSTA,5700,"654 Flinders Street, Port Augusta South Australia 5700, Australia",PORT AUGUSTA CITY COUNCIL,-32.488496,137.774713,2,Outer Regional Australia,mapbox_api
+778 Henley Beach Road,778,Henley Beach Road,ADELAIDE,5000,"778 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.569598,4,Major Cities of Australia,mapbox_api
+830 Prospect Road,830,Prospect Road,ADELAIDE,5000,"830 Prospect Road, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.89999,138.594504,4,Major Cities of Australia,mapbox_api
+275 Main North Road,275,Main North Road,ADELAIDE,5000,"275 Main North Road, Smithfield South Australia 5114, Australia",CITY OF ADELAIDE,-34.680143,138.695427,4,Major Cities of Australia,mapbox_api
+935 Uley Road,935,Unley Road,ADELAIDE,5000,"935 Uley Road, Craigmore South Australia 5114, Australia",CITY OF ADELAIDE,-34.698331,138.713043,4,Major Cities of Australia,mapbox_api
+670 Glen Osmond Road,670,Glen Osmond Road,ADELAIDE,5000,"670 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945927,138.624413,4,Major Cities of Australia,mapbox_api
+683 Lower North East Road,683,Lower North East Road,ADELAIDE,5000,"683 Lower North East Road, Paradise South Australia 5075, Australia",CITY OF ADELAIDE,-34.87363,138.668337,4,Major Cities of Australia,mapbox_api
+413 Henley Beach Road,413,Henley Beach Road,ADELAIDE,5000,"413 Henley Beach Road, Brooklyn Park South Australia 5032, Australia",CITY OF ADELAIDE,-34.927984,138.53623,4,Major Cities of Australia,mapbox_api
+362 Grenfell Street,362,Grenfell Street,ADELAIDE,5000,"362 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.609409,4,Major Cities of Australia,mapbox_api
+745 Churchill Road,745,Churchill Road,ADELAIDE,5000,"745 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891242,138.585311,4,Major Cities of Australia,mapbox_api
+647 Marion Road,647,Marion Road,ADELAIDE,5000,"647 Marion Road, Ascot Park South Australia 5043, Australia",CITY OF ADELAIDE,-34.983855,138.556585,4,Major Cities of Australia,mapbox_api
+834 Grenfell Street,834,Grenfell Street,ADELAIDE,5000,"834 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.609408,4,Major Cities of Australia,mapbox_api
+719 Halifax Street,719,Halifax Street,ADELAIDE,5000,"719 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932131,138.615724,4,Major Cities of Australia,mapbox_api
+850 Currie Street,850,Currie Street,ADELAIDE,5000,"850 Currie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924843,138.58953,4,Major Cities of Australia,mapbox_api
+548 Carrington Street,548,Carrington Street,ADELAIDE,5000,"548 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.9313,138.604406,4,Major Cities of Australia,mapbox_api
+Church Street,159,Church Street,ADELAIDE,5000,"Church Street, Glenelg South South Australia 5045, Australia",CITY OF ADELAIDE,-34.991075,138.515159,4,Major Cities of Australia,mapbox_api
+478 Portrush Road,478,Portrush Road,ADELAIDE,5000,"478 Portrush Road, Linden Park South Australia 5065, Australia",CITY OF ADELAIDE,-34.947527,138.643298,4,Major Cities of Australia,mapbox_api
+783 Gawler Place,783,Gawler Place,ADELAIDE,5000,"783 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925169,138.602027,4,Major Cities of Australia,mapbox_api
+Palmer Place,226,Palmer Place,ADELAIDE,5000,"Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.910956,138.595093,4,Major Cities of Australia,mapbox_api
+346 Marion Road,346,Marion Road,ADELAIDE,5000,"346 Marion Road, North Plympton South Australia 5037, Australia",CITY OF ADELAIDE,-34.956448,138.553894,4,Major Cities of Australia,mapbox_api
+Whitmore Square,887,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+900 Halifax Street,900,Halifax Street,ADELAIDE,5000,"900 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932089,138.616602,4,Major Cities of Australia,mapbox_api
+245 Lower North East Road,245,Lower North East Road,ADELAIDE,5000,"245 Lower North East Road, Dernancourt South Australia 5075, Australia",CITY OF ADELAIDE,-34.866765,138.678109,4,Major Cities of Australia,mapbox_api
+928 Henley Beach Road,928,Henley Beach Road,ADELAIDE,5000,"928 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.569592,4,Major Cities of Australia,mapbox_api
+129 Cross Road,129,Cross Road,ADELAIDE,5000,"129 Cross Road, Hawthorn South Australia 5062, Australia",CITY OF ADELAIDE,-34.966287,138.598237,4,Major Cities of Australia,mapbox_api
+139 Marion Road,139,Marion Road,ADELAIDE,5000,"139 Marion Road, Richmond South Australia 5033, Australia",CITY OF ADELAIDE,-34.93739,138.553207,4,Major Cities of Australia,mapbox_api
+880 Wellington Square,880,Wellington Square,ADELAIDE,5000,"880 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.90633,138.591286,4,Major Cities of Australia,mapbox_api
+401 Main Street,401,Main Street,ADELAIDE,5000,"401 Main Street, Seaford South Australia 5169, Australia",CITY OF ADELAIDE,-35.187135,138.477649,4,Major Cities of Australia,mapbox_api
+338 Cross Road,338,Cross Road,ADELAIDE,5000,"338 Cross Road, Clarence Park South Australia 5034, Australia",CITY OF ADELAIDE,-34.966332,138.584068,4,Major Cities of Australia,mapbox_api
+73 East Terrace,73,West Terrace,ADELAIDE,5000,"73 East Terrace, Ascot Park South Australia 5038, Australia",CITY OF ADELAIDE,-34.982461,138.563238,4,Major Cities of Australia,mapbox_api
+525 Grand Junction Road,525,Grand Junction Road,ADELAIDE,5000,"525 Grand Junction Road, Wingfield South Australia 5013, Australia",CITY OF ADELAIDE,-34.849245,138.563934,4,Major Cities of Australia,mapbox_api
+471 Grand Junction Road,471,Grand Junction Road,ADELAIDE,5000,"471 Grand Junction Road, Gepps Cross South Australia 5094, Australia",CITY OF ADELAIDE,-34.847463,138.611439,4,Major Cities of Australia,mapbox_api
+265 Elizabeth Street,265,Elizabeth Street,MURRAY BRIDGE,5253,"265 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118187,139.263287,2,Inner Regional Australia,mapbox_api
+787 Glen Osmond Road,787,Glen Osmond Road,ADELAIDE,5000,"787 Glen Osmond Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.963364,138.644124,4,Major Cities of Australia,mapbox_api
+980 Lower North East Road,980,Lower North East Road,ADELAIDE,5000,"980 Lower North East Road, Highbury South Australia 5089, Australia",CITY OF ADELAIDE,-34.8536,138.698378,4,Major Cities of Australia,mapbox_api
+Portrush Road,759,Portrush Road,ADELAIDE,5000,"Portrush Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.956519,138.648198,4,Major Cities of Australia,mapbox_api
+706 East Terrace,706,West Terrace,ADELAIDE,5000,"706 East Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931868,138.616884,4,Major Cities of Australia,mapbox_api
+465 Gawler Place,465,Gawler Place,ADELAIDE,5000,"465 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925173,138.602027,4,Major Cities of Australia,mapbox_api
+832 Henley Beach Road,832,Henley Beach Road,ADELAIDE,5000,"832 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923687,138.569596,4,Major Cities of Australia,mapbox_api
+122 Henley Beach Road,122,Henley Beach Road,ADELAIDE,5000,"122 Henley Beach Road, Torrensville South Australia 5031, Australia",CITY OF ADELAIDE,-34.923686,138.569621,4,Major Cities of Australia,mapbox_api
+650 Glen Osmond Road,650,Glen Osmond Road,ADELAIDE,5000,"650 Glen Osmond Road, Parkside South Australia 5063, Australia",CITY OF ADELAIDE,-34.945927,138.624413,4,Major Cities of Australia,mapbox_api
+69 Pulteney Street,69,Pulteney Street,ADELAIDE,5000,"69 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922019,138.60553,4,Major Cities of Australia,mapbox_api
+260 Hindley Street,260,Hindley Street,ADELAIDE,5000,"260 Hindley Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923265,138.589865,4,Major Cities of Australia,mapbox_api
+Hurtle Square,301,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+228 Light Square,228,Light Square,ADELAIDE,5000,"228 Light Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925351,138.594285,4,Major Cities of Australia,mapbox_api
+128 Carrington Street,128,Carrington Street,ADELAIDE,5000,"128 Carrington Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.931,138.604857,4,Major Cities of Australia,mapbox_api
+766 Rundle Street,766,Rundle Street,ADELAIDE,5000,"766 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922473,138.609707,4,Major Cities of Australia,mapbox_api
+474 Victoria Street,474,Victoria Street,ADELAIDE,5000,"474 Victoria Street, Glandore South Australia 5037, Australia",CITY OF ADELAIDE,-34.962585,138.56724,4,Major Cities of Australia,mapbox_api
+482 Brighton Road,482,Brighton Road,ADELAIDE,5000,"482 Brighton Road, Somerton Park South Australia 5044, Australia",CITY OF ADELAIDE,-34.999315,138.521678,4,Major Cities of Australia,mapbox_api
+108 Pulteney Street,108,Pulteney Street,ADELAIDE,5000,"108 Pulteney Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921769,138.605511,4,Major Cities of Australia,mapbox_api
+375 Magill Road,375,Magill Road,ADELAIDE,5000,"375 Magill Road, St Morris South Australia 5068, Australia",CITY OF ADELAIDE,-34.914104,138.651686,4,Major Cities of Australia,mapbox_api
+650 Richardson Avenue,650,Main North Road,CLARE,5453,"650 Richardson Avenue, Clare South Australia 5453, Australia",CLARE AND GILBERT VALLEYS COUNCIL,-33.828142,138.607078,3,Inner Regional Australia,mapbox_api
+71 Brighton Road,71,Brighton Road,ADELAIDE,5000,"71 Brighton Road, Glenelg South Australia 5045, Australia",CITY OF ADELAIDE,-34.984166,138.520096,4,Major Cities of Australia,mapbox_api
+870 Churchill Road,870,Churchill Road,ADELAIDE,5000,"870 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861238,138.58314,4,Major Cities of Australia,mapbox_api
+725 Magill Road,725,Magill Road,ADELAIDE,5000,"725 Magill Road, Adelaide South Australia 5069, Australia",CITY OF ADELAIDE,-34.915099,138.634298,4,Major Cities of Australia,mapbox_api
+587 Goodwood Road,587,Goodwood Road,ADELAIDE,5000,"587 Goodwood Road, Colonel Light Gardens South Australia 5041, Australia",CITY OF ADELAIDE,-34.989273,138.592996,4,Major Cities of Australia,mapbox_api
+265 Halls Road,265,Torrens Road,ADELAIDE,5000,"265 Halls Road, Highbury South Australia 5089, Australia",CITY OF ADELAIDE,-34.848225,138.720902,4,Major Cities of Australia,mapbox_api
+718 Franklin Street,718,Franklin Street,ADELAIDE,5000,"718 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927663,138.58973,4,Major Cities of Australia,mapbox_api
+259 Cross Road,259,Cross Road,ADELAIDE,5000,"259 Cross Road, Cumberland Park South Australia 5041, Australia",CITY OF ADELAIDE,-34.966625,138.586282,4,Major Cities of Australia,mapbox_api
+990 Wellington Square,990,Wellington Square,ADELAIDE,5000,"990 Wellington Square, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.906343,138.591304,4,Major Cities of Australia,mapbox_api
+518 Cross Road,518,Cross Road,ADELAIDE,5000,"518 Cross Road, Glandore South Australia 5037, Australia",CITY OF ADELAIDE,-34.967307,138.566074,4,Major Cities of Australia,mapbox_api
+416 Grenfell Street,416,Grenfell Street,ADELAIDE,5000,"416 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.609409,4,Major Cities of Australia,mapbox_api
+785 Pirie Street,785,Pirie Street,ADELAIDE,5000,"785 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609836,4,Major Cities of Australia,mapbox_api
+831 George Street,831,George Street,ADELAIDE,5000,"831 George Street, Marion South Australia 5043, Australia",CITY OF ADELAIDE,-35.009105,138.555073,4,Major Cities of Australia,mapbox_api
+56 Upper Sturt Road,56,Upper Sturt Road,ADELAIDE,5000,"56 Upper Sturt Road, Belair South Australia 5052, Australia",CITY OF ADELAIDE,-35.004611,138.632483,4,Major Cities of Australia,mapbox_api
+323 Henley Beach Road,323,Henley Beach Road,ADELAIDE,5000,"323 Henley Beach Road, Brooklyn Park South Australia 5032, Australia",CITY OF ADELAIDE,-34.925267,138.545263,4,Major Cities of Australia,mapbox_api
+954 Franklin Street,954,Franklin Street,ADELAIDE,5000,"954 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927663,138.589729,4,Major Cities of Australia,mapbox_api
+646 Grenfell Street,646,Grenfell Street,ADELAIDE,5000,"646 Grenfell Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.923849,138.609408,4,Major Cities of Australia,mapbox_api
+236 Franklin Street,236,Franklin Street,ADELAIDE,5000,"236 Franklin Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.927595,138.591164,4,Major Cities of Australia,mapbox_api
+251 North Terrace,251,North Terrace,ADELAIDE,5000,"251 North Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921691,138.606477,4,Major Cities of Australia,mapbox_api
+882 Grand Junction Road,882,Grand Junction Road,ADELAIDE,5000,"882 Grand Junction Road, Gilles Plains South Australia 5086, Australia",CITY OF ADELAIDE,-34.845362,138.664166,4,Major Cities of Australia,mapbox_api
+487 Rundle Street,487,Rundle Street,ADELAIDE,5000,"487 Rundle Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.922494,138.609331,4,Major Cities of Australia,mapbox_api
+974 Victoria Street,974,Victoria Street,VICTOR HARBOR,5211,"974 Victoria Street, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.55839,138.613469,3,Inner Regional Australia,mapbox_api
+797 Pirie Street,797,Pirie Street,ADELAIDE,5000,"797 Pirie Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.925249,138.609836,4,Major Cities of Australia,mapbox_api
+601 Halifax Street,601,Halifax Street,ADELAIDE,5000,"601 Halifax Street, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932131,138.615724,4,Major Cities of Australia,mapbox_api
+824 Magill Road,824,Magill Road,ADELAIDE,5000,"824 Magill Road, Beulah Park South Australia 5067, Australia",CITY OF ADELAIDE,-34.914572,138.645258,4,Major Cities of Australia,mapbox_api
+721 Grand Junction Road,721,Grand Junction Road,ADELAIDE,5000,"721 Grand Junction Road, Northfield South Australia 5085, Australia",CITY OF ADELAIDE,-34.847247,138.625095,4,Major Cities of Australia,mapbox_api
+Hurtle Square,490,Hurtle Square,ADELAIDE,5000,"Hurtle Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932292,138.605527,4,Major Cities of Australia,mapbox_api
+54 King Street,54,King Street,ADELAIDE,5000,"54 King Street, Norwood South Australia 5067, Australia",CITY OF ADELAIDE,-34.917486,138.626681,4,Major Cities of Australia,mapbox_api
+289 Elizabeth Street,289,Elizabeth Street,MURRAY BRIDGE,5253,"289 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.11819,139.263285,2,Inner Regional Australia,mapbox_api
+977 Churchill Road,977,Churchill Road,ADELAIDE,5000,"977 Churchill Road, Prospect South Australia 5082, Australia",CITY OF ADELAIDE,-34.891234,138.58531,4,Major Cities of Australia,mapbox_api
+8 Currie Street,8,Currie Street,ADELAIDE,5000,"8 Currie Street, Nailsworth South Australia 5083, Australia",CITY OF ADELAIDE,-34.888316,138.606619,4,Major Cities of Australia,mapbox_api
+944 Lower North East Road,944,Lower North East Road,ADELAIDE,5000,"944 Lower North East Road, Highbury South Australia 5089, Australia",CITY OF ADELAIDE,-34.855807,138.69391,4,Major Cities of Australia,mapbox_api
+Whitmore Square,667,Whitmore Square,ADELAIDE,5000,"Whitmore Square, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.932853,138.593504,4,Major Cities of Australia,mapbox_api
+342 Elizabeth Street,342,Elizabeth Street,MURRAY BRIDGE,5253,"342 Elizabeth Street, Murray Bridge South Australia 5253, Australia",THE RURAL CITY OF MURRAY BRIDGE,-35.118193,139.263281,2,Inner Regional Australia,mapbox_api
+624 Churchill Road,624,Churchill Road,ADELAIDE,5000,"624 Churchill Road, Kilburn South Australia 5084, Australia",CITY OF ADELAIDE,-34.861235,138.58314,4,Major Cities of Australia,mapbox_api
+Peace Avenue,772,Palmer Place,VICTOR HARBOR,5211,"Peace Avenue, Victor Harbor South Australia 5211, Australia",CITY OF VICTOR HARBOR,-35.547579,138.623755,3,Inner Regional Australia,mapbox_api
+721 Glen Osmond Road,721,Glen Osmond Road,ADELAIDE,5000,"721 Glen Osmond Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.963364,138.644124,4,Major Cities of Australia,mapbox_api
+14 Gawler Place,14,Gawler Place,ADELAIDE,5000,"14 Gawler Place, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.924077,138.601951,4,Major Cities of Australia,mapbox_api
+555 Glen Osmond Road,555,Glen Osmond Road,ADELAIDE,5000,"555 Glen Osmond Road, Glen Osmond South Australia 5064, Australia",CITY OF ADELAIDE,-34.963364,138.644124,4,Major Cities of Australia,mapbox_api
+676 North Terrace,676,North Terrace,ADELAIDE,5000,"676 North Terrace, Adelaide South Australia 5000, Australia",CITY OF ADELAIDE,-34.921489,138.599303,4,Major Cities of Australia,mapbox_api
+752 Lower North East Road,752,Lower North East Road,ADELAIDE,5000,"752 Lower North East Road, Paradise South Australia 5075, Australia",CITY OF ADELAIDE,-34.868437,138.676463,4,Major Cities of Australia,mapbox_api
+199 Palmer Place,199,Palmer Place,ADELAIDE,5000,"199 Palmer Place, North Adelaide South Australia 5006, Australia",CITY OF ADELAIDE,-34.909829,138.595278,4,Major Cities of Australia,mapbox_api
+695 Hurtle Street,695,Hurtle Square,ADELAIDE,5000,"695 Hurtle Street, Underdale South Australia 5032, Australia",CITY OF ADELAIDE,-34.92107,138.551289,4,Major Cities of Australia,mapbox_api
+241 George Street,241,George Street,ADELAIDE,5000,"241 George Street, Marion South Australia 5043, Australia",CITY OF ADELAIDE,-35.009065,138.554952,4,Major Cities of Australia,mapbox_api
