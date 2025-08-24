@@ -1,188 +1,261 @@
 #!/usr/bin/env python3
 """
-Modern CLI for SA Address Generation using SOLID architecture
+Command Line Interface for SA Address Lookup
+Simple CLI for generating and looking up South Australian addresses
 """
 import argparse
-import sys
 import json
-from .api import generate_sa_addresses, lookup_sa_address, get_available_presets
-from .config import DEFAULT_REMOTENESS_WEIGHTS, DEFAULT_SOCIOECONOMIC_WEIGHTS
+import sys
+from typing import Optional
+from sa_address_lookup import SAAddressLookup
+
+# Global variable to track CSV header printing
+_csv_header_printed = False
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Generate South Australian addresses with custom distribution parameters",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python generate_addresses.py 100 --output addresses.csv
-  python generate_addresses.py 50 --preset city_focused
-  python generate_addresses.py 20 --remoteness major_cities --seed 42
-  python generate_addresses.py 30 --socio-economic high
-  python generate_addresses.py 10 --remoteness remote --show-summary
-  
-  # Address Lookup Examples:
-  python generate_addresses.py --lookup "Adelaide"
-  python generate_addresses.py --lookup "5000"
-  python generate_addresses.py --lookup "Whyalla 5600"
-  python generate_addresses.py -l "Port Lincoln"
-  
-Presets:
-  city_focused     - Focus on Adelaide and major cities
-  regional_focused - Focus on regional towns like Whyalla
-  remote_focused   - Include more remote areas
-  high_socio       - Higher socioeconomic areas
-  low_socio        - Lower socioeconomic areas
-
-Remoteness Levels:
-  major_cities     - Adelaide, major urban centers
-  inner_regional   - Regional cities and towns
-  outer_regional   - Rural towns and communities
-  remote           - Remote areas like Port Lincoln
-  very_remote      - Very remote areas
-
-Socio-Economic Levels:
-  very_low (0)     - Very low socio-economic status
-  low (1)          - Low socio-economic status
-  below_avg (2)    - Below average socio-economic status
-  average (3)      - Average socio-economic status
-  above_avg (4)    - Above average socio-economic status
-  high (5)         - High socio-economic status
-        """
-    )
+def print_address(address: dict, format_type: str = 'default') -> None:
+    """
+    Print address information in the specified format
     
-    parser.add_argument('count', type=int, nargs='?', help='Number of addresses to generate')
-    parser.add_argument('--output', '-o', help='Output CSV filename')
-    parser.add_argument('--preset', choices=['city_focused', 'regional_focused', 'remote_focused', 'high_socio', 'low_socio'], 
-                       help='Use predefined distribution')
-    parser.add_argument('--remoteness', choices=['major_cities', 'inner_regional', 'outer_regional', 'remote', 'very_remote'],
-                       help='Focus on specific remoteness level')
-    parser.add_argument('--socio-economic', choices=['very_low', 'low', 'below_avg', 'average', 'above_avg', 'high'],
-                       help='Focus on specific socio-economic level')
-    parser.add_argument('--seed', type=int, help='Random seed for reproducible results')
-    parser.add_argument('--show-summary', action='store_true', help='Show distribution summary')
-    parser.add_argument('--lookup', '-l', type=str, help='Look up address details (e.g., "Adelaide", "5000", "Whyalla 5600")')
+    Args:
+        address: Address dictionary
+        format_type: Output format ('default', 'json', 'csv')
+    """
+    if format_type == 'json':
+        # Convert any numpy/pandas types to native Python types for JSON serialization
+        json_address = {}
+        for key, value in address.items():
+            if hasattr(value, 'item'):  # numpy/pandas scalar
+                json_address[key] = value.item()
+            else:
+                json_address[key] = value
+        print(json.dumps(json_address, indent=2))
+    elif format_type == 'csv':
+        # Print CSV header if this is the first address
+        global _csv_header_printed
+        if not _csv_header_printed:
+            headers = list(address.keys())
+            print(','.join(headers))
+            _csv_header_printed = True
+        
+        # Print CSV row
+        values = [str(v) if v is not None else '' for v in address.values()]
+        print(','.join(f'"{v}"' for v in values))
+    else:
+        # Default human-readable format
+        print(f"Address: {address['full_address']}")
+        print(f"Street: {address['street_address']}")
+        print(f"Suburb: {address['suburb']}")
+        print(f"Postcode: {address['postcode']}")
+        print(f"Council: {address['council']}")
+        if address['latitude'] and address['longitude']:
+            print(f"Coordinates: {address['latitude']}, {address['longitude']}")
+        print(f"Remoteness: {address['remoteness_level']}")
+        print(f"Socio-economic level: {address['socio_economic_status']}")
+
+
+def generate_addresses(args) -> None:
+    """Generate random addresses based on command line arguments"""
+    lookup = SAAddressLookup()
     
-    args = parser.parse_args()
+    count = args.count
+    distribution_type = 'default'
+    distribution_value = None
+    
+    # Determine distribution type and value
+    if args.suburb:
+        distribution_type = 'suburb'
+        distribution_value = args.suburb
+    elif args.council:
+        distribution_type = 'council'
+        distribution_value = args.council
+    elif args.remoteness:
+        distribution_type = 'remoteness'
+        distribution_value = args.remoteness
+    elif args.socioeconomic:
+        distribution_type = 'socioeconomic'
+        distribution_value = str(args.socioeconomic)
+    
+    print(f"Generating {count} South Australian address{'es' if count > 1 else ''}...")
+    if distribution_type != 'default':
+        print(f"Filtering by {distribution_type}: {distribution_value}")
+    print()
+    
+    # Generate addresses
+    for i in range(count):
+        try:
+            address = lookup.generate_random_address(
+                distribution_type=distribution_type,
+                distribution_value=distribution_value
+            )
+            
+            if count > 1 and args.output_format == 'default':
+                print(f"=== Address {i + 1} ===")
+            
+            print_address(address, args.output_format)
+            
+            if count > 1 and args.output_format == 'default':
+                print()
+                
+        except Exception as e:
+            print(f"Error generating address {i + 1}: {e}", file=sys.stderr)
+
+
+def lookup_address(args) -> None:
+    """Look up a specific address"""
+    lookup = SAAddressLookup()
+    
+    if not lookup.mapbox_api_key:
+        print("Error: No Mapbox API key found. Address lookup requires a valid API key.", file=sys.stderr)
+        print("Please set MAPBOX_API_KEY in your environment or .env file.", file=sys.stderr)
+        sys.exit(1)
+    
+    print(f"Looking up address: {args.address}")
+    print()
     
     try:
-        # Handle address lookup
-        if args.lookup:
-            result = lookup_sa_address(args.lookup)
-            if result:
-                print(f"Address Lookup Results for: '{args.lookup}'")
-                print("=" * 50)
-                print(f"Full Address: {result['full_address']}")
-                print(f"Suburb: {result['suburb']}")
-                print(f"State: {result['state']}")
-                print(f"Postcode: {result['postcode']}")
-                print(f"Council: {result['council']}")
-                print(f"Remoteness: {result['remoteness']}")
-                print(f"Socio-Economic Index: {result['socio_economic_index']}")
-                if result['latitude'] and result['longitude']:
-                    print(f"Coordinates: ({result['latitude']}, {result['longitude']})")
-                else:
-                    print("Coordinates: Not available")
-            else:
-                print(f"No results found for: '{args.lookup}'")
-                print("Try searching with:")
-                print("  - Suburb name (e.g., 'Adelaide')")
-                print("  - Postcode (e.g., '5000')")
-                print("  - Suburb and postcode (e.g., 'Whyalla 5600')")
-            return
+        result = lookup.lookup_address(args.address)
         
-        # Validate count argument for address generation
-        if args.count is None:
-            parser.error("count is required for address generation (use --lookup for address lookup)")
-        count: int = args.count  # type: ignore
-        if count <= 0:
-            parser.error("count must be positive")
-        # Prepare custom weights based on arguments
-        remoteness_weights = None
-        socioeconomic_weights = None
-        
-        # Handle remoteness focus
-        if args.remoteness:
-            remoteness_weights = DEFAULT_REMOTENESS_WEIGHTS.copy()
-            # Zero out all weights then set the selected one high
-            for key in remoteness_weights:
-                remoteness_weights[key] = 0.0
+        if result:
+            print_address(result, args.output_format)
+        else:
+            print("Address not found or not in South Australia.")
+            sys.exit(1)
             
-            remoteness_map = {
-                'major_cities': 'Major Cities of Australia',
-                'inner_regional': 'Inner Regional Australia',
-                'outer_regional': 'Outer Regional Australia',
-                'remote': 'Remote Australia',
-                'very_remote': 'Very Remote Australia'
-            }
-            
-            if args.remoteness in remoteness_map:
-                remoteness_weights[remoteness_map[args.remoteness]] = 1.0
-        
-        # Handle socio-economic focus
-        if hasattr(args, 'socio_economic') and args.socio_economic:
-            socioeconomic_weights = DEFAULT_SOCIOECONOMIC_WEIGHTS.copy()
-            # Zero out all weights then set the selected one high
-            for key in socioeconomic_weights:
-                socioeconomic_weights[key] = 0.0
-            
-            socio_map = {
-                'very_low': 0,
-                'low': 1,
-                'below_avg': 2,
-                'average': 3,
-                'above_avg': 4,
-                'high': 5
-            }
-            
-            if args.socio_economic in socio_map:
-                socioeconomic_weights[socio_map[args.socio_economic]] = 1.0
-        
-        # Generate addresses
-        addresses = generate_sa_addresses(
-            count=count,
-            preset=args.preset if not (args.remoteness or (hasattr(args, 'socio_economic') and args.socio_economic)) else None,
-            remoteness_weights=remoteness_weights,
-            socioeconomic_weights=socioeconomic_weights,
-            output_file=args.output,
-            random_seed=args.seed
-        )
-        
-        print(f"Generated {len(addresses)} SA addresses")
-        
-        # Show sample
-        print("\nSample addresses:")
-        for i, row in addresses.head(5).iterrows():
-            print(f"  {i+1}. {row['street_address']}, {row['suburb']} {row['postcode']}")
-            print(f"     Coordinates: ({row['latitude']:.4f}, {row['longitude']:.4f})")
-            print(f"     Council: {row['council']}")
-        
-        if len(addresses) > 5:
-            print(f"  ... and {len(addresses) - 5} more")
-        
-        # Show summary if requested
-        if args.show_summary:
-            from .api import SAAddressAPI
-            api = SAAddressAPI()
-            summary = api.get_distribution_summary(addresses)
-            
-            print(f"\nDistribution Summary:")
-            print(f"Total addresses: {summary.get('total_addresses', 0)}")
-            print(f"Unique suburbs: {summary.get('unique_suburbs', 0)}")
-            print(f"Remoteness distribution:")
-            remoteness_dist = summary.get('remoteness_distribution', {})
-            total = summary.get('total_addresses', 1)
-            for level, count_val in remoteness_dist.items():
-                pct = (count_val / total) * 100
-                print(f"  {level}: {count_val} ({pct:.1f}%)")
-        
-        if args.output:
-            print(f"\nSaved to: {args.output}")
-        
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error looking up address: {e}", file=sys.stderr)
         sys.exit(1)
 
 
-if __name__ == "__main__":
+def show_options(args) -> None:
+    """Show available distribution options"""
+    lookup = SAAddressLookup()
+    
+    try:
+        options = lookup.get_available_options()
+        
+        if args.output_format == 'json':
+            print(json.dumps(options, indent=2))
+        else:
+            print("Available Distribution Options:")
+            print("=" * 40)
+            
+            print(f"\nSuburbs ({len(options['suburbs'])}):")
+            for suburb in options['suburbs']:
+                print(f"  - {suburb}")
+            
+            print(f"\nCouncils ({len(options['councils'])}):")
+            for council in options['councils']:
+                print(f"  - {council}")
+            
+            print(f"\nRemoteness Levels:")
+            for level in options['remoteness_levels']:
+                print(f"  - {level}")
+            
+            print(f"\nSocio-economic Levels:")
+            for level in options['socioeconomic_levels']:
+                print(f"  - {level}")
+                
+    except Exception as e:
+        print(f"Error retrieving options: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
+def main():
+    """Main CLI entry point"""
+    parser = argparse.ArgumentParser(
+        description="SA Address Lookup - Generate or lookup South Australian addresses",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s generate 5                          # Generate 5 random addresses
+  %(prog)s generate 3 --suburb ADELAIDE        # Generate 3 addresses in Adelaide
+  %(prog)s generate 2 --remoteness "Major Cities of Australia"  # City addresses
+  %(prog)s generate 1 --socioeconomic 5        # High socio-economic area
+  %(prog)s lookup "North Terrace, Adelaide"    # Look up specific address
+  %(prog)s options                             # Show available options
+  %(prog)s generate 10 --format json           # Output as JSON
+  %(prog)s generate 5 --format csv             # Output as CSV
+        """
+    )
+    
+    # Global options
+    parser.add_argument(
+        '--format', 
+        dest='output_format',
+        choices=['default', 'json', 'csv'],
+        default='default',
+        help='Output format (default: default)'
+    )
+    
+    # Subcommands
+    subparsers = parser.add_subparsers(dest='command', help='Available commands')
+    
+    # Generate command
+    generate_parser = subparsers.add_parser(
+        'generate', 
+        help='Generate random SA addresses'
+    )
+    generate_parser.add_argument(
+        'count', 
+        type=int, 
+        help='Number of addresses to generate'
+    )
+    
+    # Distribution options (mutually exclusive)
+    distribution_group = generate_parser.add_mutually_exclusive_group()
+    distribution_group.add_argument(
+        '--suburb', 
+        help='Generate addresses from specific suburb'
+    )
+    distribution_group.add_argument(
+        '--council', 
+        help='Generate addresses from specific council'
+    )
+    distribution_group.add_argument(
+        '--remoteness', 
+        help='Generate addresses from specific remoteness level'
+    )
+    distribution_group.add_argument(
+        '--socioeconomic', 
+        type=int,
+        choices=[0, 1, 2, 3, 4, 5],
+        help='Generate addresses from specific socio-economic level (0-5)'
+    )
+    
+    # Lookup command
+    lookup_parser = subparsers.add_parser(
+        'lookup', 
+        help='Look up a specific address'
+    )
+    lookup_parser.add_argument(
+        'address', 
+        help='Address to look up (e.g., "North Terrace, Adelaide, SA")'
+    )
+    
+    # Options command
+    options_parser = subparsers.add_parser(
+        'options', 
+        help='Show available distribution options'
+    )
+    
+    # Parse arguments
+    args = parser.parse_args()
+    
+    # Handle commands
+    if args.command == 'generate':
+        if args.count <= 0:
+            print("Error: Count must be a positive number", file=sys.stderr)
+            sys.exit(1)
+        generate_addresses(args)
+    elif args.command == 'lookup':
+        lookup_address(args)
+    elif args.command == 'options':
+        show_options(args)
+    else:
+        parser.print_help()
+        sys.exit(1)
+
+
+if __name__ == '__main__':
     main()

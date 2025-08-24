@@ -12,7 +12,7 @@ MAPBOX_ACCESS_TOKEN = os.getenv('MAPBOX_ACCESS_TOKEN', '')
 MAPBOX_API_KEY = os.getenv('MAPBOX_API_KEY', MAPBOX_ACCESS_TOKEN)  # Support both variable names
 
 # Address Generation Configuration
-# Note: MAX_VALIDATION_RETRIES was removed as it's not used in the implementation
+MAX_VALIDATION_RETRIES = 3  # Maximum number of retries for API calls
 
 # Default Distribution Weights
 DEFAULT_REMOTENESS_WEIGHTS = {
