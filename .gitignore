@@ -125,7 +125,7 @@ dmypy.json
 .pyre/
 
 # Generated files
-*.csv
+# .csv
 *.json
 
 # IDE
