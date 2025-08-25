@@ -7,7 +7,8 @@ import csv
 from typing import Dict, List, Optional, Union, Any, cast
 import requests
 import pandas as pd
-from config import MAPBOX_API_KEY, MAX_VALIDATION_RETRIES, DEFAULT_REMOTENESS_WEIGHTS, DEFAULT_SOCIOECONOMIC_WEIGHTS
+from urllib.parse import quote
+# from config import MAPBOX_API_KEY, MAX_VALIDATION_RETRIES, DEFAULT_REMOTENESS_WEIGHTS, DEFAULT_SOCIOECONOMIC_WEIGHTS
 
 
 class SAAddressLookup:
@@ -23,9 +24,12 @@ class SAAddressLookup:
             mapbox_api_key: Mapbox API key for geocoding (optional, defaults to config)
             data_file: Path to SA suburbs data CSV file
         """
-        self.mapbox_api_key = mapbox_api_key or MAPBOX_API_KEY
+        self.mapbox_api_key = mapbox_api_key or os.getenv('MAPBOX_API_KEY')  # Fallback to env var
         self.data_file = data_file
         self.suburbs_data = self._load_suburbs_data()
+        
+        # Default config values if not imported
+        self.MAX_VALIDATION_RETRIES = 3
         
         if not self.mapbox_api_key:
             print("Warning: No Mapbox API key provided. Address lookup functionality will be limited.")
@@ -41,6 +45,8 @@ class SAAddressLookup:
             df = pd.read_csv(self.data_file)
             # Remove empty rows
             df = df.dropna(subset=['Suburb'])
+            # Ensure suburb names are uppercase for consistent matching
+            df['Suburb'] = df['Suburb'].str.upper()
             return df
         except FileNotFoundError:
             print(f"Warning: Could not find data file {self.data_file}")
@@ -60,16 +66,23 @@ class SAAddressLookup:
             print("No Mapbox API key available for address lookup")
             return None
         
+        if not address or address.strip() == "":
+            return None
+        
+        # Clean and encode the address properly
+        clean_address = address.strip()
+        encoded_address = quote(clean_address)
+        
         # Use Mapbox Geocoding API with retries
-        url = f"https://api.mapbox.com/geocoding/v5/mapbox.places/{address}.json"
+        url = f"https://api.mapbox.com/geocoding/v5/mapbox.places/{encoded_address}.json"
         params = {
             'access_token': self.mapbox_api_key,
-            'country': 'AU',
-            'region': 'SA',
-            'limit': 1
+            'country': 'AU',  # Limit to Australia
+            'limit': 5,  # Get more results to find SA matches
+            'types': 'address,poi'  # Include both addresses and points of interest
         }
         
-        for attempt in range(MAX_VALIDATION_RETRIES):
+        for attempt in range(self.MAX_VALIDATION_RETRIES):
             try:
                 response = requests.get(url, params=params, timeout=10)
                 response.raise_for_status()
@@ -78,43 +91,58 @@ class SAAddressLookup:
                 if not data.get('features'):
                     return None
                 
-                feature = data['features'][0]
-                place_name = feature.get('place_name', '')
-                coordinates = feature.get('center', [])
+                # Look through all features to find one in South Australia
+                for feature in data['features']:
+                    place_name = feature.get('place_name', '')
+                    coordinates = feature.get('center', [])
+                    
+                    # Check if address is in South Australia (more flexible matching)
+                    is_sa = any([
+                        'SA' in place_name,
+                        'South Australia' in place_name,
+                        ', SA ' in place_name,
+                        place_name.endswith(' SA'),
+                        'South Australia' in str(feature.get('context', []))
+                    ])
+                    
+                    if not is_sa:
+                        continue
+                    
+                    # Extract suburb from the geocoded result
+                    suburb = self._extract_suburb_from_geocode(feature)
+                    if not suburb:
+                        continue
+                    
+                    # Find suburb details in our data
+                    suburb_info = self._find_suburb_info(suburb)
+                    if suburb_info is None:
+                        # If exact match not found, try partial matching
+                        suburb_info = self._find_suburb_info_fuzzy(suburb)
+                        if suburb_info is None:
+                            continue
+                    
+                    # Extract street address from the place name
+                    street_address = self._extract_street_address(place_name)
+                    
+                    return {
+                        'street_address': street_address,
+                        'full_address': place_name,
+                        'suburb': suburb_info['Suburb'],
+                        'postcode': suburb_info['Postcode'], 
+                        'council': suburb_info['Council'],
+                        'latitude': coordinates[1] if len(coordinates) > 1 else None,
+                        'longitude': coordinates[0] if len(coordinates) > 0 else None,
+                        'socio_economic_status': suburb_info['SocioEconomicStatus'],
+                        'remoteness_level': suburb_info['Remoteness Level']
+                    }
                 
-                # Check if address is in South Australia
-                if 'SA' not in place_name and 'South Australia' not in place_name:
-                    return None
-                
-                # Extract suburb from the geocoded result
-                suburb = self._extract_suburb_from_geocode(feature)
-                if not suburb:
-                    return None
-                
-                # Find suburb details in our data
-                suburb_info = self._find_suburb_info(suburb)
-                if suburb_info is None:
-                    return None
-                
-                # Extract street address from the place name
-                street_address = self._extract_street_address(place_name)
-                
-                return {
-                    'street_address': street_address,
-                    'full_address': place_name,
-                    'suburb': suburb_info['Suburb'],
-                    'postcode': suburb_info['Postcode'], 
-                    'council': suburb_info['Council'],
-                    'latitude': coordinates[1] if len(coordinates) > 1 else None,
-                    'longitude': coordinates[0] if len(coordinates) > 0 else None,
-                    'socio_economic_status': suburb_info['SocioEconomicStatus'],
-                    'remoteness_level': suburb_info['Remoteness Level']
-                }
+                # No SA addresses found in any features
+                return None
                 
             except requests.RequestException as e:
                 print(f"Attempt {attempt + 1} failed: {e}")
-                if attempt == MAX_VALIDATION_RETRIES - 1:
-                    print(f"Failed to lookup address after {MAX_VALIDATION_RETRIES} attempts")
+                if attempt == self.MAX_VALIDATION_RETRIES - 1:
+                    print(f"Failed to lookup address after {self.MAX_VALIDATION_RETRIES} attempts")
                     return None
         
         return None
@@ -143,17 +171,39 @@ class SAAddressLookup:
         Returns:
             Suburb name or None
         """
-        # Try to find suburb in the context
+        # Method 1: Try to find suburb in the context
         context = feature.get('context', [])
         for item in context:
-            if item.get('id', '').startswith('place'):
-                return item.get('text', '').upper()
+            item_id = item.get('id', '')
+            if item_id.startswith('place'):
+                suburb_name = item.get('text', '').upper()
+                if suburb_name:
+                    return suburb_name
         
-        # Fallback to parsing the place name
+        # Method 2: Parse the place name more intelligently
         place_name = feature.get('place_name', '')
-        parts = place_name.split(',')
-        if len(parts) >= 2:
-            return parts[1].strip().upper()
+        parts = [part.strip() for part in place_name.split(',')]
+        
+        # Look for the suburb in different positions
+        for i, part in enumerate(parts):
+            # Skip the first part (street address) and last parts (state/country)
+            if i == 0:
+                continue
+            if any(x in part.upper() for x in ['SA', 'SOUTH AUSTRALIA', 'AUSTRALIA']):
+                continue
+            if part.isdigit():  # Skip postcodes
+                continue
+                
+            # This is likely the suburb
+            suburb_candidate = part.upper()
+            # Remove common suffixes that might be attached
+            suburb_candidate = suburb_candidate.replace(' SA', '').replace(' SOUTH AUSTRALIA', '')
+            if suburb_candidate:
+                return suburb_candidate
+        
+        # Method 3: If we have "text" field in the main feature
+        if feature.get('text'):
+            return feature.get('text', '').upper()
         
         return None
     
@@ -170,11 +220,44 @@ class SAAddressLookup:
         if self.suburbs_data.empty:
             return None
         
-        suburb_upper = suburb_name.upper()
+        suburb_upper = suburb_name.upper().strip()
         match = self.suburbs_data[self.suburbs_data['Suburb'].str.upper() == suburb_upper]
         
         if not match.empty:
             return match.iloc[0].to_dict()
+        
+        return None
+    
+    def _find_suburb_info_fuzzy(self, suburb_name: str) -> Optional[Dict[str, Any]]:
+        """
+        Find suburb information using fuzzy matching
+        
+        Args:
+            suburb_name: Name of the suburb
+            
+        Returns:
+            Suburb information or None
+        """
+        if self.suburbs_data.empty:
+            return None
+        
+        suburb_upper = suburb_name.upper().strip()
+        
+        # Try partial matching
+        partial_matches = self.suburbs_data[
+            self.suburbs_data['Suburb'].str.upper().str.contains(suburb_upper, na=False)
+        ]
+        
+        if not partial_matches.empty:
+            return partial_matches.iloc[0].to_dict()
+        
+        # Try reverse partial matching
+        reverse_matches = self.suburbs_data[
+            suburb_upper.find(self.suburbs_data['Suburb'].str.upper()) >= 0
+        ]
+        
+        if not reverse_matches.empty:
+            return reverse_matches.iloc[0].to_dict()
         
         return None
     
@@ -289,7 +372,8 @@ class SAAddressLookup:
             return None, None
         
         # Use Mapbox Geocoding API to get suburb coordinates
-        url = f"https://api.mapbox.com/geocoding/v5/mapbox.places/{suburb_name}, SA, Australia.json"
+        encoded_suburb = quote(f"{suburb_name}, SA, Australia")
+        url = f"https://api.mapbox.com/geocoding/v5/mapbox.places/{encoded_suburb}.json"
         params = {
             'access_token': self.mapbox_api_key,
             'limit': 1,
