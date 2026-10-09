@@ -24,7 +24,7 @@ data live in [`../scripts`](../scripts).
 
 ## How to run it
 
-Generation needs no API key. From this folder:
+Generation needs no API key. From the repository root:
 
 ```bash
 cd original
@@ -67,5 +67,5 @@ These are documented rather than fixed, so the original stays a faithful record.
 6. `data/regional_coastal_addresses_1.9k.csv` has 1,000 rows (not 1.9k), is
    mostly Major Cities rather than regional or coastal, and in about half of
    the rows the geocoded address sits in a different suburb from the claimed
-   one. It stores Mapbox geocoding results, which Mapbox's terms do not allow
-   to be stored or redistributed, so the revived site never reads or serves it.
+   one. It holds stored results from the Mapbox Geocoding API and is kept only
+   as a historical record; the revived site never reads or serves it.

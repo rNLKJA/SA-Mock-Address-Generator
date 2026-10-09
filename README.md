@@ -41,7 +41,7 @@ paired with a person's name.
 - **Did the sample hit the target?**: realised shares with 95% Wilson intervals and a
   chi-square goodness-of-fit test, against the mode's own target or the README's
   promise.
-- **Atlas** (`/map`): all 1,696 suburbs on MapLibre + OpenFreeMap, shaded by
+- **Atlas** (`/map`): all 1,695 suburbs and localities on MapLibre + OpenFreeMap, shaded by
   remoteness, SEIFA decile, or the 2025 table's remoteness column. Falls back to a
   bundled outline basemap if tiles fail.
 - **Lookup** (`/lookup`): search a real place with Photon (through a cached,
@@ -60,8 +60,8 @@ paired with a person's name.
 - Of the 1,894 names in the 2025 table, 1,694 match an ABS suburb; of those, **99.3%**
   agree on the postcode and **98.2%** on the council once names are crosswalked.
 - With the `config.py` remoteness weights, a 2,000-address sample (seed 2025) gives
-  χ²(4) = 3.75, p = 0.44 against the target; the 2025 uniform generator gives
-  χ²(4) = 396, p < 0.001 against the same target.
+  χ²(4) = 2.86, p = 0.58 against the target; the 2025 uniform generator gives
+  χ²(4) = 497, p < 0.001 against the same target.
 - All boundary geometry is about 0.5 MB gzipped. No API keys anywhere.
 
 ## Tech stack
@@ -157,9 +157,9 @@ This is a personal project, not university coursework. The 2025 code, data and
 README are preserved unchanged in [`original/`](original/) with their git history.
 The website is a rewrite: its generator is a faithful port of that code (verified
 against recorded Python output), and its suburb data is rebuilt from ABS open data.
-`original/data/regional_coastal_addresses_1.9k.csv` stores Mapbox geocoding results,
-which Mapbox's terms do not allow to be redistributed; it is kept only as part of the
-historical record and is never read or served by the site.
+`original/data/regional_coastal_addresses_1.9k.csv` holds stored results from the
+Mapbox Geocoding API; it is kept only as a historical record of the 2025 tool and is
+never read or served by the site.
 
 ## License
 
