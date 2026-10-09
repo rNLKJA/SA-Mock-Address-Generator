@@ -167,7 +167,7 @@ export function SampleSizeCalculator() {
                     Normal
                   </th>
                   <th scope="col" className="py-1.5 text-right font-medium">
-                    Wilson
+                    Exact
                   </th>
                 </tr>
               </thead>
@@ -184,7 +184,9 @@ export function SampleSizeCalculator() {
                       {formatPctFixed(s.share, 0)}
                     </td>
                     <td className="py-1.5 pr-2 text-right">{formatInt(s.normal)}</td>
-                    <td className="py-1.5 text-right">{formatInt(s.wilson)}</td>
+                    <td className="py-1.5 text-right">
+                      {Number.isFinite(s.exact) ? formatInt(s.exact) : "n/a"}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -197,6 +199,18 @@ export function SampleSizeCalculator() {
                 ? " That is more than one run allows (5,000): combine seeds."
                 : ""}{" "}
               A stratified design needs no margin: its shares are exact.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Exact is the smallest n from which the binomial chance that the share lands
+              within ±E is at least the confidence, for that n and every larger one. It
+              runs a little above the normal approximation because the window can only
+              hold whole addresses.
+              {a.exact
+                ? ""
+                : " Beyond 100,000 addresses the exact search stops (n/a) and the total uses the normal approximation."}
+              {jointA
+                ? ` Each area is sized at ${formatPctFixed(a.confidencePerStratum)} so all five hold together.`
+                : ""}
             </p>
           </>
         ) : (

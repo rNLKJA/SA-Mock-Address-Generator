@@ -16,8 +16,10 @@ import {
   percentileRange,
   polygonMetrics,
   quantile,
+  sampleSizeExactShare,
   sampleSizeForShares,
   sampleSizePerStratum,
+  shareWithinMarginProbability,
   sd,
   wilsonHalfWidth,
   zForConfidence,
@@ -106,8 +108,12 @@ describe("sample-size planning", () => {
     const r = sampleSizeForShares(CONFIG, 0.02);
     expect(r.strata[0].share).toBeCloseTo(0.4, 12);
     // p = 0.4 is closest to 1/2, so it needs the most addresses
-    expect(r.total).toBe(r.strata[0].wilson);
+    expect(r.total).toBe(r.strata[0].exact);
+    expect(r.total).toBe(Math.max(...r.strata.map((s) => s.exact)));
+    expect(r.exact).toBe(true);
     expect(r.confidencePerStratum).toBe(0.95);
+    // discreteness pushes the exact answer a little above the normal one
+    expect(r.strata[0].exact).toBeGreaterThanOrEqual(r.strata[0].normal);
     const simultaneous = sampleSizeForShares(CONFIG, 0.02, 0.95, true);
     expect(simultaneous.confidencePerStratum).toBeCloseTo(0.99, 12);
     expect(simultaneous.total).toBeGreaterThan(r.total);
@@ -115,7 +121,26 @@ describe("sample-size planning", () => {
 
   it("ignores strata with zero weight", () => {
     const r = sampleSizeForShares([1, 0, 1], 0.05);
-    expect(r.strata[1]).toEqual({ share: 0, normal: 0, wilson: 0 });
+    expect(r.strata[1]).toEqual({ share: 0, normal: 0, exact: 0 });
+  });
+
+  it("falls back to the normal approximation beyond the exact search", () => {
+    expect(sampleSizeExactShare(0.4, 0.001)).toBeNaN();
+    const r = sampleSizeForShares(CONFIG, 0.001);
+    expect(r.exact).toBe(false);
+    expect(r.total).toBe(r.strata[0].normal);
+    expect(sampleSizeExactShare(0.4, 0)).toBeNaN();
+  });
+
+  it("handles degenerate shares and windows", () => {
+    expect(sampleSizeExactShare(1, 0.02)).toBe(1);
+    expect(shareWithinMarginProbability(0, 0.4, 0.02)).toBe(1);
+    // n = 5 holds no whole count within 2.25 to 2.75
+    expect(shareWithinMarginProbability(5, 0.5, 0.05)).toBe(0);
+    // the window probability is not monotone in n, so the size is "from n on"
+    const n = sampleSizeExactShare(0.4, 0.02);
+    for (let m = n; m < n + 400; m++)
+      expect(shareWithinMarginProbability(m, 0.4, 0.02)).toBeGreaterThanOrEqual(0.95);
   });
 
   it("sizes each stratum for a within-stratum rate", () => {

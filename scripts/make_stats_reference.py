@@ -108,6 +108,33 @@ def wilson_sample_size(p: float, margin: float, confidence: float) -> int:
     return n
 
 
+def share_window(n: np.ndarray, p: float, margin: float) -> np.ndarray:
+    """P(|K/n - p| <= margin) for K ~ Binomial(n, p), from scipy.stats.binom.
+
+    The window is the whole counts k with n(p - E) <= k <= n(p + E); the 1e-7
+    tolerance keeps exact boundaries (2,300 x 0.42 = 966) inside.
+    """
+    lo = np.maximum(0, np.ceil(n * (p - margin) - 1e-7))
+    hi = np.minimum(n, np.floor(n * (p + margin) + 1e-7))
+    prob = stats.binom.cdf(hi, n, p) - stats.binom.cdf(lo - 1, n, p)
+    return np.where(lo > hi, 0.0, prob)
+
+
+def exact_share_sample_size(p: float, margin: float, confidence: float) -> int:
+    """Smallest n from which the window probability stays >= confidence.
+
+    Brute force: evaluate every n up to four times the normal-approximation
+    size (where the window spans more than +-2.7 standard errors), and answer
+    one more than the last n that falls short.
+    """
+    z = stats.norm.ppf(1 - (1 - confidence) / 2)
+    n_max = int(4 * z * z * p * (1 - p) / margin**2) + 200
+    ns = np.arange(1, n_max + 1)
+    short = ns[share_window(ns, p, margin) < confidence]
+    assert len(short) == 0 or short[-1] < n_max / 2, "search range too small"
+    return int(short[-1] + 1) if len(short) else 1
+
+
 def clark_evans(points: np.ndarray, area: float, perimeter: float) -> dict:
     tree = cKDTree(points)
     d, _ = tree.query(points, k=2)
@@ -177,6 +204,7 @@ def main() -> None:
         (0.25, 0.03, 0.99),
         (0.1, 0.02, 0.9),
         (0.5, 0.1, 0.99),
+        (0.2, 0.02, 0.99),
     ]:
         z = float(stats.norm.ppf(1 - (1 - conf) / 2))
         sample_size.append(
@@ -186,8 +214,23 @@ def main() -> None:
                 "confidence": conf,
                 "normal": math.ceil(z * z * p * (1 - p) / margin**2 - 1e-9),
                 "wilson": wilson_sample_size(p, margin, conf),
+                "exact": exact_share_sample_size(p, margin, conf),
             }
         )
+
+    # The binomial probability that a share lands within +-E of its target.
+    share_windows = [
+        {"n": n, "p": p, "margin": margin, "prob": float(share_window(np.array([n]), p, margin)[0])}
+        for n, p, margin in [
+            (2300, 0.42, 0.02),
+            (2320, 0.4, 0.02),
+            (2319, 0.4, 0.02),
+            (1000, 0.05, 0.01),
+            (37, 0.25, 0.1),
+            (5, 0.5, 0.05),
+            (400, 0.01, 0.02),
+        ]
+    ]
 
     # statsmodels' Wilson interval, checked at the planning sizes (k = round(n p)).
     wilson_check = []
@@ -252,6 +295,7 @@ def main() -> None:
                 "chiSquare": chisq,
                 "sampleSize": sample_size,
                 "wilsonAtPlanningSize": wilson_check,
+                "shareWindow": share_windows,
                 "testSizes": sizes,
                 "zeroFailure": zero_failure,
                 "clarkEvans": spatial,

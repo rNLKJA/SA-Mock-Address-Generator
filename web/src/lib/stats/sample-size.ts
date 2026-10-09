@@ -7,12 +7,14 @@
  *  2. How many addresses per stratum to estimate something about the system
  *     under test (say, the share of addresses a parser rejects) within ±E in
  *     every stratum?
- * Both reduce to the precision of a proportion. The normal approximation
- * gives n = z² p(1 - p) / E²; because the lab reports Wilson intervals, the
- * calculator also finds the smallest n whose Wilson half-width is at most E.
+ * The first is a statement about where a share with a KNOWN target lands, so
+ * it is answered with the exact binomial distribution of the realised share.
+ * The second is about estimating an UNKNOWN rate, so it is answered with the
+ * Wilson interval the rest of the lab reports. The normal approximation,
+ * n = z² p(1 - p) / E², is given alongside both for comparison.
  */
 import { wilsonHalfWidth, zeroEventUpperBound } from "./proportions";
-import { zForConfidence } from "./distributions";
+import { logGamma, zForConfidence } from "./distributions";
 
 /** n = ceil(z² p (1 - p) / E²), at least 1. */
 export function sampleSizeNormal(p: number, margin: number, confidence = 0.95): number {
@@ -46,6 +48,83 @@ export function sampleSizeWilson(p: number, margin: number, confidence = 0.95): 
   return hi;
 }
 
+/**
+ * P(|K/n - p| <= margin) for K ~ Binomial(n, p): the probability that the
+ * realised share of a stratum with target share p lands within ±margin of it.
+ * Sums the binomial pmf over the window, starting from the mode and stepping
+ * outwards with the pmf ratio, so a call costs about 2·n·margin steps.
+ */
+export function shareWithinMarginProbability(
+  n: number,
+  p: number,
+  margin: number,
+): number {
+  if (n <= 0 || p <= 0 || p >= 1) return 1;
+  // Tolerance so that an exact boundary such as 2,300 × 0.42 = 966 counts as
+  // inside despite floating point.
+  const lo = Math.max(0, Math.ceil(n * (p - margin) - 1e-7));
+  const hi = Math.min(n, Math.floor(n * (p + margin) + 1e-7));
+  if (lo > hi) return 0;
+  const start = Math.min(hi, Math.max(lo, Math.floor((n + 1) * p)));
+  const logPmf =
+    logGamma(n + 1) -
+    logGamma(start + 1) -
+    logGamma(n - start + 1) +
+    start * Math.log(p) +
+    (n - start) * Math.log1p(-p);
+  const odds = p / (1 - p);
+  const base = Math.exp(logPmf);
+  let sum = base;
+  let t = base;
+  for (let k = start; k < hi; k++) {
+    t *= ((n - k) / (k + 1)) * odds;
+    sum += t;
+  }
+  t = base;
+  for (let k = start; k > lo; k--) {
+    t *= k / (n - k + 1) / odds;
+    sum += t;
+  }
+  return Math.min(1, sum);
+}
+
+/** Kullback-Leibler divergence KL(Bernoulli(a) || Bernoulli(p)). */
+function bernoulliKl(a: number, p: number): number {
+  const term = (x: number, y: number) => (x === 0 ? 0 : x * Math.log(x / y));
+  return term(a, p) + term(1 - a, 1 - p);
+}
+
+/**
+ * Smallest n such that, for that n and every larger n, the realised share of a
+ * stratum with target share p is within ±margin with probability at least
+ * `confidence` (exact binomial). The probability is not monotone in n (the
+ * window holds a whole number of addresses), hence "and every larger n".
+ *
+ * The Chernoff bound P(|K/n - p| > E) <= e^{-n KL(p+E||p)} + e^{-n KL(p-E||p)}
+ * gives an n beyond which the probability is guaranteed; the search walks down
+ * from there to the last n that falls short. Returns NaN if that bound exceeds
+ * `maxN` (very small margins, where the normal approximation is close).
+ */
+export function sampleSizeExactShare(
+  p: number,
+  margin: number,
+  confidence = 0.95,
+  maxN = 100_000,
+): number {
+  if (!(margin > 0)) return Number.NaN;
+  if (p <= 0 || p >= 1) return 1;
+  const kl: number[] = [];
+  if (p + margin <= 1) kl.push(bernoulliKl(p + margin, p));
+  if (p - margin >= 0) kl.push(bernoulliKl(p - margin, p));
+  if (kl.length === 0) return 1;
+  const bound = Math.ceil(Math.log(kl.length / (1 - confidence)) / Math.min(...kl));
+  if (!(bound <= maxN)) return Number.NaN;
+  for (let n = bound; n >= 1; n--) {
+    if (shareWithinMarginProbability(n, p, margin) < confidence) return n + 1;
+  }
+  return 1;
+}
+
 /** Confidence per stratum so that all m intervals hold together (Bonferroni). */
 export function bonferroniConfidence(confidence: number, m: number): number {
   return 1 - (1 - confidence) / Math.max(1, m);
@@ -56,35 +135,48 @@ export interface ShareSampleSize {
   share: number;
   /** Total addresses needed for this stratum's share to be within ±E. */
   normal: number;
-  wilson: number;
+  /** Exact binomial answer (NaN when the margin is too small to search). */
+  exact: number;
 }
 
 /**
  * Question 1: total sample size so each stratum's realised share is within
- * ±margin of its target. The binding stratum is the one with p closest to 1/2;
- * the answer is the largest of the per-stratum sizes.
+ * ±margin of its target, from the exact binomial distribution of each share
+ * (sampleSizeExactShare). The binding stratum is the one with p closest to
+ * 1/2; the answer is the largest of the per-stratum sizes. `exact` is false
+ * when some stratum fell back to the normal approximation.
  */
 export function sampleSizeForShares(
   targets: readonly number[],
   margin: number,
   confidence = 0.95,
   simultaneous = false,
-): { strata: ShareSampleSize[]; total: number; confidencePerStratum: number } {
+): {
+  strata: ShareSampleSize[];
+  total: number;
+  exact: boolean;
+  confidencePerStratum: number;
+} {
   const sum = targets.reduce((a, b) => a + Math.max(0, b), 0);
   const live = targets.filter((t) => t > 0).length;
   const conf = simultaneous ? bonferroniConfidence(confidence, live) : confidence;
   const strata = targets.map((t) => {
     const share = sum > 0 ? Math.max(0, t) / sum : 0;
-    if (share <= 0) return { share, normal: 0, wilson: 0 };
+    if (share <= 0) return { share, normal: 0, exact: 0 };
     return {
       share,
       normal: sampleSizeNormal(share, margin, conf),
-      wilson: sampleSizeWilson(share, margin, conf),
+      exact: sampleSizeExactShare(share, margin, conf),
     };
   });
+  const exact = strata.every((s) => Number.isFinite(s.exact));
   return {
     strata,
-    total: Math.max(0, ...strata.map((s) => s.wilson)),
+    total: Math.max(
+      0,
+      ...strata.map((s) => (Number.isFinite(s.exact) ? s.exact : s.normal)),
+    ),
+    exact,
     confidencePerStratum: conf,
   };
 }

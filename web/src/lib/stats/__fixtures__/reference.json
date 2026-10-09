@@ -183,42 +183,56 @@
       "margin": 0.02,
       "confidence": 0.95,
       "normal": 2305,
-      "wilson": 2302
+      "wilson": 2302,
+      "exact": 2320
     },
     {
       "p": 0.05,
       "margin": 0.01,
       "confidence": 0.95,
       "normal": 1825,
-      "wilson": 1838
+      "wilson": 1838,
+      "exact": 1884
     },
     {
       "p": 0.5,
       "margin": 0.05,
       "confidence": 0.95,
       "normal": 385,
-      "wilson": 381
+      "wilson": 381,
+      "exact": 399
     },
     {
       "p": 0.25,
       "margin": 0.03,
       "confidence": 0.99,
       "normal": 1383,
-      "wilson": 1378
+      "wilson": 1378,
+      "exact": 1397
     },
     {
       "p": 0.1,
       "margin": 0.02,
       "confidence": 0.9,
       "normal": 609,
-      "wilson": 611
+      "wilson": 611,
+      "exact": 617
     },
     {
       "p": 0.5,
       "margin": 0.1,
       "confidence": 0.99,
       "normal": 166,
-      "wilson": 160
+      "wilson": 160,
+      "exact": 169
+    },
+    {
+      "p": 0.2,
+      "margin": 0.02,
+      "confidence": 0.99,
+      "normal": 2654,
+      "wilson": 2652,
+      "exact": 2669
     }
   ],
   "wilsonAtPlanningSize": [
@@ -263,6 +277,57 @@
       "confidence": 0.99,
       "lo": 0.40022905040476164,
       "hi": 0.5997709495952384
+    },
+    {
+      "k": 530,
+      "n": 2652,
+      "confidence": 0.99,
+      "lo": 0.18060743914687624,
+      "hi": 0.22058901620871976
+    }
+  ],
+  "shareWindow": [
+    {
+      "n": 2300,
+      "p": 0.42,
+      "margin": 0.02,
+      "prob": 0.950551907090985
+    },
+    {
+      "n": 2320,
+      "p": 0.4,
+      "margin": 0.02,
+      "prob": 0.9512582973722463
+    },
+    {
+      "n": 2319,
+      "p": 0.4,
+      "margin": 0.02,
+      "prob": 0.9488286728698986
+    },
+    {
+      "n": 1000,
+      "p": 0.05,
+      "margin": 0.01,
+      "prob": 0.8731226023147884
+    },
+    {
+      "n": 37,
+      "p": 0.25,
+      "margin": 0.1,
+      "prob": 0.8179390001369633
+    },
+    {
+      "n": 5,
+      "p": 0.5,
+      "margin": 0.05,
+      "prob": 0.0
+    },
+    {
+      "n": 400,
+      "p": 0.01,
+      "margin": 0.02,
+      "prob": 0.9997511739398746
     }
   ],
   "testSizes": [

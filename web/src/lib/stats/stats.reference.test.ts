@@ -12,8 +12,10 @@ import {
   exactTestSizes,
   normalCdf,
   normalQuantile,
+  sampleSizeExactShare,
   sampleSizeNormal,
   sampleSizeWilson,
+  shareWithinMarginProbability,
   wilson,
   zeroEventUpperBound,
   zeroFailureSampleSize,
@@ -77,8 +79,20 @@ describe("sample sizes match a brute-force search in Python", () => {
     it(`p=${c.p}, ±${c.margin} at ${c.confidence * 100}%`, () => {
       expect(sampleSizeNormal(c.p, c.margin, c.confidence)).toBe(c.normal);
       expect(sampleSizeWilson(c.p, c.margin, c.confidence)).toBe(c.wilson);
+      expect(sampleSizeExactShare(c.p, c.margin, c.confidence)).toBe(c.exact);
     });
   }
+
+  it("the exact size is the first n from which the binomial window stays above the confidence", () => {
+    for (const c of ref.sampleSize) {
+      expect(shareWithinMarginProbability(c.exact, c.p, c.margin)).toBeGreaterThanOrEqual(
+        c.confidence,
+      );
+      expect(shareWithinMarginProbability(c.exact - 1, c.p, c.margin)).toBeLessThan(
+        c.confidence,
+      );
+    }
+  });
 
   it("statsmodels' Wilson interval at the planning size is about ±E wide", () => {
     ref.wilsonAtPlanningSize.forEach((c, i) => {
@@ -89,6 +103,14 @@ describe("sample sizes match a brute-force search in Python", () => {
       expect((hi - lo) / 2).toBeLessThan(ref.sampleSize[i].margin * 1.05);
     });
   });
+});
+
+describe("share window probabilities match scipy.stats.binom", () => {
+  for (const c of ref.shareWindow) {
+    it(`n=${c.n}, p=${c.p}, ±${c.margin}`, () => {
+      expect(shareWithinMarginProbability(c.n, c.p, c.margin)).toBeCloseTo(c.prob, 10);
+    });
+  }
 });
 
 describe("zero-failure sample sizes match scipy.stats.beta (Clopper-Pearson)", () => {

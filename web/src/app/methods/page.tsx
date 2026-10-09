@@ -77,7 +77,7 @@ export default function MethodsPage() {
     ],
     [
       "The statistics are right",
-      "Normal and chi-square functions, Wilson intervals, the exact multinomial test (against brute-force enumeration), the true size of each test, sample sizes, Clopper-Pearson bounds and the Clark-Evans ratio (against a SciPy k-d tree) checked against SciPy and statsmodels",
+      "Normal and chi-square functions, Wilson intervals, the exact multinomial test (against brute-force enumeration), the true size of each test, sample sizes (Wilson and exact binomial, against scipy.stats.binom), Clopper-Pearson bounds and the Clark-Evans ratio (against a SciPy k-d tree) checked against SciPy and statsmodels",
       <code key="b">stats.reference.test.ts</code>,
     ],
     [

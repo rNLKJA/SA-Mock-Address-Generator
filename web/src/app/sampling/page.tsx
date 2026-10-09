@@ -451,10 +451,13 @@ export default function SamplingPage() {
         >
           <div className="prose-notebook max-w-3xl">
             <p>
-              Three planning questions that come up when generating test data. Each
-              reduces to the precision of a proportion; the calculator uses the Wilson
-              interval the rest of the lab reports, with the normal approximation
-              alongside for comparison.
+              Three planning questions that come up when generating test data. Each comes
+              down to the precision of a proportion. Share precision asks where a share
+              with a known target lands, so it uses the exact binomial distribution; the
+              per-area estimate is about a rate nobody knows yet, so it uses the Wilson
+              interval the rest of the lab reports; zero failures uses the exact
+              Clopper-Pearson bound. The normal approximation sits alongside for
+              comparison.
             </p>
           </div>
           <SampleSizeCalculator />
