@@ -2,7 +2,7 @@
  * Photon (https://photon.komoot.io) geocoding: request building and response
  * validation. Photon is free, keyless and backed by OpenStreetMap data.
  */
-import { z } from "zod";
+import { z } from "@/lib/zod";
 import { SA_BBOX, inBBox, type LonLat } from "@/lib/geo";
 
 export const PHOTON_ENDPOINT = "https://photon.komoot.io/api/";

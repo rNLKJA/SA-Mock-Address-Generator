@@ -12,7 +12,7 @@
  * allowed values (remoteness areas, deciles, the 71 council names). No suburb
  * list, no generated addresses, nothing about the visitor.
  */
-import { z } from "zod";
+import { z } from "@/lib/zod";
 import { MAX_COUNT } from "@/lib/generator/generate";
 import type { OutputFormat } from "@/lib/generator/format";
 import {
