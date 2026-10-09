@@ -748,7 +748,12 @@ test.describe("screenshots", () => {
     await lookup.result(page, /^Coober Pedy\s*5723/).click();
     await expectSuburb(page, COOBER_PEDY);
     await page.waitForTimeout(1500);
-    await shot(page, "09-lookup", { target: lookup.card(page), offset: 76 });
+    // the suburb card's bottom just above the fold, the sticky map beside it
+    const cardHeight = (await lookup.card(page).boundingBox())!.height;
+    await shot(page, "09-lookup", {
+      target: lookup.card(page),
+      offset: 876 - cardHeight,
+    });
 
     // 2025 replay
     await page.goto("/replay");

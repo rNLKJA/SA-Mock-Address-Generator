@@ -3,29 +3,29 @@ WEBVTT
 NOTE Generate a test set: captions match the on-screen steps.
 
 1
-00:00:00.200 --> 00:00:05.375
+00:00:00.200 --> 00:00:05.417
 Step 1 of 7. Generator: the 2025 recipe on the ABS 2021 suburb table, running in your browser.
 
 2
-00:00:05.375 --> 00:00:11.378
+00:00:05.417 --> 00:00:11.303
 Step 2 of 7. Ask for 200 addresses with the fixed seed 2025: same seed, same list.
 
 3
-00:00:11.378 --> 00:00:17.661
+00:00:11.303 --> 00:00:17.590
 Step 3 of 7. Weight by remoteness: the config.py weights the 2025 README promised but never applied.
 
 4
-00:00:17.661 --> 00:00:25.128
+00:00:17.590 --> 00:00:25.003
 Step 4 of 7. Generate: 200 addresses in a Web Worker, each one stamped MOCK.
 
 5
-00:00:25.128 --> 00:00:50.148
+00:00:25.003 --> 00:00:51.641
 Step 5 of 7. Map: every point is drawn inside its own suburb's ABS boundary.
 
 6
-00:00:50.148 --> 00:00:55.508
+00:00:51.641 --> 00:00:56.969
 Step 6 of 7. Shade the suburbs by remoteness to see where the sample landed.
 
 7
-00:00:55.508 --> 00:01:07.160
+00:00:56.969 --> 00:01:08.640
 Step 7 of 7. Choose CSV and download it: 200 rows with suburb, postcode, council and coordinates.
