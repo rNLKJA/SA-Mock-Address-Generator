@@ -24,7 +24,7 @@ export const CONFIG_SOCIOECONOMIC_WEIGHTS: Readonly<Record<number, number>> = {
   5: 0.15,
 };
 
-export type WeightMode = "uniform" | "remoteness" | "seifa" | "population";
+export type WeightMode = "uniform" | "remoteness" | "seifa" | "population" | "stratified";
 
 export const WEIGHT_MODES: { value: WeightMode; label: string; hint: string }[] = [
   {
@@ -46,6 +46,11 @@ export const WEIGHT_MODES: { value: WeightMode; label: string; hint: string }[] 
     value: "population",
     label: "Population weighted",
     hint: "Suburbs are chosen in proportion to their 2021 Census usual residents.",
+  },
+  {
+    value: "stratified",
+    label: "Stratified by remoteness (fixed quotas)",
+    hint: "Each remoteness area gets a fixed quota from the weights below (largest remainder), then suburbs are drawn uniformly inside it. The mix is exact, not random.",
   },
 ];
 
@@ -76,6 +81,31 @@ export function configDecileWeights(): number[] {
 }
 
 export const EQUAL_DECILE_WEIGHTS: readonly number[] = Array(10).fill(0.1);
+export const EQUAL_REMOTENESS_WEIGHTS: readonly number[] = Array(5).fill(0.2);
+
+/**
+ * Split `count` into whole-number quotas proportional to `weights` with the
+ * largest-remainder (Hamilton) method: floor every exact share, then hand the
+ * leftover units to the largest fractional parts (ties go to the earlier
+ * stratum). Quotas sum to `count`; a zero weight always gets zero.
+ */
+export function allocateQuotas(count: number, weights: readonly number[]): number[] {
+  const w = weights.map((v) => (Number.isFinite(v) && v > 0 ? v : 0));
+  const total = w.reduce((a, b) => a + b, 0);
+  const n = Math.max(0, Math.floor(count));
+  if (!(total > 0) || n === 0) return w.map(() => 0);
+  const exact = w.map((v) => (n * v) / total);
+  const quotas = exact.map(Math.floor);
+  let left = n - quotas.reduce((a, b) => a + b, 0);
+  const order = exact
+    .map((e, i) => ({ i, frac: e - Math.floor(e) }))
+    .filter(({ i }) => w[i] > 0)
+    .sort((a, b) => b.frac - a.frac || a.i - b.i);
+  for (let k = 0; left > 0 && order.length > 0; k = (k + 1) % order.length, left--) {
+    quotas[order[k].i]++;
+  }
+  return quotas;
+}
 
 export interface Filters {
   /** Upper-case suburb name. */
@@ -174,7 +204,7 @@ export function samplingProbabilities(
   if (mode === "uniform") {
     probs = new Float64Array(rows.length);
     for (const i of eligible) probs[i] = 1 / eligible.length;
-  } else if (mode === "remoteness") {
+  } else if (mode === "remoteness" || mode === "stratified") {
     probs = groupedProbabilities(
       rows,
       eligible,

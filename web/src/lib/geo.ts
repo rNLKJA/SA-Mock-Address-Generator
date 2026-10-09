@@ -182,16 +182,28 @@ export class GeometryIndex {
   /**
    * Seeded rejection sampling inside the suburb boundary. Returns null if no
    * point is accepted within `maxTries` (callers fall back to a label point).
+   *
+   * `round` is applied before the inside test, so a point that is published
+   * rounded (the generator keeps 6 decimal places) is accepted only if the
+   * rounded point is still inside. Without it, a point a few centimetres from
+   * the boundary can round across it into the neighbouring suburb: the
+   * spatial validation on /sampling found one such point in 5,000.
    */
-  samplePoint(code: string, rng: RandomSource, maxTries = 2000): LonLat | null {
+  samplePoint(
+    code: string,
+    rng: RandomSource,
+    maxTries = 2000,
+    round?: (p: LonLat) => LonLat,
+  ): LonLat | null {
     const e = this.byCode.get(code);
     if (!e) return null;
     const [minX, minY, maxX, maxY] = e.bbox;
     for (let t = 0; t < maxTries; t++) {
-      const p: LonLat = [
+      const raw: LonLat = [
         minX + rng.random() * (maxX - minX),
         minY + rng.random() * (maxY - minY),
       ];
+      const p = round ? round(raw) : raw;
       if (pointInGeometry(p, e.geometry)) return p;
     }
     return null;

@@ -4,6 +4,7 @@ import { RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   EQUAL_DECILE_WEIGHTS,
+  EQUAL_REMOTENESS_WEIGHTS,
   configDecileWeights,
   configRemotenessWeights,
   type Weights,
@@ -15,9 +16,11 @@ interface Props {
   kind: "remoteness" | "decile";
   weights: Weights;
   onChange: (weights: Weights) => void;
+  /** Overrides the default legend (the stratified design calls them quota shares). */
+  legend?: string;
 }
 
-export function WeightsEditor({ kind, weights, onChange }: Props) {
+export function WeightsEditor({ kind, weights, onChange, legend }: Props) {
   const values = kind === "remoteness" ? weights.remoteness : weights.decile;
   const labels =
     kind === "remoteness" ? [...RA_SHORT] : values.map((_, i) => `Decile ${i + 1}`);
@@ -33,7 +36,8 @@ export function WeightsEditor({ kind, weights, onChange }: Props) {
   return (
     <fieldset className="space-y-2 rounded-md border border-dashed border-input p-3">
       <legend className="px-1 text-xs font-medium text-muted-foreground">
-        {kind === "remoteness" ? "Remoteness weights" : "IRSAD decile weights"}
+        {legend ??
+          (kind === "remoteness" ? "Remoteness weights" : "IRSAD decile weights")}
       </legend>
       <div
         className={
@@ -79,16 +83,20 @@ export function WeightsEditor({ kind, weights, onChange }: Props) {
         >
           <RotateCcw aria-hidden /> config.py
         </Button>
-        {kind === "decile" && (
-          <Button
-            type="button"
-            variant="outline"
-            size="xs"
-            onClick={() => set([...EQUAL_DECILE_WEIGHTS])}
-          >
-            Equal per decile
-          </Button>
-        )}
+        <Button
+          type="button"
+          variant="outline"
+          size="xs"
+          onClick={() =>
+            set(
+              kind === "decile"
+                ? [...EQUAL_DECILE_WEIGHTS]
+                : [...EQUAL_REMOTENESS_WEIGHTS],
+            )
+          }
+        >
+          {kind === "decile" ? "Equal per decile" : "Equal per area"}
+        </Button>
       </div>
       {kind === "decile" && (
         <p className="text-[0.7rem] leading-snug text-muted-foreground">
