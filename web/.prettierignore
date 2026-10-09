@@ -5,3 +5,4 @@ src/lib/__fixtures__/
 pnpm-lock.yaml
 next-env.d.ts
 AGENTS.md
+src/content/
