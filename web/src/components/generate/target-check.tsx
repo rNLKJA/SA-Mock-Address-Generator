@@ -372,7 +372,12 @@ export function TargetCheck({
         <summary className="cursor-pointer rounded-lg px-3.5 py-2.5 text-sm font-medium select-none hover:bg-muted/60">
           Show as a table
         </summary>
-        <div className="overflow-x-auto px-3.5 pb-3">
+        <div
+          tabIndex={0}
+          role="region"
+          aria-label="Target check table (scrolls sideways on small screens)"
+          className="overflow-x-auto rounded-b-lg px-3.5 pb-3 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+        >
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b text-left text-xs text-muted-foreground">

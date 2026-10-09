@@ -57,6 +57,10 @@ const INITIAL: Omit<GenerateOptions, "weights"> = {
   coordinates: true,
 };
 
+function plural(n: number, one: string, many: string): string {
+  return `${formatInt(n)} ${n === 1 ? one : many}`;
+}
+
 interface Run {
   result: GenerateResult;
   ms: number;
@@ -80,11 +84,12 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
   const [tab, setTab] = useState("addresses");
   const [mapColor, setMapColor] = useState<ColorBy>("none");
 
-  const countNum = Number.parseInt(count, 10);
+  // Strict whole numbers: "2.7" or "1e3" are errors, not 2 or 1.
+  const countNum = /^\d+$/.test(count.trim()) ? Number(count.trim()) : Number.NaN;
   const seedNum = Number.parseInt(seed, 10);
   const countError =
-    !Number.isFinite(countNum) || countNum < 1 || countNum > MAX_COUNT
-      ? `Choose between 1 and ${formatInt(MAX_COUNT)}.`
+    !Number.isInteger(countNum) || countNum < 1 || countNum > MAX_COUNT
+      ? `Choose a whole number from 1 to ${formatInt(MAX_COUNT)}.`
       : null;
   const seedError =
     !Number.isFinite(seedNum) ||
@@ -104,6 +109,9 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
         const { result, ms } = await generate(opts);
         if (requestId !== latestRequest.current) return;
         if (result.error) {
+          // Drop the previous sample so Copy/Download can't export results
+          // that no longer match the form.
+          setRun(null);
           setError(result.error);
         } else {
           setRun({ result, ms, options: opts });
@@ -111,6 +119,7 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
         }
       } catch (e) {
         if (e instanceof CancelledError || requestId !== latestRequest.current) return;
+        setRun(null);
         setError(e instanceof Error ? e.message : "Generation failed.");
       } finally {
         if (requestId === latestRequest.current) setBusy(false);
@@ -249,11 +258,11 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
                 seedError ? "text-destructive" : "text-muted-foreground",
               )}
             >
-              {seedError ?? "Same seed, same output"}
+              {seedError ?? "Same seed and settings, same output"}
             </p>
           </div>
         </div>
-        <div className="flex flex-wrap gap-1.5" aria-label="Quick counts">
+        <div className="flex flex-wrap gap-1.5" role="group" aria-label="Quick counts">
           {[10, 100, 1000, 5000].map((n) => (
             <Button
               key={n}
@@ -303,16 +312,16 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
           )}
         </fieldset>
 
-        <fieldset className="space-y-3">
-          <div className="flex items-center justify-between">
-            <legend className="text-sm font-medium">
+        <div role="group" aria-labelledby={`${formId}-filters`} className="space-y-3">
+          <div className="flex min-h-6 items-center justify-between gap-2">
+            <p id={`${formId}-filters`} className="text-sm font-medium">
               Filters{" "}
               {filterCount > 0 && (
                 <span className="font-mono text-xs text-muted-foreground">
                   ({filterCount})
                 </span>
               )}
-            </legend>
+            </p>
             {filterCount > 0 && (
               <Button
                 type="button"
@@ -320,7 +329,7 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
                 size="xs"
                 onClick={() => setFilters({})}
               >
-                <X aria-hidden /> Clear
+                <X aria-hidden /> Clear filters
               </Button>
             )}
           </div>
@@ -435,7 +444,7 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
               </Select>
             </div>
           </div>
-        </fieldset>
+        </div>
 
         <div className="flex items-start justify-between gap-3 rounded-md bg-muted/60 px-3 py-2.5">
           <Label
@@ -476,9 +485,9 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
             <p className="text-sm text-muted-foreground" aria-live="polite">
               {busy && !run && "Generating the first sample…"}
               {run &&
-                `${formatInt(run.result.addresses.length)} addresses · seed ${run.options.seed} · ${
+                `${plural(run.result.addresses.length, "address", "addresses")} · seed ${run.options.seed} · ${
                   WEIGHT_MODES.find((m) => m.value === run.options.mode)?.label
-                } · ${formatInt(run.result.eligible - run.result.zeroWeight)} suburbs in play · ${run.ms.toFixed(0)} ms in a Web Worker`}
+                } · ${plural(run.result.eligible - run.result.zeroWeight, "suburb", "suburbs")} in play · ${run.ms.toFixed(0)} ms in a Web Worker`}
             </p>
           </div>
           {run && (
