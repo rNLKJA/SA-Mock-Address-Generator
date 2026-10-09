@@ -42,6 +42,38 @@ const MODE_TARGET: Record<WeightMode, string> = {
 /** Seed for Monte Carlo p-values, shown next to the result. */
 const FIT_SEED = 2025;
 
+/**
+ * Below this many addresses no test is run. From 10 up the exact multinomial
+ * test gives a valid p-value; the power note below says how little a small
+ * sample can detect.
+ */
+const MIN_TEST_N = 10;
+/** Below this many addresses a "consistent" verdict comes with a power caveat. */
+const LOW_POWER_N = 100;
+
+function joinNames(names: string[]): string {
+  return names.length <= 1
+    ? (names[0] ?? "")
+    : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+/**
+ * The stratified design rounds quotas to whole addresses, so a small run can
+ * leave a live area with none. Shown on /generate under the settings (before
+ * a run) and under the results heading (after one), so it is visible on every
+ * results tab.
+ */
+export function emptyQuotaText(
+  empty: { areas: number[]; minCount: number },
+  count: number,
+  { planned = false }: { planned?: boolean } = {},
+): string {
+  const one = empty.areas.length === 1;
+  const names = joinNames(empty.areas.map((h) => RA_SHORT[h]));
+  const verb = planned ? "would get" : one ? "gets" : "get";
+  return `${names} ${verb} 0 of ${planned ? "" : "these "}${formatInt(count)} addresses: ${one ? "its quota rounds" : "their quotas round"} to zero. Use ${formatInt(empty.minCount)} or more addresses, or Equal per area, so every area is represented.`;
+}
+
 export function TargetCheck({
   result,
   mode,
@@ -122,10 +154,10 @@ export function TargetCheck({
         text: `Counts are fixed by the stratified design (${result.quotas?.map(formatInt).join(" / ") ?? "quotas"}), so there is no sampling variation to test. Largest gap between the realised share and this target: ${(maxGap * 100).toFixed(2)} percentage points${maxGap > 5e-5 && target === "sampler" ? ", from rounding quotas to whole addresses" : ""}.`,
       };
     }
-    if (n < 30) {
+    if (n < MIN_TEST_N) {
       return {
         tone: "info" as const,
-        text: "Generate at least a few hundred addresses for a meaningful check.",
+        text: `With only ${formatInt(n)} ${n === 1 ? "address" : "addresses"} a test could flag nothing short of an extreme mix, so none is run. Generate at least ${MIN_TEST_N} for the exact test; from a few hundred the check can pick up modest departures.`,
       };
     }
     if (impossible) {
@@ -145,9 +177,19 @@ export function TargetCheck({
         : FIT_METHOD_LABEL[gof.method];
     const stat = `${method[0].toUpperCase()}${method.slice(1)}: ${formatP(gof.pValue)} (χ²(${gof.df}) = ${gof.statistic.toFixed(2)}, n = ${formatInt(gof.n)}, Cohen's w = ${gof.w.toFixed(3)}, ${cohensWLabel(gof.w)}).`;
     if (gof.pValue >= 0.05) {
+      const chance = `gaps this size turn up by chance ${gof.pValue >= 0.5 ? "often" : "regularly"}`;
+      // Not rejecting is weak evidence when the test can only see large gaps,
+      // so a small sample is not called "on target".
+      if (n < LOW_POWER_N) {
+        return {
+          tone: "info" as const,
+          label: "No clear gap. ",
+          text: `${stat} No evidence against the target (${chance}), but with only ${formatInt(n)} addresses the test has little power: it can only detect large departures, so this is weak evidence of a match.`,
+        };
+      }
       return {
         tone: "ok" as const,
-        text: `${stat} Consistent with the target: gaps this size turn up by chance ${gof.pValue >= 0.5 ? "often" : "regularly"}.`,
+        text: `${stat} Consistent with the target: ${chance}.`,
       };
     }
     return {
@@ -375,22 +417,24 @@ export function TargetCheck({
             <span className="font-medium">
               {fixedByDesign
                 ? "Fixed by design. "
-                : verdict.tone === "ok"
-                  ? "On target. "
-                  : verdict.tone === "alert"
-                    ? "Off target. "
-                    : "Not enough to test. "}
+                : "label" in verdict
+                  ? verdict.label
+                  : verdict.tone === "ok"
+                    ? "On target. "
+                    : verdict.tone === "alert"
+                      ? "Off target. "
+                      : "Not enough to test. "}
             </span>
             {verdict.text}
           </p>
-          {!fixedByDesign && gof && n >= 30 && gof.method !== "chi-square" && (
+          {!fixedByDesign && gof && n >= MIN_TEST_N && gof.method !== "chi-square" && (
             <p className="text-xs text-muted-foreground">
               {gof.method === "exact"
                 ? "The sample is small enough to enumerate every possible count vector, so the p-value is exact rather than the chi-square approximation."
                 : `${gof.lowExpected} ${gof.lowExpected === 1 ? "category expects" : "categories expect"} fewer than 5 addresses, so the p-value is simulated from the target instead of read from the chi-square curve.`}
             </p>
           )}
-          {mode === "stratified" && dimension === "decile" && n >= 30 && (
+          {mode === "stratified" && dimension === "decile" && n >= MIN_TEST_N && (
             <p className="text-xs text-muted-foreground">
               Under the stratified design decile counts vary less than in a simple random
               sample, so this test is conservative: p-values run high.
@@ -415,7 +459,9 @@ export function TargetCheck({
                 <th className="py-2 pr-3 font-medium">Category</th>
                 <th className="py-2 pr-3 text-right font-medium">Count</th>
                 <th className="py-2 pr-3 text-right font-medium">Realised</th>
-                <th className="py-2 pr-3 text-right font-medium">95% Wilson CI</th>
+                <th className="py-2 pr-3 text-right font-medium">
+                  {fixedByDesign ? "Interval" : "95% Wilson CI"}
+                </th>
                 <th className="py-2 pr-3 text-right font-medium">Target</th>
                 <th className="py-2 text-right font-medium">Expected</th>
               </tr>
@@ -427,7 +473,15 @@ export function TargetCheck({
                   <td className="py-1.5 pr-3 text-right">{formatInt(r.k)}</td>
                   <td className="py-1.5 pr-3 text-right">{formatPct(r.share)}</td>
                   <td className="py-1.5 pr-3 text-right">
-                    {formatPct(r.lo)} to {formatPct(r.hi)}
+                    {fixedByDesign ? (
+                      <span className="font-sans text-muted-foreground">
+                        none: fixed by design
+                      </span>
+                    ) : (
+                      <>
+                        {formatPct(r.lo)} to {formatPct(r.hi)}
+                      </>
+                    )}
                   </td>
                   <td className="py-1.5 pr-3 text-right">{formatPct(r.target)}</td>
                   <td className="py-1.5 text-right">{(r.target * n).toFixed(1)}</td>

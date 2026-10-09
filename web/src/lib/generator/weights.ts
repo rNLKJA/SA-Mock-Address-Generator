@@ -107,6 +107,26 @@ export function allocateQuotas(count: number, weights: readonly number[]): numbe
   return quotas;
 }
 
+/**
+ * The smallest count N such that every stratum with positive weight gets at
+ * least one address for N and for every larger count. Beyond
+ * ceil(total / smallest weight) each exact share is at least 1, so its floor
+ * is too; below that, largest remainder can still reach every stratum, and the
+ * search walks down from the bound while it does.
+ */
+export function minCountForEveryStratum(weights: readonly number[]): number {
+  const w = weights.map((v) => (Number.isFinite(v) && v > 0 ? v : 0));
+  const live = w.filter((v) => v > 0);
+  if (live.length === 0) return 0;
+  const total = live.reduce((a, b) => a + b, 0);
+  const reachesAll = (n: number) =>
+    allocateQuotas(n, w).every((q, i) => w[i] === 0 || q > 0);
+  let n = Math.ceil(total / Math.min(...live) - 1e-9);
+  while (!reachesAll(n)) n++; // floating-point safety at the bound
+  while (n - 1 >= live.length && reachesAll(n - 1)) n--;
+  return n;
+}
+
 export interface Filters {
   /** Upper-case suburb name. */
   suburb?: string | null;

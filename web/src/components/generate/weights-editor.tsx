@@ -22,8 +22,10 @@ interface Props {
 
 export function WeightsEditor({ kind, weights, onChange, legend }: Props) {
   const values = kind === "remoteness" ? weights.remoteness : weights.decile;
+  // Deciles show "D1" to "D10" so they fit the 22rem sidebar; screen readers
+  // still hear "Decile 1".
   const labels =
-    kind === "remoteness" ? [...RA_SHORT] : values.map((_, i) => `Decile ${i + 1}`);
+    kind === "remoteness" ? [...RA_SHORT] : values.map((_, i) => `D${i + 1}`);
   const total = values.reduce((a, b) => a + Math.max(0, b), 0);
 
   const set = (next: number[]) =>
@@ -49,14 +51,24 @@ export function WeightsEditor({ kind, weights, onChange, legend }: Props) {
           return (
             <div key={id} className="flex items-center gap-2">
               <label htmlFor={id} className="flex-1 truncate text-xs">
-                {labels[i]}
+                {kind === "decile" ? (
+                  <>
+                    <span aria-hidden>{labels[i]}</span>
+                    <span className="sr-only">Decile {i + 1}</span>
+                  </>
+                ) : (
+                  labels[i]
+                )}
               </label>
               <input
                 id={id}
                 type="number"
                 inputMode="decimal"
                 min={0}
-                step={0.01}
+                // Any non-negative weight is valid (config.py has 0.125 and an
+                // AI proposal may have 1/3): a fixed step would make the
+                // browser block the form.
+                step="any"
                 value={Number.isFinite(v) ? v : 0}
                 onChange={(e) => {
                   const next = [...values];

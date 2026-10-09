@@ -35,7 +35,9 @@ import {
 } from "@/lib/generator/generate";
 import {
   WEIGHT_MODES,
+  allocateQuotas,
   defaultWeights,
+  minCountForEveryStratum,
   type Filters,
   type WeightMode,
   type Weights,
@@ -44,7 +46,7 @@ import type { GeneratorSettings } from "@/lib/ai/scenario-config";
 import type { FilterOptions } from "@/lib/server/data";
 import { RA_SHORT, shortRemoteness } from "@/lib/suburbs";
 import { cn, formatInt } from "@/lib/utils";
-import { TargetCheck } from "./target-check";
+import { TargetCheck, emptyQuotaText } from "./target-check";
 import { WeightsEditor } from "./weights-editor";
 
 const ANY = "any";
@@ -188,6 +190,22 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
     (v) => v !== null && v !== undefined && v !== "",
   ).length;
   const modeHint = WEIGHT_MODES.find((m) => m.value === mode)?.hint;
+  // Stratified, before generating: warn when the count is too small for every
+  // area to get a quota. Only without filters, which can remove areas (the
+  // results warn either way).
+  const quotaHint = (() => {
+    if (mode !== "stratified" || countError || filterCount > 0) return null;
+    const live = weights.remoteness.map((w, h) =>
+      filterOptions.raCounts[h] > 0 ? Math.max(0, w) : 0,
+    );
+    const quotas = allocateQuotas(countNum, live);
+    const areas = quotas.flatMap((q, h) => (q === 0 && live[h] > 0 ? [h] : []));
+    return areas.length
+      ? emptyQuotaText({ areas, minCount: minCountForEveryStratum(live) }, countNum, {
+          planned: true,
+        })
+      : null;
+  })();
 
   const fileName = run
     ? `sa-mock-addresses_seed-${run.options.seed}_${run.result.addresses.length}.${EXTENSION[format]}`
@@ -334,6 +352,11 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
             </div>
             {modeHint && (
               <p className="text-xs leading-snug text-muted-foreground">{modeHint}</p>
+            )}
+            {quotaHint && (
+              <p className="text-xs leading-snug font-medium text-amber-800 dark:text-sa-gold">
+                {quotaHint}
+              </p>
             )}
             {(mode === "remoteness" || mode === "stratified") && (
               <WeightsEditor
@@ -532,6 +555,11 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
                     WEIGHT_MODES.find((m) => m.value === run.options.mode)?.label
                   } · ${plural(run.result.eligible - run.result.zeroWeight, "suburb", "suburbs")} in play · ${run.ms.toFixed(0)} ms in a Web Worker`}
               </p>
+              {run?.options.mode === "stratified" && run.result.emptyQuotas && (
+                <p className="text-sm font-medium text-amber-800 dark:text-sa-gold">
+                  {emptyQuotaText(run.result.emptyQuotas, run.result.addresses.length)}
+                </p>
+              )}
             </div>
             {run && (
               <div className="flex flex-wrap items-center gap-2">

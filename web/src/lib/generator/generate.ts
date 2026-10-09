@@ -11,6 +11,7 @@ import type { GeometryIndex, LonLat } from "@/lib/geo";
 import { MOCK_STAMP, RA_NAMES, formatFullAddress, type Suburb } from "@/lib/suburbs";
 import {
   allocateQuotas,
+  minCountForEveryStratum,
   samplingProbabilities,
   type Filters,
   type WeightMode,
@@ -60,6 +61,13 @@ export interface GenerateResult {
    * (RA_NAMES order). Null for the random designs.
    */
   quotas: number[] | null;
+  /**
+   * Stratified design only: areas (RA_NAMES indices) that have eligible
+   * suburbs with positive weight but were allocated no addresses because the
+   * count is too small, and the smallest count from which every such area
+   * always gets one. Null when every live area got at least one.
+   */
+  emptyQuotas: { areas: number[]; minCount: number } | null;
   expected: CategoryShares;
   observed: CategoryShares;
   eligible: number;
@@ -149,6 +157,7 @@ export function generateMockAddresses(
     return {
       addresses: [],
       quotas: null,
+      emptyQuotas: null,
       expected,
       observed,
       eligible,
@@ -228,6 +237,7 @@ export function generateMockAddresses(
   return {
     addresses,
     quotas: plan ? plan.quotas : null,
+    emptyQuotas: plan ? emptyQuotas(plan) : null,
     expected,
     observed,
     eligible,
@@ -240,6 +250,8 @@ export function generateMockAddresses(
 export interface StratifiedPlan {
   /** Addresses per remoteness area (RA_NAMES order), summing to the count. */
   quotas: number[];
+  /** Each area's weight where it has eligible suburbs, zero elsewhere. */
+  live: number[];
   /** Uniform probabilities over each area's eligible suburbs (zero elsewhere). */
   within: Float64Array[];
   samplers: (CumulativeSampler | null)[];
@@ -271,9 +283,15 @@ export function stratifiedPlan(
   });
   return {
     quotas,
+    live,
     within,
     samplers: within.map((p, h) => (members[h].length ? new CumulativeSampler(p) : null)),
   };
+}
+
+function emptyQuotas(plan: StratifiedPlan): GenerateResult["emptyQuotas"] {
+  const areas = plan.quotas.flatMap((q, h) => (q === 0 && plan.live[h] > 0 ? [h] : []));
+  return areas.length ? { areas, minCount: minCountForEveryStratum(plan.live) } : null;
 }
 
 /** The quota schedule [0,0,...,1,1,...] shuffled in place with Python's algorithm. */
