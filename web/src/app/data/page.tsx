@@ -478,8 +478,12 @@ export default function DataPage() {
               </p>
               <p>
                 The Mapbox geocoder itself is replaced by Photon for lookups, and by
-                sampling inside ABS boundaries for mock coordinates. No API keys are used
-                anywhere. <Link href="/lookup">Try the lookup</Link>.
+                sampling inside ABS boundaries for mock coordinates. The site holds no API
+                keys of its own (the optional AI feature uses yours, from your browser).
+                The reasoning is in <Link href="/methods#dr-001">DR-001</Link> and{" "}
+                <Link href="/methods#dr-003">DR-003</Link>, and the table has a{" "}
+                <Link href="/methods#data-card">data card</Link>.{" "}
+                <Link href="/lookup">Try the lookup</Link>.
               </p>
             </div>
           </div>

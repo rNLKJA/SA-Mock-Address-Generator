@@ -2,10 +2,13 @@ import Link from "next/link";
 import {
   ArrowRight,
   BarChart3,
+  BookOpenCheck,
   FileSearch,
   ListOrdered,
   Map as MapIcon,
   Search,
+  Sigma,
+  Sparkles,
   TerminalSquare,
 } from "lucide-react";
 import { AddressTag } from "@/components/common/address-tag";
@@ -30,7 +33,13 @@ const FEATURES = [
     href: "/generate",
     icon: BarChart3,
     title: "Check the sample",
-    body: "Realised shares with 95% Wilson intervals and a chi-square test against the target the weights promise.",
+    body: "Realised shares with 95% Wilson intervals, and an exact or chi-square test with its effect size against the target the design promises.",
+  },
+  {
+    href: "/sampling",
+    icon: Sigma,
+    title: "Sampling design",
+    body: "Uniform, weighted and stratified designs over 200 seeds, exact and chi-square tests, a sample-size calculator, and spatial checks on every coordinate.",
   },
   {
     href: "/map",
@@ -55,6 +64,18 @@ const FEATURES = [
     icon: FileSearch,
     title: "Provenance",
     body: "The 2025 table against an ABS rebuild: what was missing, what agrees, and every source and licence.",
+  },
+  {
+    href: "/methods",
+    icon: BookOpenCheck,
+    title: "Methods and decisions",
+    body: "How every claim is checked, the assumptions and limits, five decision records and a data card for the reference table.",
+  },
+  {
+    href: "/generate",
+    icon: Sparkles,
+    title: "Describe a scenario (optional AI)",
+    body: "Bring your own key: a model proposes generator settings, you review each change, and every call goes to an audit log you can export.",
   },
 ];
 
@@ -81,7 +102,21 @@ const STACK = [
     "Photon via a cached route, local point-in-polygon",
   ],
   ["Maps", "None", "MapLibre GL + OpenFreeMap, bundled outline fallback"],
-  ["Tests", "None", "Vitest parity tests against recorded Python output"],
+  [
+    "Statistics",
+    "None (the promised weights were never applied)",
+    "Wilson intervals, exact and chi-square tests, Cohen's w, replicate studies over fixed seeds",
+  ],
+  [
+    "AI",
+    "None",
+    "Optional, your own key: proposes settings for review, every call audit-logged",
+  ],
+  [
+    "Tests",
+    "None",
+    "Vitest parity tests against recorded Python output, SciPy reference values",
+  ],
 ];
 
 export default function Home() {
@@ -135,8 +170,9 @@ export default function Home() {
             </p>
             <p>
               It began in August 2025 as a small Python CLI. The revival keeps that
-              generator, fixes its data from ABS open sources, and runs entirely in the
-              browser with no API keys.
+              generator, fixes its data from ABS open sources, checks every sampling
+              design over hundreds of seeds, and runs entirely in the browser with no API
+              keys of its own.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -273,9 +309,10 @@ export default function Home() {
               `${parity.cli.length + parity.generate.length}/${parity.cli.length + parity.generate.length}`,
               "recorded Python runs reproduced exactly by the TypeScript port, checked on every CI run",
             ],
+            // Checked by src/lib/sampling/claims.test.ts.
             [
-              "0 keys",
-              "every service is free and keyless: ABS downloads, OpenFreeMap tiles, Photon geocoding",
+              "6 / 200",
+              "seeds in which the weighted design's test rejects its target at 5% (95% CI 1.4% to 6.4%): calibrated, not lucky",
             ],
           ].map(([k, v]) => (
             <div key={v} className="bg-card p-5">

@@ -18,14 +18,14 @@ export function SiteNav() {
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   return (
     <>
-      <nav aria-label="Main" className="hidden items-center gap-0.5 md:flex">
+      <nav aria-label="Main" className="hidden items-center gap-0.5 lg:flex">
         {nav.map((item) => (
           <Link
             key={item.href}
             href={item.href}
             aria-current={isActive(item.href) ? "page" : undefined}
             className={cn(
-              "relative rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground",
+              "relative rounded-md px-3 py-2 text-sm whitespace-nowrap text-muted-foreground transition-colors hover:text-foreground",
               "aria-[current=page]:text-foreground aria-[current=page]:after:absolute aria-[current=page]:after:inset-x-3 aria-[current=page]:after:-bottom-px aria-[current=page]:after:h-0.5 aria-[current=page]:after:bg-sa-red",
             )}
           >
@@ -33,7 +33,7 @@ export function SiteNav() {
           </Link>
         ))}
       </nav>
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" size="icon-lg" aria-label="Open navigation menu">
