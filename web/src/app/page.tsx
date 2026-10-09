@@ -36,7 +36,7 @@ const FEATURES = [
     href: "/map",
     icon: MapIcon,
     title: "Map",
-    body: "All 1,696 suburbs on a free OpenFreeMap basemap, shaded by remoteness, SEIFA, or the 2025 table.",
+    body: "All 1,695 suburbs and localities on a free OpenFreeMap basemap, shaded by remoteness, SEIFA, or the 2025 table.",
   },
   {
     href: "/lookup",
@@ -87,6 +87,7 @@ const STACK = [
 export default function Home() {
   const suburbs = getSuburbs();
   const p = getProvenance();
+  const addressable = suburbs.rows.filter((r) => r.addressable).length;
   const samples = generateMockAddresses(suburbs.rows, null, {
     count: 4,
     seed: 2025,
@@ -118,7 +119,7 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="mx-auto grid max-w-7xl items-center gap-10 px-4 pt-12 pb-16 sm:px-6 md:pt-20 lg:grid-cols-[1.15fr_1fr]">
+      <section className="mx-auto grid max-w-7xl items-center gap-10 overflow-x-clip px-4 pt-12 pb-16 sm:px-6 md:pt-20 lg:grid-cols-[1.15fr_1fr]">
         <div className="space-y-6">
           <p className="eyebrow">Personal project · 2025, revived 2026</p>
           <h1 className="text-4xl leading-[1.08] font-semibold sm:text-5xl lg:text-[3.4rem]">
@@ -177,7 +178,8 @@ export default function Home() {
           </div>
           <figcaption className="mt-4 text-xs text-muted-foreground">
             Generated on the server from the same seeded code the generator page runs in
-            your browser. These are not real addresses.
+            your browser: choose population weighting with seed 2025 there and the first
+            four match. These are not real addresses.
           </figcaption>
         </figure>
       </section>
@@ -260,7 +262,7 @@ export default function Home() {
         <dl className="grid gap-px overflow-hidden rounded-xl border bg-border sm:grid-cols-2 lg:grid-cols-4">
           {[
             [
-              formatInt(p.rebuilt.rows),
+              formatInt(addressable),
               "South Australian suburbs and localities, each with a postcode, council, remoteness area and boundary",
             ],
             [
@@ -319,37 +321,64 @@ export default function Home() {
               </a>
             </Button>
           </div>
-          <div className="overflow-x-auto rounded-xl border bg-card">
-            <table className="w-full min-w-[34rem] text-sm">
-              <caption className="sr-only">
-                Original stack compared with the revived stack
-              </caption>
-              <thead>
-                <tr className="border-b text-left text-xs text-muted-foreground">
-                  <th scope="col" className="px-4 py-3 font-medium" />
-                  <th scope="col" className="px-4 py-3 font-medium">
-                    2025 original
-                  </th>
-                  <th scope="col" className="px-4 py-3 font-medium">
-                    2026 revival
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {STACK.map(([k, a, b]) => (
-                  <tr key={k} className="border-b align-top last:border-0">
-                    <th
-                      scope="row"
-                      className="px-4 py-2.5 text-left text-xs font-medium text-muted-foreground"
-                    >
-                      {k}
+          <div className="min-w-0">
+            {/* Phones: one card per aspect, so the 2026 column is never off-screen. */}
+            <dl
+              aria-label="Original stack compared with the revived stack"
+              className="divide-y rounded-xl border bg-card sm:hidden"
+            >
+              {STACK.map(([k, a, b]) => (
+                <div key={k} className="space-y-1 px-4 py-3">
+                  <dt className="text-xs font-medium text-muted-foreground">{k}</dt>
+                  <dd className="flex gap-3 text-sm text-ink-soft">
+                    <span className="w-9 shrink-0 pt-px font-mono text-[0.7rem] text-muted-foreground">
+                      2025
+                    </span>
+                    <span>{a}</span>
+                  </dd>
+                  <dd className="flex gap-3 text-sm">
+                    <span className="w-9 shrink-0 pt-px font-mono text-[0.7rem] text-sa-red">
+                      2026
+                    </span>
+                    <span>{b}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <div className="hidden overflow-x-auto rounded-xl border bg-card sm:block">
+              <table className="w-full min-w-[34rem] text-sm">
+                <caption className="sr-only">
+                  Original stack compared with the revived stack
+                </caption>
+                <thead>
+                  <tr className="border-b text-left text-xs text-muted-foreground">
+                    <th scope="col" className="px-4 py-3 font-medium">
+                      <span className="sr-only">Aspect</span>
                     </th>
-                    <td className="px-4 py-2.5 text-ink-soft">{a}</td>
-                    <td className="px-4 py-2.5">{b}</td>
+                    <th scope="col" className="px-4 py-3 font-medium">
+                      2025 original
+                    </th>
+                    <th scope="col" className="px-4 py-3 font-medium">
+                      2026 revival
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {STACK.map(([k, a, b]) => (
+                    <tr key={k} className="border-b align-top last:border-0">
+                      <th
+                        scope="row"
+                        className="px-4 py-2.5 text-left text-xs font-medium text-muted-foreground"
+                      >
+                        {k}
+                      </th>
+                      <td className="px-4 py-2.5 text-ink-soft">{a}</td>
+                      <td className="px-4 py-2.5">{b}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>

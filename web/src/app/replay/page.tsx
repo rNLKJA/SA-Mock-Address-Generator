@@ -26,7 +26,7 @@ export default function ReplayPage() {
         </p>
       </PageHeader>
       <div className="mx-auto mb-6 max-w-7xl px-4 sm:px-6">
-        <p className="inline-flex items-center gap-2 rounded-full border bg-card px-3 py-1.5 text-xs text-muted-foreground">
+        <p className="inline-flex items-center gap-2 rounded-lg border bg-card px-3 py-1.5 text-xs text-muted-foreground sm:rounded-full">
           <CheckCircle2
             className="size-3.5 text-emerald-700 dark:text-emerald-400"
             aria-hidden

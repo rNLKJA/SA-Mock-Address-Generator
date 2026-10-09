@@ -46,6 +46,7 @@ export function SiteNav() {
                 <Link
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
+                  className="relative py-2.5 pl-3 aria-[current=page]:font-medium aria-[current=page]:text-foreground aria-[current=page]:before:absolute aria-[current=page]:before:inset-y-2 aria-[current=page]:before:left-0 aria-[current=page]:before:w-0.5 aria-[current=page]:before:rounded-full aria-[current=page]:before:bg-sa-red"
                 >
                   {item.label}
                 </Link>

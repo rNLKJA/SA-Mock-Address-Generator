@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, FileWarning } from "lucide-react";
+import { ArrowRight, Download, ExternalLink, FileWarning } from "lucide-react";
 import { PageHeader } from "@/components/common/page-header";
 import { getProvenance } from "@/lib/server/data";
 import { RA_NAMES, RA_SHORT } from "@/lib/suburbs";
@@ -12,6 +12,16 @@ export const metadata: Metadata = {
   description:
     "How the 2025 suburb table compares with a rebuild from ABS open data: all-zero socio-economic status, 997 'Not Applicable' remoteness rows, postcodes missing a leading zero, and the sources and licences used now.",
 };
+
+const SOURCE_LINK =
+  "text-sm text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary";
+
+/** Short file-type label, e.g. "XLSX" or "Shapefile ZIP". */
+function fileKind(file: string): string {
+  if (file.endsWith(".zip")) return "Shapefile ZIP";
+  const ext = file.split(".").pop();
+  return ext ? ext.toUpperCase() : "File";
+}
 
 function Section({
   id,
@@ -154,7 +164,12 @@ export default function DataPage() {
             suburb&apos;s residents. The bottom row is where the {formatInt(naTotal)}{" "}
             matched &ldquo;Not Applicable&rdquo; rows actually sit.
           </p>
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div
+            tabIndex={0}
+            role="region"
+            aria-label="Remoteness cross-tabulation (scrolls sideways)"
+            className="overflow-x-auto rounded-xl border bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          >
             <table className="w-full min-w-[40rem] text-sm">
               <caption className="sr-only">
                 Cross-tabulation of 2025 remoteness labels against ABS 2021 remoteness
@@ -252,7 +267,12 @@ export default function DataPage() {
         </Section>
 
         <Section id="examples" title="A few suburbs side by side">
-          <div className="overflow-x-auto rounded-xl border bg-card">
+          <div
+            tabIndex={0}
+            role="region"
+            aria-label="Example suburbs compared (scrolls sideways)"
+            className="overflow-x-auto rounded-xl border bg-card focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          >
             <table className="w-full min-w-[46rem] text-sm">
               <thead>
                 <tr className="border-b text-left text-xs text-muted-foreground">
@@ -319,7 +339,12 @@ export default function DataPage() {
             <summary className="cursor-pointer rounded-xl px-4 py-3 text-sm font-medium select-none hover:bg-muted/60">
               Show all {p.councilCrosswalk.length} councils
             </summary>
-            <div className="overflow-x-auto px-4 pb-4">
+            <div
+              tabIndex={0}
+              role="region"
+              aria-label="Council crosswalk (scrolls sideways)"
+              className="overflow-x-auto rounded-b-xl px-4 pb-4 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+            >
               <table className="w-full min-w-[34rem] text-sm">
                 <thead>
                   <tr className="border-b text-left text-xs text-muted-foreground">
@@ -400,10 +425,13 @@ export default function DataPage() {
                 key={s.file}
                 className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-baseline sm:justify-between"
               >
-                <a href={s.url} className="text-sm underline-offset-2 hover:underline">
+                <a href={s.url} className={SOURCE_LINK}>
                   {s.title}
+                  <Download className="ml-1 inline size-3.5 align-[-2px]" aria-hidden />
+                  <span className="sr-only"> (direct download)</span>
                 </a>
                 <span className="shrink-0 font-mono text-xs text-muted-foreground">
+                  {fileKind(s.file)} ·{" "}
                   {s.publisher === "Australian Bureau of Statistics"
                     ? "ABS"
                     : s.publisher}{" "}
@@ -412,22 +440,18 @@ export default function DataPage() {
               </li>
             ))}
             <li className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-baseline sm:justify-between">
-              <a
-                href="https://openfreemap.org"
-                className="text-sm underline-offset-2 hover:underline"
-              >
+              <a href="https://openfreemap.org" className={SOURCE_LINK}>
                 Basemap tiles: OpenFreeMap (OpenMapTiles schema)
+                <ExternalLink className="ml-1 inline size-3.5 align-[-2px]" aria-hidden />
               </a>
               <span className="shrink-0 font-mono text-xs text-muted-foreground">
                 © OpenStreetMap contributors · ODbL
               </span>
             </li>
             <li className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-baseline sm:justify-between">
-              <a
-                href="https://photon.komoot.io"
-                className="text-sm underline-offset-2 hover:underline"
-              >
+              <a href="https://photon.komoot.io" className={SOURCE_LINK}>
                 Geocoding: Photon by komoot
+                <ExternalLink className="ml-1 inline size-3.5 align-[-2px]" aria-hidden />
               </a>
               <span className="shrink-0 font-mono text-xs text-muted-foreground">
                 © OpenStreetMap contributors · ODbL
@@ -442,16 +466,15 @@ export default function DataPage() {
         <Section id="not-used" title="What the site deliberately does not use">
           <div className="flex gap-3 rounded-xl border border-sa-gold/40 bg-sa-gold/[0.06] p-4">
             <FileWarning className="mt-0.5 size-5 shrink-0 text-sa-gold" aria-hidden />
-            <div className="prose-notebook max-w-3xl text-sm">
+            <div className="prose-notebook max-w-3xl min-w-0 text-sm">
               <p>
                 The repository also holds{" "}
                 <code>original/data/regional_coastal_addresses_1.9k.csv</code>: 1,000 rows
                 (not 1.9k), mostly Major Cities rather than regional or coastal, and in
                 about half of them the geocoded address sits in a different suburb from
-                the one claimed. More importantly, it stores Mapbox geocoding results,
-                which Mapbox&apos;s terms do not allow to be kept or redistributed. It
-                stays in <code>original/</code> as part of the historical record; the
-                website never reads or serves it.
+                the one claimed. It holds stored results from the Mapbox Geocoding API, so
+                it stays in <code>original/</code> only as a historical record of the 2025
+                tool; the website never reads or serves it.
               </p>
               <p>
                 The Mapbox geocoder itself is replaced by Photon for lookups, and by

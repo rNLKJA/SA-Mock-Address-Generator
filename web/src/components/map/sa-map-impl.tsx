@@ -146,7 +146,14 @@ function fallbackStyle(theme: ThemeName): StyleSpecification {
   };
 }
 
-/** Nudge the OpenFreeMap land and water colours toward the notebook palette. */
+/** Suburb fill opacity: lower on the night map so place labels stay legible. */
+const FILL_OPACITY: Record<ThemeName, number> = { light: 0.62, dark: 0.48 };
+
+/**
+ * Nudge the OpenFreeMap land and water colours toward the notebook palette.
+ * On the night map the style's grey labels disappear over the ochre suburb
+ * fill, so labels get a light ink with a dark halo.
+ */
 function tintBasemap(map: MapLibreMap, theme: ThemeName) {
   const c = FALLBACK_BASEMAP[theme];
   for (const layer of map.getStyle().layers ?? []) {
@@ -155,10 +162,27 @@ function tintBasemap(map: MapLibreMap, theme: ThemeName) {
         map.setPaintProperty(layer.id, "background-color", c.landSa);
       else if (layer.type === "fill" && /^water/.test(layer.id))
         map.setPaintProperty(layer.id, "fill-color", c.water);
+      else if (
+        theme === "dark" &&
+        layer.type === "symbol" &&
+        layer.layout?.["text-field"]
+      ) {
+        map.setPaintProperty(layer.id, "text-color", "#efe8d8");
+        map.setPaintProperty(layer.id, "text-halo-color", "rgba(13,21,32,0.9)");
+        map.setPaintProperty(layer.id, "text-halo-width", 1.5);
+      }
     } catch {
       // Unknown layer shapes are left as they are.
     }
   }
+}
+
+/** Phones: start with the attribution collapsed to its (i) button. */
+function collapseAttributionOnSmallScreens(el: HTMLElement) {
+  if (el.offsetWidth >= 640) return;
+  el.querySelector(".maplibregl-ctrl-attrib.maplibregl-compact")?.classList.remove(
+    "maplibregl-compact-show",
+  );
 }
 
 function pointsCollection(points: MapPoint[] | undefined) {
@@ -269,7 +293,7 @@ export default function SaMapImpl({
           source: "sal",
           paint: {
             "fill-color": fillColor(cb, th),
-            "fill-opacity": cb === "none" ? 0 : 0.62,
+            "fill-opacity": cb === "none" ? 0 : FILL_OPACITY[th],
           },
         },
         firstSymbol,
@@ -339,6 +363,7 @@ export default function SaMapImpl({
     map.on("load", () => {
       loaded = true;
       window.clearTimeout(timer);
+      collapseAttributionOnSmallScreens(map.getContainer());
       if (!fallbackRef.current) setStatus("ready");
     });
     map.on("error", (event) => {
@@ -417,7 +442,11 @@ export default function SaMapImpl({
     const map = mapRef.current;
     if (!map?.getLayer("sal-fill")) return;
     map.setPaintProperty("sal-fill", "fill-color", fillColor(colorBy, theme));
-    map.setPaintProperty("sal-fill", "fill-opacity", colorBy === "none" ? 0 : 0.62);
+    map.setPaintProperty(
+      "sal-fill",
+      "fill-opacity",
+      colorBy === "none" ? 0 : FILL_OPACITY[theme],
+    );
   }, [colorBy, theme, status]);
 
   useEffect(() => {
