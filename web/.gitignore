@@ -40,3 +40,12 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 /public/vendor/
+
+# local test-runner reports
+/.vitest/
+
+# showcase tour (pnpm showcase): raw recordings, Playwright output, local ffmpeg link
+/.showcase
+/.playwright
+/test-results
+/playwright-report

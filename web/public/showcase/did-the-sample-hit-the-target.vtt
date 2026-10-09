@@ -1,0 +1,35 @@
+WEBVTT
+
+NOTE Did the sample hit the target?: captions match the on-screen steps.
+
+1
+00:00:00.200 --> 00:00:10.494
+Step 1 of 8. The same test set: 200 addresses, remoteness weights, seed 2025.
+
+2
+00:00:10.494 --> 00:00:17.510
+Step 2 of 8. Target check: each area's realised share with a 95% Wilson interval; the dark tick is the target.
+
+3
+00:00:17.510 --> 00:00:23.303
+Step 3 of 8. Major Cities: 84 of 200 (42%, 95% CI 35.4% to 48.9%) against a 40% target.
+
+4
+00:00:23.303 --> 00:00:27.257
+Step 4 of 8. Pearson chi-square: χ²(4) = 2.77, p = 0.60, Cohen's w = 0.118 (small): on target.
+
+5
+00:00:27.257 --> 00:00:35.345
+Step 5 of 8. Now the 2025 behaviour: uniform weighting, the same seed and the same 200.
+
+6
+00:00:35.345 --> 00:00:44.760
+Step 6 of 8. Against the README's promised weights: χ²(4) = 74.68, p < 0.001, w = 0.611 (large): off target.
+
+7
+00:00:44.760 --> 00:00:53.090
+Step 7 of 8. Show as a table: counts, Wilson intervals, targets and expected counts.
+
+8
+00:00:53.090 --> 00:01:03.880
+Step 8 of 8. Over 200 seeds the test rejects the weighted design in 6 (3.0%, 95% CI 1.4% to 6.4%), near its 5% level.

@@ -64,6 +64,30 @@ export function SiteFooter() {
             <li>
               <Link
                 className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+                href="/methods"
+              >
+                Methods and decision records
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+                href="/ai-log"
+              >
+                AI audit log
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+                href="/tour"
+              >
+                Guided tour
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
                 href="/#about"
               >
                 About this project

@@ -9,9 +9,9 @@ import {
   configRemotenessWeights,
   type WeightMode,
 } from "@/lib/generator/weights";
-import { chiSquareGoodnessOfFit, wilson } from "@/lib/stats";
+import { FIT_METHOD_LABEL, cohensWLabel, goodnessOfFit, wilson } from "@/lib/stats";
 import { RA_SHORT } from "@/lib/suburbs";
-import { cn, formatInt, formatPct } from "@/lib/utils";
+import { cn, formatInt, formatP, formatPct } from "@/lib/utils";
 
 type Dimension = "remoteness" | "decile";
 type Target = "sampler" | "config";
@@ -30,18 +30,49 @@ const DECILE_LABELS = [
   "No SEIFA",
 ];
 
-/** "p < 0.001" or "p = 0.44". */
-function formatP(p: number): string {
-  if (p < 0.001) return "p < 0.001";
-  return `p = ${p.toPrecision(2)}`;
-}
-
 const MODE_TARGET: Record<WeightMode, string> = {
   uniform: "each category's share of eligible suburbs (uniform sampling)",
   remoteness: "the config.py remoteness weights, renormalised over the filtered areas",
   seifa: "the config.py socio-economic weights spread over IRSAD deciles",
   population: "each category's share of 2021 usual residents",
+  stratified:
+    "the fixed quotas of the stratified design (remoteness) and what they imply for deciles",
 };
+
+/** Seed for Monte Carlo p-values, shown next to the result. */
+const FIT_SEED = 2025;
+
+/**
+ * Below this many addresses no test is run. From 10 up the exact multinomial
+ * test gives a valid p-value; the power note below says how little a small
+ * sample can detect.
+ */
+const MIN_TEST_N = 10;
+/** Below this many addresses a "consistent" verdict comes with a power caveat. */
+const LOW_POWER_N = 100;
+
+function joinNames(names: string[]): string {
+  return names.length <= 1
+    ? (names[0] ?? "")
+    : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+/**
+ * The stratified design rounds quotas to whole addresses, so a small run can
+ * leave a live area with none. Shown on /generate under the settings (before
+ * a run) and under the results heading (after one), so it is visible on every
+ * results tab.
+ */
+export function emptyQuotaText(
+  empty: { areas: number[]; minCount: number; equalHelps: boolean },
+  count: number,
+  { planned = false }: { planned?: boolean } = {},
+): string {
+  const one = empty.areas.length === 1;
+  const names = joinNames(empty.areas.map((h) => RA_SHORT[h]));
+  const verb = planned ? "would get" : one ? "gets" : "get";
+  return `${names} ${verb} 0 of ${planned ? "" : "these "}${formatInt(count)} addresses: ${one ? "its quota rounds" : "their quotas round"} to zero. Use ${formatInt(empty.minCount)} or more addresses${empty.equalHelps ? ", or Equal per area," : ""} so every area is represented.`;
+}
 
 export function TargetCheck({
   result,
@@ -88,16 +119,26 @@ export function TargetCheck({
 
   const gof = useMemo(
     () =>
-      chiSquareGoodnessOfFit(
+      goodnessOfFit(
         rows.map((r) => r.k),
         rows.map((r) => r.target),
+        { seed: FIT_SEED },
       ),
     [rows],
   );
   const impossible = rows.some((r) => r.k > 0 && r.target === 0);
+  // A stratified sample's remoteness counts are fixed by its quotas: there is
+  // no sampling variation, so a test would be meaningless.
+  const fixedByDesign = mode === "stratified" && dimension === "remoteness";
+  const maxGap = Math.max(0, ...rows.map((r) => Math.abs(r.share - r.target)));
   const maxValue = Math.min(
     1,
-    Math.ceil(Math.max(...rows.map((r) => Math.max(r.hi, r.target)), 0.1) * 10) / 10,
+    Math.ceil(
+      Math.max(
+        ...rows.map((r) => Math.max(fixedByDesign ? r.share : r.hi, r.target)),
+        0.1,
+      ) * 10,
+    ) / 10,
   );
   const ticks = Array.from(
     { length: Math.round(maxValue * 10) + 1 },
@@ -107,10 +148,16 @@ export function TargetCheck({
   const activeRow = active !== null ? rows[active] : null;
 
   const verdict = (() => {
-    if (n < 30) {
+    if (fixedByDesign) {
+      return {
+        tone: maxGap < 0.0005 ? ("ok" as const) : ("info" as const),
+        text: `Counts are fixed by the stratified design (${result.quotas?.map(formatInt).join(" / ") ?? "quotas"}), so there is no sampling variation to test. Largest gap between the realised share and this target: ${(maxGap * 100).toFixed(2)} percentage points${maxGap > 5e-5 && target === "sampler" ? ", from rounding quotas to whole addresses" : ""}.`,
+      };
+    }
+    if (n < MIN_TEST_N) {
       return {
         tone: "info" as const,
-        text: "Generate at least a few hundred addresses for a meaningful check.",
+        text: `With only ${formatInt(n)} ${n === 1 ? "address" : "addresses"} a test could flag nothing short of an extreme mix, so none is run. Generate at least ${MIN_TEST_N} for the exact test; from a few hundred the check can pick up modest departures.`,
       };
     }
     if (impossible) {
@@ -124,11 +171,25 @@ export function TargetCheck({
         tone: "info" as const,
         text: "Only one category is in play, so there is nothing to test.",
       };
-    const stat = `χ²(${gof.df}) = ${gof.statistic.toFixed(2)}, ${formatP(gof.pValue)}.`;
+    const method =
+      gof.method === "monte-carlo"
+        ? `${FIT_METHOD_LABEL[gof.method]} (${formatInt(gof.replicates ?? 0)} draws, seed ${gof.seed})`
+        : FIT_METHOD_LABEL[gof.method];
+    const stat = `${method[0].toUpperCase()}${method.slice(1)}: ${formatP(gof.pValue)} (χ²(${gof.df}) = ${gof.statistic.toFixed(2)}, n = ${formatInt(gof.n)}, Cohen's w = ${gof.w.toFixed(3)}, ${cohensWLabel(gof.w)}).`;
     if (gof.pValue >= 0.05) {
+      const chance = `gaps this size turn up by chance ${gof.pValue >= 0.5 ? "often" : "regularly"}`;
+      // Not rejecting is weak evidence when the test can only see large gaps,
+      // so a small sample is not called "on target".
+      if (n < LOW_POWER_N) {
+        return {
+          tone: "info" as const,
+          label: "No clear gap. ",
+          text: `${stat} No evidence against the target (${chance}), but with only ${formatInt(n)} addresses the test has little power: it can only detect large departures, so this is weak evidence of a match.`,
+        };
+      }
       return {
         tone: "ok" as const,
-        text: `${stat} Consistent with the target: gaps this size turn up by chance ${gof.pValue >= 0.5 ? "often" : "regularly"}.`,
+        text: `${stat} Consistent with the target: ${chance}.`,
       };
     }
     return {
@@ -181,8 +242,9 @@ export function TargetCheck({
             that the 2025 README said generation followed (they were never applied).
           </>
         )}{" "}
-        Bars show the realised share with a 95% Wilson interval; the dark tick is the
-        target.
+        {fixedByDesign
+          ? "Bars show the realised share, fixed by the quotas (so there is no interval); the dark tick is the target."
+          : "Bars show the realised share with a 95% Wilson interval; the dark tick is the target."}
       </p>
 
       <figure
@@ -197,7 +259,7 @@ export function TargetCheck({
             />{" "}
             Realised share
           </span>
-          <span className="flex items-center gap-1.5">
+          <span className={cn("flex items-center gap-1.5", fixedByDesign && "hidden")}>
             <svg aria-hidden width="20" height="10">
               <line
                 x1="2"
@@ -240,7 +302,7 @@ export function TargetCheck({
               key={r.label}
               role="group"
               tabIndex={0}
-              aria-label={`${r.label}: ${formatPct(r.share)} realised (${formatInt(r.k)} of ${formatInt(n)}), 95% interval ${formatPct(r.lo)} to ${formatPct(r.hi)}, target ${formatPct(r.target)}`}
+              aria-label={`${r.label}: ${formatPct(r.share)} realised (${formatInt(r.k)} of ${formatInt(n)})${fixedByDesign ? ", fixed by the quotas" : `, 95% interval ${formatPct(r.lo)} to ${formatPct(r.hi)}`}, target ${formatPct(r.target)}`}
               onMouseEnter={() => setActive(i)}
               onMouseLeave={() => setActive(null)}
               onFocus={() => setActive(i)}
@@ -267,7 +329,10 @@ export function TargetCheck({
                 />
                 <svg
                   aria-hidden
-                  className="absolute inset-0 h-full w-full overflow-visible"
+                  className={cn(
+                    "absolute inset-0 h-full w-full overflow-visible",
+                    fixedByDesign && "hidden",
+                  )}
                 >
                   <line
                     x1={pct(r.lo)}
@@ -308,10 +373,15 @@ export function TargetCheck({
           ))}
           <span />
           <div className="relative h-4" aria-hidden>
-            {ticks.map((t) => (
+            {ticks.map((t, i) => (
               <span
                 key={t}
-                className="absolute -translate-x-1/2 font-mono text-[0.65rem] text-muted-foreground"
+                // On a phone the track is too narrow for every label: keep every
+                // grid line but label every other tick below the sm breakpoint.
+                className={cn(
+                  "absolute -translate-x-1/2 font-mono text-[0.65rem] text-muted-foreground",
+                  ticks.length > 3 && i % 2 === 1 && "hidden sm:block",
+                )}
                 style={{ left: pct(t) }}
               >
                 {Math.round(t * 100)}%
@@ -324,7 +394,7 @@ export function TargetCheck({
         </div>
         <p className="mt-3 min-h-5 text-xs text-muted-foreground" aria-live="polite">
           {activeRow
-            ? `${activeRow.label}: ${formatInt(activeRow.k)} of ${formatInt(n)} addresses (${formatPct(activeRow.share)}, 95% CI ${formatPct(activeRow.lo)} to ${formatPct(activeRow.hi)}). Target ${formatPct(activeRow.target)}, so about ${formatInt(Math.round(activeRow.target * n))} expected.`
+            ? `${activeRow.label}: ${formatInt(activeRow.k)} of ${formatInt(n)} addresses (${formatPct(activeRow.share)}${fixedByDesign ? ", fixed by the quotas" : `, 95% CI ${formatPct(activeRow.lo)} to ${formatPct(activeRow.hi)}`}). Target ${formatPct(activeRow.target)}, so about ${formatInt(Math.round(activeRow.target * n))} expected.`
             : "Hover or focus a row for counts and the expected number."}
         </p>
       </figure>
@@ -350,19 +420,29 @@ export function TargetCheck({
         <div className="space-y-1">
           <p>
             <span className="font-medium">
-              {verdict.tone === "ok"
-                ? "On target. "
-                : verdict.tone === "alert"
-                  ? "Off target. "
-                  : "Not enough to test. "}
+              {fixedByDesign
+                ? "Fixed by design. "
+                : "label" in verdict
+                  ? verdict.label
+                  : verdict.tone === "ok"
+                    ? "On target. "
+                    : verdict.tone === "alert"
+                      ? "Off target. "
+                      : "Not enough to test. "}
             </span>
             {verdict.text}
           </p>
-          {gof && gof.lowExpected > 0 && n >= 30 && (
+          {!fixedByDesign && gof && n >= MIN_TEST_N && gof.method !== "chi-square" && (
             <p className="text-xs text-muted-foreground">
-              {gof.lowExpected}{" "}
-              {gof.lowExpected === 1 ? "category expects" : "categories expect"} fewer
-              than 5 addresses, so treat the p-value as approximate.
+              {gof.method === "exact"
+                ? "The sample is small enough to enumerate every possible count vector, so the p-value is exact rather than the chi-square approximation."
+                : `${gof.lowExpected} ${gof.lowExpected === 1 ? "category expects" : "categories expect"} fewer than 5 addresses, so the p-value is simulated from the target instead of read from the chi-square curve.`}
+            </p>
+          )}
+          {mode === "stratified" && dimension === "decile" && n >= MIN_TEST_N && (
+            <p className="text-xs text-muted-foreground">
+              Under the stratified design decile counts vary less than in a simple random
+              sample, so this test is conservative: p-values run high.
             </p>
           )}
         </div>
@@ -384,7 +464,9 @@ export function TargetCheck({
                 <th className="py-2 pr-3 font-medium">Category</th>
                 <th className="py-2 pr-3 text-right font-medium">Count</th>
                 <th className="py-2 pr-3 text-right font-medium">Realised</th>
-                <th className="py-2 pr-3 text-right font-medium">95% Wilson CI</th>
+                <th className="py-2 pr-3 text-right font-medium">
+                  {fixedByDesign ? "Interval" : "95% Wilson CI"}
+                </th>
                 <th className="py-2 pr-3 text-right font-medium">Target</th>
                 <th className="py-2 text-right font-medium">Expected</th>
               </tr>
@@ -396,7 +478,15 @@ export function TargetCheck({
                   <td className="py-1.5 pr-3 text-right">{formatInt(r.k)}</td>
                   <td className="py-1.5 pr-3 text-right">{formatPct(r.share)}</td>
                   <td className="py-1.5 pr-3 text-right">
-                    {formatPct(r.lo)} to {formatPct(r.hi)}
+                    {fixedByDesign ? (
+                      <span className="font-sans text-muted-foreground">
+                        none: fixed by design
+                      </span>
+                    ) : (
+                      <>
+                        {formatPct(r.lo)} to {formatPct(r.hi)}
+                      </>
+                    )}
                   </td>
                   <td className="py-1.5 pr-3 text-right">{formatPct(r.target)}</td>
                   <td className="py-1.5 text-right">{(r.target * n).toFixed(1)}</td>

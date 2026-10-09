@@ -1,0 +1,31 @@
+WEBVTT
+
+NOTE Look up a real address: captions match the on-screen steps.
+
+1
+00:00:00.200 --> 00:00:06.184
+Step 1 of 7. Lookup: search a real South Australian place, or click the map.
+
+2
+00:00:06.184 --> 00:00:15.183
+Step 2 of 7. Search “Glenelg Jetty”: Photon (OpenStreetMap) answers through this site's cached route.
+
+3
+00:00:15.183 --> 00:00:20.666
+Step 3 of 7. Pick a result: point-in-polygon against the ABS 2021 boundaries, in your browser.
+
+4
+00:00:20.666 --> 00:00:28.170
+Step 4 of 7. Glenelg: postcode 5045, Holdfast Bay council, Major Cities, IRSAD decile 8 in SA.
+
+5
+00:00:28.170 --> 00:00:34.115
+Step 5 of 7. The jetty sits past the simplified coastline, so the nearest suburb is named, with the distance.
+
+6
+00:00:34.115 --> 00:00:48.114
+Step 6 of 7. Coober Pedy, 751 km from the Adelaide GPO: Very Remote Australia, IRSAD decile 1 in SA.
+
+7
+00:00:48.114 --> 00:00:57.760
+Step 7 of 7. Click anywhere on the map: the lookup works even when the geocoder is offline.

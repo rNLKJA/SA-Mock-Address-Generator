@@ -63,3 +63,14 @@ export const FALLBACK_BASEMAP: Record<
   light: { water: "#dfe8ee", land: "#f1ebdc", landSa: "#f6f1e4", line: "#b5a98c" },
   dark: { water: "#0a1018", land: "#141e2a", landSa: "#18242f", line: "#3a4a5e" },
 };
+
+/**
+ * Sampling designs in their fixed categorical order (uniform, weighted,
+ * stratified). CSS variables so light and dark get their own validated steps
+ * (globals.css, checked with the dataviz palette validator).
+ */
+export const DESIGN_COLOR: Record<"uniform" | "weighted" | "stratified", string> = {
+  uniform: "var(--viz-d1)",
+  weighted: "var(--viz-d2)",
+  stratified: "var(--viz-d3)",
+};

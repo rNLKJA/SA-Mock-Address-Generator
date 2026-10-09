@@ -82,6 +82,11 @@
   --viz-axis: #c3b9a0;
   --point: #b8292f;
   --point-ring: #fbf8ef;
+  /* Sampling designs, fixed order: uniform (2025), weighted, stratified.
+     Validated with the dataviz palette checks on #fbf8ef. */
+  --viz-d1: #b8292f;
+  --viz-d2: #1f5aa6;
+  --viz-d3: #a87a12;
 }
 
 .dark {
@@ -118,6 +123,10 @@
   --viz-axis: #33445a;
   --point: #ff8a7a;
   --point-ring: #0d1520;
+  /* Same order, dark steps validated on #121c28. */
+  --viz-d1: #d9604f;
+  --viz-d2: #5b93dc;
+  --viz-d3: #b98a30;
 }
 
 @layer base {
@@ -186,6 +195,47 @@
     @apply rounded bg-muted px-1 py-px font-mono text-[0.85em];
     /* Long file paths wrap instead of widening the page on phones. */
     overflow-wrap: anywhere;
+  }
+  /* Rendered markdown docs (decision records, data card) on /methods. */
+  .prose-doc {
+    @apply max-w-[72ch] text-[0.95rem] leading-relaxed text-ink-soft;
+  }
+  .prose-doc > * + * {
+    @apply mt-3.5;
+  }
+  .prose-doc .doc-h {
+    @apply mt-7 font-heading text-xl font-semibold text-foreground;
+  }
+  .prose-doc .doc-sub {
+    @apply mt-5 font-heading text-lg font-semibold text-foreground;
+  }
+  .prose-doc ul {
+    @apply list-disc space-y-1.5 pl-5;
+  }
+  .prose-doc ol {
+    @apply list-decimal space-y-1.5 pl-5;
+  }
+  .prose-doc a {
+    @apply text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary;
+  }
+  .prose-doc strong {
+    @apply font-semibold text-foreground;
+  }
+  .prose-doc code {
+    @apply rounded bg-muted px-1 py-px font-mono text-[0.85em];
+    overflow-wrap: anywhere;
+  }
+  .prose-doc .doc-table {
+    @apply max-w-none;
+  }
+  .prose-doc table {
+    @apply w-full min-w-[32rem] text-sm;
+  }
+  .prose-doc th {
+    @apply px-3 py-2 text-left text-xs font-medium text-muted-foreground;
+  }
+  .prose-doc td {
+    @apply border-t px-3 py-2 align-top;
   }
   .terminal {
     @apply rounded-lg border bg-[#16202b] font-mono text-[0.78rem] leading-relaxed text-[#e8e3d5] dark:bg-[#0a1119];
