@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useMemo, useState } from "react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import {
   EQUAL_REMOTENESS_WEIGHTS,
@@ -87,14 +87,22 @@ export function SampleSizeCalculator() {
   const [rateC, setRateC] = useState("1");
   const [confC, setConfC] = useState<Confidence>("0.95");
 
+  // The exact share search can take a noticeable fraction of a second near its
+  // cut-off, so each card recomputes only when its own inputs change.
   const mA = parsePct(marginA);
-  const weights =
-    targets === "config" ? configRemotenessWeights() : [...EQUAL_REMOTENESS_WEIGHTS];
-  const a = mA ? sampleSizeForShares(weights, mA, Number(confA), jointA) : null;
+  const a = useMemo(() => {
+    if (!mA) return null;
+    const weights =
+      targets === "config" ? configRemotenessWeights() : [...EQUAL_REMOTENESS_WEIGHTS];
+    return sampleSizeForShares(weights, mA, Number(confA), jointA);
+  }, [mA, confA, targets, jointA]);
 
   const mB = parsePct(marginB);
   const pB = parsePct(planningB, 100);
-  const b = mB && pB ? sampleSizePerStratum(5, mB, Number(confB), pB, jointB) : null;
+  const b = useMemo(
+    () => (mB && pB ? sampleSizePerStratum(5, mB, Number(confB), pB, jointB) : null),
+    [mB, pB, confB, jointB],
+  );
 
   const rC = parsePct(rateC);
   const nC = rC ? zeroFailureSampleSize(rC, Number(confC)) : null;
@@ -207,7 +215,7 @@ export function SampleSizeCalculator() {
               hold whole addresses.
               {a.exact
                 ? ""
-                : " Beyond 100,000 addresses the exact search stops (n/a) and the total uses the normal approximation."}
+                : " For very small margins the exact search would have to check counts past 100,000 addresses (it already stops for answers from about 50,000), so it shows n/a and the total uses the normal approximation."}
               {jointA
                 ? ` Each area is sized at ${formatPctFixed(a.confidencePerStratum)} so all five hold together.`
                 : ""}

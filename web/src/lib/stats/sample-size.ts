@@ -103,7 +103,9 @@ function bernoulliKl(a: number, p: number): number {
  * The Chernoff bound P(|K/n - p| > E) <= e^{-n KL(p+E||p)} + e^{-n KL(p-E||p)}
  * gives an n beyond which the probability is guaranteed; the search walks down
  * from there to the last n that falls short. Returns NaN if that bound exceeds
- * `maxN` (very small margins, where the normal approximation is close).
+ * `maxN` (very small margins, where the normal approximation is close). The
+ * bound runs about 1.6 to 2.2 times the answer at 90% to 99% confidence, so
+ * with the default maxN the search gives up for answers from roughly 50,000.
  */
 export function sampleSizeExactShare(
   p: number,

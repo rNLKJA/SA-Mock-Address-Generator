@@ -133,7 +133,8 @@ export default function SamplingPage() {
   const study = e.designs;
   const byId = Object.fromEntries(study.designs.map((d) => [d.id, d]));
   const weighted = byId.weighted;
-  const coverage = weighted.strata.map((s) => s.coverage.rate);
+  const weightedRejection = weighted.rejection!;
+  const coverage = weighted.strata.map((s) => s.coverage!.rate);
   const small = e.examples.small;
   const smallChiP = chiSquareSf(small.fit.statistic, small.fit.df);
   const u = e.uniformity;
@@ -202,22 +203,38 @@ export default function SamplingPage() {
                 </p>
                 <p className="text-sm text-muted-foreground">{d.summary}</p>
                 <dl className="space-y-1.5 border-t pt-2 text-sm">
-                  <div>
-                    <dt className="text-xs text-muted-foreground">
-                      Seeds where the test rejects the target at 5%
-                    </dt>
-                    <dd className="font-mono text-xs tabular-nums">
-                      {formatInt(d.rejection.k)} of {formatInt(d.rejection.n)},{" "}
-                      {rateText(d.rejection)}
-                    </dd>
-                  </div>
+                  {d.rejection ? (
+                    <div>
+                      <dt className="text-xs text-muted-foreground">
+                        Seeds where the test rejects the target at 5%
+                      </dt>
+                      <dd className="font-mono text-xs tabular-nums">
+                        {formatInt(d.rejection.k)} of {formatInt(d.rejection.n)},{" "}
+                        {rateText(d.rejection)}
+                      </dd>
+                    </div>
+                  ) : (
+                    <div>
+                      <dt className="text-xs text-muted-foreground">
+                        Goodness-of-fit test
+                      </dt>
+                      <dd className="text-xs">
+                        Not tested: the quotas fix every share (
+                        <span className="font-mono tabular-nums">
+                          {formatInt(d.seedsOnTarget)} of {formatInt(study.replicates)}
+                        </span>{" "}
+                        seeds exactly on target)
+                      </dd>
+                    </div>
+                  )}
                   <div>
                     <dt className="text-xs text-muted-foreground">
                       Distance from the target (Cohen&apos;s w)
                     </dt>
                     <dd className="font-mono text-xs tabular-nums">
-                      mean {d.w.mean.toFixed(3)} ({cohensWLabel(d.w.mean)}), middle 95%{" "}
-                      {d.w.range[0].toFixed(3)} to {d.w.range[1].toFixed(3)}
+                      {d.fixedByDesign
+                        ? `${d.w.mean.toFixed(3)} in every seed (no sampling variation)`
+                        : `mean ${d.w.mean.toFixed(3)} (${cohensWLabel(d.w.mean)}), middle 95% ${d.w.range[0].toFixed(3)} to ${d.w.range[1].toFixed(3)}`}
                     </dd>
                   </div>
                 </dl>
@@ -249,16 +266,20 @@ export default function SamplingPage() {
                 Wilson intervals cover the target in{" "}
                 {formatPctFixed(Math.min(...coverage))} to{" "}
                 {formatPctFixed(Math.max(...coverage))} of seeds per area, and the test
-                rejects in {rateText(weighted.rejection)}, consistent with its 5% level.
+                rejects in {rateText(weightedRejection)}, consistent with its 5% level.
               </p>
             </div>
             <div className="prose-notebook text-sm">
               <p>
                 <strong className="text-foreground">Stratified</strong> has nothing to
-                test: the quotas fix every share, so all 200 seeds give exactly the
-                target. The suburbs, street numbers and names inside each area are still
-                random. Use it when every area must be represented in a small sample; use
-                weighted when you want the realistic variation of independent draws.
+                test: the quotas fix every share, so{" "}
+                {byId.stratified.seedsOnTarget === study.replicates ? "all " : ""}
+                {formatInt(byId.stratified.seedsOnTarget)} of{" "}
+                {formatInt(study.replicates)} seeds give exactly the target, and it is
+                reported as fixed rather than given a test result or coverage interval.
+                The suburbs, street numbers and names inside each area are still random.
+                Use it when every area must be represented in a small sample; use weighted
+                when you want the realistic variation of independent draws.
               </p>
             </div>
           </div>
@@ -306,7 +327,11 @@ export default function SamplingPage() {
                             scope="row"
                             className="px-3 py-1.5 text-left text-xs font-normal text-muted-foreground"
                           >
-                            {h === 0 ? d.label : ""}
+                            {h === 0 ? (
+                              d.label
+                            ) : (
+                              <span className="sr-only">{d.label}</span>
+                            )}
                           </th>
                           <td className="px-3 py-1.5">{s.label}</td>
                           <td className={TD}>{formatPctFixed(s.target, 0)}</td>
@@ -319,8 +344,15 @@ export default function SamplingPage() {
                             {formatPctFixed(s.sd, 2)} ({formatPctFixed(s.theorySd, 2)})
                           </td>
                           <td className={TD}>
-                            {s.coverage.k}/{s.coverage.n} ({formatPctFixed(s.coverage.lo)}{" "}
-                            to {formatPctFixed(s.coverage.hi)})
+                            {s.coverage ? (
+                              <>
+                                {s.coverage.k}/{s.coverage.n} (
+                                {formatPctFixed(s.coverage.lo)} to{" "}
+                                {formatPctFixed(s.coverage.hi)})
+                              </>
+                            ) : (
+                              <span className="text-muted-foreground">n/a (fixed)</span>
+                            )}
                           </td>
                         </tr>
                       )),
@@ -331,7 +363,9 @@ export default function SamplingPage() {
               <p className="mt-2 text-xs text-muted-foreground">
                 &ldquo;Design share&rdquo; is what each design draws in expectation; the
                 theoretical SD is √(p(1 − p)/n) at that share (zero for fixed quotas).
-                Coverage intervals are 95% Wilson intervals over the 200 seeds.
+                Coverage intervals are 95% Wilson intervals over the 200 seeds. Coverage
+                is not reported for the stratified design: its shares are fixed, so an
+                interval around them would describe no real uncertainty.
               </p>
             </div>
           </details>
@@ -469,20 +503,30 @@ export default function SamplingPage() {
             <div className="prose-notebook max-w-3xl">
               <p>
                 Each mock coordinate is drawn by rejection sampling inside the
-                suburb&apos;s simplified ABS boundary. The check looks every point up
-                again, independently, against all {formatInt(1696)} boundaries, so a point
-                in an overlap or across a border fails. The required rate is 100%; the
-                Wilson interval says how sure that makes us.
+                suburb&apos;s simplified ABS boundary. The check looks every published
+                point up again against all {formatInt(1696)} boundaries (the{" "}
+                {formatInt(1695)} suburbs plus the non-addressable SA Remainder), not only
+                the one it was drawn in, so a point in an overlap or across a border
+                fails. The required rate is 100%; the Wilson interval says how sure that
+                makes us.
+              </p>
+              <p>
+                That lookup uses the same point-in-polygon routine as the sampler, so a
+                bug in the routine could pass both. The routine is therefore checked on
+                its own against Shapely (GEOS), which shares no code with it: for{" "}
+                {formatInt(3000)} seeded points, half spread over the state&apos;s
+                bounding box and half placed 10 cm either side of a boundary edge, the two
+                agree on the suburb (or on no suburb) every time.
               </p>
             </div>
             <ScrollTable label="Point-in-polygon validation" className="max-w-4xl">
-              <table className="w-full min-w-[40rem] text-sm">
+              <table className="w-full text-sm sm:min-w-[40rem]">
                 <thead>
                   <tr className="border-b text-left text-xs text-muted-foreground">
                     <th scope="col" className={TH}>
                       Check
                     </th>
-                    <th scope="col" className={`${TH} text-right`}>
+                    <th scope="col" className={`${TH} hidden text-right sm:table-cell`}>
                       Points
                     </th>
                     <th scope="col" className={`${TH} text-right`}>
@@ -491,7 +535,7 @@ export default function SamplingPage() {
                     <th scope="col" className={`${TH} text-right`}>
                       Rate (95% Wilson CI)
                     </th>
-                    <th scope="col" className={`${TH} text-right`}>
+                    <th scope="col" className={`${TH} hidden text-right sm:table-cell`}>
                       Label-point fallbacks
                     </th>
                   </tr>
@@ -513,14 +557,20 @@ export default function SamplingPage() {
                           {v.detail}
                         </span>
                       </th>
-                      <td className={TD}>{formatInt(v.points)}</td>
+                      <td className={`${TD} hidden sm:table-cell`}>
+                        {formatInt(v.points)}
+                      </td>
                       <td className={TD}>{formatInt(v.inside.k)}</td>
                       <td className={TD}>
-                        {formatPctFixed(v.inside.rate, 2)} (
-                        {formatPctFixed(v.inside.lo, 2)} to{" "}
-                        {formatPctFixed(v.inside.hi, 2)})
+                        {formatPctFixed(v.inside.rate, 2)}{" "}
+                        <span className="block sm:inline">
+                          ({formatPctFixed(v.inside.lo, 2)} to{" "}
+                          {formatPctFixed(v.inside.hi, 2)})
+                        </span>
                       </td>
-                      <td className={TD}>{formatInt(v.fallbacks)}</td>
+                      <td className={`${TD} hidden sm:table-cell`}>
+                        {formatInt(v.fallbacks)}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -644,10 +694,11 @@ export default function SamplingPage() {
             <div className="prose-notebook max-w-3xl text-sm">
               <p>
                 Each suburb gets {formatInt(u.pointsPerSuburb)} points per seed, projected
-                to kilometres around the suburb&apos;s centre; areas agree with the ABS
-                figures to within about 1%. Compactness is 4πA/P² (1 for a circle). For
-                single-part suburbs the mean R sits at 1 and the test rejects in about 5%
-                of seeds, as a calibrated test should.
+                to kilometres around the suburb&apos;s centre; for these six the areas are
+                within about 2% of the ABS figures, a gap that comes from simplifying the
+                boundaries, not from the projection. Compactness is 4πA/P² (1 for a
+                circle). For single-part suburbs the mean R sits at 1 and the test rejects
+                in about 5% of seeds, as a calibrated test should.
                 {multiPart
                   ? ` ${multiPart.name}, which has ${NUMBER_WORDS[multiPart.parts] ?? multiPart.parts} separate parts, sits slightly above 1 (${multiPart.rMean.estimate.toFixed(3)}) and is rejected in ${formatInt(multiPart.rejection.k)} of ${formatInt(multiPart.rejection.n)} seeds: Donnelly's correction was derived for a single rectangle, and a multi-part outline stretches it. Rejection sampling is uniform over the whole outline by construction, so the excess points at the reference value rather than the points; the controls show what real clustering looks like.`
                   : ""}

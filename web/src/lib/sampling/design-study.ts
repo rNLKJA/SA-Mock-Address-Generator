@@ -14,7 +14,9 @@
  * the spread of the realised share across seeds, how often the 95% Wilson
  * interval covers the target, and how often a goodness-of-fit test at 5%
  * rejects the target (its size for the weighted design, its power against the
- * uniform design).
+ * uniform design). The stratified design fixes every count, so it is reported
+ * as fixed by design: a coverage or rejection rate with a binomial interval
+ * would put spurious uncertainty around a deterministic outcome.
  */
 import { generateMockAddresses } from "@/lib/generator/generate";
 import {
@@ -89,8 +91,8 @@ export interface StratumSummary {
   sd: number;
   /** Multinomial SD sqrt(p(1 - p)/n) at the design share (0 for fixed quotas). */
   theorySd: number;
-  /** Seeds whose 95% Wilson interval contains the target. */
-  coverage: Rate;
+  /** Seeds whose 95% Wilson interval contains the target (null when fixed by design). */
+  coverage: Rate | null;
 }
 
 export interface DesignSummary {
@@ -98,8 +100,15 @@ export interface DesignSummary {
   label: string;
   summary: string;
   strata: StratumSummary[];
-  /** Seeds where the goodness-of-fit test rejects the target at 5%. */
-  rejection: Rate;
+  /**
+   * True when the design fixes every count (stratified quotas): there is no
+   * sampling variation in the mix, so nothing is tested.
+   */
+  fixedByDesign: boolean;
+  /** Seeds whose realised shares all equal the target exactly. */
+  seedsOnTarget: number;
+  /** Seeds where the goodness-of-fit test rejects the target at 5% (null when fixed). */
+  rejection: Rate | null;
   /** Cohen's w against the target: mean and 2.5-97.5 percentile range. */
   w: { mean: number; range: [number, number] };
 }
@@ -142,10 +151,12 @@ export function runDesignStudy(
     const covered = RA_SHORT.map(() => 0);
     const ws: number[] = [];
     let rejected = 0;
+    let onTarget = 0;
     let designShare: number[] = [];
     for (let r = 0; r < replicates; r++) {
       const { counts, expected } = remotenessCounts(rows, d.mode, n, firstSeed + r);
       designShare = expected;
+      if (counts.every((k, h) => Math.abs(k / n - target[h]) < 1e-12)) onTarget++;
       counts.forEach((k, h) => {
         shares[h].push(k / n);
         const [lo, hi] = wilson(k, n);
@@ -157,6 +168,7 @@ export function runDesignStudy(
         if (fit.pValue < 0.05) rejected++;
       }
     }
+    const fixedByDesign = d.id === "stratified";
     const strata: StratumSummary[] = RA_SHORT.map((label, h) => ({
       label,
       target: target[h],
@@ -164,18 +176,19 @@ export function runDesignStudy(
       meanShare: mean(shares[h]),
       range: percentileRange(shares[h]),
       sd: sd(shares[h]),
-      theorySd:
-        d.id === "stratified"
-          ? 0
-          : Math.sqrt((designShare[h] * (1 - designShare[h])) / n),
-      coverage: rate(covered[h], replicates),
+      theorySd: fixedByDesign
+        ? 0
+        : Math.sqrt((designShare[h] * (1 - designShare[h])) / n),
+      coverage: fixedByDesign ? null : rate(covered[h], replicates),
     }));
     return {
       id: d.id,
       label: d.label,
       summary: d.summary,
       strata,
-      rejection: rate(rejected, replicates),
+      fixedByDesign,
+      seedsOnTarget: onTarget,
+      rejection: fixedByDesign ? null : rate(rejected, replicates),
       w: { mean: mean(ws), range: percentileRange(ws) },
     };
   });

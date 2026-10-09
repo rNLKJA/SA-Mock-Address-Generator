@@ -1,8 +1,11 @@
 /**
- * The numbers quoted in the README, the decision records and the data card,
- * recomputed with the same code, seeds and settings as /sampling. If a change
- * moves one of them, this test fails and the prose has to be updated too.
+ * The numbers quoted in the README, the decision records, the data card and
+ * /sampling, recomputed with the same code, seeds and settings (or read from
+ * the build's provenance record). If a change moves one of them, this test
+ * fails and the prose has to be updated too.
  */
+import { readFileSync } from "node:fs";
+import { gzipSync } from "node:zlib";
 import { describe, expect, it } from "vitest";
 import { GeometryIndex } from "@/lib/geo";
 import { polygonMetrics } from "@/lib/stats";
@@ -12,6 +15,16 @@ import { runUniformityStudy, validateCensus, validateGenerated } from "./spatial
 
 const rows = suburbsJson.rows;
 const index = new GeometryIndex(salGeojson);
+
+const readPublicFile = (file: string) =>
+  readFileSync(new URL(`../../../public/data/${file}`, import.meta.url));
+const provenance = JSON.parse(readPublicFile("provenance.json").toString("utf8")) as {
+  original: { rows: number };
+  match: { byName: number; postcodeExact: number; councilAgree: number };
+};
+const parity = JSON.parse(
+  readFileSync(new URL("../__fixtures__/original-parity.json", import.meta.url), "utf8"),
+) as { cli: unknown[]; generate: unknown[] };
 
 describe("claims about the sampling designs (README, DR-002, DR-005)", () => {
   const study = runDesignStudy(rows, { n: 1000, replicates: 200, firstSeed: 1 });
@@ -28,21 +41,27 @@ describe("claims about the sampling designs (README, DR-002, DR-005)", () => {
   });
 
   it("weighted design: rejected in 6 of 200 seeds (1.4% to 6.4%), coverage 93.5% to 97%", () => {
-    const r = byId.weighted.rejection;
+    const r = byId.weighted.rejection!;
     expect(r.k).toBe(6);
     expect((r.lo * 100).toFixed(1)).toBe("1.4");
     expect((r.hi * 100).toFixed(1)).toBe("6.4");
-    const cov = byId.weighted.strata.map((s) => s.coverage.rate);
+    const cov = byId.weighted.strata.map((s) => s.coverage!.rate);
     expect(Math.min(...cov)).toBeCloseTo(0.935, 10);
     expect(Math.max(...cov)).toBeCloseTo(0.97, 10);
   });
 
-  it("uniform design: rejected in all 200 seeds (w about 0.45); stratified: exact in all 200", () => {
-    expect(byId.uniform.rejection.k).toBe(200);
+  it("uniform design: rejected in all 200 seeds (w about 0.45); stratified: fixed, exact in all 200", () => {
+    expect(byId.uniform.rejection?.k).toBe(200);
     expect(byId.uniform.w.mean).toBeGreaterThan(0.44);
     expect(byId.uniform.w.mean).toBeLessThan(0.45);
-    expect(byId.stratified.rejection.k).toBe(0);
-    for (const s of byId.stratified.strata) expect(s.coverage.k).toBe(200);
+    // Fixed by design: no test result or coverage interval around a deterministic mix.
+    expect(byId.stratified.fixedByDesign).toBe(true);
+    expect(byId.stratified.rejection).toBeNull();
+    expect(byId.stratified.seedsOnTarget).toBe(200);
+    expect(byId.stratified.w.range).toEqual([0, 0]);
+    for (const s of byId.stratified.strata) expect(s.coverage).toBeNull();
+    expect(byId.weighted.fixedByDesign).toBe(false);
+    expect(byId.uniform.fixedByDesign).toBe(false);
   });
 
   it("exact false-alarm rates at n = 10, 20, 30 (DR-005)", () => {
@@ -99,6 +118,13 @@ describe("claims about coordinates (DR-003, data card)", () => {
     const [geocoded, clustered] = u.controls.items;
     expect(geocoded.result.r).toBe(0);
     expect(clustered.result.r.toFixed(2)).toBe("0.34");
+    // /sampling: "for these six the areas are within about 2% of the ABS figures"
+    const areaGaps = u.suburbs.map((s) => {
+      const abs = rows.find((r) => r.code === s.code)!.areaKm2;
+      return Math.abs(s.areaKm2 / abs - 1);
+    });
+    expect(Math.max(...areaGaps)).toBeGreaterThan(0.015);
+    expect(Math.max(...areaGaps)).toBeLessThan(0.025);
   });
 
   it("projected areas agree with the ABS to within about 1% for 90% of suburbs over 0.5 km²", () => {
@@ -113,6 +139,29 @@ describe("claims about coordinates (DR-003, data card)", () => {
       .filter((e): e is number => e !== null);
     const within = errors.filter((e) => e <= 0.011).length / errors.length;
     expect(within).toBeGreaterThanOrEqual(0.9);
+  });
+});
+
+describe("claims about the 2025 table and the bundle (README key results)", () => {
+  it("20 recorded runs of the 2025 Python: 11 CLI invocations and 9 generator calls", () => {
+    // Each one is replayed byte for byte by src/lib/original/original.test.ts.
+    expect(parity.cli).toHaveLength(11);
+    expect(parity.generate).toHaveLength(9);
+  });
+
+  it("1,694 of 1,894 names match; 99.3% agree on the postcode and 98.2% on the council", () => {
+    expect(provenance.original.rows).toBe(1894);
+    const { byName, postcodeExact, councilAgree } = provenance.match;
+    expect(byName).toBe(1694);
+    expect(((postcodeExact / byName) * 100).toFixed(1)).toBe("99.3");
+    expect(((councilAgree / byName) * 100).toFixed(1)).toBe("98.2");
+  });
+
+  it("all boundary geometry is about 0.5 MB gzipped", () => {
+    const gz = ["sal-sa.geojson", "sa-context.geojson"]
+      .map((f) => gzipSync(readPublicFile(f)).length)
+      .reduce((a, b) => a + b, 0);
+    expect((gz / 1e6).toFixed(1)).toBe("0.5");
   });
 });
 

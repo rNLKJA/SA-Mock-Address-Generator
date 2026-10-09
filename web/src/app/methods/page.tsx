@@ -96,7 +96,7 @@ export default function MethodsPage() {
     ],
     [
       "Every coordinate is inside its suburb",
-      "Each point looked up again against all 1,696 boundaries: 5,000 generated points per design and a census of 5 points in every suburb, required rate 100%, with a Wilson lower bound",
+      "Each point looked up again against all 1,696 boundaries (the 1,695 suburbs plus the non-addressable SA Remainder): 5,000 generated points per design and a census of 5 points in every suburb, required rate 100%, with a Wilson lower bound. The point-in-polygon routine itself is checked against Shapely (GEOS) on 3,000 seeded points (pip.reference.test.ts)",
       <Link key="e" className={LINK} href="/sampling#spatial">
         /sampling#spatial
       </Link>,
@@ -144,7 +144,7 @@ export default function MethodsPage() {
                     href={`#${t.id}`}
                     className="flex gap-2 rounded-md border bg-card px-3 py-1 text-muted-foreground transition-colors hover:text-foreground lg:border-0 lg:bg-transparent lg:px-2"
                   >
-                    <span className="font-mono text-xs leading-5 text-muted-foreground/70">
+                    <span className="font-mono text-xs leading-5 text-muted-foreground">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     {t.label}
@@ -417,7 +417,9 @@ export default function MethodsPage() {
                     browser (session storage, or local storage if you tick
                     &ldquo;remember&rdquo;), travels only in the request header to the
                     provider, and &ldquo;Forget key&rdquo; removes it. It is never sent to
-                    this site, logged or stored in the audit log.
+                    this site, logged or stored in the audit log. The site&apos;s
+                    Content-Security-Policy backs this up in the browser: pages may only
+                    connect to this site, the two providers and the map tile server.
                   </p>
                 </div>
                 <div className="rounded-xl border bg-card p-4 md:col-span-2">

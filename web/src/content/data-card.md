@@ -53,7 +53,11 @@ vertices, shared edges preserved) and rounded to 0.0001 degrees (about 11 m).
   localities.
 - Every label point falls inside its own polygon, and every one of 5,000 generated
   coordinates (and a census of 5 points in each of 1,695 suburbs) falls inside the suburb
-  its address names, checked against all boundaries independently (see the Sampling page).
+  its address names, looked up again against all 1,696 boundaries (the 1,695 suburbs plus
+  the non-addressable SA Remainder), not only its own. That lookup shares its
+  point-in-polygon routine with the sampler, so the routine is also checked against
+  Shapely (GEOS) on 3,000 seeded points, half of them 10 cm from a boundary: they agree on
+  every point (see the Sampling page).
 - Projected polygon areas agree with the ABS areas to within about 1% for 90% of suburbs
   larger than half a square kilometre.
 

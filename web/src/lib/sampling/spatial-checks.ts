@@ -2,8 +2,10 @@
  * Spatial checks on the mock coordinates:
  *
  *  1. Point-in-polygon validation: every generated point must fall inside the
- *     suburb its address names, checked with an independent lookup over all
- *     1,696 boundaries (so a point inside an overlap or across a border fails).
+ *     suburb its address names, looked up again over all 1,696 boundaries (so a
+ *     point inside an overlap or across a border fails). The lookup reuses the
+ *     sampler's ray-casting routine; pip.reference.test.ts checks that routine
+ *     against Shapely (GEOS), which shares no code with it.
  *  2. Uniformity within suburbs: the Clark-Evans nearest-neighbour ratio for
  *     a seeded sample inside each of a handful of differently shaped suburbs,
  *     repeated over many seeds to check the test's calibration, with two
@@ -46,7 +48,7 @@ export interface PipValidation {
   failures: { suburb: string; code: string; locatedIn: string | null; point: LonLat }[];
 }
 
-/** Every generated point checked against an independent lookup over all boundaries. */
+/** Every generated point looked up again over all boundaries, not only its own. */
 export function validateGenerated(
   rows: readonly Suburb[],
   index: GeometryIndex,

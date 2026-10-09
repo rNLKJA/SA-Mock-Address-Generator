@@ -24,17 +24,28 @@ describe("design study (small version)", () => {
     }
   });
 
-  it("fixes the stratified shares exactly", () => {
+  it("fixes the stratified shares exactly and reports them as fixed, not tested", () => {
     for (const s of byId.stratified.strata) {
       expect(s.sd).toBeLessThan(1e-12);
       expect(s.meanShare).toBeCloseTo(s.target, 12);
-      expect(s.coverage.k).toBe(30);
+      expect(s.theorySd).toBe(0);
+      expect(s.coverage).toBeNull();
     }
-    expect(byId.stratified.rejection.k).toBe(0);
+    expect(byId.stratified.fixedByDesign).toBe(true);
+    expect(byId.stratified.rejection).toBeNull();
+    expect(byId.stratified.seedsOnTarget).toBe(30);
+  });
+
+  it("tests the random designs and gives them coverage intervals", () => {
+    for (const d of [byId.uniform, byId.weighted]) {
+      expect(d.fixedByDesign).toBe(false);
+      expect(d.rejection?.n).toBe(30);
+      for (const s of d.strata) expect(s.coverage?.n).toBe(30);
+    }
   });
 
   it("rejects the uniform design against the README target every time", () => {
-    expect(byId.uniform.rejection.k).toBe(30);
+    expect(byId.uniform.rejection?.k).toBe(30);
     expect(byId.uniform.w.mean).toBeGreaterThan(0.3);
   });
 

@@ -100,14 +100,19 @@ optional AI assistant that proposes settings for a person to review.
   uniform and population designs and 8,475 of 8,475 in a census of every suburb (95%
   Wilson lower bounds 99.92% and 99.95%). The first run of this check found one point
   in 5,000 that rounding pushed across a boundary; the sampler now rounds before it
-  tests.
+  tests. The check shares its point-in-polygon routine with the sampler, so that routine
+  is also compared with Shapely (GEOS) on 3,000 seeded points, half of them 10 cm from a
+  boundary: they agree on every one.
 - Inside suburbs the points are uniform: the edge-corrected Clark-Evans ratio averages
   0.996 to 1.003 over 100 seeds in five single-part suburbs. Kingscote, which has two
   parts, sits at 1.02 and is rejected in 13 of 100 seeds, a known weakness of the
   edge correction that is reported, not hidden.
 - The site holds no API keys. All boundary geometry is about 0.5 MB gzipped.
 
-Every number above is recomputed in CI by `web/src/lib/sampling/claims.test.ts`.
+Every number above is checked in CI: the 2025 replay run by run in
+`web/src/lib/original/original.test.ts`, the Shapely comparison in
+`web/src/lib/sampling/pip.reference.test.ts`, and the rest (including the match rates and
+the gzipped size) recomputed in `web/src/lib/sampling/claims.test.ts`.
 
 ## Tech stack
 
@@ -140,6 +145,7 @@ SA-Mock-Address-Generator/
 │   ├── build_data.py        ABS downloads -> web/public/data/*
 │   ├── make_fixtures.py     records Python output for the parity tests
 │   ├── make_stats_reference.py  SciPy/statsmodels reference values for lib/stats
+│   ├── make_pip_reference.py    Shapely (GEOS) point-in-polygon answers for lib/geo
 │   └── replay_original.py   runs original/cli.py with both RNGs seeded
 └── web/                     the Next.js app (Vercel root)
     ├── public/data/         suburbs.json, sal-sa.geojson, sa-context.geojson,
@@ -257,6 +263,7 @@ against `original/data/sa_suburbs_data.csv` into `provenance.json`.
 uv run scripts/build_data.py           # downloads ~235 MB into scripts/.cache/ (ignored)
 uv run scripts/make_fixtures.py        # re-records the Python parity fixtures
 uv run scripts/make_stats_reference.py # SciPy reference values for web/src/lib/stats
+uv run scripts/make_pip_reference.py   # Shapely point-in-polygon answers for web/src/lib/geo.ts
 uv run scripts/replay_original.py --seed 42 -- --format json generate 3
 ```
 
