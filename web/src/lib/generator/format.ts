@@ -6,8 +6,9 @@ import type { GenerateOptions, MockAddress } from "./generate";
 
 export type OutputFormat = "text" | "json" | "csv";
 
+/** Follows MOCK_STAMP ("MOCK: synthetic test data"), so it doesn't repeat it. */
 export const NOTICE =
-  "Synthetic test data. A generated address may coincide with a real one by chance: do not use it for mail, identity, or to stand in for a real person.";
+  "A generated address may coincide with a real one by chance: do not use it for mail, identity, or to stand in for a real person.";
 
 export const CSV_COLUMNS: (keyof MockAddress)[] = [
   "id",

@@ -113,6 +113,15 @@ function addShare(shares: CategoryShares, s: Suburb, amount: number): void {
 
 const round6 = (v: number) => Math.round(v * 1e6) / 1e6;
 
+/**
+ * Seed for the coordinate stream: the address seed shifted into the high
+ * 32-bit word with a fixed low word, so it never collides with an address
+ * seed (all of which fit in 32 bits) and stays a pure function of the seed.
+ */
+export function coordinateSeed(seed: number): bigint {
+  return (BigInt(seed) << BigInt(32)) + BigInt(0x9e3779b9);
+}
+
 export function generateMockAddresses(
   rows: readonly Suburb[],
   geometry: GeometryIndex | null,
@@ -142,7 +151,14 @@ export function generateMockAddresses(
     if (probs[i] > 0) addShare(expected, s, probs[i]);
   });
 
+  // Two independent streams: `rng` drives the original recipe (suburb, number,
+  // street) and `coordRng` only feeds rejection sampling inside the boundary.
+  // Turning coordinates on or off therefore never changes the addresses.
   const rng = new PythonRandom(options.seed);
+  const coordRng =
+    options.coordinates && geometry
+      ? new PythonRandom(coordinateSeed(options.seed))
+      : null;
   const sampler = new CumulativeSampler(probs);
   const addresses: MockAddress[] = [];
   let coordinateFallbacks = 0;
@@ -153,8 +169,8 @@ export function generateMockAddresses(
     const streetName = rng.choice(STREET_NAMES);
 
     let point: LonLat | null = null;
-    if (options.coordinates && geometry) {
-      point = geometry.samplePoint(s.code, rng);
+    if (coordRng && geometry) {
+      point = geometry.samplePoint(s.code, coordRng);
       if (!point) {
         point = s.label;
         coordinateFallbacks++;

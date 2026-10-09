@@ -159,6 +159,26 @@ describe("generateMockAddresses", () => {
     ).not.toEqual(a.addresses);
   });
 
+  it("gives the same addresses with coordinates on or off", () => {
+    for (const mode of ["uniform", "population"] as const) {
+      const opts = { ...base, mode, seed: 2025, count: 300 };
+      const on = generateMockAddresses(rows, index, opts).addresses;
+      const off = generateMockAddresses(rows, null, {
+        ...opts,
+        coordinates: false,
+      }).addresses;
+      expect(off.map((x) => x.full_address)).toEqual(on.map((x) => x.full_address));
+      expect(off.map((x) => x.sal_code)).toEqual(on.map((x) => x.sal_code));
+      expect(on.every((x) => x.latitude !== null)).toBe(true);
+    }
+  });
+
+  it("keeps a run a prefix of a longer run with the same seed", () => {
+    const short = generateMockAddresses(rows, index, { ...base, count: 20 }).addresses;
+    const long = generateMockAddresses(rows, index, { ...base, count: 60 }).addresses;
+    expect(long.slice(0, 20)).toEqual(short);
+  });
+
   it("omits coordinates when asked", () => {
     const r = generateMockAddresses(rows, null, {
       ...base,
@@ -222,7 +242,10 @@ describe("output formats", () => {
     expect(json.stamp).toBe("MOCK: synthetic test data");
     expect(json.addresses).toHaveLength(3);
     const text = toText(addresses);
-    expect(text.startsWith("# MOCK: synthetic test data.")).toBe(true);
+    expect(text.startsWith("# MOCK: synthetic test data. A generated address")).toBe(
+      true,
+    );
+    expect(text.match(/synthetic test data/gi)).toHaveLength(1);
     expect(text).toContain("=== Address 1 [MOCK] ===");
     expect(text).toContain(`Remoteness: ${RA_NAMES[0]}`.slice(0, 11));
   });
