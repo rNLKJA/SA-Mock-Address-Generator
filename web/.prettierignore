@@ -6,3 +6,8 @@ pnpm-lock.yaml
 next-env.d.ts
 AGENTS.md
 src/content/
+.showcase/
+.playwright/
+test-results/
+playwright-report/
+public/showcase/

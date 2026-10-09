@@ -6,6 +6,7 @@ import {
   FileSearch,
   ListOrdered,
   Map as MapIcon,
+  PlayCircle,
   Search,
   Sigma,
   Sparkles,
@@ -183,6 +184,11 @@ export default function Home() {
             </Button>
             <Button asChild variant="outline" size="lg" className="h-11 px-5 text-sm">
               <Link href="/replay">Replay the 2025 CLI</Link>
+            </Button>
+            <Button asChild variant="ghost" size="lg" className="h-11 px-4 text-sm">
+              <Link href="/tour">
+                <PlayCircle aria-hidden /> Watch the guided tour
+              </Link>
             </Button>
           </div>
         </div>

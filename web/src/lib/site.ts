@@ -16,4 +16,5 @@ export const nav = [
   { href: "/replay", label: "2025 replay" },
   { href: "/data", label: "Data" },
   { href: "/methods", label: "Methods" },
+  { href: "/tour", label: "Tour" },
 ] as const;

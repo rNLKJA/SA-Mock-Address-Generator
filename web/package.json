@@ -13,7 +13,10 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "postinstall": "node scripts/copy-maplibre-worker.mjs",
-    "sync:docs": "node scripts/sync-docs.mjs"
+    "sync:docs": "node scripts/sync-docs.mjs",
+    "showcase": "node scripts/showcase.mjs",
+    "showcase:test": "SHOWCASE_FAST=1 node scripts/showcase.mjs --test-only",
+    "showcase:media": "node scripts/showcase-media.mjs"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
@@ -34,6 +37,7 @@
     "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@tailwindcss/turbopack": "^4",
     "@types/geojson": "^7946.0.16",
     "@types/node": "^20",
@@ -44,6 +48,7 @@
     "fake-indexeddb": "^6.2.5",
     "prettier": "^3.9.9",
     "prettier-plugin-tailwindcss": "^0.8.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^5.0.3"

@@ -80,6 +80,14 @@ export function SiteFooter() {
             <li>
               <Link
                 className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+                href="/tour"
+              >
+                Guided tour
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
                 href="/#about"
               >
                 About this project
