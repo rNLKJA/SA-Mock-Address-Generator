@@ -25,7 +25,7 @@ const COLOR_OPTIONS: { value: ColorBy; label: string; note: string }[] = [
   {
     value: "original",
     label: "2025 table",
-    note: "The remoteness column of the original table, matched by suburb name. Grey is the 997 rows marked “Not Applicable”.",
+    note: "The remoteness column of the original table, matched by suburb name. Grey is “Not Applicable”: 997 rows in the table, 797 of them matching an ABS suburb.",
   },
 ];
 

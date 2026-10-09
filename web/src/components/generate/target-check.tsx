@@ -30,9 +30,10 @@ const DECILE_LABELS = [
   "No SEIFA",
 ];
 
+/** "p < 0.001" or "p = 0.44". */
 function formatP(p: number): string {
-  if (p < 0.001) return "< 0.001";
-  return p.toPrecision(2);
+  if (p < 0.001) return "p < 0.001";
+  return `p = ${p.toPrecision(2)}`;
 }
 
 const MODE_TARGET: Record<WeightMode, string> = {
@@ -123,7 +124,7 @@ export function TargetCheck({
         tone: "info" as const,
         text: "Only one category is in play, so there is nothing to test.",
       };
-    const stat = `χ²(${gof.df}) = ${gof.statistic.toFixed(2)}, p = ${formatP(gof.pValue)}.`;
+    const stat = `χ²(${gof.df}) = ${gof.statistic.toFixed(2)}, ${formatP(gof.pValue)}.`;
     if (gof.pValue >= 0.05) {
       return {
         tone: "ok" as const,
