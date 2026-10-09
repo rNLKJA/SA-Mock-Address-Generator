@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AiSettingsButton } from "@/components/ai/ai-settings";
 import { site } from "@/lib/site";
 import { TrigMark } from "./logo";
 import { SiteNav } from "./site-nav";
@@ -21,6 +22,7 @@ export function SiteHeader() {
         </Link>
         <div className="ml-auto flex items-center gap-1">
           <SiteNav />
+          <AiSettingsButton />
           <ThemeToggle />
         </div>
       </div>
