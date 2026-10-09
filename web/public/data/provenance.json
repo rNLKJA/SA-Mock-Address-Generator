@@ -1,0 +1,739 @@
+{
+ "generated": "2026-10-09",
+ "sources": [
+  {
+   "file": "SAL_2021_AUST.xlsx",
+   "title": "ASGS Ed. 3 allocation file: Mesh Block to Suburbs and Localities (SAL) 2021",
+   "url": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/allocation-files/SAL_2021_AUST.xlsx",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  },
+  {
+   "file": "LGA_2021_AUST.xlsx",
+   "title": "ASGS Ed. 3 allocation file: Mesh Block to Local Government Areas (LGA) 2021",
+   "url": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/allocation-files/LGA_2021_AUST.xlsx",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  },
+  {
+   "file": "POA_2021_AUST.xlsx",
+   "title": "ASGS Ed. 3 allocation file: Mesh Block to Postal Areas (POA) 2021",
+   "url": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/allocation-files/POA_2021_AUST.xlsx",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  },
+  {
+   "file": "MB_2021_AUST.xlsx",
+   "title": "ASGS Ed. 3 allocation file: Mesh Blocks to Main Structure (SA1) 2021",
+   "url": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/allocation-files/MB_2021_AUST.xlsx",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  },
+  {
+   "file": "RA_2021_AUST.xlsx",
+   "title": "ASGS Ed. 3 allocation file: SA1 to Remoteness Areas (RA) 2021",
+   "url": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/allocation-files/RA_2021_AUST.xlsx",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  },
+  {
+   "file": "SAL_2021_AUST_GDA2020_SHP.zip",
+   "title": "ASGS Ed. 3 digital boundaries: Suburbs and Localities 2021 (GDA2020)",
+   "url": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/SAL_2021_AUST_GDA2020_SHP.zip",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  },
+  {
+   "file": "STE_2021_AUST_SHP_GDA2020.zip",
+   "title": "ASGS Ed. 3 digital boundaries: States and Territories 2021 (GDA2020)",
+   "url": "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/edition-3-july-2021-june-2026/access-and-downloads/digital-boundary-files/STE_2021_AUST_SHP_GDA2020.zip",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  },
+  {
+   "file": "MB_counts_2021.xlsx",
+   "title": "Census of Population and Housing 2021: Mesh Block counts",
+   "url": "https://www.abs.gov.au/census/guide-census-data/mesh-block-counts/2021/Mesh%20Block%20Counts%2C%202021.xlsx",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  },
+  {
+   "file": "SEIFA_SAL_2021.xlsx",
+   "title": "SEIFA 2021: Suburbs and Localities, Indexes (IRSAD)",
+   "url": "https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia/2021/Suburbs%20and%20Localities%2C%20Indexes%2C%20SEIFA%202021.xlsx",
+   "publisher": "Australian Bureau of Statistics",
+   "licence": "CC BY 4.0"
+  }
+ ],
+ "tools": {
+  "mapshaper": "mapshaper@0.7.81",
+  "salSimplify": "10%",
+  "steSimplify": "0.4%",
+  "precision": "0.0001 degrees (about 11 m)"
+ },
+ "original": {
+  "rows": 1894,
+  "councils": 72,
+  "sesValues": {
+   "0": 1894
+  },
+  "remoteness": {
+   "Not Applicable": 997,
+   "Major Cities of Australia": 416,
+   "Outer Regional Australia": 214,
+   "Inner Regional Australia": 175,
+   "Remote Australia": 59,
+   "Very Remote Australia": 33
+  },
+  "postcodesMissingZero": 19,
+  "postcodesMissingZeroExample": [
+   "AMATA",
+   "ANANGU PITJANTJATJARA YANKUNYTJATJARA",
+   "AYERS RANGE SOUTH",
+   "DE ROSE HILL",
+   "IWANTJA",
+   "KALKA"
+  ]
+ },
+ "rebuilt": {
+  "rows": 1696,
+  "councils": 71,
+  "withSeifa": 1613,
+  "remoteness": {
+   "Major Cities of Australia": 424,
+   "Inner Regional Australia": 343,
+   "Outer Regional Australia": 582,
+   "Remote Australia": 200,
+   "Very Remote Australia": 147
+  },
+  "population": 1777698
+ },
+ "match": {
+  "byName": 1694,
+  "onlyOriginal": 200,
+  "onlyOriginalSample": [
+   "ABMINGA STATION",
+   "ALLANDALE STATION",
+   "ALPANA",
+   "ALTON DOWNS STATION",
+   "ANGEPENA",
+   "ANGORIGINA",
+   "ARCKARINGA",
+   "ARKAROOLA VILLAGE",
+   "AYERS RANGE SOUTH",
+   "BACKY POINT",
+   "BALAH",
+   "BARATTA",
+   "BENDA",
+   "BIBLIANDO",
+   "BILLA KALINA",
+   "BILLEROO WEST",
+   "BIMBOWRIE",
+   "BINDARRAH",
+   "BLACK HILL STATION",
+   "BOLLARDS LAGOON",
+   "BON BON",
+   "BOOKABIE",
+   "BOOLCOOMATTA",
+   "BOSWORTH"
+  ],
+  "onlyRebuilt": 2,
+  "onlyRebuiltSample": [
+   "MURPUTJA - NYAPARI",
+   "SA REMAINDER"
+  ],
+  "postcodeExact": 1682,
+  "postcodeAnyOverlap": 1682,
+  "councilAgree": 1664,
+  "notApplicableResolved": {
+   "Major Cities of Australia": 12,
+   "Inner Regional Australia": 165,
+   "Outer Regional Australia": 366,
+   "Remote Australia": 142,
+   "Very Remote Australia": 112
+  }
+ },
+ "councilCrosswalk": [
+  {
+   "original": "PASTORAL UNINCORPORATED AREA",
+   "rebuilt": "Unincorporated SA",
+   "agree": 93,
+   "suburbs": 100
+  },
+  {
+   "original": "MID MURRAY COUNCIL",
+   "rebuilt": "Mid Murray",
+   "agree": 66,
+   "suburbs": 66
+  },
+  {
+   "original": "YORKE PENINSULA COUNCIL",
+   "rebuilt": "Yorke Peninsula",
+   "agree": 59,
+   "suburbs": 60
+  },
+  {
+   "original": "THE DC OF LOXTON WAIKERIE",
+   "rebuilt": "Loxton Waikerie",
+   "agree": 52,
+   "suburbs": 53
+  },
+  {
+   "original": "ADELAIDE HILLS COUNCIL",
+   "rebuilt": "Adelaide Hills",
+   "agree": 51,
+   "suburbs": 52
+  },
+  {
+   "original": "THE REGIONAL COUNCIL OF GOYDER",
+   "rebuilt": "Goyder",
+   "agree": 49,
+   "suburbs": 50
+  },
+  {
+   "original": "KANGAROO ISLAND COUNCIL",
+   "rebuilt": "Kangaroo Island",
+   "agree": 49,
+   "suburbs": 49
+  },
+  {
+   "original": "ALEXANDRINA COUNCIL",
+   "rebuilt": "Alexandrina",
+   "agree": 48,
+   "suburbs": 48
+  },
+  {
+   "original": "CITY OF PORT ADELAIDE ENFIELD",
+   "rebuilt": "Port Adelaide Enfield",
+   "agree": 47,
+   "suburbs": 47
+  },
+  {
+   "original": "CITY OF ONKAPARINGA",
+   "rebuilt": "Onkaparinga",
+   "agree": 46,
+   "suburbs": 46
+  },
+  {
+   "original": "WAKEFIELD REGIONAL COUNCIL",
+   "rebuilt": "Wakefield",
+   "agree": 42,
+   "suburbs": 42
+  },
+  {
+   "original": "CLARE AND GILBERT VALLEYS COUNCIL",
+   "rebuilt": "Clare and Gilbert Valleys",
+   "agree": 38,
+   "suburbs": 38
+  },
+  {
+   "original": "CITY OF CHARLES STURT",
+   "rebuilt": "Charles Sturt",
+   "agree": 37,
+   "suburbs": 37
+  },
+  {
+   "original": "THE RURAL CITY OF MURRAY BRIDGE",
+   "rebuilt": "Murray Bridge",
+   "agree": 35,
+   "suburbs": 37
+  },
+  {
+   "original": "LOWER EYRE COUNCIL",
+   "rebuilt": "Lower Eyre Peninsula",
+   "agree": 36,
+   "suburbs": 36
+  },
+  {
+   "original": "LIGHT REGIONAL COUNCIL",
+   "rebuilt": "Light",
+   "agree": 35,
+   "suburbs": 35
+  },
+  {
+   "original": "CITY OF PLAYFORD",
+   "rebuilt": "Playford",
+   "agree": 33,
+   "suburbs": 33
+  },
+  {
+   "original": "COORONG DISTRICT COUNCIL",
+   "rebuilt": "Coorong",
+   "agree": 32,
+   "suburbs": 33
+  },
+  {
+   "original": "THE DC OF GRANT",
+   "rebuilt": "Grant",
+   "agree": 30,
+   "suburbs": 32
+  },
+  {
+   "original": "WATTLE RANGE COUNCIL",
+   "rebuilt": "Wattle Range",
+   "agree": 31,
+   "suburbs": 32
+  },
+  {
+   "original": "CITY OF SALISBURY",
+   "rebuilt": "Salisbury",
+   "agree": 29,
+   "suburbs": 30
+  },
+  {
+   "original": "CITY OF MITCHAM",
+   "rebuilt": "Mitcham",
+   "agree": 29,
+   "suburbs": 29
+  },
+  {
+   "original": "MOUNT BARKER DISTRICT COUNCIL",
+   "rebuilt": "Mount Barker",
+   "agree": 29,
+   "suburbs": 29
+  },
+  {
+   "original": "NORTHERN AREAS COUNCIL",
+   "rebuilt": "Northern Areas",
+   "agree": 29,
+   "suburbs": 29
+  },
+  {
+   "original": "TATIARA DC",
+   "rebuilt": "Tatiara",
+   "agree": 29,
+   "suburbs": 29
+  },
+  {
+   "original": "THE BAROSSA COUNCIL",
+   "rebuilt": "Barossa",
+   "agree": 29,
+   "suburbs": 29
+  },
+  {
+   "original": "THE DC OF STREAKY BAY",
+   "rebuilt": "Streaky Bay",
+   "agree": 28,
+   "suburbs": 28
+  },
+  {
+   "original": "COPPER COAST COUNCIL",
+   "rebuilt": "Copper Coast",
+   "agree": 27,
+   "suburbs": 27
+  },
+  {
+   "original": "CITY OF BURNSIDE",
+   "rebuilt": "Burnside",
+   "agree": 26,
+   "suburbs": 26
+  },
+  {
+   "original": "CITY OF MARION",
+   "rebuilt": "Marion",
+   "agree": 23,
+   "suburbs": 26
+  },
+  {
+   "original": "NARACOORTE LUCINDALE COUNCIL",
+   "rebuilt": "Naracoorte Lucindale",
+   "agree": 25,
+   "suburbs": 25
+  },
+  {
+   "original": "CITY OF WEST TORRENS",
+   "rebuilt": "West Torrens",
+   "agree": 23,
+   "suburbs": 24
+  },
+  {
+   "original": "PORT PIRIE REGIONAL COUNCIL",
+   "rebuilt": "Port Pirie",
+   "agree": 22,
+   "suburbs": 23
+  },
+  {
+   "original": "THE DC OF CEDUNA",
+   "rebuilt": "Ceduna",
+   "agree": 22,
+   "suburbs": 22
+  },
+  {
+   "original": "THE CITY OF NORWOOD PAYNEHAM AND ST PETERS",
+   "rebuilt": "Norwood Payneham and St Peters",
+   "agree": 21,
+   "suburbs": 21
+  },
+  {
+   "original": "ADELAIDE PLAINS COUNCIL",
+   "rebuilt": "Adelaide Plains",
+   "agree": 20,
+   "suburbs": 20
+  },
+  {
+   "original": "CITY OF TEA TREE GULLY",
+   "rebuilt": "Tea Tree Gully",
+   "agree": 19,
+   "suburbs": 20
+  },
+  {
+   "original": "THE DC OF MOUNT REMARKABLE",
+   "rebuilt": "Mount Remarkable",
+   "agree": 19,
+   "suburbs": 20
+  },
+  {
+   "original": "THE DC OF YANKALILLA",
+   "rebuilt": "Yankalilla",
+   "agree": 19,
+   "suburbs": 19
+  },
+  {
+   "original": "DC OF ELLISTON",
+   "rebuilt": "Elliston",
+   "agree": 17,
+   "suburbs": 17
+  },
+  {
+   "original": "CITY OF UNLEY",
+   "rebuilt": "Unley",
+   "agree": 16,
+   "suburbs": 16
+  },
+  {
+   "original": "RENMARK PARINGA COUNCIL",
+   "rebuilt": "Renmark Paringa",
+   "agree": 15,
+   "suburbs": 15
+  },
+  {
+   "original": "THE DC OF CLEVE",
+   "rebuilt": "Cleve",
+   "agree": 15,
+   "suburbs": 15
+  },
+  {
+   "original": "THE DC OF KAROONDA EAST MURRAY",
+   "rebuilt": "Karoonda East Murray",
+   "agree": 15,
+   "suburbs": 15
+  },
+  {
+   "original": "BARUNGA WEST COUNCIL",
+   "rebuilt": "Barunga West",
+   "agree": 14,
+   "suburbs": 14
+  },
+  {
+   "original": "KINGSTON DC",
+   "rebuilt": "Kingston (SA)",
+   "agree": 14,
+   "suburbs": 14
+  },
+  {
+   "original": "THE DC OF ORROROO CARRIETON",
+   "rebuilt": "Orroroo Carrieton",
+   "agree": 14,
+   "suburbs": 14
+  },
+  {
+   "original": "THE DC OF KIMBA",
+   "rebuilt": "Kimba",
+   "agree": 13,
+   "suburbs": 13
+  },
+  {
+   "original": "THE DC OF PETERBOROUGH",
+   "rebuilt": "Peterborough",
+   "agree": 12,
+   "suburbs": 12
+  },
+  {
+   "original": "TOWN OF GAWLER",
+   "rebuilt": "Gawler",
+   "agree": 12,
+   "suburbs": 12
+  },
+  {
+   "original": "CITY OF HOLDFAST BAY",
+   "rebuilt": "Holdfast Bay",
+   "agree": 11,
+   "suburbs": 11
+  },
+  {
+   "original": "CITY OF VICTOR HARBOR",
+   "rebuilt": "Victor Harbor",
+   "agree": 9,
+   "suburbs": 11
+  },
+  {
+   "original": "PORT AUGUSTA CITY COUNCIL",
+   "rebuilt": "Port Augusta",
+   "agree": 11,
+   "suburbs": 11
+  },
+  {
+   "original": "ANANGU PITJANTJATJARA YANKUNYTJATJARA",
+   "rebuilt": "Anangu Pitjantjatjara Yunkunytjatjara",
+   "agree": 10,
+   "suburbs": 10
+  },
+  {
+   "original": "THE CORPORATION OF THE CITY OF WHYALLA",
+   "rebuilt": "Whyalla",
+   "agree": 10,
+   "suburbs": 10
+  },
+  {
+   "original": "THE DC OF TUMBY BAY",
+   "rebuilt": "Tumby Bay",
+   "agree": 10,
+   "suburbs": 10
+  },
+  {
+   "original": "WUDINNA DISTRICT COUNCIL",
+   "rebuilt": "Wudinna",
+   "agree": 9,
+   "suburbs": 10
+  },
+  {
+   "original": "CAMPBELLTOWN CITY COUNCIL",
+   "rebuilt": "Campbelltown (SA)",
+   "agree": 8,
+   "suburbs": 8
+  },
+  {
+   "original": "THE FLINDERS RANGES COUNCIL",
+   "rebuilt": "Flinders Ranges",
+   "agree": 8,
+   "suburbs": 8
+  },
+  {
+   "original": "SOUTHERN MALLEE DC",
+   "rebuilt": "Southern Mallee",
+   "agree": 6,
+   "suburbs": 7
+  },
+  {
+   "original": "THE BERRI BARMERA COUNCIL",
+   "rebuilt": "Berri Barmera",
+   "agree": 7,
+   "suburbs": 7
+  },
+  {
+   "original": "THE DC OF FRANKLIN HARBOUR",
+   "rebuilt": "Franklin Harbour",
+   "agree": 7,
+   "suburbs": 7
+  },
+  {
+   "original": "CITY OF PROSPECT",
+   "rebuilt": "Prospect",
+   "agree": 6,
+   "suburbs": 6
+  },
+  {
+   "original": "DC OF ROBE",
+   "rebuilt": "Robe",
+   "agree": 5,
+   "suburbs": 6
+  },
+  {
+   "original": "THE CORPORATION OF THE TOWN OF WALKERVILLE",
+   "rebuilt": "Walkerville",
+   "agree": 4,
+   "suburbs": 4
+  },
+  {
+   "original": "CITY OF ADELAIDE",
+   "rebuilt": "Adelaide",
+   "agree": 2,
+   "suburbs": 2
+  },
+  {
+   "original": "UIA TORRENS ISLAND",
+   "rebuilt": "Unincorporated SA",
+   "agree": 2,
+   "suburbs": 2
+  },
+  {
+   "original": "CITY OF MOUNT GAMBIER",
+   "rebuilt": "Mount Gambier",
+   "agree": 1,
+   "suburbs": 1
+  },
+  {
+   "original": "CITY OF PORT LINCOLN",
+   "rebuilt": "Port Lincoln",
+   "agree": 1,
+   "suburbs": 1
+  },
+  {
+   "original": "MARALINGA TJARUTJA",
+   "rebuilt": "Maralinga Tjarutja",
+   "agree": 1,
+   "suburbs": 1
+  },
+  {
+   "original": "UIA RIVERLAND",
+   "rebuilt": "Renmark Paringa",
+   "agree": 1,
+   "suburbs": 1
+  },
+  {
+   "original": "UIA WHYALLA",
+   "rebuilt": "Unincorporated SA",
+   "agree": 1,
+   "suburbs": 1
+  }
+ ],
+ "remotenessConfusion": {
+  "Very Remote Australia": {
+   "Very Remote Australia": 33
+  },
+  "Not Applicable": {
+   "Very Remote Australia": 112,
+   "Major Cities of Australia": 12,
+   "Remote Australia": 142,
+   "Inner Regional Australia": 165,
+   "Outer Regional Australia": 366
+  },
+  "Major Cities of Australia": {
+   "Major Cities of Australia": 412,
+   "Inner Regional Australia": 4
+  },
+  "Inner Regional Australia": {
+   "Inner Regional Australia": 174,
+   "Outer Regional Australia": 1
+  },
+  "Outer Regional Australia": {
+   "Outer Regional Australia": 214
+  },
+  "Remote Australia": {
+   "Remote Australia": 58,
+   "Outer Regional Australia": 1
+  }
+ },
+ "examples": [
+  {
+   "suburb": "ADELAIDE",
+   "original": {
+    "postcode": "5000",
+    "council": "CITY OF ADELAIDE",
+    "ses": 0,
+    "remoteness": "Major Cities of Australia"
+   },
+   "rebuilt": {
+    "postcode": "5000",
+    "council": "Adelaide",
+    "decileSa": 9,
+    "remoteness": "Major Cities of Australia"
+   }
+  },
+  {
+   "suburb": "AMATA",
+   "original": {
+    "postcode": "872",
+    "council": "ANANGU PITJANTJATJARA YANKUNYTJATJARA",
+    "ses": 0,
+    "remoteness": "Very Remote Australia"
+   },
+   "rebuilt": {
+    "postcode": "0872",
+    "council": "Anangu Pitjantjatjara Yunkunytjatjara",
+    "decileSa": 1,
+    "remoteness": "Very Remote Australia"
+   }
+  },
+  {
+   "suburb": "KRONDORF",
+   "original": {
+    "postcode": "5352",
+    "council": "THE BAROSSA COUNCIL",
+    "ses": 0,
+    "remoteness": "Not Applicable"
+   },
+   "rebuilt": {
+    "postcode": "5352",
+    "council": "Barossa",
+    "decileSa": 10,
+    "remoteness": "Inner Regional Australia"
+   }
+  },
+  {
+   "suburb": "PARNDANA",
+   "original": {
+    "postcode": "5220",
+    "council": "KANGAROO ISLAND COUNCIL",
+    "ses": 0,
+    "remoteness": "Remote Australia"
+   },
+   "rebuilt": {
+    "postcode": "5220",
+    "council": "Kangaroo Island",
+    "decileSa": 1,
+    "remoteness": "Remote Australia"
+   }
+  },
+  {
+   "suburb": "MOUNT GAMBIER",
+   "original": {
+    "postcode": "5290",
+    "council": "CITY OF MOUNT GAMBIER",
+    "ses": 0,
+    "remoteness": "Outer Regional Australia"
+   },
+   "rebuilt": {
+    "postcode": "5290",
+    "council": "Mount Gambier",
+    "decileSa": 1,
+    "remoteness": "Outer Regional Australia"
+   }
+  },
+  {
+   "suburb": "COOBER PEDY",
+   "original": {
+    "postcode": "5723",
+    "council": "PASTORAL UNINCORPORATED AREA",
+    "ses": 0,
+    "remoteness": "Very Remote Australia"
+   },
+   "rebuilt": {
+    "postcode": "5723",
+    "council": "Coober Pedy",
+    "decileSa": 1,
+    "remoteness": "Very Remote Australia"
+   }
+  },
+  {
+   "suburb": "WHYALLA",
+   "original": {
+    "postcode": "5600",
+    "council": "THE CORPORATION OF THE CITY OF WHYALLA",
+    "ses": 0,
+    "remoteness": "Outer Regional Australia"
+   },
+   "rebuilt": {
+    "postcode": "5600",
+    "council": "Whyalla",
+    "decileSa": 5,
+    "remoteness": "Outer Regional Australia"
+   }
+  },
+  {
+   "suburb": "STEWART RANGE",
+   "original": {
+    "postcode": "5271",
+    "council": "NARACOORTE LUCINDALE COUNCIL",
+    "ses": 0,
+    "remoteness": "Not Applicable"
+   },
+   "rebuilt": {
+    "postcode": "5271",
+    "council": "Naracoorte Lucindale",
+    "decileSa": 9,
+    "remoteness": "Outer Regional Australia"
+   }
+  }
+ ]
+}
