@@ -26,6 +26,7 @@ import { generateStructured, parseStructured } from "./client";
 import { AiError, describeAiError, kindFromStatus } from "./errors";
 import {
   applyFields,
+  roundWeights,
   buildSystemPrompt,
   buildUserMessage,
   decisionFor,
@@ -672,6 +673,19 @@ describe("describe a test scenario", () => {
       catalogue,
     );
     expect(decisionFor(same, new Set())).toBe("accepted");
+  });
+
+  it("rounds applied weights for the form without dropping any area", () => {
+    expect(roundWeights([1 / 3, 2 / 3, 0, 0.125, 0.00001234567])).toEqual([
+      0.3333, 0.6667, 0, 0.125, 0.00001235,
+    ]);
+    const review = reviewProposal(
+      { ...proposal, remoteness_weights: [1 / 3, 1 / 3, 1 / 3, 0, 0.000012346] },
+      current,
+      catalogue,
+    );
+    const next = applyFields(current, review, new Set<FieldKey>(["remoteness_weights"]));
+    expect(next.weights.remoteness).toEqual([0.3333, 0.3333, 0.3333, 0, 0.00001235]);
   });
 
   it("runs end to end with a mocked provider and keeps the key out of the request body", async () => {

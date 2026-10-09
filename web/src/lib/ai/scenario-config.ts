@@ -500,6 +500,16 @@ export function reviewProposal(
   };
 }
 
+/**
+ * Weights as they go into the form: four significant figures, so a proposed
+ * 1/3 shows as 0.3333 rather than 0.3333333333333333. Each weight moves by
+ * less than 0.05% of itself and the sampler normalises them, so the shares
+ * barely change; a positive weight never rounds to zero, so no area drops out.
+ */
+export function roundWeights(weights: readonly number[]): number[] {
+  return weights.map((w) => (w > 0 ? Number(w.toPrecision(4)) : w));
+}
+
 /** Apply the selected (valid) fields of a reviewed proposal to the settings. */
 export function applyFields(
   current: GeneratorSettings,
@@ -516,9 +526,12 @@ export function applyFields(
     weights: {
       remoteness:
         take("remoteness_weights") && n.remoteness
-          ? n.remoteness
+          ? roundWeights(n.remoteness)
           : current.weights.remoteness,
-      decile: take("decile_weights") && n.decile ? n.decile : current.weights.decile,
+      decile:
+        take("decile_weights") && n.decile
+          ? roundWeights(n.decile)
+          : current.weights.decile,
     },
     filters: {
       suburb: take("suburb") ? n.filters.suburb : (current.filters.suburb ?? null),
