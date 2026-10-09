@@ -360,6 +360,12 @@ export default function SaMapImpl({
     };
 
     map.on("style.load", addOverlays);
+    // The OpenFreeMap dark style names an icon ("circle-11") that its sprite does
+    // not contain. Register a transparent 1x1 stand-in so MapLibre does not warn.
+    map.setMissingStyleImageResolver((id) => {
+      if (!map.hasImage(id))
+        map.addImage(id, { width: 1, height: 1, data: new Uint8Array(4) });
+    });
     map.on("load", () => {
       loaded = true;
       window.clearTimeout(timer);
