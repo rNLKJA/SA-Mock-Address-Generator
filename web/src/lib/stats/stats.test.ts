@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import ref from "@/lib/__fixtures__/stats-reference.json";
-import { chiSquareGoodnessOfFit, chiSquareSf, logGamma, wilson } from "./stats";
+import { chiSquareGoodnessOfFit, chiSquareSf, logGamma, wilson } from "./index";
 
 describe("chi-square survival function matches scipy.stats.chi2.sf", () => {
   for (const c of ref.chi2sf) {
