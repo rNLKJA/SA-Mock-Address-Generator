@@ -1,0 +1,248 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design tokens: "surveyor's field notebook".
+ * Light = pale map paper with a faint survey grid; dark = a night map.
+ * SA state colours (red, gold, blue) are accents only, used sparingly.
+ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --font-heading: var(--font-fraunces), ui-serif, Georgia, serif;
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-sa-red: var(--sa-red);
+  --color-sa-gold: var(--sa-gold);
+  --color-sa-blue: var(--sa-blue);
+  --color-paper-line: var(--paper-line);
+  --color-ink-soft: var(--ink-soft);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --radius: 0.45rem;
+  --background: #f6f1e4;
+  --foreground: #1c2630;
+  --ink-soft: #3d4853;
+  --card: #fbf8ef;
+  --card-foreground: #1c2630;
+  --popover: #fdfbf5;
+  --popover-foreground: #1c2630;
+  --primary: #1f4e8c;
+  --primary-foreground: #f8f5ec;
+  --secondary: #ebe4d1;
+  --secondary-foreground: #1c2630;
+  --muted: #ece5d3;
+  --muted-foreground: #5a6068;
+  --accent: #e6ddc6;
+  --accent-foreground: #1c2630;
+  --destructive: #b3261e;
+  --border: #d6ccb4;
+  --input: #c9bea4;
+  --ring: #1f4e8c;
+  --sa-red: #b8292f;
+  --sa-gold: #a87a12;
+  --sa-blue: #1f4e8c;
+  --paper-line: rgb(31 78 140 / 0.075);
+  --paper-line-strong: rgb(31 78 140 / 0.13);
+
+  /* Charts (validated with the dataviz palette checks on #f7f3e8) */
+  --viz-surface: #fbf8ef;
+  --viz-series: #1f5aa6;
+  --viz-target: #1c2630;
+  --viz-ci: #52514e;
+  --viz-grid: #e3dbc6;
+  --viz-axis: #c3b9a0;
+  --point: #b8292f;
+  --point-ring: #fbf8ef;
+}
+
+.dark {
+  --background: #0d1520;
+  --foreground: #e6e1d3;
+  --ink-soft: #c2c6c9;
+  --card: #121c28;
+  --card-foreground: #e6e1d3;
+  --popover: #15202d;
+  --popover-foreground: #e6e1d3;
+  --primary: #8fb3e6;
+  --primary-foreground: #0d1520;
+  --secondary: #1a2634;
+  --secondary-foreground: #e6e1d3;
+  --muted: #172230;
+  --muted-foreground: #9ba4ae;
+  --accent: #1e2b3a;
+  --accent-foreground: #e6e1d3;
+  --destructive: #ef7b70;
+  --border: #253345;
+  --input: #2d3c4f;
+  --ring: #8fb3e6;
+  --sa-red: #ec7268;
+  --sa-gold: #e3b553;
+  --sa-blue: #8fb3e6;
+  --paper-line: rgb(143 179 230 / 0.05);
+  --paper-line-strong: rgb(143 179 230 / 0.1);
+
+  --viz-surface: #121c28;
+  --viz-series: #5b93dc;
+  --viz-target: #f2eee3;
+  --viz-ci: #c3c2b7;
+  --viz-grid: #223042;
+  --viz-axis: #33445a;
+  --point: #ff8a7a;
+  --point-ring: #0d1520;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image:
+      linear-gradient(var(--paper-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line) 1px, transparent 1px),
+      linear-gradient(var(--paper-line-strong) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-line-strong) 1px, transparent 1px);
+    background-size:
+      24px 24px,
+      24px 24px,
+      120px 120px,
+      120px 120px;
+    background-position: -1px -1px;
+    font-feature-settings: "ss02";
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-heading;
+    font-optical-sizing: auto;
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--sa-gold) 35%, transparent);
+  }
+}
+
+@layer components {
+  /* Monospace address tag: the core visual unit of the site. */
+  .address-tag {
+    @apply font-mono text-[0.82rem] leading-snug tracking-tight;
+    font-variant-numeric: tabular-nums;
+  }
+  .stamp {
+    @apply inline-flex items-center rounded-[3px] border-[1.5px] px-1.5 py-px font-mono text-[0.62rem] font-semibold tracking-[0.14em] uppercase;
+    color: var(--sa-red);
+    border-color: var(--sa-red);
+  }
+  .eyebrow {
+    @apply font-mono text-[0.7rem] font-medium tracking-[0.16em] text-muted-foreground uppercase;
+  }
+  .prose-notebook p {
+    @apply leading-relaxed text-ink-soft;
+  }
+  .prose-notebook p + p {
+    @apply mt-3;
+  }
+  .prose-notebook a {
+    @apply text-primary underline decoration-primary/40 underline-offset-2 hover:decoration-primary;
+  }
+  .prose-notebook code {
+    @apply rounded bg-muted px-1 py-px font-mono text-[0.85em];
+    /* Long file paths wrap instead of widening the page on phones. */
+    overflow-wrap: anywhere;
+  }
+  .terminal {
+    @apply rounded-lg border bg-[#16202b] font-mono text-[0.78rem] leading-relaxed text-[#e8e3d5] dark:bg-[#0a1119];
+  }
+}
+
+/* MapLibre controls in the notebook palette */
+.maplibregl-ctrl-group {
+  background: var(--card) !important;
+  border: 1px solid var(--border);
+  box-shadow: none !important;
+}
+.dark .maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: invert(0.9);
+}
+/* MapLibre's compact attribution hard-codes black text; use the theme ink. */
+.maplibregl-map .maplibregl-ctrl-attrib,
+.maplibregl-map .maplibregl-ctrl-attrib-inner {
+  background: color-mix(in oklch, var(--card) 90%, transparent) !important;
+  color: var(--muted-foreground) !important;
+  font-size: 10px;
+}
+.maplibregl-map .maplibregl-ctrl-attrib-inner {
+  background: transparent !important;
+}
+.maplibregl-map .maplibregl-ctrl-attrib a {
+  color: var(--muted-foreground) !important;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, var(--muted-foreground) 40%, transparent);
+}
+.maplibregl-map .maplibregl-ctrl-scale {
+  background: color-mix(in oklch, var(--card) 85%, transparent);
+  border-color: var(--muted-foreground);
+  color: var(--muted-foreground);
+}
+.dark .maplibregl-ctrl-attrib-button {
+  filter: invert(0.9);
+}
+.maplibregl-popup-content {
+  background: var(--popover) !important;
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius) !important;
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.12) !important;
+  padding: 8px 10px !important;
+  font-family: var(--font-plex-sans), system-ui, sans-serif;
+}
+.maplibregl-popup-tip {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

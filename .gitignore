@@ -124,9 +124,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Generated files
+# Generated files (CLI output at the repo root only; web/ JSON is source)
 # .csv
-*.json
+/*.json
 
 # IDE
 .vscode/
@@ -146,5 +146,32 @@ env/
 env.bak/
 venv.bak/
 
-test/
+/test/
 /.cursor/rules
+
+# --- Revival (2026) ---
+# Excel/Office lock files
+~$*
+# Environment files (templates stay tracked)
+.env*
+!.env.example
+!env.example
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+uv.lock
+# Node / Next.js
+node_modules/
+.next/
+out/
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+coverage/
+.pnpm-store/
+# Playwright / screenshots
+test-results/
+playwright-report/
+# Raw open-data downloads used by scripts/ (re-downloadable, large)
+scripts/.cache/
