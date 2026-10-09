@@ -37,6 +37,7 @@ import {
   WEIGHT_MODES,
   allocateQuotas,
   defaultWeights,
+  equalSharesWouldHelp,
   minCountForEveryStratum,
   type Filters,
   type WeightMode,
@@ -192,18 +193,36 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
   const modeHint = WEIGHT_MODES.find((m) => m.value === mode)?.hint;
   // Stratified, before generating: warn when the count is too small for every
   // area to get a quota. Only without filters, which can remove areas (the
-  // results warn either way).
+  // results warn either way), and only for settings not yet generated: once
+  // they have been, the results carry the same warning.
   const quotaHint = (() => {
     if (mode !== "stratified" || countError || filterCount > 0) return null;
-    const live = weights.remoteness.map((w, h) =>
-      filterOptions.raCounts[h] > 0 ? Math.max(0, w) : 0,
-    );
+    const lastRun = run?.options;
+    if (
+      lastRun &&
+      lastRun.mode === mode &&
+      lastRun.count === countNum &&
+      Object.values(lastRun.filters).every(
+        (v) => v === null || v === undefined || v === "",
+      ) &&
+      lastRun.weights.remoteness.length === weights.remoteness.length &&
+      lastRun.weights.remoteness.every((w, h) => w === weights.remoteness[h])
+    )
+      return null;
+    const hasSuburbs = filterOptions.raCounts.map((c) => c > 0);
+    const live = weights.remoteness.map((w, h) => (hasSuburbs[h] ? Math.max(0, w) : 0));
     const quotas = allocateQuotas(countNum, live);
     const areas = quotas.flatMap((q, h) => (q === 0 && live[h] > 0 ? [h] : []));
     return areas.length
-      ? emptyQuotaText({ areas, minCount: minCountForEveryStratum(live) }, countNum, {
-          planned: true,
-        })
+      ? emptyQuotaText(
+          {
+            areas,
+            minCount: minCountForEveryStratum(live),
+            equalHelps: equalSharesWouldHelp(countNum, weights.remoteness, hasSuburbs),
+          },
+          countNum,
+          { planned: true },
+        )
       : null;
   })();
 

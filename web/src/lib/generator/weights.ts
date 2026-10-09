@@ -127,6 +127,26 @@ export function minCountForEveryStratum(weights: readonly number[]): number {
   return n;
 }
 
+/**
+ * Whether "Equal per area" would give every area that has eligible suburbs at
+ * least one address at this count. With k such areas and equal weights,
+ * largest remainder gives each at least floor(count / k), so it helps exactly
+ * when count >= k and the weights over those areas are not already equal.
+ */
+export function equalSharesWouldHelp(
+  count: number,
+  weights: readonly number[],
+  hasSuburbs: readonly boolean[],
+): boolean {
+  const areas = hasSuburbs.flatMap((ok, h) => (ok ? [h] : []));
+  if (areas.length === 0 || count < areas.length) return false;
+  const w = areas.map((h) => {
+    const v = weights[h] ?? 0;
+    return Number.isFinite(v) && v > 0 ? v : 0;
+  });
+  return w.some((v) => Math.abs(v - w[0]) > 1e-12);
+}
+
 export interface Filters {
   /** Upper-case suburb name. */
   suburb?: string | null;

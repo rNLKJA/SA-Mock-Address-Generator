@@ -11,6 +11,7 @@ import {
   allocateQuotas,
   configRemotenessWeights,
   defaultWeights,
+  equalSharesWouldHelp,
   minCountForEveryStratum,
 } from "./weights";
 
@@ -45,6 +46,23 @@ describe("allocateQuotas (largest remainder)", () => {
       expect(q[1]).toBe(0);
     }
     expect(allocateQuotas(10, [0, 0])).toEqual([0, 0]);
+  });
+});
+
+describe("equalSharesWouldHelp", () => {
+  const all = [true, true, true, true, true];
+  it("is true only when equal shares reach every area that has suburbs", () => {
+    expect(equalSharesWouldHelp(10, configRemotenessWeights(), all)).toBe(true);
+    expect(equalSharesWouldHelp(5, configRemotenessWeights(), all)).toBe(true);
+    expect(equalSharesWouldHelp(4, configRemotenessWeights(), all)).toBe(false);
+    expect(equalSharesWouldHelp(10, [...EQUAL_REMOTENESS_WEIGHTS], all)).toBe(false);
+    // areas without suburbs do not count, either way
+    const noRemote = [true, true, true, false, false];
+    expect(equalSharesWouldHelp(3, configRemotenessWeights(), noRemote)).toBe(true);
+    expect(equalSharesWouldHelp(3, [0.2, 0.2, 0.2, 0.9, 0.9], noRemote)).toBe(false);
+    expect(
+      equalSharesWouldHelp(3, [1, 1, 1, 1, 1], [false, false, false, false, false]),
+    ).toBe(false);
   });
 });
 
@@ -151,7 +169,17 @@ describe("stratified generation", () => {
     expect(small.emptyQuotas).toEqual({
       areas: [4],
       minCount: minCountForEveryStratum(configRemotenessWeights()),
+      equalHelps: true, // 10 addresses over five equal areas gives each two
     });
+    // Equal per area cannot help when it is already chosen, or below one per area.
+    const equal = { ...defaultWeights(), remoteness: [...EQUAL_REMOTENESS_WEIGHTS] };
+    expect(
+      generateMockAddresses(rows, null, { ...base, count: 3, weights: equal })
+        .emptyQuotas,
+    ).toEqual({ areas: [3, 4], minCount: 5, equalHelps: false });
+    expect(
+      generateMockAddresses(rows, null, { ...base, count: 3 }).emptyQuotas?.equalHelps,
+    ).toBe(false);
     expect(generateMockAddresses(rows, null, base).emptyQuotas).toBeNull();
     // a zero weight is a choice, not a rounding casualty
     const noVeryRemote = generateMockAddresses(rows, null, {

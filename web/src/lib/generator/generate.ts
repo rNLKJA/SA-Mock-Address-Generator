@@ -11,6 +11,7 @@ import type { GeometryIndex, LonLat } from "@/lib/geo";
 import { MOCK_STAMP, RA_NAMES, formatFullAddress, type Suburb } from "@/lib/suburbs";
 import {
   allocateQuotas,
+  equalSharesWouldHelp,
   minCountForEveryStratum,
   samplingProbabilities,
   type Filters,
@@ -64,10 +65,11 @@ export interface GenerateResult {
   /**
    * Stratified design only: areas (RA_NAMES indices) that have eligible
    * suburbs with positive weight but were allocated no addresses because the
-   * count is too small, and the smallest count from which every such area
-   * always gets one. Null when every live area got at least one.
+   * count is too small, the smallest count from which every such area
+   * always gets one, and whether switching to equal weights would fix it at
+   * this count. Null when every live area got at least one.
    */
-  emptyQuotas: { areas: number[]; minCount: number } | null;
+  emptyQuotas: { areas: number[]; minCount: number; equalHelps: boolean } | null;
   expected: CategoryShares;
   observed: CategoryShares;
   eligible: number;
@@ -291,7 +293,18 @@ export function stratifiedPlan(
 
 function emptyQuotas(plan: StratifiedPlan): GenerateResult["emptyQuotas"] {
   const areas = plan.quotas.flatMap((q, h) => (q === 0 && plan.live[h] > 0 ? [h] : []));
-  return areas.length ? { areas, minCount: minCountForEveryStratum(plan.live) } : null;
+  if (areas.length === 0) return null;
+  const count = plan.quotas.reduce((a, b) => a + b, 0);
+  return {
+    areas,
+    minCount: minCountForEveryStratum(plan.live),
+    // plan.live keeps the weight of every area with eligible suburbs
+    equalHelps: equalSharesWouldHelp(
+      count,
+      plan.live,
+      plan.samplers.map((s) => s !== null),
+    ),
+  };
 }
 
 /** The quota schedule [0,0,...,1,1,...] shuffled in place with Python's algorithm. */

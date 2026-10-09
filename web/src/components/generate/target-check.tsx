@@ -64,14 +64,14 @@ function joinNames(names: string[]): string {
  * results tab.
  */
 export function emptyQuotaText(
-  empty: { areas: number[]; minCount: number },
+  empty: { areas: number[]; minCount: number; equalHelps: boolean },
   count: number,
   { planned = false }: { planned?: boolean } = {},
 ): string {
   const one = empty.areas.length === 1;
   const names = joinNames(empty.areas.map((h) => RA_SHORT[h]));
   const verb = planned ? "would get" : one ? "gets" : "get";
-  return `${names} ${verb} 0 of ${planned ? "" : "these "}${formatInt(count)} addresses: ${one ? "its quota rounds" : "their quotas round"} to zero. Use ${formatInt(empty.minCount)} or more addresses, or Equal per area, so every area is represented.`;
+  return `${names} ${verb} 0 of ${planned ? "" : "these "}${formatInt(count)} addresses: ${one ? "its quota rounds" : "their quotas round"} to zero. Use ${formatInt(empty.minCount)} or more addresses${empty.equalHelps ? ", or Equal per area," : ""} so every area is represented.`;
 }
 
 export function TargetCheck({
@@ -373,10 +373,15 @@ export function TargetCheck({
           ))}
           <span />
           <div className="relative h-4" aria-hidden>
-            {ticks.map((t) => (
+            {ticks.map((t, i) => (
               <span
                 key={t}
-                className="absolute -translate-x-1/2 font-mono text-[0.65rem] text-muted-foreground"
+                // On a phone the track is too narrow for every label: keep every
+                // grid line but label every other tick below the sm breakpoint.
+                className={cn(
+                  "absolute -translate-x-1/2 font-mono text-[0.65rem] text-muted-foreground",
+                  ticks.length > 3 && i % 2 === 1 && "hidden sm:block",
+                )}
                 style={{ left: pct(t) }}
               >
                 {Math.round(t * 100)}%
