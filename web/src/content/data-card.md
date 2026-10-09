@@ -6,7 +6,7 @@ recorded), which stays in the repository unchanged.
 
 ## At a glance
 
-| | |
+| Item | Detail |
 | --- | --- |
 | Files | `web/public/data/suburbs.json` (table), `sal-sa.geojson` (boundaries), `sa-context.geojson` (state outline), `provenance.json` (comparison with 2025) |
 | Unit | One row per ABS Suburb and Locality (SAL) 2021 in South Australia |

@@ -49,13 +49,16 @@ optional AI assistant that proposes settings for a person to review.
 - **Did the sample hit the target?**: realised shares with 95% Wilson intervals and a
   goodness-of-fit test chosen for the sample (exact multinomial when it can be
   enumerated, chi-square when every expected count is at least 5, a seeded Monte Carlo
-  p-value otherwise), always with n and Cohen's w. A stratified sample is reported as
-  "fixed by design" instead of tested.
+  p-value otherwise), always with n and Cohen's w. Below 100 addresses a non-rejection
+  is reported as "no clear gap" with a power caveat, not as "on target". A stratified
+  sample is reported as "fixed by design" instead of tested, and a stratified run too
+  small for every area to get a quota says so before and after generating.
 - **Sampling design** (`/sampling`): the three designs through the real generator over
   200 seeds each (spread against multinomial theory, Wilson coverage, the test's
   rejection rate with its own interval); the exact false-alarm rate of the exact and
-  chi-square tests at small n; a sample-size calculator (share precision, per-area
-  rates, zero-failure demonstrations); point-in-polygon validation of every coordinate;
+  chi-square tests at small n; a sample-size calculator (share precision from the exact
+  binomial distribution, per-area rates from the Wilson interval, zero-failure
+  demonstrations from Clopper-Pearson); point-in-polygon validation of every coordinate;
   and the Clark-Evans nearest-neighbour ratio inside six differently shaped suburbs,
   with two negative controls.
 - **Describe a test scenario** (optional AI, bring your own key): describe the test data
@@ -116,7 +119,7 @@ Every number above is recomputed in CI by `web/src/lib/sampling/claims.test.ts`.
 | Maps | none | MapLibre GL JS 6 + OpenFreeMap tiles, bundled GeoJSON fallback |
 | Geocoding | Mapbox Geocoding v5 (key) | Photon (free, keyless), local point-in-polygon |
 | Data | CSV, source not recorded | ABS ASGS 2021, Census 2021 mesh blocks, SEIFA 2021 |
-| Statistics | none | `web/src/lib/stats`: Wilson, exact multinomial, Monte Carlo and chi-square tests, sample sizes, bootstrap, Clark-Evans, checked against SciPy |
+| Statistics | none | `web/src/lib/stats`: Wilson, exact multinomial, Monte Carlo and chi-square tests, exact binomial and Wilson sample sizes, bootstrap, Clark-Evans, checked against SciPy |
 | AI | none | Optional, bring your own key (Anthropic or OpenAI), called from the browser, zod-validated, audit-logged in IndexedDB |
 | Tests | none | Vitest unit, parity, SciPy-reference and claims tests; GitHub Actions CI |
 
