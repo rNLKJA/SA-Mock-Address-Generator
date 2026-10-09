@@ -6,7 +6,7 @@ Mock South Australian addresses for software testing, with the receipts: a seede
 generator, a check that each sample hits its target mix, a suburb map, a real-address
 lookup, and a byte-for-byte replay of the 2025 Python tool it grew out of.
 
-**Live demo:** _coming soon (Vercel: `sa-mock-address-generator`)_
+**Live demo:** [sa-mock-address-generator.vercel.app](https://sa-mock-address-generator.vercel.app)
 
 [![CI](https://github.com/rNLKJA/SA-Mock-Address-Generator/actions/workflows/ci.yml/badge.svg)](https://github.com/rNLKJA/SA-Mock-Address-Generator/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -116,6 +116,22 @@ pnpm lint && pnpm format:check && pnpm typecheck && pnpm test && pnpm build
 
 No environment variables are needed. The site is static apart from `/api/geocode`,
 which proxies Photon with a polite User-Agent, a one-day cache and a per-IP rate limit.
+
+There is no database and nothing is stored: the tool only reads data, so there are no
+records to browse. The reference data the site uses is plain JSON in
+`web/public/data/`, readable in any editor or straight from the live site (for
+example `/data/suburbs.json`). The 2025 table is `original/data/sa_suburbs_data.csv`.
+
+### Deployment
+
+Production is the Vercel project `sa-mock-address-generator`, deployed from `web/`
+(Next.js defaults, no environment variables):
+
+```bash
+cd web
+vercel link --yes --project sa-mock-address-generator
+vercel deploy --prod --yes
+```
 
 ## How the data artefacts are generated
 
