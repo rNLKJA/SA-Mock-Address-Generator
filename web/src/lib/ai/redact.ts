@@ -5,17 +5,21 @@
  * or shown passes through `redactSecrets`.
  */
 
+const REDACTED = "[redacted key]";
+
 const KEY_PATTERNS = [
   /\bsk-ant-[A-Za-z0-9_-]{4,}/g, // Anthropic
   /\bsk-(?:proj-|svcacct-|admin-)?[A-Za-z0-9_*.-]{8,}/g, // OpenAI (also masked forms)
-  /\b(?:x-api-key|authorization)\s*[:=]\s*(?:Bearer\s+)?\S+/gi,
+  // A header value, unless it is already redacted (otherwise "x-api-key: [redacted
+  // key]" would become "[redacted key] key]", and redaction would not be idempotent).
+  /\b(?:x-api-key|authorization)\s*[:=]\s*(?!(?:Bearer\s+)?\[redacted key\])(?:Bearer\s+)?\S+/gi,
   /\bBearer\s+[A-Za-z0-9._~+/-]{8,}=*/g,
 ];
 
 export function redactSecrets(text: string, knownKey?: string | null): string {
   let out = text;
-  if (knownKey && knownKey.length >= 8) out = out.split(knownKey).join("[redacted key]");
-  for (const re of KEY_PATTERNS) out = out.replace(re, "[redacted key]");
+  if (knownKey && knownKey.length >= 8) out = out.split(knownKey).join(REDACTED);
+  for (const re of KEY_PATTERNS) out = out.replace(re, REDACTED);
   return out;
 }
 

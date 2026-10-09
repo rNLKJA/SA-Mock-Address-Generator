@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useRef, useState } from "react";
+import { useId, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import {
   ChevronDown,
@@ -56,13 +56,26 @@ type Decision = "pending" | "accepted" | "edited" | "rejected";
 interface Result {
   entryId: string;
   proposal: Proposal;
-  review: Review;
+  /** Signature of the review when the proposal arrived (see reviewSignature). */
+  initialSignature: string;
   provider: Provider;
   model: string;
   latencyMs: number;
   usage: TokenUsage | null;
   decision: Decision;
+  /** The review and selection the visitor decided on, frozen at that moment. */
+  decided: { review: Review; selected: ReadonlySet<FieldKey> } | null;
 }
+
+/** What the review table shows: changes whenever the form or the proposal does. */
+function reviewSignature(review: Review): string {
+  return JSON.stringify(
+    review.fields.map((f) => [f.key, f.current, f.proposed, f.valid, f.recommended]),
+  );
+}
+
+const recommendedKeys = (review: Review) =>
+  new Set(review.fields.filter((f) => f.recommended).map((f) => f.key));
 
 /**
  * Optional "Describe a test scenario" panel (bring your own key). The model
@@ -85,10 +98,38 @@ export function ScenarioAssistant({
   const [error, setError] = useState<string | null>(null);
   const [auditNotice, setAuditNotice] = useState<string | null>(null);
   const [result, setResult] = useState<Result | null>(null);
-  const [selected, setSelected] = useState<Set<FieldKey>>(new Set());
+  // The visitor's ticks, tied to the review they were made on: if the form
+  // changes while a proposal is pending, the review is recomputed against the
+  // new values and the ticks fall back to its recommended set.
+  const [picked, setPicked] = useState<{
+    signature: string;
+    keys: ReadonlySet<FieldKey>;
+  } | null>(null);
   const [showUnchanged, setShowUnchanged] = useState(false);
   const abortRef = useRef<AbortController | null>(null);
   const trimmed = scenario.trim();
+
+  // Review the proposal against the form as it is now, not as it was when the
+  // proposal arrived, so "Now" and the applied change always match. Once the
+  // visitor has decided, the review they decided on is kept for display.
+  const proposal = result?.proposal ?? null;
+  const liveReview = useMemo(
+    () => (proposal ? reviewProposal(proposal, current, catalogue) : null),
+    [proposal, current, catalogue],
+  );
+  const review = result?.decided?.review ?? liveReview;
+  const signature = liveReview ? reviewSignature(liveReview) : "";
+  const selected: ReadonlySet<FieldKey> =
+    result?.decided?.selected ??
+    (picked && picked.signature === signature
+      ? picked.keys
+      : liveReview
+        ? recommendedKeys(liveReview)
+        : new Set<FieldKey>());
+  const formChanged =
+    result !== null &&
+    result.decision === "pending" &&
+    signature !== result.initialSignature;
 
   const record = async (entry: AuditEntry, apiKey: string) => {
     const store = auditStore();
@@ -160,14 +201,15 @@ export function ScenarioAssistant({
       setResult({
         entryId: entry.id,
         proposal: res.data,
-        review,
+        initialSignature: reviewSignature(review),
         provider,
         model: res.model,
         latencyMs: res.latencyMs,
         usage: res.usage,
         decision: "pending",
+        decided: null,
       });
-      setSelected(new Set(review.fields.filter((f) => f.recommended).map((f) => f.key)));
+      setPicked(null);
       setShowUnchanged(false);
     } catch (e) {
       const ai = e instanceof AiError ? e : null;
@@ -195,9 +237,9 @@ export function ScenarioAssistant({
   };
 
   const decide = async (decision: Decision, applied?: GeneratorSettings) => {
-    if (!result) return;
-    setResult({ ...result, decision });
-    const appliedKeys = result.review.fields
+    if (!result || !liveReview) return;
+    setResult({ ...result, decision, decided: { review: liveReview, selected } });
+    const appliedKeys = liveReview.fields
       .filter((f) => f.valid && f.changed && selected.has(f.key))
       .map((f) => f.key);
     try {
@@ -217,12 +259,12 @@ export function ScenarioAssistant({
   };
 
   const apply = () => {
-    if (!result) return;
-    const next = applyFields(current, result.review, selected);
-    const decision = decisionFor(result.review, selected);
+    if (!result || !liveReview) return;
+    const next = applyFields(current, liveReview, selected);
+    const decision = decisionFor(liveReview, selected);
     onApply(next);
     void decide(decision, next);
-    const n = result.review.fields.filter(
+    const n = liveReview.fields.filter(
       (f) => f.valid && f.changed && selected.has(f.key),
     ).length;
     toast.success(
@@ -232,7 +274,7 @@ export function ScenarioAssistant({
     );
   };
 
-  const fields = result?.review.fields ?? [];
+  const fields = review?.fields ?? [];
   const visible = fields.filter((f) => showUnchanged || f.changed || !f.valid);
   const hidden = fields.length - visible.length;
   const applicable = fields.filter((f) => f.valid && f.changed);
@@ -449,6 +491,13 @@ export function ScenarioAssistant({
                 <legend className="mb-2 text-sm font-medium">
                   Review the proposed changes
                 </legend>
+                {formChanged && (
+                  <p role="status" className="mb-2 text-xs text-ink-soft">
+                    The settings changed after you asked for this proposal, so
+                    &ldquo;Now&rdquo; shows them as they are and the ticks are back to the
+                    recommended changes.
+                  </p>
+                )}
                 <div className="rounded-lg border bg-card text-sm">
                   <div
                     aria-hidden
@@ -472,14 +521,12 @@ export function ScenarioAssistant({
                             type="checkbox"
                             checked={f.valid && f.changed && selected.has(f.key)}
                             disabled={!f.valid || !f.changed}
-                            onChange={(e) =>
-                              setSelected((s) => {
-                                const next = new Set(s);
-                                if (e.target.checked) next.add(f.key);
-                                else next.delete(f.key);
-                                return next;
-                              })
-                            }
+                            onChange={(e) => {
+                              const next = new Set(selected);
+                              if (e.target.checked) next.add(f.key);
+                              else next.delete(f.key);
+                              setPicked({ signature, keys: next });
+                            }}
                             className="mt-0.5 size-4 accent-[var(--primary)]"
                           />
                           <label htmlFor={box} className="font-medium sm:font-normal">

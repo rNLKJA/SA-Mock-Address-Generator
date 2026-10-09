@@ -406,6 +406,30 @@ describe("redaction", () => {
     expect(containsSecret({ nested: [KEY] })).toBe(true);
     expect(containsSecret("ADELAIDE SA 5000")).toBe(false);
   });
+
+  it("leaves a readable message when the provider echoes the key in a header", () => {
+    // A 401 body that quotes the header: the known key is replaced first, and the
+    // header pattern must not then swallow half of the marker.
+    expect(redactSecrets(`invalid x-api-key: ${KEY}`, KEY)).toBe(
+      "invalid x-api-key: [redacted key]",
+    );
+    expect(redactSecrets(`invalid x-api-key: ${KEY}`)).toBe(
+      "invalid x-api-key: [redacted key]",
+    );
+    expect(
+      redactSecrets("Authorization: Bearer abcdefgh12345678", "abcdefgh12345678"),
+    ).toBe("Authorization: Bearer [redacted key]");
+    for (const text of [
+      `invalid x-api-key: ${KEY}`,
+      `Incorrect API key provided: ${OPENAI_KEY}`,
+      "authorization: Bearer abcdefgh12345678",
+    ]) {
+      const once = redactSecrets(text, KEY);
+      expect(redactSecrets(once, KEY)).toBe(once); // idempotent
+      expect(containsSecret(once, KEY)).toBe(false);
+      expect(once).not.toMatch(/\] key\]/);
+    }
+  });
 });
 
 function entry(over: Partial<AuditEntry> = {}): AuditEntry {
