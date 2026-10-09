@@ -1,0 +1,1046 @@
+{
+ "meta": {
+  "python": "3.13.9",
+  "pandas": "3.0.6",
+  "numpy": "2.5.3",
+  "note": "Recorded by scripts/make_fixtures.py from original/ (unchanged 2025 code). Seeds both random and numpy.random."
+ },
+ "rng": {
+  "python": [
+   {
+    "seed": 0,
+    "getrandbits32": [
+     3626764237,
+     1654615998,
+     3255389356,
+     3823568514,
+     1806341205,
+     173879092
+    ],
+    "randint1to999": [
+     865,
+     395,
+     777,
+     912,
+     431,
+     42
+    ],
+    "randbelow49": [
+     24,
+     48,
+     26,
+     2,
+     16,
+     32
+    ],
+    "random": [
+     0.8444218515250481,
+     0.7579544029403025,
+     0.420571580830845,
+     0.25891675029296335
+    ]
+   },
+   {
+    "seed": 1,
+    "getrandbits32": [
+     577090037,
+     2444712010,
+     3639700191,
+     3445702192,
+     3280387012,
+     271041745
+    ],
+    "randint1to999": [
+     138,
+     583,
+     868,
+     822,
+     783,
+     65
+    ],
+    "randbelow49": [
+     8,
+     36,
+     48,
+     4,
+     16,
+     7
+    ],
+    "random": [
+     0.13436424411240122,
+     0.8474337369372327,
+     0.763774618976614,
+     0.2550690257394217
+    ]
+   },
+   {
+    "seed": 42,
+    "getrandbits32": [
+     2746317213,
+     478163327,
+     107420369,
+     3184935163,
+     1181241943,
+     1051802512
+    ],
+    "randint1to999": [
+     655,
+     115,
+     26,
+     760,
+     282,
+     251
+    ],
+    "randbelow49": [
+     40,
+     7,
+     1,
+     47,
+     17,
+     15
+    ],
+    "random": [
+     0.6394267984578837,
+     0.025010755222666936,
+     0.27502931836911926,
+     0.22321073814882275
+    ]
+   },
+   {
+    "seed": 2025,
+    "getrandbits32": [
+     2395527356,
+     355203201,
+     2773882754,
+     3597174691,
+     2051303054,
+     4066832970
+    ],
+    "randint1to999": [
+     572,
+     85,
+     662,
+     858,
+     490,
+     970
+    ],
+    "randbelow49": [
+     35,
+     5,
+     41,
+     30,
+     11,
+     33
+    ],
+    "random": [
+     0.5577521702848538,
+     0.6458449128086305,
+     0.4776062141871701,
+     0.17328471339709117
+    ]
+   },
+   {
+    "seed": 4294967301,
+    "getrandbits32": [
+     675479763,
+     2085189291,
+     1213270837,
+     3822202474,
+     2596110301,
+     3587694693
+    ],
+    "randint1to999": [
+     162,
+     498,
+     290,
+     912,
+     619,
+     856
+    ],
+    "randbelow49": [
+     10,
+     31,
+     18,
+     38,
+     0,
+     22
+    ],
+    "random": [
+     0.15727238718789782,
+     0.2824866316461999,
+     0.6044540318498407,
+     0.014523449205355199
+    ]
+   },
+   {
+    "seed": 123456789012,
+    "getrandbits32": [
+     1619264890,
+     2798649831,
+     88888752,
+     1131458016,
+     603036555,
+     1794965889
+    ],
+    "randint1to999": [
+     387,
+     668,
+     22,
+     270,
+     144,
+     428
+    ],
+    "randbelow49": [
+     24,
+     41,
+     1,
+     16,
+     8,
+     26
+    ],
+    "random": [
+     0.37701448538609916,
+     0.02069602357922562,
+     0.14040538980009454,
+     0.2000884797205128
+    ]
+   }
+  ],
+  "numpy": [
+   {
+    "seed": 0,
+    "uint32": [
+     2357136044,
+     2546248239,
+     3071714933,
+     3626093760,
+     2588848963,
+     3684848379
+    ],
+    "permutation10": [
+     2,
+     8,
+     4,
+     9,
+     1,
+     6,
+     7,
+     3,
+     0,
+     5
+    ],
+    "choice1894": [
+     289,
+     658,
+     1790,
+     889,
+     1202
+    ]
+   },
+   {
+    "seed": 1,
+    "uint32": [
+     1791095845,
+     4282876139,
+     3093770124,
+     4005303368,
+     491263,
+     550290313
+    ],
+    "permutation10": [
+     2,
+     9,
+     6,
+     4,
+     0,
+     3,
+     1,
+     7,
+     8,
+     5
+    ],
+    "choice1894": [
+     302,
+     94,
+     1659,
+     1683,
+     506
+    ]
+   },
+   {
+    "seed": 42,
+    "uint32": [
+     1608637542,
+     3421126067,
+     4083286876,
+     787846414,
+     3143890026,
+     3348747335
+    ],
+    "permutation10": [
+     8,
+     1,
+     5,
+     0,
+     7,
+     2,
+     9,
+     4,
+     3,
+     6
+    ],
+    "choice1894": [
+     1054,
+     1779,
+     1307,
+     1660,
+     131
+    ]
+   },
+   {
+    "seed": 2025,
+    "uint32": [
+     581917246,
+     2146402014,
+     3813294034,
+     1466313566,
+     4005510732,
+     453344760
+    ],
+    "permutation10": [
+     6,
+     1,
+     5,
+     9,
+     0,
+     4,
+     7,
+     3,
+     8,
+     2
+    ],
+    "choice1894": [
+     978,
+     1490,
+     852,
+     1568,
+     1262
+    ]
+   },
+   {
+    "seed": 4294967295,
+    "uint32": [
+     419326371,
+     479346978,
+     3918654476,
+     2416749639,
+     3388880820,
+     2260532800
+    ],
+    "permutation10": [
+     6,
+     9,
+     5,
+     1,
+     8,
+     0,
+     7,
+     4,
+     2,
+     3
+    ],
+    "choice1894": [
+     1332,
+     202,
+     1517,
+     1684,
+     694
+    ]
+   }
+  ]
+ },
+ "generate": [
+  {
+   "seed": 42,
+   "type": "default",
+   "value": null,
+   "addresses": [
+    {
+     "street_address": "655 Elizabeth Street",
+     "street_number": 655,
+     "street_name": "Elizabeth Street",
+     "suburb": "NAIDIA",
+     "postcode": 5354,
+     "full_address": "655 Elizabeth Street, NAIDIA SA 5354",
+     "council": "THE DC OF LOXTON WAIKERIE",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "26 Upper Sturt Road",
+     "street_number": 26,
+     "street_name": "Upper Sturt Road",
+     "suburb": "MAHANEWO",
+     "postcode": 5717,
+     "full_address": "26 Upper Sturt Road, MAHANEWO SA 5717",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "282 Hindley Street",
+     "street_number": 282,
+     "street_name": "Hindley Street",
+     "suburb": "HILLTOWN",
+     "postcode": 5455,
+     "full_address": "282 Hindley Street, HILLTOWN SA 5455",
+     "council": "CLARE AND GILBERT VALLEYS COUNCIL",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "229 North Terrace",
+     "street_number": 229,
+     "street_name": "North Terrace",
+     "suburb": "WIRRULLA",
+     "postcode": 5661,
+     "full_address": "229 North Terrace, WIRRULLA SA 5661",
+     "council": "THE DC OF STREAKY BAY",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "755 George Street",
+     "street_number": 755,
+     "street_name": "George Street",
+     "suburb": "CUMBERLAND PARK",
+     "postcode": 5041,
+     "full_address": "755 George Street, CUMBERLAND PARK SA 5041",
+     "council": "CITY OF MITCHAM",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    },
+    {
+     "street_address": "693 Upper Sturt Road",
+     "street_number": 693,
+     "street_name": "Upper Sturt Road",
+     "suburb": "ALBERTON",
+     "postcode": 5014,
+     "full_address": "693 Upper Sturt Road, ALBERTON SA 5014",
+     "council": "CITY OF PORT ADELAIDE ENFIELD",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    }
+   ]
+  },
+  {
+   "seed": 7,
+   "type": "suburb",
+   "value": "adelaide",
+   "addresses": [
+    {
+     "street_address": "332 South Terrace",
+     "street_number": 332,
+     "street_name": "South Terrace",
+     "suburb": "ADELAIDE",
+     "postcode": 5000,
+     "full_address": "332 South Terrace, ADELAIDE SA 5000",
+     "council": "CITY OF ADELAIDE",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    },
+    {
+     "street_address": "405 Henley Beach Road",
+     "street_number": 405,
+     "street_name": "Henley Beach Road",
+     "suburb": "ADELAIDE",
+     "postcode": 5000,
+     "full_address": "405 Henley Beach Road, ADELAIDE SA 5000",
+     "council": "CITY OF ADELAIDE",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    },
+    {
+     "street_address": "50 Queen Street",
+     "street_number": 50,
+     "street_name": "Queen Street",
+     "suburb": "ADELAIDE",
+     "postcode": 5000,
+     "full_address": "50 Queen Street, ADELAIDE SA 5000",
+     "council": "CITY OF ADELAIDE",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    }
+   ]
+  },
+  {
+   "seed": 11,
+   "type": "council",
+   "value": "CITY OF MARION",
+   "addresses": [
+    {
+     "street_address": "464 Glen Osmond Road",
+     "street_number": 464,
+     "street_name": "Glen Osmond Road",
+     "suburb": "PARK HOLME",
+     "postcode": 5043,
+     "full_address": "464 Glen Osmond Road, PARK HOLME SA 5043",
+     "council": "CITY OF MARION",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    },
+    {
+     "street_address": "878 Angas Street",
+     "street_number": 878,
+     "street_name": "Angas Street",
+     "suburb": "EDWARDSTOWN",
+     "postcode": 5039,
+     "full_address": "878 Angas Street, EDWARDSTOWN SA 5039",
+     "council": "CITY OF MARION",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    },
+    {
+     "street_address": "463 Prospect Road",
+     "street_number": 463,
+     "street_name": "Prospect Road",
+     "suburb": "SEAVIEW DOWNS",
+     "postcode": 5049,
+     "full_address": "463 Prospect Road, SEAVIEW DOWNS SA 5049",
+     "council": "CITY OF MARION",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    },
+    {
+     "street_address": "876 Goodwood Road",
+     "street_number": 876,
+     "street_name": "Goodwood Road",
+     "suburb": "PARK HOLME",
+     "postcode": 5043,
+     "full_address": "876 Goodwood Road, PARK HOLME SA 5043",
+     "council": "CITY OF MARION",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    }
+   ]
+  },
+  {
+   "seed": 3,
+   "type": "remoteness",
+   "value": "Very Remote Australia",
+   "addresses": [
+    {
+     "street_address": "244 Goodwood Road",
+     "street_number": 244,
+     "street_name": "Goodwood Road",
+     "suburb": "KALTJITI",
+     "postcode": 872,
+     "full_address": "244 Goodwood Road, KALTJITI SA 872",
+     "council": "ANANGU PITJANTJATJARA YANKUNYTJATJARA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Very Remote Australia"
+    },
+    {
+     "street_address": "558 North Terrace",
+     "street_number": 558,
+     "street_name": "North Terrace",
+     "suburb": "PIPALYATJARA",
+     "postcode": 872,
+     "full_address": "558 North Terrace, PIPALYATJARA SA 872",
+     "council": "ANANGU PITJANTJATJARA YANKUNYTJATJARA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Very Remote Australia"
+    },
+    {
+     "street_address": "379 Cross Road",
+     "street_number": 379,
+     "street_name": "Cross Road",
+     "suburb": "NULLARBOR",
+     "postcode": 5690,
+     "full_address": "379 Cross Road, NULLARBOR SA 5690",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Very Remote Australia"
+    },
+    {
+     "street_address": "486 Brighton Road",
+     "street_number": 486,
+     "street_name": "Brighton Road",
+     "suburb": "CEDUNA",
+     "postcode": 5690,
+     "full_address": "486 Brighton Road, CEDUNA SA 5690",
+     "council": "THE DC OF CEDUNA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Very Remote Australia"
+    }
+   ]
+  },
+  {
+   "seed": 5,
+   "type": "remoteness",
+   "value": "Not Applicable",
+   "addresses": [
+    {
+     "street_address": "638 Rundle Street",
+     "street_number": 638,
+     "street_name": "Rundle Street",
+     "suburb": "OUTALPA",
+     "postcode": 5440,
+     "full_address": "638 Rundle Street, OUTALPA SA 5440",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "760 Whitmore Square",
+     "street_number": 760,
+     "street_name": "Whitmore Square",
+     "suburb": "EVELYN DOWNS",
+     "postcode": 5723,
+     "full_address": "760 Whitmore Square, EVELYN DOWNS SA 5723",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "815 Churchill Road",
+     "street_number": 815,
+     "street_name": "Churchill Road",
+     "suburb": "BOWMANS",
+     "postcode": 5550,
+     "full_address": "815 Churchill Road, BOWMANS SA 5550",
+     "council": "WAKEFIELD REGIONAL COUNCIL",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    }
+   ]
+  },
+  {
+   "seed": 9,
+   "type": "socioeconomic",
+   "value": "5",
+   "addresses": [
+    {
+     "street_address": "475 Marion Road",
+     "street_number": 475,
+     "street_name": "Marion Road",
+     "suburb": "SANDY GROVE",
+     "postcode": 5275,
+     "full_address": "475 Marion Road, SANDY GROVE SA 5275",
+     "council": "KINGSTON DC",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "383 Pulteney Street",
+     "street_number": 383,
+     "street_name": "Pulteney Street",
+     "suburb": "REDHILL",
+     "postcode": 5521,
+     "full_address": "383 Pulteney Street, REDHILL SA 5521",
+     "council": "PORT PIRIE REGIONAL COUNCIL",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Outer Regional Australia"
+    },
+    {
+     "street_address": "142 West Terrace",
+     "street_number": 142,
+     "street_name": "West Terrace",
+     "suburb": "MURRAWONG",
+     "postcode": 5253,
+     "full_address": "142 West Terrace, MURRAWONG SA 5253",
+     "council": "THE RURAL CITY OF MURRAY BRIDGE",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    }
+   ]
+  },
+  {
+   "seed": 13,
+   "type": "socioeconomic",
+   "value": "0",
+   "addresses": [
+    {
+     "street_address": "266 Morphett Street",
+     "street_number": 266,
+     "street_name": "Morphett Street",
+     "suburb": "SALISBURY PARK",
+     "postcode": 5109,
+     "full_address": "266 Morphett Street, SALISBURY PARK SA 5109",
+     "council": "CITY OF SALISBURY",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    },
+    {
+     "street_address": "702 Grand Junction Road",
+     "street_number": 702,
+     "street_name": "Grand Junction Road",
+     "suburb": "SEFTON PARK",
+     "postcode": 5083,
+     "full_address": "702 Grand Junction Road, SEFTON PARK SA 5083",
+     "council": "CITY OF PORT ADELAIDE ENFIELD",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Major Cities of Australia"
+    },
+    {
+     "street_address": "822 West Terrace",
+     "street_number": 822,
+     "street_name": "West Terrace",
+     "suburb": "OLYMPIC DAM",
+     "postcode": 5725,
+     "full_address": "822 West Terrace, OLYMPIC DAM SA 5725",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Remote Australia"
+    }
+   ]
+  },
+  {
+   "seed": 21,
+   "type": "suburb",
+   "value": "NOWHERE",
+   "addresses": [
+    {
+     "street_address": "169 Waymouth Street",
+     "street_number": 169,
+     "street_name": "Waymouth Street",
+     "suburb": "KINGSFORD",
+     "postcode": 5118,
+     "full_address": "169 Waymouth Street, KINGSFORD SA 5118",
+     "council": "LIGHT REGIONAL COUNCIL",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Inner Regional Australia"
+    },
+    {
+     "street_address": "707 Waymouth Street",
+     "street_number": 707,
+     "street_name": "Waymouth Street",
+     "suburb": "MERCUNDA",
+     "postcode": 5308,
+     "full_address": "707 Waymouth Street, MERCUNDA SA 5308",
+     "council": "THE DC OF KAROONDA EAST MURRAY",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "651 Morphett Street",
+     "street_number": 651,
+     "street_name": "Morphett Street",
+     "suburb": "BOOKPURNONG",
+     "postcode": 5333,
+     "full_address": "651 Morphett Street, BOOKPURNONG SA 5333",
+     "council": "THE DC OF LOXTON WAIKERIE",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Outer Regional Australia"
+    }
+   ]
+  },
+  {
+   "seed": 2025,
+   "type": "council",
+   "value": "PASTORAL UNINCORPORATED AREA",
+   "addresses": [
+    {
+     "street_address": "572 Victoria Street",
+     "street_number": 572,
+     "street_name": "Victoria Street",
+     "suburb": "KOLENDO",
+     "postcode": 5717,
+     "full_address": "572 Victoria Street, KOLENDO SA 5717",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "662 Halifax Street",
+     "street_number": 662,
+     "street_name": "Halifax Street",
+     "suburb": "LEIGH CREEK",
+     "postcode": 5731,
+     "full_address": "662 Halifax Street, LEIGH CREEK SA 5731",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Very Remote Australia"
+    },
+    {
+     "street_address": "970 West Terrace",
+     "street_number": 970,
+     "street_name": "West Terrace",
+     "suburb": "BOOLCOOMATTA",
+     "postcode": 5440,
+     "full_address": "970 West Terrace, BOOLCOOMATTA SA 5440",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "542 Main Street",
+     "street_number": 542,
+     "street_name": "Main Street",
+     "suburb": "COONDAMBO",
+     "postcode": 5719,
+     "full_address": "542 Main Street, COONDAMBO SA 5719",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    },
+    {
+     "street_address": "381 Gawler Place",
+     "street_number": 381,
+     "street_name": "Gawler Place",
+     "suburb": "ANGEPENA",
+     "postcode": 5732,
+     "full_address": "381 Gawler Place, ANGEPENA SA 5732",
+     "council": "PASTORAL UNINCORPORATED AREA",
+     "latitude": null,
+     "longitude": null,
+     "socio_economic_status": 0,
+     "remoteness_level": "Not Applicable"
+    }
+   ]
+  }
+ ],
+ "options": {
+  "counts": {
+   "suburbs": 1894,
+   "councils": 72,
+   "remoteness_levels": 6,
+   "socioeconomic_levels": 1
+  },
+  "head": {
+   "suburbs": [
+    "ABERFOYLE PARK",
+    "ABMINGA STATION",
+    "ADELAIDE",
+    "ADELAIDE AIRPORT",
+    "AGERY"
+   ],
+   "councils": [
+    "ADELAIDE HILLS COUNCIL",
+    "ADELAIDE PLAINS COUNCIL",
+    "ALEXANDRINA COUNCIL",
+    "ANANGU PITJANTJATJARA YANKUNYTJATJARA",
+    "BARUNGA WEST COUNCIL"
+   ],
+   "remoteness_levels": [
+    "Inner Regional Australia",
+    "Major Cities of Australia",
+    "Not Applicable",
+    "Outer Regional Australia",
+    "Remote Australia"
+   ],
+   "socioeconomic_levels": [
+    0
+   ]
+  },
+  "remoteness_levels": [
+   "Inner Regional Australia",
+   "Major Cities of Australia",
+   "Not Applicable",
+   "Outer Regional Australia",
+   "Remote Australia",
+   "Very Remote Australia"
+  ],
+  "socioeconomic_levels": [
+   0
+  ]
+ },
+ "cli": [
+  {
+   "seed": 42,
+   "argv": [
+    "generate",
+    "3"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nGenerating 3 South Australian addresses...\n\n=== Address 1 ===\nAddress: 655 Elizabeth Street, NAIDIA SA 5354\nStreet: 655 Elizabeth Street\nSuburb: NAIDIA\nPostcode: 5354\nCouncil: THE DC OF LOXTON WAIKERIE\nRemoteness: Not Applicable\nSocio-economic level: 0\n\n=== Address 2 ===\nAddress: 26 Upper Sturt Road, MAHANEWO SA 5717\nStreet: 26 Upper Sturt Road\nSuburb: MAHANEWO\nPostcode: 5717\nCouncil: PASTORAL UNINCORPORATED AREA\nRemoteness: Not Applicable\nSocio-economic level: 0\n\n=== Address 3 ===\nAddress: 282 Hindley Street, HILLTOWN SA 5455\nStreet: 282 Hindley Street\nSuburb: HILLTOWN\nPostcode: 5455\nCouncil: CLARE AND GILBERT VALLEYS COUNCIL\nRemoteness: Not Applicable\nSocio-economic level: 0\n\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 7,
+   "argv": [
+    "--format",
+    "json",
+    "generate",
+    "2",
+    "--suburb",
+    "ADELAIDE"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nGenerating 2 South Australian addresses...\nFiltering by suburb: ADELAIDE\n\n{\n  \"street_address\": \"332 South Terrace\",\n  \"street_number\": 332,\n  \"street_name\": \"South Terrace\",\n  \"suburb\": \"ADELAIDE\",\n  \"postcode\": 5000,\n  \"full_address\": \"332 South Terrace, ADELAIDE SA 5000\",\n  \"council\": \"CITY OF ADELAIDE\",\n  \"latitude\": null,\n  \"longitude\": null,\n  \"socio_economic_status\": 0,\n  \"remoteness_level\": \"Major Cities of Australia\"\n}\n{\n  \"street_address\": \"405 Henley Beach Road\",\n  \"street_number\": 405,\n  \"street_name\": \"Henley Beach Road\",\n  \"suburb\": \"ADELAIDE\",\n  \"postcode\": 5000,\n  \"full_address\": \"405 Henley Beach Road, ADELAIDE SA 5000\",\n  \"council\": \"CITY OF ADELAIDE\",\n  \"latitude\": null,\n  \"longitude\": null,\n  \"socio_economic_status\": 0,\n  \"remoteness_level\": \"Major Cities of Australia\"\n}\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 11,
+   "argv": [
+    "--format",
+    "csv",
+    "generate",
+    "4",
+    "--remoteness",
+    "Very Remote Australia"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nGenerating 4 South Australian addresses...\nFiltering by remoteness: Very Remote Australia\n\nstreet_address,street_number,street_name,suburb,postcode,full_address,council,latitude,longitude,socio_economic_status,remoteness_level\n\"464 Glen Osmond Road\",\"464\",\"Glen Osmond Road\",\"WATARRU\",\"872\",\"464 Glen Osmond Road, WATARRU SA 872\",\"ANANGU PITJANTJATJARA YANKUNYTJATJARA\",\"\",\"\",\"0\",\"Very Remote Australia\"\n\"878 Angas Street\",\"878\",\"Angas Street\",\"PYGERY\",\"5652\",\"878 Angas Street, PYGERY SA 5652\",\"WUDINNA DISTRICT COUNCIL\",\"\",\"\",\"0\",\"Very Remote Australia\"\n\"463 Prospect Road\",\"463\",\"Prospect Road\",\"PUKATJA\",\"872\",\"463 Prospect Road, PUKATJA SA 872\",\"ANANGU PITJANTJATJARA YANKUNYTJATJARA\",\"\",\"\",\"0\",\"Very Remote Australia\"\n\"876 Goodwood Road\",\"876\",\"Goodwood Road\",\"STREAKY BAY\",\"5680\",\"876 Goodwood Road, STREAKY BAY SA 5680\",\"THE DC OF STREAKY BAY\",\"\",\"\",\"0\",\"Very Remote Australia\"\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 3,
+   "argv": [
+    "generate",
+    "1",
+    "--socioeconomic",
+    "5"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nGenerating 1 South Australian address...\nFiltering by socioeconomic: 5\n\nAddress: 244 Goodwood Road, BOCONNOC PARK SA 5453\nStreet: 244 Goodwood Road\nSuburb: BOCONNOC PARK\nPostcode: 5453\nCouncil: CLARE AND GILBERT VALLEYS COUNCIL\nRemoteness: Outer Regional Australia\nSocio-economic level: 0\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 4,
+   "argv": [
+    "generate",
+    "2",
+    "--socioeconomic",
+    "0"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nGenerating 2 South Australian addresses...\n\n=== Address 1 ===\nAddress: 242 Light Square, SEDDON SA 5223\nStreet: 242 Light Square\nSuburb: SEDDON\nPostcode: 5223\nCouncil: KANGAROO ISLAND COUNCIL\nRemoteness: Not Applicable\nSocio-economic level: 0\n\n=== Address 2 ===\nAddress: 106 Lower North East Road, MOUNT EBA SA 5720\nStreet: 106 Lower North East Road\nSuburb: MOUNT EBA\nPostcode: 5720\nCouncil: PASTORAL UNINCORPORATED AREA\nRemoteness: Not Applicable\nSocio-economic level: 0\n\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 5,
+   "argv": [
+    "--format",
+    "csv",
+    "generate",
+    "2",
+    "--council",
+    "city of adelaide"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nGenerating 2 South Australian addresses...\nFiltering by council: city of adelaide\n\nstreet_address,street_number,street_name,suburb,postcode,full_address,council,latitude,longitude,socio_economic_status,remoteness_level\n\"638 Rundle Street\",\"638\",\"Rundle Street\",\"ADELAIDE\",\"5000\",\"638 Rundle Street, ADELAIDE SA 5000\",\"CITY OF ADELAIDE\",\"\",\"\",\"0\",\"Major Cities of Australia\"\n\"760 Whitmore Square\",\"760\",\"Whitmore Square\",\"NORTH ADELAIDE\",\"5006\",\"760 Whitmore Square, NORTH ADELAIDE SA 5006\",\"CITY OF ADELAIDE\",\"\",\"\",\"0\",\"Major Cities of Australia\"\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 9,
+   "argv": [
+    "generate",
+    "2",
+    "--suburb",
+    "NOWHERE"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nGenerating 2 South Australian addresses...\nFiltering by suburb: NOWHERE\n\n=== Address 1 ===\nAddress: 475 Marion Road, SANDY GROVE SA 5275\nStreet: 475 Marion Road\nSuburb: SANDY GROVE\nPostcode: 5275\nCouncil: KINGSTON DC\nRemoteness: Not Applicable\nSocio-economic level: 0\n\n=== Address 2 ===\nAddress: 383 Pulteney Street, REDHILL SA 5521\nStreet: 383 Pulteney Street\nSuburb: REDHILL\nPostcode: 5521\nCouncil: PORT PIRIE REGIONAL COUNCIL\nRemoteness: Outer Regional Australia\nSocio-economic level: 0\n\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 1,
+   "argv": [
+    "--format",
+    "json",
+    "generate",
+    "1"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nGenerating 1 South Australian address...\n\n{\n  \"street_address\": \"138 Unley Road\",\n  \"street_number\": 138,\n  \"street_name\": \"Unley Road\",\n  \"suburb\": \"PARA HILLS\",\n  \"postcode\": 5096,\n  \"full_address\": \"138 Unley Road, PARA HILLS SA 5096\",\n  \"council\": \"CITY OF SALISBURY\",\n  \"latitude\": null,\n  \"longitude\": null,\n  \"socio_economic_status\": 0,\n  \"remoteness_level\": \"Major Cities of Australia\"\n}\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 0,
+   "argv": [
+    "generate",
+    "0"
+   ],
+   "stdout": "",
+   "stderr": "Error: Count must be a positive number\n",
+   "exitCode": 1
+  },
+  {
+   "seed": 0,
+   "argv": [
+    "options"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\nAvailable Distribution Options:\n========================================\n\nSuburbs (1894):\n  - ABERFOYLE PARK\n  - ABMINGA STATION\n  - ADELAIDE\n  - ADELAIDE AIRPORT\n  - AGERY\n  - ALAWOONA\n  - ALBERT PARK\n  - ALBERTON\n  - ALDGATE\n  - ALDINGA\n  - ALDINGA BEACH\n  - ALFORD\n  - ALLANDALE STATION\n  - ALLENBY GARDENS\n  - ALLENDALE EAST\n  - ALLENDALE NORTH\n  - ALMA\n  - ALPANA\n  - ALTON DOWNS STATION\n  - ALTONA\n  - AMATA\n  - AMERICAN BEACH\n  - AMERICAN RIVER\n  - AMYTON\n  - ANAMA\n  - ANANGU PITJANTJATJARA YANKUNYTJATJARA\n  - ANDAMOOKA\n  - ANDAMOOKA STATION\n  - ANDREWS\n  - ANDREWS FARM\n  - ANGAS PLAINS\n  - ANGAS VALLEY\n  - ANGASTON\n  - ANGEPENA\n  - ANGLE PARK\n  - ANGLE VALE\n  - ANGORIGINA\n  - ANNA CREEK\n  - ANNADALE\n  - ANTECHAMBER BAY\n  - APAMURRA\n  - APOINGA\n  - APPILA\n  - ARCKARINGA\n  - ARCOONA\n  - ARDROSSAN\n  - ARKAROOLA\n  - ARKAROOLA VILLAGE\n  - ARMAGH\n  - ARNO BAY\n  - ARTHURTON\n  - ASCOT PARK\n  - ASHBOURNE\n  - ASHFORD\n  - ASHTON\n  - ASHVILLE\n  - ATHELSTONE\n  - ATHOL PARK\n  - AUBURN\n  - AULDANA\n  - AUSTRALIA PLAINS\n  - AVENUE RANGE\n  - AVOCA DELL\n  - AVON\n  - AYERS RANGE SOUTH\n  - BACK VALLEY\n  - BACKY POINT\n  - BAGOT WELL\n  - BAIRD BAY\n  - BAKARA\n  - BAKARA WELL\n  - BALAH\n  - BALAKLAVA\n  - BALD HILLS\n  - BALDINA\n  - BALGOWAN\n  - BALHANNAH\n  - BALLAST HEAD\n  - BANGHAM\n  - BANGOR\n  - BANKSIA PARK\n  - BARABBA\n  - BARATTA\n  - BARINIA\n  - BARMERA\n  - BARNA\n  - BARNDIOOTA\n  - BAROOTA\n  - BAROSSA GOLDFIELDS\n  - BARUNGA GAP\n  - BASKET RANGE\n  - BAUDIN BEACH\n  - BAY OF SHOALS\n  - BEACHPORT\n  - BEATTY\n  - BEAUFORT\n  - BEAUMONT\n  - BEAUMONTS\n  - BEDFORD PARK\n  - BEETALOO VALLEY\n  - BELAIR\n  - BELALIE EAST\n  - BELALIE NORTH\n  - BELLEVUE HEIGHTS\n  - BELTANA\n  - BELTANA STATION\n  - BELTON\n  - BELVIDERE\n  - BENBOURNIE\n  - BENDA\n  - BERRI\n  - BETHANY\n  - BETHEL\n  - BEULAH PARK\n  - BEVERLEY\n  - BIBARINGA\n  - BIBLIANDO\n  - BIG BEND\n  - BIGGS FLAT\n  - BILLA KALINA\n  - BILLEROO WEST\n  - BILLIATT\n  - BIMBOWRIE\n  - BINDARRAH\n  - BINNUM\n  - BIRCHMORE\n  - BIRDWOOD\n  - BIRKENHEAD\n  - BLACK FOREST\n  - BLACK HILL\n  - BLACK HILL STATION\n  - BLACK POINT\n  - BLACK ROCK\n  - BLACK SPRINGS\n  - BLACKFELLOWS CAVES\n  - BLACKFELLOWS CREEK\n  - BLACKFORD\n  - BLACKWOOD\n  - BLAIR ATHOL\n  - BLAKEVIEW\n  - BLAKISTON\n  - BLANCHE HARBOR\n  - BLANCHETOWN\n  - BLETCHLEY\n  - BLEWITT SPRINGS\n  - BLINMAN\n  - BLUFF BEACH\n  - BLYTH\n  - BOATSWAIN POINT\n  - BOCKELBERG\n  - BOCONNOC PARK\n  - BOLIVAR\n  - BOLLARDS LAGOON\n  - BOLTO\n  - BON BON\n  - BOOBOROWIE\n  - BOOKABIE\n  - BOOKPURNONG\n  - BOOL LAGOON\n  - BOOLCOOMATTA\n  - BOOLEROO CENTRE\n  - BOOLGUN\n  - BOONERDO\n  - BOORS PLAIN\n  - BORDERTOWN\n  - BORDERTOWN SOUTH\n  - BORRIKA\n  - BOSTON\n  - BOSWORTH\n  - BOWDEN\n  - BOWER\n  - BOWHILL\n  - BOWILLIA\n  - BOWMANS\n  - BRADBURY\n  - BRADY CREEK\n  - BRAHMA LODGE\n  - BRAMFIELD\n  - BRAY\n  - BRENDA PARK\n  - BRENTWOOD\n  - BRIDGEWATER\n  - BRIGHT\n  - BRIGHTON\n  - BRIMBAGO\n  - BRINKLEY\n  - BRINKWORTH\n  - BROADVIEW\n  - BROMPTON\n  - BROOKER\n  - BROOKLYN PARK\n  - BROUGHTON RIVER VALLEY\n  - BROWN BEACH\n  - BROWN HILL CREEK\n  - BROWNLOW\n  - BROWNLOW KI\n  - BRUCE\n  - BRUKUNGA\n  - BUCHANAN\n  - BUCHFELDE\n  - BUCKINGHAM\n  - BUCKLAND PARK\n  - BUCKLEBOO\n  - BUGLE HUT\n  - BUGLE RANGES\n  - BULGUNNIA\n  - BULL CREEK\n  - BULLOO CREEK\n  - BUMBUNGA\n  - BUNBURY\n  - BUNDALEER GARDENS\n  - BUNDALEER NORTH\n  - BUNDEY\n  - BUNGAMA\n  - BUNGAREE\n  - BUNGEROO\n  - BUNYUNG\n  - BURDETT\n  - BURNSFIELD\n  - BURNSIDE\n  - BURR WELL\n  - BURRA\n  - BURRA EASTERN DISTRICTS\n  - BURRUNGULE\n  - BURTON\n  - BUTE\n  - BUTLER\n  - CADELL\n  - CADELL LAGOON\n  - CADGEE\n  - CALCA\n  - CALIPH\n  - CALLANNA\n  - CALLINGTON\n  - CALOMBA\n  - CALOOTE\n  - CALPERUM STATION\n  - CALTOWIE\n  - CALTOWIE NORTH\n  - CALTOWIE WEST\n  - CAMBRAI\n  - CAMDEN PARK\n  - CAMPBELLTOWN\n  - CAMPOONA\n  - CANEGRASS\n  - CANNAWIGARA\n  - CANOWIE\n  - CANOWIE BELT\n  - CANUNDA\n  - CAPE BORDA\n  - CAPE DOUGLAS\n  - CAPE JAFFA\n  - CAPE JERVIS\n  - CARALUE\n  - CARAWA\n  - CARCUMA\n  - CAREW\n  - CAREY GULLY\n  - CAROLINE\n  - CARPENTER ROCKS\n  - CARRICKALINGA\n  - CARRIETON\n  - CARRIEWERLOO\n  - CASSINI\n  - CASTAMBUL\n  - CAURNAMONT\n  - CAVAN\n  - CAVENAGH\n  - CAVETON\n  - CEDUNA\n  - CEDUNA WATERS\n  - CHAFFEY\n  - CHAIN OF PONDS\n  - CHANDADA\n  - CHANDLERS HILL\n  - CHAPEL HILL\n  - CHAPMAN BORE\n  - CHARLESTON\n  - CHARLTON GULLY\n  - CHARRA\n  - CHELTENHAM\n  - CHERRY GARDENS\n  - CHERRYVILLE\n  - CHILPENUNDA\n  - CHINAMAN WELLS\n  - CHINBINGINA\n  - CHITON\n  - CHOWILLA\n  - CHRISTIE DOWNS\n  - CHRISTIES BEACH\n  - CHUNDARIA\n  - CLAPHAM\n  - CLARE\n  - CLARENCE GARDENS\n  - CLARENCE PARK\n  - CLARENDON\n  - CLAY WELLS\n  - CLAYPANS\n  - CLAYTON BAY\n  - CLAYTON STATION\n  - CLEARVIEW\n  - CLELAND\n  - CLEMENTS GAP\n  - CLEVE\n  - CLIFTON HILLS STATION\n  - CLINTON\n  - CLINTON CENTRE\n  - CLOVELLY PARK\n  - COBDOGLA\n  - COCATA\n  - COCKALEECHIE\n  - COCKATOO VALLEY\n  - COCKBURN\n  - COFFIN BAY\n  - COLEBATCH\n  - COLES\n  - COLLEGE PARK\n  - COLLEY\n  - COLLINSFIELD\n  - COLLINSVILLE\n  - COLLINSWOOD\n  - COLONEL LIGHT GARDENS\n  - COLTON\n  - COMAUM\n  - COMMISSARIAT POINT\n  - COMMONWEALTH HILL\n  - COMPTON\n  - CONCORDIA\n  - CONDOWIE\n  - CONMURRA\n  - COOBER PEDY\n  - COOBOWIE\n  - COOKE PLAINS\n  - COOLILLIE\n  - COOLTONG\n  - COOMANDOOK\n  - COOMBE\n  - COOMOOROO\n  - COOMUNGA\n  - COONALPYN\n  - COONAMIA\n  - COONAWARRA\n  - COONDAMBO\n  - COORABIE\n  - COORONG\n  - COOTRA\n  - COOYERDOO\n  - COPEVILLE\n  - COPLEY\n  - CORDILLO DOWNS\n  - CORNY POINT\n  - COROMANDEL EAST\n  - COROMANDEL VALLEY\n  - CORTLINYE\n  - CORUNNA STATION\n  - COUCH BEACH\n  - COULTA\n  - COWANDILLA\n  - COWARIE\n  - COWELL\n  - COWIRRA\n  - COWLEDS LANDING\n  - CRADOCK\n  - CRAFERS\n  - CRAFERS WEST\n  - CRAIGBURN FARM\n  - CRAIGMORE\n  - CRESCENT\n  - CROMER\n  - CROSS ROADS\n  - CROWN POINT\n  - CROYDON\n  - CROYDON PARK\n  - CRYSTAL BROOK\n  - CUDLEE CREEK\n  - CULBURRA\n  - CULTANA\n  - CUMBERLAND PARK\n  - CUMMINS\n  - CUNGENA\n  - CUNLIFFE\n  - CUNNINGHAM\n  - CUNYARIE\n  - CURNAMONA\n  - CURRAMULKA\n  - CURRENCY CREEK\n  - CUSTON\n  - CUTTLEFISH BAY\n  - CYGNET RIVER\n  - D'ESTREES BAY\n  - DALKEY\n  - DANGGALI\n  - DARKE PEAK\n  - DARLINGTON\n  - DAVENPORT\n  - DAVEYSTON\n  - DAVOREN PARK\n  - DAW PARK\n  - DAWESLEY\n  - DAWSON\n  - DE MOLE RIVER\n  - DE ROSE HILL\n  - DEEP CREEK\n  - DEEPWATER\n  - DELAMERE\n  - DENIAL BAY\n  - DERNANCOURT\n  - DEVLINS POUND\n  - DEVON PARK\n  - DEVONBOROUGH DOWNS\n  - DINGABLEDINGA\n  - DIREK\n  - DISMAL SWAMP\n  - DONOVANS\n  - DORSET VALE\n  - DOUGLAS POINT\n  - DOUGLAS POINT SOUTH\n  - DOVER GARDENS\n  - DOWLINGVILLE\n  - DRY CREEK\n  - DUBLIN\n  - DUCK PONDS\n  - DUDLEY EAST\n  - DUDLEY PARK\n  - DUDLEY WEST\n  - DULKANINNA\n  - DULWICH\n  - DUNCAN\n  - DUTTON\n  - DUTTON EAST\n  - EAST MOONTA\n  - EASTWOOD\n  - EBA\n  - EBA ANCHORAGE\n  - EBENEZER\n  - ECHUNGA\n  - EDEN HILLS\n  - EDEN VALLEY\n  - EDIACARA\n  - EDILLILIE\n  - EDINBURGH\n  - EDINBURGH NORTH\n  - EDITHBURGH\n  - EDWARDSTOWN\n  - EIGHT MILE CREEK\n  - ELIZABETH\n  - ELIZABETH DOWNS\n  - ELIZABETH EAST\n  - ELIZABETH GROVE\n  - ELIZABETH NORTH\n  - ELIZABETH PARK\n  - ELIZABETH SOUTH\n  - ELIZABETH VALE\n  - ELLISTON\n  - ELWOMPLE\n  - EMEROO\n  - EMU BAY\n  - EMU DOWNS\n  - EMU FLAT\n  - ENCOUNTER BAY\n  - ENFIELD\n  - ERINDALE\n  - ERINGA\n  - ERITH\n  - ERSKINE\n  - ERUDINA\n  - ETADUNNA\n  - ETHELTON\n  - ETTRICK\n  - EUDUNDA\n  - EURELIA\n  - EUROMINA\n  - EVANDALE\n  - EVANSTON\n  - EVANSTON GARDENS\n  - EVANSTON PARK\n  - EVANSTON SOUTH\n  - EVELYN DOWNS\n  - EVERARD CENTRAL\n  - EVERARD PARK\n  - EXETER\n  - EYRE\n  - FAIRVIEW PARK\n  - FALSE BAY\n  - FARAWAY HILL\n  - FARINA\n  - FARINA STATION\n  - FARM BEACH\n  - FARRELL FLAT\n  - FELIXSTOW\n  - FERRYDEN PARK\n  - FIELD\n  - FINDON\n  - FINNISS\n  - FIRLE\n  - FISCHER\n  - FISHER\n  - FISHERMAN BAY\n  - FITZGERALD BAY\n  - FITZROY\n  - FIVE MILES\n  - FLAGSTAFF HILL\n  - FLAXLEY\n  - FLAXMAN VALLEY\n  - FLINDERS CHASE\n  - FLINDERS PARK\n  - FLINDERS RANGES\n  - FLORINA STATION\n  - FORDS\n  - FOREST RANGE\n  - FORESTVILLE\n  - FORRESTON\n  - FORSTER\n  - FOUL BAY\n  - FOUNTAIN\n  - FOWLERS BAY\n  - FOX\n  - FRAHNS\n  - FRANCES\n  - FRANKLYN\n  - FRANKTON\n  - FRAYVILLE\n  - FREELING\n  - FREWVILLE\n  - FROME DOWNS\n  - FULHAM\n  - FULHAM GARDENS\n  - FULLARTON\n  - FURNER\n  - GALGA\n  - GAMMON RANGES\n  - GARDEN ISLAND\n  - GAWLER\n  - GAWLER BELT\n  - GAWLER EAST\n  - GAWLER RANGES\n  - GAWLER RIVER\n  - GAWLER SOUTH\n  - GAWLER WEST\n  - GEMMELLS\n  - GEORGETOWN\n  - GEPPS CROSS\n  - GERANIUM\n  - GERANIUM PLAINS\n  - GERARD\n  - GERMAN CREEK\n  - GERMAN FLAT\n  - GERMEIN BAY\n  - GIDGEALPA\n  - GIFFORD HILL\n  - GILBERTON\n  - GILES CORNER\n  - GILLENTOWN\n  - GILLES DOWNS\n  - GILLES PLAINS\n  - GILLMAN\n  - GLADSTONE\n  - GLANDORE\n  - GLANVILLE\n  - GLEN OSMOND\n  - GLENALTA\n  - GLENBURNIE\n  - GLENCOE\n  - GLENDAMBO\n  - GLENELG\n  - GLENELG EAST\n  - GLENELG NORTH\n  - GLENELG SOUTH\n  - GLENGOWRIE\n  - GLENROY\n  - GLENSIDE\n  - GLENUNGA\n  - GLOBE DERBY PARK\n  - GLOSSOP\n  - GLUEPOT\n  - GLYNDE\n  - GOLDEN GROVE\n  - GOLDEN HEIGHTS\n  - GOMERSAL\n  - GOOD HOPE LANDING\n  - GOODWOOD\n  - GOOLWA\n  - GOOLWA BEACH\n  - GOOLWA NORTH\n  - GOOLWA SOUTH\n  - GOSSE\n  - GOULD CREEK\n  - GOYDER\n  - GRACE PLAINS\n  - GRAMPUS\n  - GRANGE\n  - GREEN FIELDS\n  - GREEN HILLS RANGE\n  - GREEN PATCH\n  - GREENACRES\n  - GREENBANKS\n  - GREENHILL\n  - GREENOCK\n  - GREENWAYS\n  - GREENWITH\n  - GULFVIEW HEIGHTS\n  - GULNARE\n  - GUM CREEK\n  - GUM CREEK STATION\n  - GUMERACHA\n  - GURRA GURRA\n  - HACKHAM\n  - HACKHAM WEST\n  - HACKLINS CORNER\n  - HACKNEY\n  - HAHNDORF\n  - HAINES\n  - HALBURY\n  - HALIDON\n  - HALLELUJAH HILLS\n  - HALLETT\n  - HALLETT COVE\n  - HAMBIDGE\n  - HAMILTON\n  - HAMLEY\n  - HAMLEY BRIDGE\n  - HAMMOND\n  - HAMPDEN\n  - HAMPSTEAD GARDENS\n  - HANSBOROUGH\n  - HANSON\n  - HAPPY VALLEY\n  - HARDWICKE BAY\n  - HARDY\n  - HARROGATE\n  - HART\n  - HARTLEY\n  - HASLAM\n  - HATHERLEIGH\n  - HAWKER\n  - HAWKS NEST STATION\n  - HAWSON\n  - HAWTHORN\n  - HAWTHORNDENE\n  - HAY FLAT\n  - HAY VALLEY\n  - HAYBOROUGH\n  - HAZELWOOD PARK\n  - HEATHFIELD\n  - HEATHPOOL\n  - HECTORVILLE\n  - HENDON\n  - HENLEY BEACH\n  - HENLEY BEACH SOUTH\n  - HEWETT\n  - HIGHBURY\n  - HIGHGATE\n  - HIGHLAND VALLEY\n  - HILL RIVER\n  - HILLBANK\n  - HILLCREST\n  - HILLIER\n  - HILLTOWN\n  - HILTABA\n  - HILTON\n  - HINCKS\n  - HINDMARSH\n  - HINDMARSH ISLAND\n  - HINDMARSH TIERS\n  - HINDMARSH VALLEY\n  - HOLDEN HILL\n  - HOLDER\n  - HOLDER SIDING\n  - HOLOWILIENA\n  - HOLOWILIENA SOUTH\n  - HONITON\n  - HOPE FOREST\n  - HOPE GAP\n  - HOPE VALLEY\n  - HORNSDALE\n  - HORSNELL GULLY\n  - HOSKIN CORNER\n  - HOUGHTON\n  - HOVE\n  - HOYLETON\n  - HUDDLESTON\n  - HUMBUG SCRUB\n  - HUNTFIELD HEIGHTS\n  - HYDE PARK\n  - HYNAM\n  - ILLEROO\n  - INGLE FARM\n  - INGLEWOOD\n  - INGOMAR\n  - INKERMAN\n  - INKSTER\n  - INMAN VALLEY\n  - INNAMINCKA\n  - INNESTON\n  - IRON BARON\n  - IRON KNOB\n  - IRONBANK\n  - IRONSTONE\n  - ISLAND BEACH\n  - ISLAND LAGOON\n  - IWANTJA\n  - JABUK\n  - JAMES WELL\n  - JAMESTOWN\n  - JAMIESON\n  - JERICHO\n  - JERUSALEM\n  - JERVOIS\n  - JOANNA\n  - JOHNBURGH\n  - JOSLIN\n  - JULANKA HOLDINGS\n  - JULIA\n  - JUPITER CREEK\n  - KADINA\n  - KAINTON\n  - KALABITY\n  - KALAMURINA\n  - KALANBI\n  - KALANGADOO\n  - KALBEEBA\n  - KALDOONERA\n  - KALKA\n  - KALKAROO\n  - KALLORA\n  - KALTJITI\n  - KANGARILLA\n  - KANGAROO FLAT\n  - KANGAROO HEAD\n  - KANGAROO INN\n  - KANMANTOO\n  - KANNI\n  - KANPI\n  - KANYAKA\n  - KAPINNIE\n  - KAPPAWANTA\n  - KAPUNDA\n  - KARATTA\n  - KARCULTABY\n  - KARKOO\n  - KAROONDA\n  - KARTE\n  - KATARAPKO\n  - KATUNGA STATION\n  - KEILIRA\n  - KEITH\n  - KELLIDIE BAY\n  - KELLY\n  - KENSINGTON\n  - KENSINGTON GARDENS\n  - KENSINGTON PARK\n  - KENT TOWN\n  - KENTON VALLEY\n  - KEPA\n  - KEPPOCH\n  - KERSBROOK\n  - KESWICK\n  - KESWICK TERMINAL\n  - KEYNETON\n  - KI KI\n  - KIANA\n  - KIDMAN PARK\n  - KIELPA\n  - KILBURN\n  - KILKENNY\n  - KIMBA\n  - KINGOONYA\n  - KINGS PARK\n  - KINGSCOTE\n  - KINGSFORD\n  - KINGSTON ON MURRAY\n  - KINGSTON PARK\n  - KINGSTON SE\n  - KINGSWOOD\n  - KLEMZIG\n  - KOHINOOR\n  - KOKATHA\n  - KOLENDO\n  - KONDOOLKA\n  - KONGAL\n  - KONGORONG\n  - KOOLGERA\n  - KOOLUNGA\n  - KOOLYWURTIE\n  - KOONAMORE\n  - KOONGAWA\n  - KOONIBBA\n  - KOONOONA\n  - KOONUNGA\n  - KOORINE\n  - KOOROONA\n  - KOOTABERRA\n  - KOPPAMURRA\n  - KOPPIO\n  - KORUNYE\n  - KRINGIN\n  - KRONDORF\n  - KRONGART\n  - KUDLA\n  - KUITPO\n  - KUITPO COLONY\n  - KULPARA\n  - KURRALTA PARK\n  - KYANCUTTA\n  - KYBUNGA\n  - KYBYBOLITE\n  - KYEEMA\n  - LAFFER\n  - LAKE ALBERT\n  - LAKE ALEXANDRINA\n  - LAKE CARLET\n  - LAKE EVERARD\n  - LAKE EYRE\n  - LAKE FROME\n  - LAKE GAIRDNER\n  - LAKE GILLES\n  - LAKE HARRIS\n  - LAKE MACFARLANE\n  - LAKE PLAINS\n  - LAKE TORRENS\n  - LAKE TORRENS STATION\n  - LAKE VIEW\n  - LAMBINA\n  - LAMEROO\n  - LANGHORNE CREEK\n  - LANGS LANDING\n  - LARGS BAY\n  - LARGS NORTH\n  - LAURA\n  - LAURA BAY\n  - LAURIE PARK\n  - LEABROOK\n  - LEASINGHAM\n  - LEAWOOD GARDENS\n  - LEIGH CREEK\n  - LEIGH CREEK STATION\n  - LEIGHTON\n  - LENSWOOD\n  - LEWISTON\n  - LIGHT PASS\n  - LIGHTSVIEW\n  - LINCOLN GAP\n  - LINCOLN NATIONAL PARK\n  - LINDEN PARK\n  - LINDLEY\n  - LINDON\n  - LINWOOD\n  - LIPSON\n  - LITTLE DOUGLAS\n  - LITTLEHAMPTON\n  - LOBETHAL\n  - LOCHABER\n  - LOCHIEL\n  - LOCK\n  - LOCKES CLAYPAN\n  - LOCKLEYS\n  - LONG FLAT\n  - LONG PLAINS\n  - LONGWOOD\n  - LONSDALE\n  - LOUTH BAY\n  - LOVEDAY\n  - LOWAN VALE\n  - LOWBANK\n  - LOWER BROUGHTON\n  - LOWER HERMITAGE\n  - LOWER INMAN VALLEY\n  - LOWER LIGHT\n  - LOWER MITCHAM\n  - LOXTON\n  - LOXTON NORTH\n  - LUCINDALE\n  - LUCKY BAY\n  - LYNDHURST\n  - LYNDOCH\n  - LYNTON\n  - LYRUP\n  - MAAOUPE\n  - MABEL CREEK\n  - MACCLESFIELD\n  - MACDONALD PARK\n  - MACGILLIVRAY\n  - MACUMBA\n  - MAGAREY\n  - MAGDALA\n  - MAGGEA\n  - MAGILL\n  - MAHANEWO\n  - MAITLAND\n  - MAKIN\n  - MALINONG\n  - MALLALA\n  - MALPAS\n  - MALTEE\n  - MALVERN\n  - MAMBRAY CREEK\n  - MANGALO\n  - MANNA HILL\n  - MANNANARIE\n  - MANNERS WELL\n  - MANNINGHAM\n  - MANNUM\n  - MANOORA\n  - MANSFIELD PARK\n  - MANTUNG\n  - MANUNDA STATION\n  - MARAMA\n  - MARANANGA\n  - MARBLE HILL\n  - MARCOLLAT\n  - MARDEN\n  - MARINO\n  - MARION\n  - MARION BAY\n  - MARKARANKA\n  - MARKS LANDING\n  - MARLA\n  - MARLESTON\n  - MAROLA\n  - MARRABEL\n  - MARREE\n  - MARREE STATION\n  - MARRYATVILLE\n  - MARTINS WELL\n  - MARYVALE\n  - MASLIN BEACH\n  - MATTA FLAT\n  - MAUDE\n  - MAWSON LAKES\n  - MAYFIELD\n  - MAYLANDS\n  - MCBEAN POUND\n  - MCCALLUM\n  - MCCRACKEN\n  - MCDOUALL PEAK\n  - MCHARG CREEK\n  - MCLAREN FLAT\n  - MCLAREN VALE\n  - MEADOWS\n  - MEDINDIE\n  - MEDINDIE GARDENS\n  - MELROSE\n  - MELROSE PARK\n  - MELTON\n  - MELTON STATION\n  - MENINGIE\n  - MENINGIE EAST\n  - MENINGIE WEST\n  - MENZIES\n  - MERCUNDA\n  - MERGHINY\n  - MERIBAH\n  - MERRITON\n  - MERTY MERTY\n  - MIDDLE BEACH\n  - MIDDLE RIVER\n  - MIDDLEBACK RANGE\n  - MIDDLETON\n  - MIDGEE\n  - MIL-LEL\n  - MILANG\n  - MILE END\n  - MILE END SOUTH\n  - MILENDELLA\n  - MILLBROOK\n  - MILLERS CREEK\n  - MILLICENT\n  - MILLSWOOD\n  - MILTALIE\n  - MIMILI\n  - MINBRIE\n  - MINBURRA\n  - MINBURRA PLAIN\n  - MINBURRA STATION\n  - MINDARIE\n  - MINGARY\n  - MINGBOOL\n  - MINLATON\n  - MINNIPA\n  - MINTARO\n  - MINVALARA\n  - MIRANDA\n  - MITCHAM\n  - MITCHELL\n  - MITCHELL PARK\n  - MITCHELLVILLE\n  - MITCHIDY MOOLA\n  - MOANA\n  - MOBILONG\n  - MOCULTA\n  - MODBURY\n  - MODBURY HEIGHTS\n  - MODBURY NORTH\n  - MOERLONG\n  - MONARTO\n  - MONARTO SOUTH\n  - MONASH\n  - MONBULLA\n  - MONGOLATA\n  - MONTACUTE\n  - MONTARRA\n  - MONTEITH\n  - MOOCKRA\n  - MOODY\n  - MOOLAWATANA\n  - MOOLEULOOLOO\n  - MOOLOOLOO\n  - MOONAREE\n  - MOONTA\n  - MOONTA BAY\n  - MOONTA MINES\n  - MOORAK\n  - MOORILLAH\n  - MOORLANDS\n  - MOOROOK\n  - MOOROOK SOUTH\n  - MOPPA\n  - MORCHARD\n  - MORGAN\n  - MORN HILL\n  - MORPHETT VALE\n  - MORPHETTS FLAT\n  - MORPHETTVILLE\n  - MORTANA\n  - MOSELEY\n  - MOSQUITO HILL\n  - MOTPENA\n  - MOUNT ARDEN\n  - MOUNT BARKER\n  - MOUNT BARKER JUNCTION\n  - MOUNT BARKER SPRINGS\n  - MOUNT BARKER SUMMIT\n  - MOUNT BARRY\n  - MOUNT BENSON\n  - MOUNT BRYAN\n  - MOUNT BRYAN EAST\n  - MOUNT BURR\n  - MOUNT CHARLES\n  - MOUNT CLARENCE STATION\n  - MOUNT COMPASS\n  - MOUNT COOPER\n  - MOUNT CRAWFORD\n  - MOUNT DAMPER\n  - MOUNT DRUMMOND\n  - MOUNT DUTTON BAY\n  - MOUNT EBA\n  - MOUNT FALKLAND\n  - MOUNT FREELING\n  - MOUNT GAMBIER\n  - MOUNT GEORGE\n  - MOUNT HAVELOCK\n  - MOUNT HOPE\n  - MOUNT IVE\n  - MOUNT JAGGED\n  - MOUNT JOY\n  - MOUNT LIGHT\n  - MOUNT LYNDHURST\n  - MOUNT MAGNIFICENT\n  - MOUNT MARY\n  - MOUNT MCINTYRE\n  - MOUNT MCKENZIE\n  - MOUNT OBSERVATION\n  - MOUNT OSMOND\n  - MOUNT PLEASANT\n  - MOUNT SARAH\n  - MOUNT SCHANK\n  - MOUNT SERLE\n  - MOUNT TEMPLETON\n  - MOUNT TORRENS\n  - MOUNT VICTOR STATION\n  - MOUNT VIVIAN\n  - MOUNT WEDGE\n  - MOUNT WILLOUGHBY\n  - MOYHALL\n  - MUDAMUCKLA\n  - MULGA VIEW\n  - MULGARIA\n  - MULGATHING\n  - MULGUNDAWA\n  - MULKA\n  - MULLAQUANA\n  - MULOORINA\n  - MULYUNGARIE\n  - MUNDALLIO\n  - MUNDI MUNDI\n  - MUNDIC CREEK\n  - MUNDOO ISLAND\n  - MUNDOORA\n  - MUNDOWDNA\n  - MUNDULLA\n  - MUNDULLA WEST\n  - MUNGERANIE\n  - MUNNO PARA\n  - MUNNO PARA DOWNS\n  - MUNNO PARA WEST\n  - MURBKO\n  - MURDINGA\n  - MURLONG\n  - MURNINNIE BEACH\n  - MURNPEOWIE\n  - MURPUTJA\n  - MURRAWONG\n  - MURRAY BRIDGE\n  - MURRAY BRIDGE EAST\n  - MURRAY BRIDGE NORTH\n  - MURRAY BRIDGE SOUTH\n  - MURRAY TOWN\n  - MURTHO\n  - MUSTON\n  - MUTOOROO\n  - MYLOR\n  - MYOLA STATION\n  - MYPOLONGA\n  - MYPONGA\n  - MYPONGA BEACH\n  - MYRTLE BANK\n  - MYRTLE SPRINGS\n  - NACKARA\n  - NADIA\n  - NAIDIA\n  - NAILSWORTH\n  - NAIN\n  - NAIRNE\n  - NALPA\n  - NALYAPPA\n  - NANBONA\n  - NANGKITA\n  - NANGWARRY\n  - NANTAWARRA\n  - NAPPERBY\n  - NARACOORTE\n  - NARLABY\n  - NARRIDY\n  - NARRINA\n  - NARRUNG\n  - NATURI\n  - NEALES FLAT\n  - NECTAR BROOK\n  - NELSHABY\n  - NENE VALLEY\n  - NEPABUNNA\n  - NEPEAN BAY\n  - NETHERBY\n  - NETHERTON\n  - NETLEY\n  - NETLEY GAP\n  - NEW PORT\n  - NEW RESIDENCE\n  - NEW TOWN\n  - NEW WELL\n  - NEWLAND\n  - NEWTON\n  - NGAPALA\n  - NGARKAT\n  - NILDOTTIE\n  - NILPENA\n  - NILPINNA STATION\n  - NINNES\n  - NOARLUNGA CENTRE\n  - NOARLUNGA DOWNS\n  - NONNING\n  - NORA CREINA\n  - NORMANVILLE\n  - NORTH ADELAIDE\n  - NORTH BEACH\n  - NORTH BOOBOROWIE\n  - NORTH BRIGHTON\n  - NORTH CAPE\n  - NORTH HAVEN\n  - NORTH HILLS\n  - NORTH MOOLOOLOO\n  - NORTH MOONTA\n  - NORTH PLYMPTON\n  - NORTH SHIELDS\n  - NORTH WEST BEND\n  - NORTH YELTA\n  - NORTHERN HEIGHTS\n  - NORTHFIELD\n  - NORTHGATE\n  - NORTON SUMMIT\n  - NORWOOD\n  - NOTTS WELL\n  - NOVAR GARDENS\n  - NULLARBOR\n  - NUNJIKOMPITA\n  - NURIOOTPA\n  - NUROM\n  - NURRAGI\n  - NYAPARI\n  - O'HALLORAN HILL\n  - O'SULLIVAN BEACH\n  - OAK VALLEY\n  - OAKBANK\n  - OAKDEN\n  - OAKDEN HILLS\n  - OAKLANDS PARK\n  - OAKVALE STATION\n  - OB FLAT\n  - OLARY\n  - OLD CALPERUM\n  - OLD KOOMOOLOO\n  - OLD NOARLUNGA\n  - OLD REYNELLA\n  - OLD TEAL FLAT\n  - OLYMPIC DAM\n  - ONE TREE HILL\n  - ONKAPARINGA HEIGHTS\n  - ONKAPARINGA HILLS\n  - OODLA WIRRA\n  - OODNADATTA\n  - ORATUNGA STATION\n  - ORROROO\n  - OSBORNE\n  - OTTOWAY\n  - OULNINA\n  - OULNINA PARK\n  - OUTALPA\n  - OUTER HARBOR\n  - OVERLAND CORNER\n  - OVINGHAM\n  - OWEN\n  - PADTHAWAY\n  - PAECHTOWN\n  - PAGES FLAT\n  - PAISLEY\n  - PALKAGEE\n  - PALLAMANA\n  - PALMER\n  - PANDIE PANDIE\n  - PANDURRA\n  - PANITYA\n  - PANORAMA\n  - PARA HILLS\n  - PARA HILLS WEST\n  - PARA VISTA\n  - PARACHILNA\n  - PARACOMBE\n  - PARADISE\n  - PARAFIELD\n  - PARAFIELD GARDENS\n  - PARAKYLIA\n  - PARALOWIE\n  - PARAMATTA\n  - PARATOO\n  - PARAWA\n  - PARCOOLA\n  - PARHAM\n  - PARILLA\n  - PARINGA\n  - PARIS CREEK\n  - PARK HOLME\n  - PARKSIDE\n  - PARNAROO\n  - PARNDANA\n  - PARRAKIE\n  - PARSONS BEACH\n  - PARUNA\n  - PASADENA\n  - PASKEVILLE\n  - PATA\n  - PAYNEHAM\n  - PAYNEHAM SOUTH\n  - PEAKE\n  - PEARLAH\n  - PEEBINGA\n  - PEEP HILL\n  - PEKINA\n  - PELICAN LAGOON\n  - PELICAN POINT\n  - PELLARING FLAT\n  - PENFIELD\n  - PENFIELD GARDENS\n  - PENNESHAW\n  - PENNINGTON\n  - PENOLA\n  - PENONG\n  - PENRICE\n  - PENWORTHAM\n  - PERLUBIE\n  - PERNATTY\n  - PERPONDA\n  - PETERBOROUGH\n  - PETERHEAD\n  - PETERSVILLE\n  - PETHERICK\n  - PETINA\n  - PETWOOD\n  - PEWSEY VALE\n  - PICCADILLY\n  - PIEDNIPPIE\n  - PIKE RIVER\n  - PIMBA\n  - PIMBAACLA\n  - PINDA SPRINGS\n  - PINE CREEK\n  - PINE CREEK STATION\n  - PINE HILL\n  - PINE POINT\n  - PINE VALLEY STATION\n  - PINERY\n  - PINJARRA STATION\n  - PINKAWILLINIE\n  - PINKERTON PLAINS\n  - PINKS BEACH\n  - PINNAROO\n  - PIPALYATJARA\n  - PIRIE EAST\n  - PLEASANT PARK\n  - PLUMBAGO\n  - PLYMPTON\n  - PLYMPTON PARK\n  - POINT BOSTON\n  - POINT LOWLY\n  - POINT LOWLY NORTH\n  - POINT PASS\n  - POINT PEARCE\n  - POINT SOUTTAR\n  - POINT STURT\n  - POINT TURTON\n  - POLDA\n  - POLISH HILL RIVER\n  - POLTALLOCH\n  - POMPOOTA\n  - PONDE\n  - POOCHERA\n  - POOGINAGORIC\n  - POOGINOOK\n  - POONINDIE\n  - POORAKA\n  - PORKY FLAT\n  - PORT ADELAIDE\n  - PORT ARTHUR\n  - PORT AUGUSTA\n  - PORT AUGUSTA WEST\n  - PORT BONYTHON\n  - PORT BROUGHTON\n  - PORT DAVIS\n  - PORT ELLIOT\n  - PORT GAWLER\n  - PORT GERMEIN\n  - PORT GIBBON\n  - PORT HUGHES\n  - PORT JULIA\n  - PORT KENNY\n  - PORT LINCOLN\n  - PORT MACDONNELL\n  - PORT MANNUM\n  - PORT MOOROWIE\n  - PORT NEILL\n  - PORT NOARLUNGA\n  - PORT NOARLUNGA SOUTH\n  - PORT PATERSON\n  - PORT PIRIE\n  - PORT PIRIE SOUTH\n  - PORT PIRIE WEST\n  - PORT RICKABY\n  - PORT VICTORIA\n  - PORT VINCENT\n  - PORT WAKEFIELD\n  - PORT WILLUNGA\n  - PORTER LAGOON\n  - PRELINNA\n  - PRICE\n  - PROOF RANGE\n  - PROSPECT\n  - PROSPECT HILL\n  - PUALCO RANGE\n  - PUKATJA\n  - PUNTABIE\n  - PUNTHARI\n  - PUNYELROO\n  - PUREBA\n  - PURNONG\n  - PURPLE DOWNS\n  - PUTTAPA\n  - PYAP\n  - PYAP WEST\n  - PYGERY\n  - QUALCO\n  - QUEENSTOWN\n  - QUINYAMBIE\n  - QUONDONG\n  - QUORN\n  - RACECOURSE BAY\n  - RAMCO\n  - RAMCO HEIGHTS\n  - RAMSAY\n  - RAPID BAY\n  - RED CREEK\n  - REDBANKS\n  - REDHILL\n  - REDWOOD PARK\n  - REEDY CREEK\n  - REEVES PLAINS\n  - REGENCY PARK\n  - REID\n  - RENDELSHAM\n  - RENMARK\n  - RENMARK NORTH\n  - RENMARK SOUTH\n  - RENMARK WEST\n  - RENOWN PARK\n  - REYNELLA\n  - REYNELLA EAST\n  - RHYNIE\n  - RICHMOND\n  - RIDGEHAVEN\n  - RIDLEYTON\n  - RISDON PARK\n  - RISDON PARK SOUTH\n  - RIVERGLADES\n  - RIVERGLEN\n  - RIVERLEA PARK\n  - RIVERTON\n  - ROBE\n  - ROBERTSTOWN\n  - ROCHESTER\n  - ROCKLEIGH\n  - ROCKY CAMP\n  - ROCKY GULLY\n  - ROCKY PLAIN\n  - ROCKY POINT\n  - ROGUES POINT\n  - ROSE PARK\n  - ROSEDALE\n  - ROSETOWN\n  - ROSEWATER\n  - ROSEWORTHY\n  - ROSSLYN PARK\n  - ROSTREVOR\n  - ROWLAND FLAT\n  - ROXBY DOWNS\n  - ROXBY DOWNS STATION\n  - ROYAL PARK\n  - ROYSTON PARK\n  - RUDALL\n  - SADDLEWORTH\n  - SAINTS\n  - SALEM\n  - SALISBURY\n  - SALISBURY DOWNS\n  - SALISBURY EAST\n  - SALISBURY HEIGHTS\n  - SALISBURY NORTH\n  - SALISBURY PARK\n  - SALISBURY PLAIN\n  - SALISBURY SOUTH\n  - SALT CREEK\n  - SALTER SPRINGS\n  - SALTIA\n  - SAMPSON FLAT\n  - SANDALWOOD\n  - SANDERGROVE\n  - SANDERSTON\n  - SANDILANDS\n  - SANDLETON\n  - SANDY CREEK\n  - SANDY GROVE\n  - SAPPHIRETOWN\n  - SCEALE BAY\n  - SCHELL WELL\n  - SCOTT CREEK\n  - SEACLIFF\n  - SEACLIFF PARK\n  - SEACOMBE GARDENS\n  - SEACOMBE HEIGHTS\n  - SEAFORD\n  - SEAFORD HEIGHTS\n  - SEAFORD MEADOWS\n  - SEAFORD RISE\n  - SEAL BAY\n  - SEATON\n  - SEAVIEW DOWNS\n  - SEBASTOPOL\n  - SECOND VALLEY\n  - SECRET ROCKS\n  - SEDAN\n  - SEDDON\n  - SEFTON PARK\n  - SELLICKS BEACH\n  - SELLICKS HILL\n  - SEMAPHORE\n  - SEMAPHORE PARK\n  - SEMAPHORE SOUTH\n  - SENIOR\n  - SEPPELTSFIELD\n  - SEVENHILL\n  - SHAGGY RIDGE\n  - SHAUGH\n  - SHEA-OAK LOG\n  - SHEAOAK FLAT\n  - SHEIDOW PARK\n  - SHERINGA\n  - SHERLOCK\n  - SHERWOOD\n  - SHORT\n  - SIAM\n  - SILVERTON\n  - SIMPSON DESERT\n  - SKYE\n  - SLEAFORD\n  - SMITHFIELD\n  - SMITHFIELD PLAINS\n  - SMOKY BAY\n  - SNOWTOWN\n  - SOLOMON\n  - SOLOMONTOWN\n  - SOMERTON PARK\n  - SOUTH BRIGHTON\n  - SOUTH GAP\n  - SOUTH HUMMOCKS\n  - SOUTH KILKERRAN\n  - SOUTH PLYMPTON\n  - SOUTHEND\n  - SPALDING\n  - SPECTACLE LAKE\n  - SPENCE\n  - SPRING FARM\n  - SPRING GULLY\n  - SPRINGFIELD\n  - SPRINGTON\n  - SQUARE MILE\n  - ST AGNES\n  - ST CLAIR\n  - ST GEORGES\n  - ST IVES\n  - ST JOHNS\n  - ST KILDA\n  - ST KITTS\n  - ST MARYS\n  - ST MORRIS\n  - ST PETERS\n  - STANLEY\n  - STANLEY FLAT\n  - STANSBURY\n  - STEELTON\n  - STEINFELD\n  - STEPHENSTON\n  - STEPNEY\n  - STEWART RANGE\n  - STIRLING\n  - STIRLING NORTH\n  - STOCKPORT\n  - STOCKWELL\n  - STOCKYARD CREEK\n  - STOCKYARD PLAIN\n  - STOKES BAY\n  - STONE HUT\n  - STONE WELL\n  - STONYFELL\n  - STOW\n  - STRATHALBYN\n  - STREAKY BAY\n  - STRUAN\n  - STRZELECKI DESERT\n  - STUART\n  - STUARTS CREEK\n  - STUN'SAIL BOOM\n  - STURT\n  - STURT VALE\n  - SULTANA POINT\n  - SUMMERTOWN\n  - SUNLANDS\n  - SUNNYBRAE\n  - SUNNYDALE\n  - SUNNYSIDE\n  - SUNNYVALE\n  - SURREY DOWNS\n  - SUTHERLANDS\n  - SUTTONTOWN\n  - SWAN REACH\n  - SWANPORT\n  - SWEDE FLAT\n  - TAILEM BEND\n  - TALDRA\n  - TALIA\n  - TANTANOOLA\n  - TANUNDA\n  - TAPEROO\n  - TAPLAN\n  - TARATAP\n  - TARCOOLA\n  - TARCOWIE\n  - TARLEE\n  - TARNMA\n  - TARPEENA\n  - TATACHILLA\n  - TAUNTON\n  - TAYLORVILLE\n  - TAYLORVILLE STATION\n  - TEA TREE GULLY\n  - TEAL FLAT\n  - TELOWIE\n  - TEMPLERS\n  - TENNYSON\n  - TEPCO STATION\n  - TEPKO\n  - TERINGIE\n  - TEROWIE\n  - THE GAP\n  - THE PINES\n  - THE RANGE\n  - THEBARTON\n  - THEVENARD\n  - THOMAS PLAIN\n  - THOMPSON BEACH\n  - THORNGATE\n  - THORNLEA\n  - THREE CREEKS\n  - THRINGTON\n  - THURLGA\n  - TIATUKIA\n  - TICKERA\n  - TIDDY WIDDY BEACH\n  - TIEYON\n  - TIKALINA\n  - TILLEY SWAMP\n  - TINTINARA\n  - TODMORDEN\n  - TOLDEROL\n  - TONSLEY\n  - TOOLIGIE\n  - TOOPERANG\n  - TOORA\n  - TOORAK GARDENS\n  - TOOTENILLA\n  - TORRENS ISLAND\n  - TORRENS PARK\n  - TORRENS VALE\n  - TORRENSVILLE\n  - TOTHILL BELT\n  - TOTHILL CREEK\n  - TOTNESS\n  - TOWITTA\n  - TRANMERE\n  - TRINITY GARDENS\n  - TROTT PARK\n  - TRURO\n  - TULKA\n  - TUMBY BAY\n  - TUNGKILLO\n  - TUNKALILLA\n  - TUSMORE\n  - TWO WELLS\n  - TYRINGA\n  - UCOLTA\n  - ULEY\n  - ULEYBURY\n  - ULOOLOO\n  - ULYERRA\n  - UMBERATANA\n  - UMUWA\n  - UNDALYA\n  - UNDERDALE\n  - UNGARRA\n  - UNLEY\n  - UNLEY PARK\n  - UNO\n  - UPALINNA\n  - UPPER HERMITAGE\n  - UPPER STURT\n  - URAIDLA\n  - URANIA\n  - URRBRAE\n  - UWORRA\n  - VALE PARK\n  - VALLEY VIEW\n  - VEITCH\n  - VENUS BAY\n  - VERDUN\n  - VERRAN\n  - VICTOR HARBOR\n  - VINE VALE\n  - VIRGINIA\n  - VISTA\n  - VIVONNE BAY\n  - WADDIKEE\n  - WADNAMINGA\n  - WAIKERIE\n  - WAITPINGA\n  - WALKER FLAT\n  - WALKERVILLE\n  - WALKLEY HEIGHTS\n  - WALL FLAT\n  - WALLALA\n  - WALLAROO\n  - WALLAROO MINES\n  - WALLAROO PLAIN\n  - WALLERBERDINA\n  - WALLOWAY\n  - WALTOWA\n  - WAMI KATA\n  - WANBI\n  - WANDANA\n  - WANDEARAH EAST\n  - WANDEARAH WEST\n  - WANDILO\n  - WANGARY\n  - WANGOLINA\n  - WANILLA\n  - WAPPILKA\n  - WARBURTO\n  - WARD BELT\n  - WARD HILL\n  - WARNERTOWN\n  - WARNES\n  - WAROOKA\n  - WAROONEE\n  - WARRADALE\n  - WARRAMBOO\n  - WARRAWEENA\n  - WARTAKA\n  - WASHPOOL\n  - WASLEYS\n  - WATARRU\n  - WATCHMAN\n  - WATERFALL GULLY\n  - WATERLOO\n  - WATERLOO CORNER\n  - WATERVALE\n  - WATINUMA\n  - WATRABA\n  - WATTLE FLAT\n  - WATTLE PARK\n  - WATTLE RANGE\n  - WATTLE RANGE EAST\n  - WAUKARINGA\n  - WAURALTEE\n  - WAYVILLE\n  - WEBB BEACH\n  - WEDGE ISLAND\n  - WEEKEROO\n  - WEEROONA ISLAND\n  - WEETULTA\n  - WELBOURN HILL\n  - WELLAND\n  - WELLINGTON\n  - WELLINGTON EAST\n  - WEPAR\n  - WERTALOONA\n  - WEST BEACH\n  - WEST BUNDALEER\n  - WEST CROYDON\n  - WEST HINDMARSH\n  - WEST LAKES\n  - WEST LAKES SHORE\n  - WEST RANGE\n  - WEST RICHMOND\n  - WESTALL\n  - WESTBOURNE PARK\n  - WESTERN FLAT\n  - WESTERN RIVER\n  - WESTONS FLAT\n  - WHARMINDA\n  - WHITE HILL\n  - WHITE HUT\n  - WHITE SANDS\n  - WHITE WELL CORNER\n  - WHITES FLAT\n  - WHITES RIVER\n  - WHITES VALLEY\n  - WHITWARTA\n  - WHYALLA\n  - WHYALLA BARSON\n  - WHYALLA JENKINS\n  - WHYALLA NORRIE\n  - WHYALLA PLAYFORD\n  - WHYALLA STUART\n  - WHYTE YARCOWIE\n  - WIAWERA\n  - WIGLEY FLAT\n  - WILCHERRY\n  - WILCOWIE\n  - WILD DOG VALLEY\n  - WILD HORSE PLAINS\n  - WILGENA\n  - WILKATANA STATION\n  - WILLALO\n  - WILLALOOKA\n  - WILLAMULKA\n  - WILLASTON\n  - WILLIAM CREEK\n  - WILLIAMSTOWN\n  - WILLIPPA\n  - WILLOCHRA\n  - WILLOUGHBY\n  - WILLOW BANKS\n  - WILLOW CREEK\n  - WILLOW SPRINGS\n  - WILLOWIE\n  - WILLSON RIVER\n  - WILLUNGA\n  - WILLUNGA HILL\n  - WILLUNGA SOUTH\n  - WILLYAROO\n  - WILMINGTON\n  - WINDSOR\n  - WINDSOR GARDENS\n  - WINGFIELD\n  - WINKIE\n  - WINNININNIE\n  - WINNINOWIE\n  - WINTABATINYANA\n  - WINTINNA\n  - WINULTA\n  - WIRRABARA\n  - WIRRAMINNA\n  - WIRREALPA\n  - WIRREGA\n  - WIRRINA COVE\n  - WIRRULLA\n  - WISANGER\n  - WISTOW\n  - WITCHELINA\n  - WITCHITIE\n  - WITERA\n  - WITJIRA\n  - WOKURNA\n  - WOLSELEY\n  - WOMBATS REST\n  - WOMPINIE\n  - WONGULLA\n  - WONGYARRA\n  - WONNA\n  - WONUARRA\n  - WOODCHESTER\n  - WOODCROFT\n  - WOODFORDE\n  - WOODLANE\n  - WOODLEIGH\n  - WOODS POINT\n  - WOODSIDE\n  - WOODVILLE\n  - WOODVILLE GARDENS\n  - WOODVILLE NORTH\n  - WOODVILLE PARK\n  - WOODVILLE SOUTH\n  - WOODVILLE WEST\n  - WOOL BAY\n  - WOOLPUNDA\n  - WOOLSHED FLAT\n  - WOOLSHEDS\n  - WOOLTANA\n  - WOOLUMBOOL\n  - WOOLUNDUNGA\n  - WOOMERA\n  - WORLDS END\n  - WORROLONG\n  - WORUMBA\n  - WRATTONBULLY\n  - WUDINNA\n  - WUNKAR\n  - WYE\n  - WYNARKA\n  - WYNN VALE\n  - WYOMI\n  - YACKA\n  - YADLAMALKA\n  - YAHL\n  - YALANDA\n  - YALATA\n  - YALLUNDA FLAT\n  - YALPARA\n  - YALYMBOO\n  - YAMBA\n  - YANERBIE\n  - YANINEE\n  - YANKALILLA\n  - YANKANINNA\n  - YANTANABIE\n  - YANYARRIE\n  - YARDEA\n  - YARRAH\n  - YARRAMBA\n  - YATALA VALE\n  - YATINA\n  - YATTALUNGA\n  - YEELANNA\n  - YELLABINNA\n  - YELTA\n  - YELTANA\n  - YINKANIE\n  - YONGALA\n  - YORKE VALLEY\n  - YORKETOWN\n  - YOUNGHUSBAND\n  - YOUNGHUSBAND HOLDINGS\n  - YUDNAPINNA\n  - YUMALI\n  - YUMBARRA\n  - YUNDI\n  - YUNTA\n  - YUNYARINYI\n  - ZADOWS LANDING\n\nCouncils (72):\n  - ADELAIDE HILLS COUNCIL\n  - ADELAIDE PLAINS COUNCIL\n  - ALEXANDRINA COUNCIL\n  - ANANGU PITJANTJATJARA YANKUNYTJATJARA\n  - BARUNGA WEST COUNCIL\n  - CAMPBELLTOWN CITY COUNCIL\n  - CITY OF ADELAIDE\n  - CITY OF BURNSIDE\n  - CITY OF CHARLES STURT\n  - CITY OF HOLDFAST BAY\n  - CITY OF MARION\n  - CITY OF MITCHAM\n  - CITY OF MOUNT GAMBIER\n  - CITY OF ONKAPARINGA\n  - CITY OF PLAYFORD\n  - CITY OF PORT ADELAIDE ENFIELD\n  - CITY OF PORT LINCOLN\n  - CITY OF PROSPECT\n  - CITY OF SALISBURY\n  - CITY OF TEA TREE GULLY\n  - CITY OF UNLEY\n  - CITY OF VICTOR HARBOR\n  - CITY OF WEST TORRENS\n  - CLARE AND GILBERT VALLEYS COUNCIL\n  - COORONG DISTRICT COUNCIL\n  - COPPER COAST COUNCIL\n  - DC OF ELLISTON\n  - DC OF ROBE\n  - KANGAROO ISLAND COUNCIL\n  - KINGSTON DC\n  - LIGHT REGIONAL COUNCIL\n  - LOWER EYRE COUNCIL\n  - MARALINGA TJARUTJA\n  - MID MURRAY COUNCIL\n  - MOUNT BARKER DISTRICT COUNCIL\n  - NARACOORTE LUCINDALE COUNCIL\n  - NORTHERN AREAS COUNCIL\n  - PASTORAL UNINCORPORATED AREA\n  - PORT AUGUSTA CITY COUNCIL\n  - PORT PIRIE REGIONAL COUNCIL\n  - RENMARK PARINGA COUNCIL\n  - SOUTHERN MALLEE DC\n  - TATIARA DC\n  - THE BAROSSA COUNCIL\n  - THE BERRI BARMERA COUNCIL\n  - THE CITY OF NORWOOD PAYNEHAM AND ST PETERS\n  - THE CORPORATION OF THE CITY OF WHYALLA\n  - THE CORPORATION OF THE TOWN OF WALKERVILLE\n  - THE DC OF CEDUNA\n  - THE DC OF CLEVE\n  - THE DC OF FRANKLIN HARBOUR\n  - THE DC OF GRANT\n  - THE DC OF KAROONDA EAST MURRAY\n  - THE DC OF KIMBA\n  - THE DC OF LOXTON WAIKERIE\n  - THE DC OF MOUNT REMARKABLE\n  - THE DC OF ORROROO CARRIETON\n  - THE DC OF PETERBOROUGH\n  - THE DC OF STREAKY BAY\n  - THE DC OF TUMBY BAY\n  - THE DC OF YANKALILLA\n  - THE FLINDERS RANGES COUNCIL\n  - THE REGIONAL COUNCIL OF GOYDER\n  - THE RURAL CITY OF MURRAY BRIDGE\n  - TOWN OF GAWLER\n  - UIA RIVERLAND\n  - UIA TORRENS ISLAND\n  - UIA WHYALLA\n  - WAKEFIELD REGIONAL COUNCIL\n  - WATTLE RANGE COUNCIL\n  - WUDINNA DISTRICT COUNCIL\n  - YORKE PENINSULA COUNCIL\n\nRemoteness Levels:\n  - Inner Regional Australia\n  - Major Cities of Australia\n  - Not Applicable\n  - Outer Regional Australia\n  - Remote Australia\n  - Very Remote Australia\n\nSocio-economic Levels:\n  - 0\n",
+   "stderr": "",
+   "exitCode": 0
+  },
+  {
+   "seed": 0,
+   "argv": [
+    "--format",
+    "json",
+    "options"
+   ],
+   "stdout": "Warning: No Mapbox API key provided. Address lookup functionality will be limited.\n{\n  \"suburbs\": [\n    \"ABERFOYLE PARK\",\n    \"ABMINGA STATION\",\n    \"ADELAIDE\",\n    \"ADELAIDE AIRPORT\",\n    \"AGERY\",\n    \"ALAWOONA\",\n    \"ALBERT PARK\",\n    \"ALBERTON\",\n    \"ALDGATE\",\n    \"ALDINGA\",\n    \"ALDINGA BEACH\",\n    \"ALFORD\",\n    \"ALLANDALE STATION\",\n    \"ALLENBY GARDENS\",\n    \"ALLENDALE EAST\",\n    \"ALLENDALE NORTH\",\n    \"ALMA\",\n    \"ALPANA\",\n    \"ALTON DOWNS STATION\",\n    \"ALTONA\",\n    \"AMATA\",\n    \"AMERICAN BEACH\",\n    \"AMERICAN RIVER\",\n    \"AMYTON\",\n    \"ANAMA\",\n    \"ANANGU PITJANTJATJARA YANKUNYTJATJARA\",\n    \"ANDAMOOKA\",\n    \"ANDAMOOKA STATION\",\n    \"ANDREWS\",\n    \"ANDREWS FARM\",\n    \"ANGAS PLAINS\",\n    \"ANGAS VALLEY\",\n    \"ANGASTON\",\n    \"ANGEPENA\",\n    \"ANGLE PARK\",\n    \"ANGLE VALE\",\n    \"ANGORIGINA\",\n    \"ANNA CREEK\",\n    \"ANNADALE\",\n    \"ANTECHAMBER BAY\",\n    \"APAMURRA\",\n    \"APOINGA\",\n    \"APPILA\",\n    \"ARCKARINGA\",\n    \"ARCOONA\",\n    \"ARDROSSAN\",\n    \"ARKAROOLA\",\n    \"ARKAROOLA VILLAGE\",\n    \"ARMAGH\",\n    \"ARNO BAY\",\n    \"ARTHURTON\",\n    \"ASCOT PARK\",\n    \"ASHBOURNE\",\n    \"ASHFORD\",\n    \"ASHTON\",\n    \"ASHVILLE\",\n    \"ATHELSTONE\",\n    \"ATHOL PARK\",\n    \"AUBURN\",\n    \"AULDANA\",\n    \"AUSTRALIA PLAINS\",\n    \"AVENUE RANGE\",\n    \"AVOCA DELL\",\n    \"AVON\",\n    \"AYERS RANGE SOUTH\",\n    \"BACK VALLEY\",\n    \"BACKY POINT\",\n    \"BAGOT WELL\",\n    \"BAIRD BAY\",\n    \"BAKARA\",\n    \"BAKARA WELL\",\n    \"BALAH\",\n    \"BALAKLAVA\",\n    \"BALD HILLS\",\n    \"BALDINA\",\n    \"BALGOWAN\",\n    \"BALHANNAH\",\n    \"BALLAST HEAD\",\n    \"BANGHAM\",\n    \"BANGOR\",\n    \"BANKSIA PARK\",\n    \"BARABBA\",\n    \"BARATTA\",\n    \"BARINIA\",\n    \"BARMERA\",\n    \"BARNA\",\n    \"BARNDIOOTA\",\n    \"BAROOTA\",\n    \"BAROSSA GOLDFIELDS\",\n    \"BARUNGA GAP\",\n    \"BASKET RANGE\",\n    \"BAUDIN BEACH\",\n    \"BAY OF SHOALS\",\n    \"BEACHPORT\",\n    \"BEATTY\",\n    \"BEAUFORT\",\n    \"BEAUMONT\",\n    \"BEAUMONTS\",\n    \"BEDFORD PARK\",\n    \"BEETALOO VALLEY\",\n    \"BELAIR\",\n    \"BELALIE EAST\",\n    \"BELALIE NORTH\",\n    \"BELLEVUE HEIGHTS\",\n    \"BELTANA\",\n    \"BELTANA STATION\",\n    \"BELTON\",\n    \"BELVIDERE\",\n    \"BENBOURNIE\",\n    \"BENDA\",\n    \"BERRI\",\n    \"BETHANY\",\n    \"BETHEL\",\n    \"BEULAH PARK\",\n    \"BEVERLEY\",\n    \"BIBARINGA\",\n    \"BIBLIANDO\",\n    \"BIG BEND\",\n    \"BIGGS FLAT\",\n    \"BILLA KALINA\",\n    \"BILLEROO WEST\",\n    \"BILLIATT\",\n    \"BIMBOWRIE\",\n    \"BINDARRAH\",\n    \"BINNUM\",\n    \"BIRCHMORE\",\n    \"BIRDWOOD\",\n    \"BIRKENHEAD\",\n    \"BLACK FOREST\",\n    \"BLACK HILL\",\n    \"BLACK HILL STATION\",\n    \"BLACK POINT\",\n    \"BLACK ROCK\",\n    \"BLACK SPRINGS\",\n    \"BLACKFELLOWS CAVES\",\n    \"BLACKFELLOWS CREEK\",\n    \"BLACKFORD\",\n    \"BLACKWOOD\",\n    \"BLAIR ATHOL\",\n    \"BLAKEVIEW\",\n    \"BLAKISTON\",\n    \"BLANCHE HARBOR\",\n    \"BLANCHETOWN\",\n    \"BLETCHLEY\",\n    \"BLEWITT SPRINGS\",\n    \"BLINMAN\",\n    \"BLUFF BEACH\",\n    \"BLYTH\",\n    \"BOATSWAIN POINT\",\n    \"BOCKELBERG\",\n    \"BOCONNOC PARK\",\n    \"BOLIVAR\",\n    \"BOLLARDS LAGOON\",\n    \"BOLTO\",\n    \"BON BON\",\n    \"BOOBOROWIE\",\n    \"BOOKABIE\",\n    \"BOOKPURNONG\",\n    \"BOOL LAGOON\",\n    \"BOOLCOOMATTA\",\n    \"BOOLEROO CENTRE\",\n    \"BOOLGUN\",\n    \"BOONERDO\",\n    \"BOORS PLAIN\",\n    \"BORDERTOWN\",\n    \"BORDERTOWN SOUTH\",\n    \"BORRIKA\",\n    \"BOSTON\",\n    \"BOSWORTH\",\n    \"BOWDEN\",\n    \"BOWER\",\n    \"BOWHILL\",\n    \"BOWILLIA\",\n    \"BOWMANS\",\n    \"BRADBURY\",\n    \"BRADY CREEK\",\n    \"BRAHMA LODGE\",\n    \"BRAMFIELD\",\n    \"BRAY\",\n    \"BRENDA PARK\",\n    \"BRENTWOOD\",\n    \"BRIDGEWATER\",\n    \"BRIGHT\",\n    \"BRIGHTON\",\n    \"BRIMBAGO\",\n    \"BRINKLEY\",\n    \"BRINKWORTH\",\n    \"BROADVIEW\",\n    \"BROMPTON\",\n    \"BROOKER\",\n    \"BROOKLYN PARK\",\n    \"BROUGHTON RIVER VALLEY\",\n    \"BROWN BEACH\",\n    \"BROWN HILL CREEK\",\n    \"BROWNLOW\",\n    \"BROWNLOW KI\",\n    \"BRUCE\",\n    \"BRUKUNGA\",\n    \"BUCHANAN\",\n    \"BUCHFELDE\",\n    \"BUCKINGHAM\",\n    \"BUCKLAND PARK\",\n    \"BUCKLEBOO\",\n    \"BUGLE HUT\",\n    \"BUGLE RANGES\",\n    \"BULGUNNIA\",\n    \"BULL CREEK\",\n    \"BULLOO CREEK\",\n    \"BUMBUNGA\",\n    \"BUNBURY\",\n    \"BUNDALEER GARDENS\",\n    \"BUNDALEER NORTH\",\n    \"BUNDEY\",\n    \"BUNGAMA\",\n    \"BUNGAREE\",\n    \"BUNGEROO\",\n    \"BUNYUNG\",\n    \"BURDETT\",\n    \"BURNSFIELD\",\n    \"BURNSIDE\",\n    \"BURR WELL\",\n    \"BURRA\",\n    \"BURRA EASTERN DISTRICTS\",\n    \"BURRUNGULE\",\n    \"BURTON\",\n    \"BUTE\",\n    \"BUTLER\",\n    \"CADELL\",\n    \"CADELL LAGOON\",\n    \"CADGEE\",\n    \"CALCA\",\n    \"CALIPH\",\n    \"CALLANNA\",\n    \"CALLINGTON\",\n    \"CALOMBA\",\n    \"CALOOTE\",\n    \"CALPERUM STATION\",\n    \"CALTOWIE\",\n    \"CALTOWIE NORTH\",\n    \"CALTOWIE WEST\",\n    \"CAMBRAI\",\n    \"CAMDEN PARK\",\n    \"CAMPBELLTOWN\",\n    \"CAMPOONA\",\n    \"CANEGRASS\",\n    \"CANNAWIGARA\",\n    \"CANOWIE\",\n    \"CANOWIE BELT\",\n    \"CANUNDA\",\n    \"CAPE BORDA\",\n    \"CAPE DOUGLAS\",\n    \"CAPE JAFFA\",\n    \"CAPE JERVIS\",\n    \"CARALUE\",\n    \"CARAWA\",\n    \"CARCUMA\",\n    \"CAREW\",\n    \"CAREY GULLY\",\n    \"CAROLINE\",\n    \"CARPENTER ROCKS\",\n    \"CARRICKALINGA\",\n    \"CARRIETON\",\n    \"CARRIEWERLOO\",\n    \"CASSINI\",\n    \"CASTAMBUL\",\n    \"CAURNAMONT\",\n    \"CAVAN\",\n    \"CAVENAGH\",\n    \"CAVETON\",\n    \"CEDUNA\",\n    \"CEDUNA WATERS\",\n    \"CHAFFEY\",\n    \"CHAIN OF PONDS\",\n    \"CHANDADA\",\n    \"CHANDLERS HILL\",\n    \"CHAPEL HILL\",\n    \"CHAPMAN BORE\",\n    \"CHARLESTON\",\n    \"CHARLTON GULLY\",\n    \"CHARRA\",\n    \"CHELTENHAM\",\n    \"CHERRY GARDENS\",\n    \"CHERRYVILLE\",\n    \"CHILPENUNDA\",\n    \"CHINAMAN WELLS\",\n    \"CHINBINGINA\",\n    \"CHITON\",\n    \"CHOWILLA\",\n    \"CHRISTIE DOWNS\",\n    \"CHRISTIES BEACH\",\n    \"CHUNDARIA\",\n    \"CLAPHAM\",\n    \"CLARE\",\n    \"CLARENCE GARDENS\",\n    \"CLARENCE PARK\",\n    \"CLARENDON\",\n    \"CLAY WELLS\",\n    \"CLAYPANS\",\n    \"CLAYTON BAY\",\n    \"CLAYTON STATION\",\n    \"CLEARVIEW\",\n    \"CLELAND\",\n    \"CLEMENTS GAP\",\n    \"CLEVE\",\n    \"CLIFTON HILLS STATION\",\n    \"CLINTON\",\n    \"CLINTON CENTRE\",\n    \"CLOVELLY PARK\",\n    \"COBDOGLA\",\n    \"COCATA\",\n    \"COCKALEECHIE\",\n    \"COCKATOO VALLEY\",\n    \"COCKBURN\",\n    \"COFFIN BAY\",\n    \"COLEBATCH\",\n    \"COLES\",\n    \"COLLEGE PARK\",\n    \"COLLEY\",\n    \"COLLINSFIELD\",\n    \"COLLINSVILLE\",\n    \"COLLINSWOOD\",\n    \"COLONEL LIGHT GARDENS\",\n    \"COLTON\",\n    \"COMAUM\",\n    \"COMMISSARIAT POINT\",\n    \"COMMONWEALTH HILL\",\n    \"COMPTON\",\n    \"CONCORDIA\",\n    \"CONDOWIE\",\n    \"CONMURRA\",\n    \"COOBER PEDY\",\n    \"COOBOWIE\",\n    \"COOKE PLAINS\",\n    \"COOLILLIE\",\n    \"COOLTONG\",\n    \"COOMANDOOK\",\n    \"COOMBE\",\n    \"COOMOOROO\",\n    \"COOMUNGA\",\n    \"COONALPYN\",\n    \"COONAMIA\",\n    \"COONAWARRA\",\n    \"COONDAMBO\",\n    \"COORABIE\",\n    \"COORONG\",\n    \"COOTRA\",\n    \"COOYERDOO\",\n    \"COPEVILLE\",\n    \"COPLEY\",\n    \"CORDILLO DOWNS\",\n    \"CORNY POINT\",\n    \"COROMANDEL EAST\",\n    \"COROMANDEL VALLEY\",\n    \"CORTLINYE\",\n    \"CORUNNA STATION\",\n    \"COUCH BEACH\",\n    \"COULTA\",\n    \"COWANDILLA\",\n    \"COWARIE\",\n    \"COWELL\",\n    \"COWIRRA\",\n    \"COWLEDS LANDING\",\n    \"CRADOCK\",\n    \"CRAFERS\",\n    \"CRAFERS WEST\",\n    \"CRAIGBURN FARM\",\n    \"CRAIGMORE\",\n    \"CRESCENT\",\n    \"CROMER\",\n    \"CROSS ROADS\",\n    \"CROWN POINT\",\n    \"CROYDON\",\n    \"CROYDON PARK\",\n    \"CRYSTAL BROOK\",\n    \"CUDLEE CREEK\",\n    \"CULBURRA\",\n    \"CULTANA\",\n    \"CUMBERLAND PARK\",\n    \"CUMMINS\",\n    \"CUNGENA\",\n    \"CUNLIFFE\",\n    \"CUNNINGHAM\",\n    \"CUNYARIE\",\n    \"CURNAMONA\",\n    \"CURRAMULKA\",\n    \"CURRENCY CREEK\",\n    \"CUSTON\",\n    \"CUTTLEFISH BAY\",\n    \"CYGNET RIVER\",\n    \"D'ESTREES BAY\",\n    \"DALKEY\",\n    \"DANGGALI\",\n    \"DARKE PEAK\",\n    \"DARLINGTON\",\n    \"DAVENPORT\",\n    \"DAVEYSTON\",\n    \"DAVOREN PARK\",\n    \"DAW PARK\",\n    \"DAWESLEY\",\n    \"DAWSON\",\n    \"DE MOLE RIVER\",\n    \"DE ROSE HILL\",\n    \"DEEP CREEK\",\n    \"DEEPWATER\",\n    \"DELAMERE\",\n    \"DENIAL BAY\",\n    \"DERNANCOURT\",\n    \"DEVLINS POUND\",\n    \"DEVON PARK\",\n    \"DEVONBOROUGH DOWNS\",\n    \"DINGABLEDINGA\",\n    \"DIREK\",\n    \"DISMAL SWAMP\",\n    \"DONOVANS\",\n    \"DORSET VALE\",\n    \"DOUGLAS POINT\",\n    \"DOUGLAS POINT SOUTH\",\n    \"DOVER GARDENS\",\n    \"DOWLINGVILLE\",\n    \"DRY CREEK\",\n    \"DUBLIN\",\n    \"DUCK PONDS\",\n    \"DUDLEY EAST\",\n    \"DUDLEY PARK\",\n    \"DUDLEY WEST\",\n    \"DULKANINNA\",\n    \"DULWICH\",\n    \"DUNCAN\",\n    \"DUTTON\",\n    \"DUTTON EAST\",\n    \"EAST MOONTA\",\n    \"EASTWOOD\",\n    \"EBA\",\n    \"EBA ANCHORAGE\",\n    \"EBENEZER\",\n    \"ECHUNGA\",\n    \"EDEN HILLS\",\n    \"EDEN VALLEY\",\n    \"EDIACARA\",\n    \"EDILLILIE\",\n    \"EDINBURGH\",\n    \"EDINBURGH NORTH\",\n    \"EDITHBURGH\",\n    \"EDWARDSTOWN\",\n    \"EIGHT MILE CREEK\",\n    \"ELIZABETH\",\n    \"ELIZABETH DOWNS\",\n    \"ELIZABETH EAST\",\n    \"ELIZABETH GROVE\",\n    \"ELIZABETH NORTH\",\n    \"ELIZABETH PARK\",\n    \"ELIZABETH SOUTH\",\n    \"ELIZABETH VALE\",\n    \"ELLISTON\",\n    \"ELWOMPLE\",\n    \"EMEROO\",\n    \"EMU BAY\",\n    \"EMU DOWNS\",\n    \"EMU FLAT\",\n    \"ENCOUNTER BAY\",\n    \"ENFIELD\",\n    \"ERINDALE\",\n    \"ERINGA\",\n    \"ERITH\",\n    \"ERSKINE\",\n    \"ERUDINA\",\n    \"ETADUNNA\",\n    \"ETHELTON\",\n    \"ETTRICK\",\n    \"EUDUNDA\",\n    \"EURELIA\",\n    \"EUROMINA\",\n    \"EVANDALE\",\n    \"EVANSTON\",\n    \"EVANSTON GARDENS\",\n    \"EVANSTON PARK\",\n    \"EVANSTON SOUTH\",\n    \"EVELYN DOWNS\",\n    \"EVERARD CENTRAL\",\n    \"EVERARD PARK\",\n    \"EXETER\",\n    \"EYRE\",\n    \"FAIRVIEW PARK\",\n    \"FALSE BAY\",\n    \"FARAWAY HILL\",\n    \"FARINA\",\n    \"FARINA STATION\",\n    \"FARM BEACH\",\n    \"FARRELL FLAT\",\n    \"FELIXSTOW\",\n    \"FERRYDEN PARK\",\n    \"FIELD\",\n    \"FINDON\",\n    \"FINNISS\",\n    \"FIRLE\",\n    \"FISCHER\",\n    \"FISHER\",\n    \"FISHERMAN BAY\",\n    \"FITZGERALD BAY\",\n    \"FITZROY\",\n    \"FIVE MILES\",\n    \"FLAGSTAFF HILL\",\n    \"FLAXLEY\",\n    \"FLAXMAN VALLEY\",\n    \"FLINDERS CHASE\",\n    \"FLINDERS PARK\",\n    \"FLINDERS RANGES\",\n    \"FLORINA STATION\",\n    \"FORDS\",\n    \"FOREST RANGE\",\n    \"FORESTVILLE\",\n    \"FORRESTON\",\n    \"FORSTER\",\n    \"FOUL BAY\",\n    \"FOUNTAIN\",\n    \"FOWLERS BAY\",\n    \"FOX\",\n    \"FRAHNS\",\n    \"FRANCES\",\n    \"FRANKLYN\",\n    \"FRANKTON\",\n    \"FRAYVILLE\",\n    \"FREELING\",\n    \"FREWVILLE\",\n    \"FROME DOWNS\",\n    \"FULHAM\",\n    \"FULHAM GARDENS\",\n    \"FULLARTON\",\n    \"FURNER\",\n    \"GALGA\",\n    \"GAMMON RANGES\",\n    \"GARDEN ISLAND\",\n    \"GAWLER\",\n    \"GAWLER BELT\",\n    \"GAWLER EAST\",\n    \"GAWLER RANGES\",\n    \"GAWLER RIVER\",\n    \"GAWLER SOUTH\",\n    \"GAWLER WEST\",\n    \"GEMMELLS\",\n    \"GEORGETOWN\",\n    \"GEPPS CROSS\",\n    \"GERANIUM\",\n    \"GERANIUM PLAINS\",\n    \"GERARD\",\n    \"GERMAN CREEK\",\n    \"GERMAN FLAT\",\n    \"GERMEIN BAY\",\n    \"GIDGEALPA\",\n    \"GIFFORD HILL\",\n    \"GILBERTON\",\n    \"GILES CORNER\",\n    \"GILLENTOWN\",\n    \"GILLES DOWNS\",\n    \"GILLES PLAINS\",\n    \"GILLMAN\",\n    \"GLADSTONE\",\n    \"GLANDORE\",\n    \"GLANVILLE\",\n    \"GLEN OSMOND\",\n    \"GLENALTA\",\n    \"GLENBURNIE\",\n    \"GLENCOE\",\n    \"GLENDAMBO\",\n    \"GLENELG\",\n    \"GLENELG EAST\",\n    \"GLENELG NORTH\",\n    \"GLENELG SOUTH\",\n    \"GLENGOWRIE\",\n    \"GLENROY\",\n    \"GLENSIDE\",\n    \"GLENUNGA\",\n    \"GLOBE DERBY PARK\",\n    \"GLOSSOP\",\n    \"GLUEPOT\",\n    \"GLYNDE\",\n    \"GOLDEN GROVE\",\n    \"GOLDEN HEIGHTS\",\n    \"GOMERSAL\",\n    \"GOOD HOPE LANDING\",\n    \"GOODWOOD\",\n    \"GOOLWA\",\n    \"GOOLWA BEACH\",\n    \"GOOLWA NORTH\",\n    \"GOOLWA SOUTH\",\n    \"GOSSE\",\n    \"GOULD CREEK\",\n    \"GOYDER\",\n    \"GRACE PLAINS\",\n    \"GRAMPUS\",\n    \"GRANGE\",\n    \"GREEN FIELDS\",\n    \"GREEN HILLS RANGE\",\n    \"GREEN PATCH\",\n    \"GREENACRES\",\n    \"GREENBANKS\",\n    \"GREENHILL\",\n    \"GREENOCK\",\n    \"GREENWAYS\",\n    \"GREENWITH\",\n    \"GULFVIEW HEIGHTS\",\n    \"GULNARE\",\n    \"GUM CREEK\",\n    \"GUM CREEK STATION\",\n    \"GUMERACHA\",\n    \"GURRA GURRA\",\n    \"HACKHAM\",\n    \"HACKHAM WEST\",\n    \"HACKLINS CORNER\",\n    \"HACKNEY\",\n    \"HAHNDORF\",\n    \"HAINES\",\n    \"HALBURY\",\n    \"HALIDON\",\n    \"HALLELUJAH HILLS\",\n    \"HALLETT\",\n    \"HALLETT COVE\",\n    \"HAMBIDGE\",\n    \"HAMILTON\",\n    \"HAMLEY\",\n    \"HAMLEY BRIDGE\",\n    \"HAMMOND\",\n    \"HAMPDEN\",\n    \"HAMPSTEAD GARDENS\",\n    \"HANSBOROUGH\",\n    \"HANSON\",\n    \"HAPPY VALLEY\",\n    \"HARDWICKE BAY\",\n    \"HARDY\",\n    \"HARROGATE\",\n    \"HART\",\n    \"HARTLEY\",\n    \"HASLAM\",\n    \"HATHERLEIGH\",\n    \"HAWKER\",\n    \"HAWKS NEST STATION\",\n    \"HAWSON\",\n    \"HAWTHORN\",\n    \"HAWTHORNDENE\",\n    \"HAY FLAT\",\n    \"HAY VALLEY\",\n    \"HAYBOROUGH\",\n    \"HAZELWOOD PARK\",\n    \"HEATHFIELD\",\n    \"HEATHPOOL\",\n    \"HECTORVILLE\",\n    \"HENDON\",\n    \"HENLEY BEACH\",\n    \"HENLEY BEACH SOUTH\",\n    \"HEWETT\",\n    \"HIGHBURY\",\n    \"HIGHGATE\",\n    \"HIGHLAND VALLEY\",\n    \"HILL RIVER\",\n    \"HILLBANK\",\n    \"HILLCREST\",\n    \"HILLIER\",\n    \"HILLTOWN\",\n    \"HILTABA\",\n    \"HILTON\",\n    \"HINCKS\",\n    \"HINDMARSH\",\n    \"HINDMARSH ISLAND\",\n    \"HINDMARSH TIERS\",\n    \"HINDMARSH VALLEY\",\n    \"HOLDEN HILL\",\n    \"HOLDER\",\n    \"HOLDER SIDING\",\n    \"HOLOWILIENA\",\n    \"HOLOWILIENA SOUTH\",\n    \"HONITON\",\n    \"HOPE FOREST\",\n    \"HOPE GAP\",\n    \"HOPE VALLEY\",\n    \"HORNSDALE\",\n    \"HORSNELL GULLY\",\n    \"HOSKIN CORNER\",\n    \"HOUGHTON\",\n    \"HOVE\",\n    \"HOYLETON\",\n    \"HUDDLESTON\",\n    \"HUMBUG SCRUB\",\n    \"HUNTFIELD HEIGHTS\",\n    \"HYDE PARK\",\n    \"HYNAM\",\n    \"ILLEROO\",\n    \"INGLE FARM\",\n    \"INGLEWOOD\",\n    \"INGOMAR\",\n    \"INKERMAN\",\n    \"INKSTER\",\n    \"INMAN VALLEY\",\n    \"INNAMINCKA\",\n    \"INNESTON\",\n    \"IRON BARON\",\n    \"IRON KNOB\",\n    \"IRONBANK\",\n    \"IRONSTONE\",\n    \"ISLAND BEACH\",\n    \"ISLAND LAGOON\",\n    \"IWANTJA\",\n    \"JABUK\",\n    \"JAMES WELL\",\n    \"JAMESTOWN\",\n    \"JAMIESON\",\n    \"JERICHO\",\n    \"JERUSALEM\",\n    \"JERVOIS\",\n    \"JOANNA\",\n    \"JOHNBURGH\",\n    \"JOSLIN\",\n    \"JULANKA HOLDINGS\",\n    \"JULIA\",\n    \"JUPITER CREEK\",\n    \"KADINA\",\n    \"KAINTON\",\n    \"KALABITY\",\n    \"KALAMURINA\",\n    \"KALANBI\",\n    \"KALANGADOO\",\n    \"KALBEEBA\",\n    \"KALDOONERA\",\n    \"KALKA\",\n    \"KALKAROO\",\n    \"KALLORA\",\n    \"KALTJITI\",\n    \"KANGARILLA\",\n    \"KANGAROO FLAT\",\n    \"KANGAROO HEAD\",\n    \"KANGAROO INN\",\n    \"KANMANTOO\",\n    \"KANNI\",\n    \"KANPI\",\n    \"KANYAKA\",\n    \"KAPINNIE\",\n    \"KAPPAWANTA\",\n    \"KAPUNDA\",\n    \"KARATTA\",\n    \"KARCULTABY\",\n    \"KARKOO\",\n    \"KAROONDA\",\n    \"KARTE\",\n    \"KATARAPKO\",\n    \"KATUNGA STATION\",\n    \"KEILIRA\",\n    \"KEITH\",\n    \"KELLIDIE BAY\",\n    \"KELLY\",\n    \"KENSINGTON\",\n    \"KENSINGTON GARDENS\",\n    \"KENSINGTON PARK\",\n    \"KENT TOWN\",\n    \"KENTON VALLEY\",\n    \"KEPA\",\n    \"KEPPOCH\",\n    \"KERSBROOK\",\n    \"KESWICK\",\n    \"KESWICK TERMINAL\",\n    \"KEYNETON\",\n    \"KI KI\",\n    \"KIANA\",\n    \"KIDMAN PARK\",\n    \"KIELPA\",\n    \"KILBURN\",\n    \"KILKENNY\",\n    \"KIMBA\",\n    \"KINGOONYA\",\n    \"KINGS PARK\",\n    \"KINGSCOTE\",\n    \"KINGSFORD\",\n    \"KINGSTON ON MURRAY\",\n    \"KINGSTON PARK\",\n    \"KINGSTON SE\",\n    \"KINGSWOOD\",\n    \"KLEMZIG\",\n    \"KOHINOOR\",\n    \"KOKATHA\",\n    \"KOLENDO\",\n    \"KONDOOLKA\",\n    \"KONGAL\",\n    \"KONGORONG\",\n    \"KOOLGERA\",\n    \"KOOLUNGA\",\n    \"KOOLYWURTIE\",\n    \"KOONAMORE\",\n    \"KOONGAWA\",\n    \"KOONIBBA\",\n    \"KOONOONA\",\n    \"KOONUNGA\",\n    \"KOORINE\",\n    \"KOOROONA\",\n    \"KOOTABERRA\",\n    \"KOPPAMURRA\",\n    \"KOPPIO\",\n    \"KORUNYE\",\n    \"KRINGIN\",\n    \"KRONDORF\",\n    \"KRONGART\",\n    \"KUDLA\",\n    \"KUITPO\",\n    \"KUITPO COLONY\",\n    \"KULPARA\",\n    \"KURRALTA PARK\",\n    \"KYANCUTTA\",\n    \"KYBUNGA\",\n    \"KYBYBOLITE\",\n    \"KYEEMA\",\n    \"LAFFER\",\n    \"LAKE ALBERT\",\n    \"LAKE ALEXANDRINA\",\n    \"LAKE CARLET\",\n    \"LAKE EVERARD\",\n    \"LAKE EYRE\",\n    \"LAKE FROME\",\n    \"LAKE GAIRDNER\",\n    \"LAKE GILLES\",\n    \"LAKE HARRIS\",\n    \"LAKE MACFARLANE\",\n    \"LAKE PLAINS\",\n    \"LAKE TORRENS\",\n    \"LAKE TORRENS STATION\",\n    \"LAKE VIEW\",\n    \"LAMBINA\",\n    \"LAMEROO\",\n    \"LANGHORNE CREEK\",\n    \"LANGS LANDING\",\n    \"LARGS BAY\",\n    \"LARGS NORTH\",\n    \"LAURA\",\n    \"LAURA BAY\",\n    \"LAURIE PARK\",\n    \"LEABROOK\",\n    \"LEASINGHAM\",\n    \"LEAWOOD GARDENS\",\n    \"LEIGH CREEK\",\n    \"LEIGH CREEK STATION\",\n    \"LEIGHTON\",\n    \"LENSWOOD\",\n    \"LEWISTON\",\n    \"LIGHT PASS\",\n    \"LIGHTSVIEW\",\n    \"LINCOLN GAP\",\n    \"LINCOLN NATIONAL PARK\",\n    \"LINDEN PARK\",\n    \"LINDLEY\",\n    \"LINDON\",\n    \"LINWOOD\",\n    \"LIPSON\",\n    \"LITTLE DOUGLAS\",\n    \"LITTLEHAMPTON\",\n    \"LOBETHAL\",\n    \"LOCHABER\",\n    \"LOCHIEL\",\n    \"LOCK\",\n    \"LOCKES CLAYPAN\",\n    \"LOCKLEYS\",\n    \"LONG FLAT\",\n    \"LONG PLAINS\",\n    \"LONGWOOD\",\n    \"LONSDALE\",\n    \"LOUTH BAY\",\n    \"LOVEDAY\",\n    \"LOWAN VALE\",\n    \"LOWBANK\",\n    \"LOWER BROUGHTON\",\n    \"LOWER HERMITAGE\",\n    \"LOWER INMAN VALLEY\",\n    \"LOWER LIGHT\",\n    \"LOWER MITCHAM\",\n    \"LOXTON\",\n    \"LOXTON NORTH\",\n    \"LUCINDALE\",\n    \"LUCKY BAY\",\n    \"LYNDHURST\",\n    \"LYNDOCH\",\n    \"LYNTON\",\n    \"LYRUP\",\n    \"MAAOUPE\",\n    \"MABEL CREEK\",\n    \"MACCLESFIELD\",\n    \"MACDONALD PARK\",\n    \"MACGILLIVRAY\",\n    \"MACUMBA\",\n    \"MAGAREY\",\n    \"MAGDALA\",\n    \"MAGGEA\",\n    \"MAGILL\",\n    \"MAHANEWO\",\n    \"MAITLAND\",\n    \"MAKIN\",\n    \"MALINONG\",\n    \"MALLALA\",\n    \"MALPAS\",\n    \"MALTEE\",\n    \"MALVERN\",\n    \"MAMBRAY CREEK\",\n    \"MANGALO\",\n    \"MANNA HILL\",\n    \"MANNANARIE\",\n    \"MANNERS WELL\",\n    \"MANNINGHAM\",\n    \"MANNUM\",\n    \"MANOORA\",\n    \"MANSFIELD PARK\",\n    \"MANTUNG\",\n    \"MANUNDA STATION\",\n    \"MARAMA\",\n    \"MARANANGA\",\n    \"MARBLE HILL\",\n    \"MARCOLLAT\",\n    \"MARDEN\",\n    \"MARINO\",\n    \"MARION\",\n    \"MARION BAY\",\n    \"MARKARANKA\",\n    \"MARKS LANDING\",\n    \"MARLA\",\n    \"MARLESTON\",\n    \"MAROLA\",\n    \"MARRABEL\",\n    \"MARREE\",\n    \"MARREE STATION\",\n    \"MARRYATVILLE\",\n    \"MARTINS WELL\",\n    \"MARYVALE\",\n    \"MASLIN BEACH\",\n    \"MATTA FLAT\",\n    \"MAUDE\",\n    \"MAWSON LAKES\",\n    \"MAYFIELD\",\n    \"MAYLANDS\",\n    \"MCBEAN POUND\",\n    \"MCCALLUM\",\n    \"MCCRACKEN\",\n    \"MCDOUALL PEAK\",\n    \"MCHARG CREEK\",\n    \"MCLAREN FLAT\",\n    \"MCLAREN VALE\",\n    \"MEADOWS\",\n    \"MEDINDIE\",\n    \"MEDINDIE GARDENS\",\n    \"MELROSE\",\n    \"MELROSE PARK\",\n    \"MELTON\",\n    \"MELTON STATION\",\n    \"MENINGIE\",\n    \"MENINGIE EAST\",\n    \"MENINGIE WEST\",\n    \"MENZIES\",\n    \"MERCUNDA\",\n    \"MERGHINY\",\n    \"MERIBAH\",\n    \"MERRITON\",\n    \"MERTY MERTY\",\n    \"MIDDLE BEACH\",\n    \"MIDDLE RIVER\",\n    \"MIDDLEBACK RANGE\",\n    \"MIDDLETON\",\n    \"MIDGEE\",\n    \"MIL-LEL\",\n    \"MILANG\",\n    \"MILE END\",\n    \"MILE END SOUTH\",\n    \"MILENDELLA\",\n    \"MILLBROOK\",\n    \"MILLERS CREEK\",\n    \"MILLICENT\",\n    \"MILLSWOOD\",\n    \"MILTALIE\",\n    \"MIMILI\",\n    \"MINBRIE\",\n    \"MINBURRA\",\n    \"MINBURRA PLAIN\",\n    \"MINBURRA STATION\",\n    \"MINDARIE\",\n    \"MINGARY\",\n    \"MINGBOOL\",\n    \"MINLATON\",\n    \"MINNIPA\",\n    \"MINTARO\",\n    \"MINVALARA\",\n    \"MIRANDA\",\n    \"MITCHAM\",\n    \"MITCHELL\",\n    \"MITCHELL PARK\",\n    \"MITCHELLVILLE\",\n    \"MITCHIDY MOOLA\",\n    \"MOANA\",\n    \"MOBILONG\",\n    \"MOCULTA\",\n    \"MODBURY\",\n    \"MODBURY HEIGHTS\",\n    \"MODBURY NORTH\",\n    \"MOERLONG\",\n    \"MONARTO\",\n    \"MONARTO SOUTH\",\n    \"MONASH\",\n    \"MONBULLA\",\n    \"MONGOLATA\",\n    \"MONTACUTE\",\n    \"MONTARRA\",\n    \"MONTEITH\",\n    \"MOOCKRA\",\n    \"MOODY\",\n    \"MOOLAWATANA\",\n    \"MOOLEULOOLOO\",\n    \"MOOLOOLOO\",\n    \"MOONAREE\",\n    \"MOONTA\",\n    \"MOONTA BAY\",\n    \"MOONTA MINES\",\n    \"MOORAK\",\n    \"MOORILLAH\",\n    \"MOORLANDS\",\n    \"MOOROOK\",\n    \"MOOROOK SOUTH\",\n    \"MOPPA\",\n    \"MORCHARD\",\n    \"MORGAN\",\n    \"MORN HILL\",\n    \"MORPHETT VALE\",\n    \"MORPHETTS FLAT\",\n    \"MORPHETTVILLE\",\n    \"MORTANA\",\n    \"MOSELEY\",\n    \"MOSQUITO HILL\",\n    \"MOTPENA\",\n    \"MOUNT ARDEN\",\n    \"MOUNT BARKER\",\n    \"MOUNT BARKER JUNCTION\",\n    \"MOUNT BARKER SPRINGS\",\n    \"MOUNT BARKER SUMMIT\",\n    \"MOUNT BARRY\",\n    \"MOUNT BENSON\",\n    \"MOUNT BRYAN\",\n    \"MOUNT BRYAN EAST\",\n    \"MOUNT BURR\",\n    \"MOUNT CHARLES\",\n    \"MOUNT CLARENCE STATION\",\n    \"MOUNT COMPASS\",\n    \"MOUNT COOPER\",\n    \"MOUNT CRAWFORD\",\n    \"MOUNT DAMPER\",\n    \"MOUNT DRUMMOND\",\n    \"MOUNT DUTTON BAY\",\n    \"MOUNT EBA\",\n    \"MOUNT FALKLAND\",\n    \"MOUNT FREELING\",\n    \"MOUNT GAMBIER\",\n    \"MOUNT GEORGE\",\n    \"MOUNT HAVELOCK\",\n    \"MOUNT HOPE\",\n    \"MOUNT IVE\",\n    \"MOUNT JAGGED\",\n    \"MOUNT JOY\",\n    \"MOUNT LIGHT\",\n    \"MOUNT LYNDHURST\",\n    \"MOUNT MAGNIFICENT\",\n    \"MOUNT MARY\",\n    \"MOUNT MCINTYRE\",\n    \"MOUNT MCKENZIE\",\n    \"MOUNT OBSERVATION\",\n    \"MOUNT OSMOND\",\n    \"MOUNT PLEASANT\",\n    \"MOUNT SARAH\",\n    \"MOUNT SCHANK\",\n    \"MOUNT SERLE\",\n    \"MOUNT TEMPLETON\",\n    \"MOUNT TORRENS\",\n    \"MOUNT VICTOR STATION\",\n    \"MOUNT VIVIAN\",\n    \"MOUNT WEDGE\",\n    \"MOUNT WILLOUGHBY\",\n    \"MOYHALL\",\n    \"MUDAMUCKLA\",\n    \"MULGA VIEW\",\n    \"MULGARIA\",\n    \"MULGATHING\",\n    \"MULGUNDAWA\",\n    \"MULKA\",\n    \"MULLAQUANA\",\n    \"MULOORINA\",\n    \"MULYUNGARIE\",\n    \"MUNDALLIO\",\n    \"MUNDI MUNDI\",\n    \"MUNDIC CREEK\",\n    \"MUNDOO ISLAND\",\n    \"MUNDOORA\",\n    \"MUNDOWDNA\",\n    \"MUNDULLA\",\n    \"MUNDULLA WEST\",\n    \"MUNGERANIE\",\n    \"MUNNO PARA\",\n    \"MUNNO PARA DOWNS\",\n    \"MUNNO PARA WEST\",\n    \"MURBKO\",\n    \"MURDINGA\",\n    \"MURLONG\",\n    \"MURNINNIE BEACH\",\n    \"MURNPEOWIE\",\n    \"MURPUTJA\",\n    \"MURRAWONG\",\n    \"MURRAY BRIDGE\",\n    \"MURRAY BRIDGE EAST\",\n    \"MURRAY BRIDGE NORTH\",\n    \"MURRAY BRIDGE SOUTH\",\n    \"MURRAY TOWN\",\n    \"MURTHO\",\n    \"MUSTON\",\n    \"MUTOOROO\",\n    \"MYLOR\",\n    \"MYOLA STATION\",\n    \"MYPOLONGA\",\n    \"MYPONGA\",\n    \"MYPONGA BEACH\",\n    \"MYRTLE BANK\",\n    \"MYRTLE SPRINGS\",\n    \"NACKARA\",\n    \"NADIA\",\n    \"NAIDIA\",\n    \"NAILSWORTH\",\n    \"NAIN\",\n    \"NAIRNE\",\n    \"NALPA\",\n    \"NALYAPPA\",\n    \"NANBONA\",\n    \"NANGKITA\",\n    \"NANGWARRY\",\n    \"NANTAWARRA\",\n    \"NAPPERBY\",\n    \"NARACOORTE\",\n    \"NARLABY\",\n    \"NARRIDY\",\n    \"NARRINA\",\n    \"NARRUNG\",\n    \"NATURI\",\n    \"NEALES FLAT\",\n    \"NECTAR BROOK\",\n    \"NELSHABY\",\n    \"NENE VALLEY\",\n    \"NEPABUNNA\",\n    \"NEPEAN BAY\",\n    \"NETHERBY\",\n    \"NETHERTON\",\n    \"NETLEY\",\n    \"NETLEY GAP\",\n    \"NEW PORT\",\n    \"NEW RESIDENCE\",\n    \"NEW TOWN\",\n    \"NEW WELL\",\n    \"NEWLAND\",\n    \"NEWTON\",\n    \"NGAPALA\",\n    \"NGARKAT\",\n    \"NILDOTTIE\",\n    \"NILPENA\",\n    \"NILPINNA STATION\",\n    \"NINNES\",\n    \"NOARLUNGA CENTRE\",\n    \"NOARLUNGA DOWNS\",\n    \"NONNING\",\n    \"NORA CREINA\",\n    \"NORMANVILLE\",\n    \"NORTH ADELAIDE\",\n    \"NORTH BEACH\",\n    \"NORTH BOOBOROWIE\",\n    \"NORTH BRIGHTON\",\n    \"NORTH CAPE\",\n    \"NORTH HAVEN\",\n    \"NORTH HILLS\",\n    \"NORTH MOOLOOLOO\",\n    \"NORTH MOONTA\",\n    \"NORTH PLYMPTON\",\n    \"NORTH SHIELDS\",\n    \"NORTH WEST BEND\",\n    \"NORTH YELTA\",\n    \"NORTHERN HEIGHTS\",\n    \"NORTHFIELD\",\n    \"NORTHGATE\",\n    \"NORTON SUMMIT\",\n    \"NORWOOD\",\n    \"NOTTS WELL\",\n    \"NOVAR GARDENS\",\n    \"NULLARBOR\",\n    \"NUNJIKOMPITA\",\n    \"NURIOOTPA\",\n    \"NUROM\",\n    \"NURRAGI\",\n    \"NYAPARI\",\n    \"O'HALLORAN HILL\",\n    \"O'SULLIVAN BEACH\",\n    \"OAK VALLEY\",\n    \"OAKBANK\",\n    \"OAKDEN\",\n    \"OAKDEN HILLS\",\n    \"OAKLANDS PARK\",\n    \"OAKVALE STATION\",\n    \"OB FLAT\",\n    \"OLARY\",\n    \"OLD CALPERUM\",\n    \"OLD KOOMOOLOO\",\n    \"OLD NOARLUNGA\",\n    \"OLD REYNELLA\",\n    \"OLD TEAL FLAT\",\n    \"OLYMPIC DAM\",\n    \"ONE TREE HILL\",\n    \"ONKAPARINGA HEIGHTS\",\n    \"ONKAPARINGA HILLS\",\n    \"OODLA WIRRA\",\n    \"OODNADATTA\",\n    \"ORATUNGA STATION\",\n    \"ORROROO\",\n    \"OSBORNE\",\n    \"OTTOWAY\",\n    \"OULNINA\",\n    \"OULNINA PARK\",\n    \"OUTALPA\",\n    \"OUTER HARBOR\",\n    \"OVERLAND CORNER\",\n    \"OVINGHAM\",\n    \"OWEN\",\n    \"PADTHAWAY\",\n    \"PAECHTOWN\",\n    \"PAGES FLAT\",\n    \"PAISLEY\",\n    \"PALKAGEE\",\n    \"PALLAMANA\",\n    \"PALMER\",\n    \"PANDIE PANDIE\",\n    \"PANDURRA\",\n    \"PANITYA\",\n    \"PANORAMA\",\n    \"PARA HILLS\",\n    \"PARA HILLS WEST\",\n    \"PARA VISTA\",\n    \"PARACHILNA\",\n    \"PARACOMBE\",\n    \"PARADISE\",\n    \"PARAFIELD\",\n    \"PARAFIELD GARDENS\",\n    \"PARAKYLIA\",\n    \"PARALOWIE\",\n    \"PARAMATTA\",\n    \"PARATOO\",\n    \"PARAWA\",\n    \"PARCOOLA\",\n    \"PARHAM\",\n    \"PARILLA\",\n    \"PARINGA\",\n    \"PARIS CREEK\",\n    \"PARK HOLME\",\n    \"PARKSIDE\",\n    \"PARNAROO\",\n    \"PARNDANA\",\n    \"PARRAKIE\",\n    \"PARSONS BEACH\",\n    \"PARUNA\",\n    \"PASADENA\",\n    \"PASKEVILLE\",\n    \"PATA\",\n    \"PAYNEHAM\",\n    \"PAYNEHAM SOUTH\",\n    \"PEAKE\",\n    \"PEARLAH\",\n    \"PEEBINGA\",\n    \"PEEP HILL\",\n    \"PEKINA\",\n    \"PELICAN LAGOON\",\n    \"PELICAN POINT\",\n    \"PELLARING FLAT\",\n    \"PENFIELD\",\n    \"PENFIELD GARDENS\",\n    \"PENNESHAW\",\n    \"PENNINGTON\",\n    \"PENOLA\",\n    \"PENONG\",\n    \"PENRICE\",\n    \"PENWORTHAM\",\n    \"PERLUBIE\",\n    \"PERNATTY\",\n    \"PERPONDA\",\n    \"PETERBOROUGH\",\n    \"PETERHEAD\",\n    \"PETERSVILLE\",\n    \"PETHERICK\",\n    \"PETINA\",\n    \"PETWOOD\",\n    \"PEWSEY VALE\",\n    \"PICCADILLY\",\n    \"PIEDNIPPIE\",\n    \"PIKE RIVER\",\n    \"PIMBA\",\n    \"PIMBAACLA\",\n    \"PINDA SPRINGS\",\n    \"PINE CREEK\",\n    \"PINE CREEK STATION\",\n    \"PINE HILL\",\n    \"PINE POINT\",\n    \"PINE VALLEY STATION\",\n    \"PINERY\",\n    \"PINJARRA STATION\",\n    \"PINKAWILLINIE\",\n    \"PINKERTON PLAINS\",\n    \"PINKS BEACH\",\n    \"PINNAROO\",\n    \"PIPALYATJARA\",\n    \"PIRIE EAST\",\n    \"PLEASANT PARK\",\n    \"PLUMBAGO\",\n    \"PLYMPTON\",\n    \"PLYMPTON PARK\",\n    \"POINT BOSTON\",\n    \"POINT LOWLY\",\n    \"POINT LOWLY NORTH\",\n    \"POINT PASS\",\n    \"POINT PEARCE\",\n    \"POINT SOUTTAR\",\n    \"POINT STURT\",\n    \"POINT TURTON\",\n    \"POLDA\",\n    \"POLISH HILL RIVER\",\n    \"POLTALLOCH\",\n    \"POMPOOTA\",\n    \"PONDE\",\n    \"POOCHERA\",\n    \"POOGINAGORIC\",\n    \"POOGINOOK\",\n    \"POONINDIE\",\n    \"POORAKA\",\n    \"PORKY FLAT\",\n    \"PORT ADELAIDE\",\n    \"PORT ARTHUR\",\n    \"PORT AUGUSTA\",\n    \"PORT AUGUSTA WEST\",\n    \"PORT BONYTHON\",\n    \"PORT BROUGHTON\",\n    \"PORT DAVIS\",\n    \"PORT ELLIOT\",\n    \"PORT GAWLER\",\n    \"PORT GERMEIN\",\n    \"PORT GIBBON\",\n    \"PORT HUGHES\",\n    \"PORT JULIA\",\n    \"PORT KENNY\",\n    \"PORT LINCOLN\",\n    \"PORT MACDONNELL\",\n    \"PORT MANNUM\",\n    \"PORT MOOROWIE\",\n    \"PORT NEILL\",\n    \"PORT NOARLUNGA\",\n    \"PORT NOARLUNGA SOUTH\",\n    \"PORT PATERSON\",\n    \"PORT PIRIE\",\n    \"PORT PIRIE SOUTH\",\n    \"PORT PIRIE WEST\",\n    \"PORT RICKABY\",\n    \"PORT VICTORIA\",\n    \"PORT VINCENT\",\n    \"PORT WAKEFIELD\",\n    \"PORT WILLUNGA\",\n    \"PORTER LAGOON\",\n    \"PRELINNA\",\n    \"PRICE\",\n    \"PROOF RANGE\",\n    \"PROSPECT\",\n    \"PROSPECT HILL\",\n    \"PUALCO RANGE\",\n    \"PUKATJA\",\n    \"PUNTABIE\",\n    \"PUNTHARI\",\n    \"PUNYELROO\",\n    \"PUREBA\",\n    \"PURNONG\",\n    \"PURPLE DOWNS\",\n    \"PUTTAPA\",\n    \"PYAP\",\n    \"PYAP WEST\",\n    \"PYGERY\",\n    \"QUALCO\",\n    \"QUEENSTOWN\",\n    \"QUINYAMBIE\",\n    \"QUONDONG\",\n    \"QUORN\",\n    \"RACECOURSE BAY\",\n    \"RAMCO\",\n    \"RAMCO HEIGHTS\",\n    \"RAMSAY\",\n    \"RAPID BAY\",\n    \"RED CREEK\",\n    \"REDBANKS\",\n    \"REDHILL\",\n    \"REDWOOD PARK\",\n    \"REEDY CREEK\",\n    \"REEVES PLAINS\",\n    \"REGENCY PARK\",\n    \"REID\",\n    \"RENDELSHAM\",\n    \"RENMARK\",\n    \"RENMARK NORTH\",\n    \"RENMARK SOUTH\",\n    \"RENMARK WEST\",\n    \"RENOWN PARK\",\n    \"REYNELLA\",\n    \"REYNELLA EAST\",\n    \"RHYNIE\",\n    \"RICHMOND\",\n    \"RIDGEHAVEN\",\n    \"RIDLEYTON\",\n    \"RISDON PARK\",\n    \"RISDON PARK SOUTH\",\n    \"RIVERGLADES\",\n    \"RIVERGLEN\",\n    \"RIVERLEA PARK\",\n    \"RIVERTON\",\n    \"ROBE\",\n    \"ROBERTSTOWN\",\n    \"ROCHESTER\",\n    \"ROCKLEIGH\",\n    \"ROCKY CAMP\",\n    \"ROCKY GULLY\",\n    \"ROCKY PLAIN\",\n    \"ROCKY POINT\",\n    \"ROGUES POINT\",\n    \"ROSE PARK\",\n    \"ROSEDALE\",\n    \"ROSETOWN\",\n    \"ROSEWATER\",\n    \"ROSEWORTHY\",\n    \"ROSSLYN PARK\",\n    \"ROSTREVOR\",\n    \"ROWLAND FLAT\",\n    \"ROXBY DOWNS\",\n    \"ROXBY DOWNS STATION\",\n    \"ROYAL PARK\",\n    \"ROYSTON PARK\",\n    \"RUDALL\",\n    \"SADDLEWORTH\",\n    \"SAINTS\",\n    \"SALEM\",\n    \"SALISBURY\",\n    \"SALISBURY DOWNS\",\n    \"SALISBURY EAST\",\n    \"SALISBURY HEIGHTS\",\n    \"SALISBURY NORTH\",\n    \"SALISBURY PARK\",\n    \"SALISBURY PLAIN\",\n    \"SALISBURY SOUTH\",\n    \"SALT CREEK\",\n    \"SALTER SPRINGS\",\n    \"SALTIA\",\n    \"SAMPSON FLAT\",\n    \"SANDALWOOD\",\n    \"SANDERGROVE\",\n    \"SANDERSTON\",\n    \"SANDILANDS\",\n    \"SANDLETON\",\n    \"SANDY CREEK\",\n    \"SANDY GROVE\",\n    \"SAPPHIRETOWN\",\n    \"SCEALE BAY\",\n    \"SCHELL WELL\",\n    \"SCOTT CREEK\",\n    \"SEACLIFF\",\n    \"SEACLIFF PARK\",\n    \"SEACOMBE GARDENS\",\n    \"SEACOMBE HEIGHTS\",\n    \"SEAFORD\",\n    \"SEAFORD HEIGHTS\",\n    \"SEAFORD MEADOWS\",\n    \"SEAFORD RISE\",\n    \"SEAL BAY\",\n    \"SEATON\",\n    \"SEAVIEW DOWNS\",\n    \"SEBASTOPOL\",\n    \"SECOND VALLEY\",\n    \"SECRET ROCKS\",\n    \"SEDAN\",\n    \"SEDDON\",\n    \"SEFTON PARK\",\n    \"SELLICKS BEACH\",\n    \"SELLICKS HILL\",\n    \"SEMAPHORE\",\n    \"SEMAPHORE PARK\",\n    \"SEMAPHORE SOUTH\",\n    \"SENIOR\",\n    \"SEPPELTSFIELD\",\n    \"SEVENHILL\",\n    \"SHAGGY RIDGE\",\n    \"SHAUGH\",\n    \"SHEA-OAK LOG\",\n    \"SHEAOAK FLAT\",\n    \"SHEIDOW PARK\",\n    \"SHERINGA\",\n    \"SHERLOCK\",\n    \"SHERWOOD\",\n    \"SHORT\",\n    \"SIAM\",\n    \"SILVERTON\",\n    \"SIMPSON DESERT\",\n    \"SKYE\",\n    \"SLEAFORD\",\n    \"SMITHFIELD\",\n    \"SMITHFIELD PLAINS\",\n    \"SMOKY BAY\",\n    \"SNOWTOWN\",\n    \"SOLOMON\",\n    \"SOLOMONTOWN\",\n    \"SOMERTON PARK\",\n    \"SOUTH BRIGHTON\",\n    \"SOUTH GAP\",\n    \"SOUTH HUMMOCKS\",\n    \"SOUTH KILKERRAN\",\n    \"SOUTH PLYMPTON\",\n    \"SOUTHEND\",\n    \"SPALDING\",\n    \"SPECTACLE LAKE\",\n    \"SPENCE\",\n    \"SPRING FARM\",\n    \"SPRING GULLY\",\n    \"SPRINGFIELD\",\n    \"SPRINGTON\",\n    \"SQUARE MILE\",\n    \"ST AGNES\",\n    \"ST CLAIR\",\n    \"ST GEORGES\",\n    \"ST IVES\",\n    \"ST JOHNS\",\n    \"ST KILDA\",\n    \"ST KITTS\",\n    \"ST MARYS\",\n    \"ST MORRIS\",\n    \"ST PETERS\",\n    \"STANLEY\",\n    \"STANLEY FLAT\",\n    \"STANSBURY\",\n    \"STEELTON\",\n    \"STEINFELD\",\n    \"STEPHENSTON\",\n    \"STEPNEY\",\n    \"STEWART RANGE\",\n    \"STIRLING\",\n    \"STIRLING NORTH\",\n    \"STOCKPORT\",\n    \"STOCKWELL\",\n    \"STOCKYARD CREEK\",\n    \"STOCKYARD PLAIN\",\n    \"STOKES BAY\",\n    \"STONE HUT\",\n    \"STONE WELL\",\n    \"STONYFELL\",\n    \"STOW\",\n    \"STRATHALBYN\",\n    \"STREAKY BAY\",\n    \"STRUAN\",\n    \"STRZELECKI DESERT\",\n    \"STUART\",\n    \"STUARTS CREEK\",\n    \"STUN'SAIL BOOM\",\n    \"STURT\",\n    \"STURT VALE\",\n    \"SULTANA POINT\",\n    \"SUMMERTOWN\",\n    \"SUNLANDS\",\n    \"SUNNYBRAE\",\n    \"SUNNYDALE\",\n    \"SUNNYSIDE\",\n    \"SUNNYVALE\",\n    \"SURREY DOWNS\",\n    \"SUTHERLANDS\",\n    \"SUTTONTOWN\",\n    \"SWAN REACH\",\n    \"SWANPORT\",\n    \"SWEDE FLAT\",\n    \"TAILEM BEND\",\n    \"TALDRA\",\n    \"TALIA\",\n    \"TANTANOOLA\",\n    \"TANUNDA\",\n    \"TAPEROO\",\n    \"TAPLAN\",\n    \"TARATAP\",\n    \"TARCOOLA\",\n    \"TARCOWIE\",\n    \"TARLEE\",\n    \"TARNMA\",\n    \"TARPEENA\",\n    \"TATACHILLA\",\n    \"TAUNTON\",\n    \"TAYLORVILLE\",\n    \"TAYLORVILLE STATION\",\n    \"TEA TREE GULLY\",\n    \"TEAL FLAT\",\n    \"TELOWIE\",\n    \"TEMPLERS\",\n    \"TENNYSON\",\n    \"TEPCO STATION\",\n    \"TEPKO\",\n    \"TERINGIE\",\n    \"TEROWIE\",\n    \"THE GAP\",\n    \"THE PINES\",\n    \"THE RANGE\",\n    \"THEBARTON\",\n    \"THEVENARD\",\n    \"THOMAS PLAIN\",\n    \"THOMPSON BEACH\",\n    \"THORNGATE\",\n    \"THORNLEA\",\n    \"THREE CREEKS\",\n    \"THRINGTON\",\n    \"THURLGA\",\n    \"TIATUKIA\",\n    \"TICKERA\",\n    \"TIDDY WIDDY BEACH\",\n    \"TIEYON\",\n    \"TIKALINA\",\n    \"TILLEY SWAMP\",\n    \"TINTINARA\",\n    \"TODMORDEN\",\n    \"TOLDEROL\",\n    \"TONSLEY\",\n    \"TOOLIGIE\",\n    \"TOOPERANG\",\n    \"TOORA\",\n    \"TOORAK GARDENS\",\n    \"TOOTENILLA\",\n    \"TORRENS ISLAND\",\n    \"TORRENS PARK\",\n    \"TORRENS VALE\",\n    \"TORRENSVILLE\",\n    \"TOTHILL BELT\",\n    \"TOTHILL CREEK\",\n    \"TOTNESS\",\n    \"TOWITTA\",\n    \"TRANMERE\",\n    \"TRINITY GARDENS\",\n    \"TROTT PARK\",\n    \"TRURO\",\n    \"TULKA\",\n    \"TUMBY BAY\",\n    \"TUNGKILLO\",\n    \"TUNKALILLA\",\n    \"TUSMORE\",\n    \"TWO WELLS\",\n    \"TYRINGA\",\n    \"UCOLTA\",\n    \"ULEY\",\n    \"ULEYBURY\",\n    \"ULOOLOO\",\n    \"ULYERRA\",\n    \"UMBERATANA\",\n    \"UMUWA\",\n    \"UNDALYA\",\n    \"UNDERDALE\",\n    \"UNGARRA\",\n    \"UNLEY\",\n    \"UNLEY PARK\",\n    \"UNO\",\n    \"UPALINNA\",\n    \"UPPER HERMITAGE\",\n    \"UPPER STURT\",\n    \"URAIDLA\",\n    \"URANIA\",\n    \"URRBRAE\",\n    \"UWORRA\",\n    \"VALE PARK\",\n    \"VALLEY VIEW\",\n    \"VEITCH\",\n    \"VENUS BAY\",\n    \"VERDUN\",\n    \"VERRAN\",\n    \"VICTOR HARBOR\",\n    \"VINE VALE\",\n    \"VIRGINIA\",\n    \"VISTA\",\n    \"VIVONNE BAY\",\n    \"WADDIKEE\",\n    \"WADNAMINGA\",\n    \"WAIKERIE\",\n    \"WAITPINGA\",\n    \"WALKER FLAT\",\n    \"WALKERVILLE\",\n    \"WALKLEY HEIGHTS\",\n    \"WALL FLAT\",\n    \"WALLALA\",\n    \"WALLAROO\",\n    \"WALLAROO MINES\",\n    \"WALLAROO PLAIN\",\n    \"WALLERBERDINA\",\n    \"WALLOWAY\",\n    \"WALTOWA\",\n    \"WAMI KATA\",\n    \"WANBI\",\n    \"WANDANA\",\n    \"WANDEARAH EAST\",\n    \"WANDEARAH WEST\",\n    \"WANDILO\",\n    \"WANGARY\",\n    \"WANGOLINA\",\n    \"WANILLA\",\n    \"WAPPILKA\",\n    \"WARBURTO\",\n    \"WARD BELT\",\n    \"WARD HILL\",\n    \"WARNERTOWN\",\n    \"WARNES\",\n    \"WAROOKA\",\n    \"WAROONEE\",\n    \"WARRADALE\",\n    \"WARRAMBOO\",\n    \"WARRAWEENA\",\n    \"WARTAKA\",\n    \"WASHPOOL\",\n    \"WASLEYS\",\n    \"WATARRU\",\n    \"WATCHMAN\",\n    \"WATERFALL GULLY\",\n    \"WATERLOO\",\n    \"WATERLOO CORNER\",\n    \"WATERVALE\",\n    \"WATINUMA\",\n    \"WATRABA\",\n    \"WATTLE FLAT\",\n    \"WATTLE PARK\",\n    \"WATTLE RANGE\",\n    \"WATTLE RANGE EAST\",\n    \"WAUKARINGA\",\n    \"WAURALTEE\",\n    \"WAYVILLE\",\n    \"WEBB BEACH\",\n    \"WEDGE ISLAND\",\n    \"WEEKEROO\",\n    \"WEEROONA ISLAND\",\n    \"WEETULTA\",\n    \"WELBOURN HILL\",\n    \"WELLAND\",\n    \"WELLINGTON\",\n    \"WELLINGTON EAST\",\n    \"WEPAR\",\n    \"WERTALOONA\",\n    \"WEST BEACH\",\n    \"WEST BUNDALEER\",\n    \"WEST CROYDON\",\n    \"WEST HINDMARSH\",\n    \"WEST LAKES\",\n    \"WEST LAKES SHORE\",\n    \"WEST RANGE\",\n    \"WEST RICHMOND\",\n    \"WESTALL\",\n    \"WESTBOURNE PARK\",\n    \"WESTERN FLAT\",\n    \"WESTERN RIVER\",\n    \"WESTONS FLAT\",\n    \"WHARMINDA\",\n    \"WHITE HILL\",\n    \"WHITE HUT\",\n    \"WHITE SANDS\",\n    \"WHITE WELL CORNER\",\n    \"WHITES FLAT\",\n    \"WHITES RIVER\",\n    \"WHITES VALLEY\",\n    \"WHITWARTA\",\n    \"WHYALLA\",\n    \"WHYALLA BARSON\",\n    \"WHYALLA JENKINS\",\n    \"WHYALLA NORRIE\",\n    \"WHYALLA PLAYFORD\",\n    \"WHYALLA STUART\",\n    \"WHYTE YARCOWIE\",\n    \"WIAWERA\",\n    \"WIGLEY FLAT\",\n    \"WILCHERRY\",\n    \"WILCOWIE\",\n    \"WILD DOG VALLEY\",\n    \"WILD HORSE PLAINS\",\n    \"WILGENA\",\n    \"WILKATANA STATION\",\n    \"WILLALO\",\n    \"WILLALOOKA\",\n    \"WILLAMULKA\",\n    \"WILLASTON\",\n    \"WILLIAM CREEK\",\n    \"WILLIAMSTOWN\",\n    \"WILLIPPA\",\n    \"WILLOCHRA\",\n    \"WILLOUGHBY\",\n    \"WILLOW BANKS\",\n    \"WILLOW CREEK\",\n    \"WILLOW SPRINGS\",\n    \"WILLOWIE\",\n    \"WILLSON RIVER\",\n    \"WILLUNGA\",\n    \"WILLUNGA HILL\",\n    \"WILLUNGA SOUTH\",\n    \"WILLYAROO\",\n    \"WILMINGTON\",\n    \"WINDSOR\",\n    \"WINDSOR GARDENS\",\n    \"WINGFIELD\",\n    \"WINKIE\",\n    \"WINNININNIE\",\n    \"WINNINOWIE\",\n    \"WINTABATINYANA\",\n    \"WINTINNA\",\n    \"WINULTA\",\n    \"WIRRABARA\",\n    \"WIRRAMINNA\",\n    \"WIRREALPA\",\n    \"WIRREGA\",\n    \"WIRRINA COVE\",\n    \"WIRRULLA\",\n    \"WISANGER\",\n    \"WISTOW\",\n    \"WITCHELINA\",\n    \"WITCHITIE\",\n    \"WITERA\",\n    \"WITJIRA\",\n    \"WOKURNA\",\n    \"WOLSELEY\",\n    \"WOMBATS REST\",\n    \"WOMPINIE\",\n    \"WONGULLA\",\n    \"WONGYARRA\",\n    \"WONNA\",\n    \"WONUARRA\",\n    \"WOODCHESTER\",\n    \"WOODCROFT\",\n    \"WOODFORDE\",\n    \"WOODLANE\",\n    \"WOODLEIGH\",\n    \"WOODS POINT\",\n    \"WOODSIDE\",\n    \"WOODVILLE\",\n    \"WOODVILLE GARDENS\",\n    \"WOODVILLE NORTH\",\n    \"WOODVILLE PARK\",\n    \"WOODVILLE SOUTH\",\n    \"WOODVILLE WEST\",\n    \"WOOL BAY\",\n    \"WOOLPUNDA\",\n    \"WOOLSHED FLAT\",\n    \"WOOLSHEDS\",\n    \"WOOLTANA\",\n    \"WOOLUMBOOL\",\n    \"WOOLUNDUNGA\",\n    \"WOOMERA\",\n    \"WORLDS END\",\n    \"WORROLONG\",\n    \"WORUMBA\",\n    \"WRATTONBULLY\",\n    \"WUDINNA\",\n    \"WUNKAR\",\n    \"WYE\",\n    \"WYNARKA\",\n    \"WYNN VALE\",\n    \"WYOMI\",\n    \"YACKA\",\n    \"YADLAMALKA\",\n    \"YAHL\",\n    \"YALANDA\",\n    \"YALATA\",\n    \"YALLUNDA FLAT\",\n    \"YALPARA\",\n    \"YALYMBOO\",\n    \"YAMBA\",\n    \"YANERBIE\",\n    \"YANINEE\",\n    \"YANKALILLA\",\n    \"YANKANINNA\",\n    \"YANTANABIE\",\n    \"YANYARRIE\",\n    \"YARDEA\",\n    \"YARRAH\",\n    \"YARRAMBA\",\n    \"YATALA VALE\",\n    \"YATINA\",\n    \"YATTALUNGA\",\n    \"YEELANNA\",\n    \"YELLABINNA\",\n    \"YELTA\",\n    \"YELTANA\",\n    \"YINKANIE\",\n    \"YONGALA\",\n    \"YORKE VALLEY\",\n    \"YORKETOWN\",\n    \"YOUNGHUSBAND\",\n    \"YOUNGHUSBAND HOLDINGS\",\n    \"YUDNAPINNA\",\n    \"YUMALI\",\n    \"YUMBARRA\",\n    \"YUNDI\",\n    \"YUNTA\",\n    \"YUNYARINYI\",\n    \"ZADOWS LANDING\"\n  ],\n  \"councils\": [\n    \"ADELAIDE HILLS COUNCIL\",\n    \"ADELAIDE PLAINS COUNCIL\",\n    \"ALEXANDRINA COUNCIL\",\n    \"ANANGU PITJANTJATJARA YANKUNYTJATJARA\",\n    \"BARUNGA WEST COUNCIL\",\n    \"CAMPBELLTOWN CITY COUNCIL\",\n    \"CITY OF ADELAIDE\",\n    \"CITY OF BURNSIDE\",\n    \"CITY OF CHARLES STURT\",\n    \"CITY OF HOLDFAST BAY\",\n    \"CITY OF MARION\",\n    \"CITY OF MITCHAM\",\n    \"CITY OF MOUNT GAMBIER\",\n    \"CITY OF ONKAPARINGA\",\n    \"CITY OF PLAYFORD\",\n    \"CITY OF PORT ADELAIDE ENFIELD\",\n    \"CITY OF PORT LINCOLN\",\n    \"CITY OF PROSPECT\",\n    \"CITY OF SALISBURY\",\n    \"CITY OF TEA TREE GULLY\",\n    \"CITY OF UNLEY\",\n    \"CITY OF VICTOR HARBOR\",\n    \"CITY OF WEST TORRENS\",\n    \"CLARE AND GILBERT VALLEYS COUNCIL\",\n    \"COORONG DISTRICT COUNCIL\",\n    \"COPPER COAST COUNCIL\",\n    \"DC OF ELLISTON\",\n    \"DC OF ROBE\",\n    \"KANGAROO ISLAND COUNCIL\",\n    \"KINGSTON DC\",\n    \"LIGHT REGIONAL COUNCIL\",\n    \"LOWER EYRE COUNCIL\",\n    \"MARALINGA TJARUTJA\",\n    \"MID MURRAY COUNCIL\",\n    \"MOUNT BARKER DISTRICT COUNCIL\",\n    \"NARACOORTE LUCINDALE COUNCIL\",\n    \"NORTHERN AREAS COUNCIL\",\n    \"PASTORAL UNINCORPORATED AREA\",\n    \"PORT AUGUSTA CITY COUNCIL\",\n    \"PORT PIRIE REGIONAL COUNCIL\",\n    \"RENMARK PARINGA COUNCIL\",\n    \"SOUTHERN MALLEE DC\",\n    \"TATIARA DC\",\n    \"THE BAROSSA COUNCIL\",\n    \"THE BERRI BARMERA COUNCIL\",\n    \"THE CITY OF NORWOOD PAYNEHAM AND ST PETERS\",\n    \"THE CORPORATION OF THE CITY OF WHYALLA\",\n    \"THE CORPORATION OF THE TOWN OF WALKERVILLE\",\n    \"THE DC OF CEDUNA\",\n    \"THE DC OF CLEVE\",\n    \"THE DC OF FRANKLIN HARBOUR\",\n    \"THE DC OF GRANT\",\n    \"THE DC OF KAROONDA EAST MURRAY\",\n    \"THE DC OF KIMBA\",\n    \"THE DC OF LOXTON WAIKERIE\",\n    \"THE DC OF MOUNT REMARKABLE\",\n    \"THE DC OF ORROROO CARRIETON\",\n    \"THE DC OF PETERBOROUGH\",\n    \"THE DC OF STREAKY BAY\",\n    \"THE DC OF TUMBY BAY\",\n    \"THE DC OF YANKALILLA\",\n    \"THE FLINDERS RANGES COUNCIL\",\n    \"THE REGIONAL COUNCIL OF GOYDER\",\n    \"THE RURAL CITY OF MURRAY BRIDGE\",\n    \"TOWN OF GAWLER\",\n    \"UIA RIVERLAND\",\n    \"UIA TORRENS ISLAND\",\n    \"UIA WHYALLA\",\n    \"WAKEFIELD REGIONAL COUNCIL\",\n    \"WATTLE RANGE COUNCIL\",\n    \"WUDINNA DISTRICT COUNCIL\",\n    \"YORKE PENINSULA COUNCIL\"\n  ],\n  \"remoteness_levels\": [\n    \"Inner Regional Australia\",\n    \"Major Cities of Australia\",\n    \"Not Applicable\",\n    \"Outer Regional Australia\",\n    \"Remote Australia\",\n    \"Very Remote Australia\"\n  ],\n  \"socioeconomic_levels\": [\n    0\n  ]\n}\n",
+   "stderr": "",
+   "exitCode": 0
+  }
+ ]
+}

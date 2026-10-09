@@ -423,6 +423,8 @@ def compare(df: pd.DataFrame) -> dict:
             "byName": int(len(matched)),
             "onlyOriginal": int(len(only_orig)),
             "onlyOriginalSample": sorted(only_orig["Suburb"].tolist())[:24],
+            "onlyOriginalPastoral": int((only_orig["Council"] == "PASTORAL UNINCORPORATED AREA").sum()),
+            "onlyOriginalNotApplicable": int((only_orig["Remoteness Level"] == "Not Applicable").sum()),
             "onlyRebuilt": int(len(only_new)),
             "onlyRebuiltSample": sorted(only_new.index.tolist())[:24],
             "postcodeExact": postcode_exact,
