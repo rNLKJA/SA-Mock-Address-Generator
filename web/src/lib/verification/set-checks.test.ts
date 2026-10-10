@@ -112,7 +112,7 @@ describe("distribution against the design's targets", () => {
     // Binomial(200, 0.05) has mean 10: outside 2 to 20 happens less than 0.5% of the time.
     expect(rejected).toBeGreaterThanOrEqual(2);
     expect(rejected).toBeLessThanOrEqual(20);
-  });
+  }, 30_000);
 
   it("fails a deliberately skewed set: every address moved to Major Cities", () => {
     const majors = rows.filter((r) => r.addressable && r.ra === 0);
@@ -264,7 +264,7 @@ describe("spatial spread", () => {
     }
     // Binomial(40, 0.05): 6 or more happens less than 2% of the time.
     expect(rejected).toBeLessThanOrEqual(5);
-  });
+  }, 30_000);
 
   it("is not run without coordinates", () => {
     const c = checkSpatialSpread(

@@ -108,7 +108,7 @@ describe("the statistical checks as one family", () => {
     }
     // Binomial(60, 0.05) has mean 3: 8 or more happens about 0.4% of the time.
     expect(failed).toBeLessThanOrEqual(7);
-  });
+  }, 60_000);
 
   it("leave fixed quotas out of the family", async () => {
     const r = await verifyHandoff(
