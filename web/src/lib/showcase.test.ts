@@ -23,6 +23,7 @@ import { cohensWLabel, goodnessOfFit, wilson } from "@/lib/stats";
 import { RA_NAMES } from "@/lib/suburbs";
 import { salGeojson, suburbsJson } from "@/lib/test-utils/data";
 import { formatInt, formatP, formatPct, formatPctFixed } from "@/lib/utils";
+import { verifyContext, verifyHandoff } from "@/lib/verification/verify";
 import {
   MOCK_ANSWER_PREFIX,
   MOCK_PROPOSAL,
@@ -216,6 +217,24 @@ describe("the mocked AI reply used in the screenshots", () => {
       coordinates: false,
     });
     expect(res.observed.remoteness).toEqual([8, 8, 8, 8, 8]);
+  });
+});
+
+describe("the Verification Lab screenshot", () => {
+  it("shows the tour sample passing all 16 record checks and every set-level check", async () => {
+    const shot = SCREENSHOTS.find((s) => s.id === "18-verify")!;
+    expect(shot.caption).toContain("200-address run");
+    const ctx = verifyContext(suburbsJson.rows, new GeometryIndex(salGeojson));
+    const r = await verifyHandoff(ctx, { ...TOUR_SAMPLE, weights: defaultWeights() });
+    expect(r.count).toBe(200);
+    expect(r.recordChecks).toHaveLength(16);
+    expect(r.totalFailedRows).toBe(0);
+    expect(r.setChecks.map((c) => c.status)).toEqual(["pass", "pass", "pass", "pass"]);
+    const ra = r.setChecks[0];
+    if (ra.kind !== "distribution") throw new Error(ra.kind);
+    const stat = `χ²(${ra.details!.test!.df}) = ${ra.details!.test!.chiSquare.toFixed(2)}`;
+    expect(stat).toBe("χ²(4) = 2.77");
+    expect(shot.caption).toContain(`every check passes, remoteness mix ${stat}.`);
   });
 });
 

@@ -1,1274 +1,350 @@
 import { describe, expect, it } from "vitest";
 import type { MockAddress } from "@/lib/generator/generate";
-import type { Suburb } from "@/lib/suburbs";
 import { MOCK_STAMP, RA_NAMES } from "@/lib/suburbs";
-import type { Polygon } from "geojson";
 import {
+  asSuburb,
+  broken,
+  byCode,
+  byName,
+  generated,
+  index,
+} from "@/lib/test-utils/verification";
+import {
+  checkAddressFormat,
+  checkCouncilMatches,
+  checkDuplicateAddresses,
+  checkDuplicateCoordinates,
+  checkIrsadMatches,
+  checkMockStamp,
+  checkPointInSouthAustralia,
+  checkPointInSuburb,
+  checkPostcodeMatchesSuburb,
+  checkPostcodeRange,
+  checkRemotenessMatches,
   checkRequiredFields,
   checkStateIsSA,
-  checkPostcodeRange,
-  checkPostcodeMatchesSuburb,
-  checkSuburbExists,
-  checkRemotenessMatches,
-  checkSeifaMatches,
-  checkMockStamp,
-  checkNoDuplicateAddresses,
-  checkNoDuplicateCoords,
-  checkCoordsInSA,
-  checkPointInSuburb,
-  checkPostcodeFormat,
-  checkAddressFormat,
-  checkStreetNumberRange,
-  checkSeifaDecileRange,
-  checkRemotenessLevel,
-  checkCoordinateConsistency,
-  checkSuburbMetadata,
+  checkStreetName,
+  checkStreetNumber,
+  checkSuburbInReference,
+  isSaPostcode,
+  runRecordChecks,
 } from "./checks";
+import type { RecordCheck } from "./types";
 
-// Test data helpers
-function createValidAddress(overrides: Partial<MockAddress> = {}): MockAddress {
-  return {
-    id: 1,
-    stamp: MOCK_STAMP,
-    full_address: "42 Test Street, ADELAIDE SA 5000",
-    street_address: "42 Test Street",
-    street_number: 42,
-    street_name: "Test Street",
-    suburb: "ADELAIDE",
-    postcode: "5000",
-    council: "Adelaide City Council",
-    remoteness_level: "Major Cities of Australia",
-    seifa_decile_sa: 5,
-    latitude: -34.9285,
-    longitude: 138.6007,
-    sal_code: "40001",
-    ...overrides,
-  };
+/** 200 addresses from the site's generator (seed 2025, uniform, coordinates on). */
+const good = generated();
+const first = good[0];
+const ADELAIDE = byName.get("ADELAIDE")!;
+const GLENELG = byName.get("GLENELG")!;
+const GLENELG_NORTH = byName.get("GLENELG NORTH")!;
+const AMATA = byName.get("AMATA")!;
+const COOBER_PEDY = byName.get("COOBER PEDY")!;
+
+function expectOnlyFailure(check: RecordCheck, id: number, reason: RegExp | string) {
+  expect(check.failed, check.id).toBe(1);
+  expect(check.failedIds).toEqual([id]);
+  expect(check.failures[0].id).toBe(id);
+  if (typeof reason === "string") expect(check.failures[0].reason).toContain(reason);
+  else expect(check.failures[0].reason).toMatch(reason);
 }
 
-function createSuburb(overrides: Partial<Suburb> = {}): Suburb {
-  return {
-    code: "40001",
-    name: "ADELAIDE",
-    official: "Adelaide (SA)",
-    postcode: "5000",
-    postcodes: ["5000"],
-    council: "Adelaide City Council",
-    lgaCode: "40070",
-    ra: 0,
-    raShare: 1.0,
-    decileSa: 5,
-    decileAus: 6,
-    irsad: 1050,
-    pop: 20000,
-    areaKm2: 15.6,
-    label: [138.6007, -34.9285],
-    addressable: true,
-    ...overrides,
-  };
-}
-
-describe("checkRequiredFields", () => {
-  it("passes valid records with all required fields", () => {
-    const addresses = [createValidAddress(), createValidAddress({ id: 2 })];
-    const result = checkRequiredFields(addresses);
-
-    expect(result.id).toBe("required-fields");
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-    expect(result.failedIds).toEqual([]);
-  });
-
-  it("fails when id is missing or not a number", () => {
-    const addresses = [
-      createValidAddress({ id: "not-a-number" as unknown as number }),
-      createValidAddress({ id: 2 }),
-    ];
-    const result = checkRequiredFields(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual(["not-a-number"]);
-  });
-
-  it("fails when stamp is empty", () => {
-    const addresses = [
-      createValidAddress({ stamp: "" as typeof MOCK_STAMP }),
-      createValidAddress({ id: 2 }),
-    ];
-    const result = checkRequiredFields(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("fails when string fields are empty", () => {
-    const addresses = [
-      createValidAddress({ full_address: "" }),
-      createValidAddress({ id: 2, street_name: "" }),
-      createValidAddress({ id: 3, suburb: "" }),
-      createValidAddress({ id: 4 }),
-    ];
-    const result = checkRequiredFields(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(3);
-    expect(result.failedIds).toEqual([1, 2, 3]);
-  });
-
-  it("fails when street_number is not a number", () => {
-    const addresses = [
-      createValidAddress({ street_number: "42" as unknown as number }),
-      createValidAddress({ id: 2 }),
-    ];
-    const result = checkRequiredFields(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("allows nullable fields (coordinates, SEIFA) to be null", () => {
-    const addresses = [
-      createValidAddress({ latitude: null, longitude: null, seifa_decile_sa: null }),
-    ];
-    const result = checkRequiredFields(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("handles empty array", () => {
-    const result = checkRequiredFields([]);
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(0);
-    expect(result.failedIds).toEqual([]);
-  });
-});
-
-describe("checkStateIsSA", () => {
-  it("passes when full_address contains ' SA '", () => {
-    const addresses = [
-      createValidAddress(),
-      createValidAddress({ id: 2, full_address: "10 Main St, GLENELG SA 5045" }),
-    ];
-    const result = checkStateIsSA(addresses);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when ' SA ' is missing", () => {
-    const addresses = [
-      createValidAddress({ full_address: "42 Test Street, ADELAIDE 5000" }),
-      createValidAddress({ id: 2, full_address: "10 Main St, GLENELG NSW 2000" }),
-      createValidAddress({ id: 3 }),
-    ];
-    const result = checkStateIsSA(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 2]);
-  });
-
-  it("fails when 'SA' appears without spaces", () => {
-    const addresses = [
-      createValidAddress({ full_address: "42 Test Street, ADELAIDESA5000" }),
-    ];
-    const result = checkStateIsSA(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-});
-
-describe("checkPostcodeRange", () => {
-  it("passes valid SA postcodes [5000, 5999]", () => {
-    const addresses = [
-      createValidAddress({ postcode: "5000" }),
-      createValidAddress({ id: 2, postcode: "5999" }),
-      createValidAddress({ id: 3, postcode: "5432" }),
-    ];
-    const result = checkPostcodeRange(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails postcodes below 5000", () => {
-    const addresses = [
-      createValidAddress({ postcode: "4999" }),
-      createValidAddress({ id: 2, postcode: "3000" }),
-      createValidAddress({ id: 3, postcode: "5000" }),
-    ];
-    const result = checkPostcodeRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 2]);
-  });
-
-  it("fails postcodes above 5999", () => {
-    const addresses = [
-      createValidAddress({ postcode: "6000" }),
-      createValidAddress({ id: 2, postcode: "5999" }),
-    ];
-    const result = checkPostcodeRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("fails non-numeric postcodes", () => {
-    const addresses = [
-      createValidAddress({ postcode: "ABCD" }),
-      createValidAddress({ id: 2, postcode: "500X" }),
-    ];
-    const result = checkPostcodeRange(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(2);
-  });
-
-  it("handles boundary values correctly", () => {
-    const addresses = [
-      createValidAddress({ postcode: "5000" }),
-      createValidAddress({ id: 2, postcode: "5999" }),
-    ];
-    const result = checkPostcodeRange(addresses);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-});
-
-describe("checkPostcodeMatchesSuburb", () => {
-  it("passes when postcode matches suburb", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb({ postcodes: ["5000"] })],
-      ["GLENELG", createSuburb({ code: "40002", postcodes: ["5045"] })],
-    ]);
-    const addresses = [
-      createValidAddress({ postcode: "5000" }),
-      createValidAddress({ id: 2, suburb: "GLENELG", postcode: "5045" }),
-    ];
-    const result = checkPostcodeMatchesSuburb(addresses, suburbs);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when postcode doesn't match suburb", () => {
-    const suburbs = new Map([["ADELAIDE", createSuburb({ postcodes: ["5000"] })]]);
-    const addresses = [
-      createValidAddress({ postcode: "5045" }),
-      createValidAddress({ id: 2, postcode: "5000" }),
-    ];
-    const result = checkPostcodeMatchesSuburb(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("passes when suburb not found (deferred to checkSuburbExists)", () => {
-    const suburbs = new Map<string, Suburb>([]);
-    const addresses = [createValidAddress()];
-    const result = checkPostcodeMatchesSuburb(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("handles suburbs with multiple postcodes", () => {
-    const suburbs = new Map<string, Suburb>([
-      ["ADELAIDE", createSuburb({ postcodes: ["5000", "5001", "5006"] })],
-    ]);
-    const addresses = [
-      createValidAddress({ postcode: "5000" }),
-      createValidAddress({ id: 2, postcode: "5001" }),
-      createValidAddress({ id: 3, postcode: "5006" }),
-      createValidAddress({ id: 4, postcode: "5002" }),
-    ];
-    const result = checkPostcodeMatchesSuburb(addresses, suburbs);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([4]);
-  });
-});
-
-describe("checkSuburbExists", () => {
-  it("passes when all suburbs exist in reference", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb()],
-      ["GLENELG", createSuburb({ code: "40002" })],
-    ]);
-    const addresses = [
-      createValidAddress({ suburb: "ADELAIDE" }),
-      createValidAddress({ id: 2, suburb: "GLENELG" }),
-    ];
-    const result = checkSuburbExists(addresses, suburbs);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when suburb doesn't exist", () => {
-    const suburbs = new Map([["ADELAIDE", createSuburb()]]);
-    const addresses = [
-      createValidAddress({ suburb: "NONEXISTENT" }),
-      createValidAddress({ id: 2, suburb: "ADELAIDE" }),
-      createValidAddress({ id: 3, suburb: "FAKE_SUBURB" }),
-    ];
-    const result = checkSuburbExists(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 3]);
-  });
-
-  it("handles empty suburbs map", () => {
-    const suburbs = new Map();
-    const addresses = [createValidAddress()];
-    const result = checkSuburbExists(addresses, suburbs);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-});
-
-describe("checkRemotenessMatches", () => {
-  it("passes when remoteness matches suburb", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb({ ra: 0 })],
-      ["REGIONAL", createSuburb({ code: "40002", name: "REGIONAL", ra: 1 })],
-    ]);
-    const addresses = [
-      createValidAddress({ remoteness_level: RA_NAMES[0] }),
-      createValidAddress({ id: 2, suburb: "REGIONAL", remoteness_level: RA_NAMES[1] }),
-    ];
-    const result = checkRemotenessMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when remoteness doesn't match", () => {
-    const suburbs = new Map([["ADELAIDE", createSuburb({ ra: 0 })]]);
-    const addresses = [
-      createValidAddress({ remoteness_level: RA_NAMES[1] }),
-      createValidAddress({ id: 2, remoteness_level: RA_NAMES[0] }),
-    ];
-    const result = checkRemotenessMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("passes when suburb not found", () => {
-    const suburbs = new Map<string, Suburb>([]);
-    const addresses = [createValidAddress()];
-    const result = checkRemotenessMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("handles all remoteness levels", () => {
-    const suburbs = new Map<string, Suburb>([
-      ["RA0", createSuburb({ code: "1", name: "RA0", ra: 0 })],
-      ["RA1", createSuburb({ code: "2", name: "RA1", ra: 1 })],
-      ["RA2", createSuburb({ code: "3", name: "RA2", ra: 2 })],
-      ["RA3", createSuburb({ code: "4", name: "RA3", ra: 3 })],
-      ["RA4", createSuburb({ code: "5", name: "RA4", ra: 4 })],
-    ]);
-    const addresses = [
-      createValidAddress({ suburb: "RA0", remoteness_level: RA_NAMES[0] }),
-      createValidAddress({ id: 2, suburb: "RA1", remoteness_level: RA_NAMES[1] }),
-      createValidAddress({ id: 3, suburb: "RA2", remoteness_level: RA_NAMES[2] }),
-      createValidAddress({ id: 4, suburb: "RA3", remoteness_level: RA_NAMES[3] }),
-      createValidAddress({ id: 5, suburb: "RA4", remoteness_level: RA_NAMES[4] }),
-    ];
-    const result = checkRemotenessMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(5);
-    expect(result.failed).toBe(0);
-  });
-});
-
-describe("checkSeifaMatches", () => {
-  it("passes when SEIFA decile matches suburb", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb({ decileSa: 5 })],
-      ["RICH", createSuburb({ code: "40002", name: "RICH", decileSa: 10 })],
-    ]);
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: 5 }),
-      createValidAddress({ id: 2, suburb: "RICH", seifa_decile_sa: 10 }),
-    ];
-    const result = checkSeifaMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when SEIFA doesn't match", () => {
-    const suburbs = new Map([["ADELAIDE", createSuburb({ decileSa: 5 })]]);
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: 3 }),
-      createValidAddress({ id: 2, seifa_decile_sa: 5 }),
-    ];
-    const result = checkSeifaMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("passes when both are null", () => {
-    const suburbs = new Map([["NO_SEIFA", createSuburb({ decileSa: null })]]);
-    const addresses = [createValidAddress({ suburb: "NO_SEIFA", seifa_decile_sa: null })];
-    const result = checkSeifaMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when one is null and the other isn't", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb({ decileSa: 5 })],
-      ["NO_SEIFA", createSuburb({ code: "40002", name: "NO_SEIFA", decileSa: null })],
-    ]);
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: null }),
-      createValidAddress({ id: 2, suburb: "NO_SEIFA", seifa_decile_sa: 5 }),
-    ];
-    const result = checkSeifaMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(2);
-  });
-
-  it("passes when suburb not found", () => {
-    const suburbs = new Map<string, Suburb>([]);
-    const addresses = [createValidAddress()];
-    const result = checkSeifaMatches(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-});
-
-describe("checkMockStamp", () => {
-  it("passes when stamp is correct", () => {
-    const addresses = [createValidAddress(), createValidAddress({ id: 2 })];
-    const result = checkMockStamp(addresses);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when stamp is wrong", () => {
-    const addresses = [
-      createValidAddress({ stamp: "wrong stamp" as typeof MOCK_STAMP }),
-      createValidAddress({ id: 2 }),
-      createValidAddress({ id: 3, stamp: "" as typeof MOCK_STAMP }),
-    ];
-    const result = checkMockStamp(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 3]);
-  });
-});
-
-describe("checkNoDuplicateAddresses", () => {
-  it("passes when all addresses are unique", () => {
-    const addresses = [
-      createValidAddress(),
-      createValidAddress({ id: 2, full_address: "10 Main St, GLENELG SA 5045" }),
-      createValidAddress({ id: 3, full_address: "99 Beach Rd, BRIGHTON SA 5048" }),
-    ];
-    const result = checkNoDuplicateAddresses(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails all records with duplicate addresses", () => {
-    const addresses = [
-      createValidAddress({ id: 1 }),
-      createValidAddress({ id: 2 }),
-      createValidAddress({ id: 3, full_address: "10 Main St, GLENELG SA 5045" }),
-    ];
-    const result = checkNoDuplicateAddresses(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 2]);
-  });
-
-  it("fails all records in a triplicate set", () => {
-    const addresses = [
-      createValidAddress({ id: 1 }),
-      createValidAddress({ id: 2 }),
-      createValidAddress({ id: 3 }),
-    ];
-    const result = checkNoDuplicateAddresses(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(3);
-    expect(result.failedIds).toEqual([1, 2, 3]);
-  });
-
-  it("handles multiple duplicate groups", () => {
-    const addresses = [
-      createValidAddress({ id: 1, full_address: "A" }),
-      createValidAddress({ id: 2, full_address: "A" }),
-      createValidAddress({ id: 3, full_address: "B" }),
-      createValidAddress({ id: 4, full_address: "B" }),
-      createValidAddress({ id: 5, full_address: "C" }),
-    ];
-    const result = checkNoDuplicateAddresses(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(4);
-    expect(result.failedIds).toEqual([1, 2, 3, 4]);
-  });
-
-  it("sorts failedIds", () => {
-    const addresses = [
-      createValidAddress({ id: 5 }),
-      createValidAddress({ id: 1 }),
-      createValidAddress({ id: 3 }),
-    ];
-    const result = checkNoDuplicateAddresses(addresses);
-
-    expect(result.failedIds).toEqual([1, 3, 5]);
-  });
-});
-
-describe("checkNoDuplicateCoords", () => {
-  it("passes when all coordinates are unique", () => {
-    const addresses = [
-      createValidAddress({ latitude: -34.9, longitude: 138.6 }),
-      createValidAddress({ id: 2, latitude: -34.95, longitude: 138.5 }),
-      createValidAddress({ id: 3, latitude: -35.0, longitude: 138.7 }),
-    ];
-    const result = checkNoDuplicateCoords(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails all records with duplicate coordinates", () => {
-    const addresses = [
-      createValidAddress({ id: 1, latitude: -34.9, longitude: 138.6 }),
-      createValidAddress({ id: 2, latitude: -34.9, longitude: 138.6 }),
-      createValidAddress({ id: 3, latitude: -34.95, longitude: 138.5 }),
-    ];
-    const result = checkNoDuplicateCoords(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 2]);
-  });
-
-  it("ignores null coordinates", () => {
-    const addresses = [
-      createValidAddress({ id: 1, latitude: null, longitude: null }),
-      createValidAddress({ id: 2, latitude: null, longitude: null }),
-      createValidAddress({ id: 3, latitude: -34.9, longitude: 138.6 }),
-    ];
-    const result = checkNoDuplicateCoords(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("ignores partially null coordinates", () => {
-    const addresses = [
-      createValidAddress({ id: 1, latitude: -34.9, longitude: null }),
-      createValidAddress({ id: 2, latitude: null, longitude: 138.6 }),
-      createValidAddress({ id: 3, latitude: -34.9, longitude: 138.6 }),
-    ];
-    const result = checkNoDuplicateCoords(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("sorts failedIds", () => {
-    const addresses = [
-      createValidAddress({ id: 5, latitude: -34.9, longitude: 138.6 }),
-      createValidAddress({ id: 1, latitude: -34.9, longitude: 138.6 }),
-      createValidAddress({ id: 3, latitude: -34.9, longitude: 138.6 }),
-    ];
-    const result = checkNoDuplicateCoords(addresses);
-
-    expect(result.failedIds).toEqual([1, 3, 5]);
-  });
-});
-
-describe("checkCoordsInSA", () => {
-  // SA_BBOX is [129.0, -38.06, 141.0, -25.99]
-
-  it("passes when coordinates are inside SA bounding box", () => {
-    const addresses = [
-      createValidAddress({ latitude: -34.9, longitude: 138.6 }),
-      createValidAddress({ id: 2, latitude: -26.0, longitude: 130.0 }),
-      createValidAddress({ id: 3, latitude: -38.0, longitude: 140.0 }),
-    ];
-    const result = checkCoordsInSA(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("passes when coordinates are null", () => {
-    const addresses = [createValidAddress({ latitude: null, longitude: null })];
-    const result = checkCoordsInSA(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when longitude is too low", () => {
-    const addresses = [
-      createValidAddress({ latitude: -34.9, longitude: 128.8 }), // Below SA_BBOX min
-      createValidAddress({ id: 2, latitude: -34.9, longitude: 138.6 }),
-    ];
-    const result = checkCoordsInSA(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("fails when longitude is too high", () => {
-    const addresses = [
-      createValidAddress({ latitude: -34.9, longitude: 141.2 }), // Above SA_BBOX max
-    ];
-    const result = checkCoordsInSA(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("fails when latitude is too low", () => {
-    const addresses = [
-      createValidAddress({ latitude: -38.3, longitude: 138.6 }), // Below SA_BBOX min
-    ];
-    const result = checkCoordsInSA(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("fails when latitude is too high", () => {
-    const addresses = [
-      createValidAddress({ latitude: -25.8, longitude: 138.6 }), // Above SA_BBOX max
-    ];
-    const result = checkCoordsInSA(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("handles boundary values correctly", () => {
-    const addresses = [
-      createValidAddress({ id: 1, latitude: -38.06, longitude: 129.0 }),
-      createValidAddress({ id: 2, latitude: -25.99, longitude: 141.0 }),
-    ];
-    const result = checkCoordsInSA(addresses);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-});
-
-describe("checkPointInSuburb", () => {
-  const square: Polygon = {
-    type: "Polygon",
-    coordinates: [
-      [
-        [138.5, -35.0],
-        [138.7, -35.0],
-        [138.7, -34.8],
-        [138.5, -34.8],
-        [138.5, -35.0],
-      ],
-    ],
-  };
-
-  it("passes when point is inside suburb polygon", () => {
-    const geoms = new Map<string, Polygon>([["40001", square]]);
-    const addresses = [createValidAddress({ latitude: -34.9, longitude: 138.6 })];
-    const result = checkPointInSuburb(addresses, geoms);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when point is outside suburb polygon", () => {
-    const geoms = new Map<string, Polygon>([["40001", square]]);
-    const addresses = [
-      createValidAddress({ latitude: -34.7, longitude: 138.6 }),
-      createValidAddress({ id: 2, latitude: -34.9, longitude: 138.6 }),
-    ];
-    const result = checkPointInSuburb(addresses, geoms);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("passes when coordinates are null", () => {
-    const geoms = new Map<string, Polygon>([["40001", square]]);
-    const addresses = [createValidAddress({ latitude: null, longitude: null })];
-    const result = checkPointInSuburb(addresses, geoms);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("passes when geometry not found", () => {
-    const geoms = new Map();
-    const addresses = [createValidAddress({ latitude: -34.9, longitude: 138.6 })];
-    const result = checkPointInSuburb(addresses, geoms);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-});
-
-describe("checkPostcodeFormat", () => {
-  it("passes 4-digit postcodes", () => {
-    const addresses = [
-      createValidAddress({ postcode: "5000" }),
-      createValidAddress({ id: 2, postcode: "5999" }),
-    ];
-    const result = checkPostcodeFormat(addresses);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails postcodes with wrong length", () => {
-    const addresses = [
-      createValidAddress({ postcode: "500" }),
-      createValidAddress({ id: 2, postcode: "50000" }),
-      createValidAddress({ id: 3, postcode: "5000" }),
-    ];
-    const result = checkPostcodeFormat(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 2]);
-  });
-
-  it("fails non-numeric postcodes", () => {
-    const addresses = [
-      createValidAddress({ postcode: "ABCD" }),
-      createValidAddress({ id: 2, postcode: "500X" }),
-    ];
-    const result = checkPostcodeFormat(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(2);
-  });
-
-  it("fails postcodes with spaces", () => {
-    const addresses = [
-      createValidAddress({ postcode: "5 000" }),
-      createValidAddress({ id: 2, postcode: " 5000" }),
-    ];
-    const result = checkPostcodeFormat(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(2);
-  });
-});
-
-describe("checkAddressFormat", () => {
-  it("passes correctly formatted addresses", () => {
-    const addresses = [
-      createValidAddress(),
-      createValidAddress({
-        id: 2,
-        street_number: 100,
-        street_name: "King William Road",
-        suburb: "GLENELG",
-        postcode: "5045",
-        street_address: "100 King William Road",
-        full_address: "100 King William Road, GLENELG SA 5045",
-      }),
-    ];
-    const result = checkAddressFormat(addresses);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when street_address doesn't match components", () => {
-    const addresses = [createValidAddress({ street_address: "WRONG" })];
-    const result = checkAddressFormat(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("fails when full_address doesn't match components", () => {
-    const addresses = [createValidAddress({ full_address: "WRONG" })];
-    const result = checkAddressFormat(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("fails when both addresses are wrong", () => {
-    const addresses = [
-      createValidAddress({
-        street_address: "WRONG",
-        full_address: "ALSO WRONG",
-      }),
-    ];
-    const result = checkAddressFormat(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("fails when street_address is correct but full_address is wrong", () => {
-    const addresses = [
-      createValidAddress({
-        street_address: "42 Test Street",
-        full_address: "42 Test Street, ADELAIDE NSW 2000",
-      }),
-    ];
-    const result = checkAddressFormat(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-});
-
-describe("checkStreetNumberRange", () => {
-  it("passes valid street numbers [1, 999]", () => {
-    const addresses = [
-      createValidAddress({ street_number: 1 }),
-      createValidAddress({ id: 2, street_number: 500 }),
-      createValidAddress({ id: 3, street_number: 999 }),
-    ];
-    const result = checkStreetNumberRange(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails street number below 1", () => {
-    const addresses = [
-      createValidAddress({ street_number: 0 }),
-      createValidAddress({ id: 2, street_number: -1 }),
-      createValidAddress({ id: 3, street_number: 1 }),
-    ];
-    const result = checkStreetNumberRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 2]);
-  });
-
-  it("fails street number above 999", () => {
-    const addresses = [
-      createValidAddress({ street_number: 1000 }),
-      createValidAddress({ id: 2, street_number: 999 }),
-    ];
-    const result = checkStreetNumberRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("fails non-integer street numbers", () => {
-    const addresses = [
-      createValidAddress({ street_number: 42.5 }),
-      createValidAddress({ id: 2, street_number: 42 }),
-    ];
-    const result = checkStreetNumberRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-  });
-
-  it("handles boundary values correctly", () => {
-    const addresses = [
-      createValidAddress({ street_number: 1 }),
-      createValidAddress({ id: 2, street_number: 999 }),
-    ];
-    const result = checkStreetNumberRange(addresses);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(0);
-  });
-});
-
-describe("checkSeifaDecileRange", () => {
-  it("passes valid SEIFA deciles [1, 10]", () => {
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: 1 }),
-      createValidAddress({ id: 2, seifa_decile_sa: 5 }),
-      createValidAddress({ id: 3, seifa_decile_sa: 10 }),
-    ];
-    const result = checkSeifaDecileRange(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("passes null SEIFA decile", () => {
-    const addresses = [createValidAddress({ seifa_decile_sa: null })];
-    const result = checkSeifaDecileRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails SEIFA decile below 1", () => {
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: 0 }),
-      createValidAddress({ id: 2, seifa_decile_sa: -1 }),
-      createValidAddress({ id: 3, seifa_decile_sa: 1 }),
-    ];
-    const result = checkSeifaDecileRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 2]);
-  });
-
-  it("fails SEIFA decile above 10", () => {
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: 11 }),
-      createValidAddress({ id: 2, seifa_decile_sa: 10 }),
-    ];
-    const result = checkSeifaDecileRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("fails non-integer SEIFA deciles", () => {
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: 5.5 }),
-      createValidAddress({ id: 2, seifa_decile_sa: 5 }),
-    ];
-    const result = checkSeifaDecileRange(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-  });
-
-  it("handles boundary values correctly", () => {
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: 1 }),
-      createValidAddress({ id: 2, seifa_decile_sa: 10 }),
-      createValidAddress({ id: 3, seifa_decile_sa: null }),
-    ];
-    const result = checkSeifaDecileRange(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-});
-
-describe("checkRemotenessLevel", () => {
-  it("passes valid remoteness levels", () => {
-    const addresses = [
-      createValidAddress({ remoteness_level: RA_NAMES[0] }),
-      createValidAddress({ id: 2, remoteness_level: RA_NAMES[1] }),
-      createValidAddress({ id: 3, remoteness_level: RA_NAMES[4] }),
-    ];
-    const result = checkRemotenessLevel(addresses);
-
-    expect(result.passed).toBe(3);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails invalid remoteness levels", () => {
-    const addresses = [
-      createValidAddress({ remoteness_level: "Invalid Level" }),
-      createValidAddress({ id: 2, remoteness_level: "Major Cities" }),
-      createValidAddress({ id: 3, remoteness_level: RA_NAMES[0] }),
-    ];
-    const result = checkRemotenessLevel(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([1, 2]);
-  });
-
-  it("fails empty remoteness level", () => {
-    const addresses = [createValidAddress({ remoteness_level: "" })];
-    const result = checkRemotenessLevel(addresses);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("handles all five valid remoteness levels", () => {
-    const addresses = RA_NAMES.map((ra, i) =>
-      createValidAddress({ id: i + 1, remoteness_level: ra }),
-    );
-    const result = checkRemotenessLevel(addresses);
-
-    expect(result.passed).toBe(5);
-    expect(result.failed).toBe(0);
-  });
-});
-
-describe("checkCoordinateConsistency", () => {
-  it("passes when both coordinates are present", () => {
-    const addresses = [createValidAddress({ latitude: -34.9, longitude: 138.6 })];
-    const result = checkCoordinateConsistency(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("passes when both coordinates are null", () => {
-    const addresses = [createValidAddress({ latitude: null, longitude: null })];
-    const result = checkCoordinateConsistency(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when only latitude is null", () => {
-    const addresses = [
-      createValidAddress({ latitude: null, longitude: 138.6 }),
-      createValidAddress({ id: 2, latitude: -34.9, longitude: 138.6 }),
-    ];
-    const result = checkCoordinateConsistency(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("fails when only longitude is null", () => {
-    const addresses = [
-      createValidAddress({ latitude: -34.9, longitude: null }),
-      createValidAddress({ id: 2, latitude: -34.9, longitude: 138.6 }),
-    ];
-    const result = checkCoordinateConsistency(addresses);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(1);
-    expect(result.failedIds).toEqual([1]);
-  });
-
-  it("handles mixed batch correctly", () => {
-    const addresses = [
-      createValidAddress({ id: 1, latitude: -34.9, longitude: 138.6 }),
-      createValidAddress({ id: 2, latitude: null, longitude: null }),
-      createValidAddress({ id: 3, latitude: null, longitude: 138.6 }),
-      createValidAddress({ id: 4, latitude: -34.9, longitude: null }),
-    ];
-    const result = checkCoordinateConsistency(addresses);
-
-    expect(result.passed).toBe(2);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([3, 4]);
-  });
-});
-
-describe("checkSuburbMetadata", () => {
-  it("passes when all metadata matches", () => {
-    const suburbs = [
-      createSuburb({
-        name: "ADELAIDE",
-        council: "Adelaide City Council",
-        ra: 0,
-        decileSa: 5,
-      }),
-    ];
-    const addresses = [
-      createValidAddress({
-        suburb: "ADELAIDE",
-        council: "Adelaide City Council",
-        remoteness_level: RA_NAMES[0],
-        seifa_decile_sa: 5,
-      }),
-    ];
-    const result = checkSuburbMetadata(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("fails when council doesn't match", () => {
-    const suburbs = [
-      createSuburb({
-        name: "ADELAIDE",
-        council: "Adelaide City Council",
-        ra: 0,
-        decileSa: 5,
-      }),
-    ];
-    const addresses = [
-      createValidAddress({
-        suburb: "ADELAIDE",
-        council: "Wrong Council",
-        remoteness_level: RA_NAMES[0],
-        seifa_decile_sa: 5,
-      }),
-    ];
-    const result = checkSuburbMetadata(addresses, suburbs);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("fails when remoteness doesn't match", () => {
-    const suburbs = [
-      createSuburb({
-        name: "ADELAIDE",
-        council: "Adelaide City Council",
-        ra: 0,
-        decileSa: 5,
-      }),
-    ];
-    const addresses = [
-      createValidAddress({
-        suburb: "ADELAIDE",
-        council: "Adelaide City Council",
-        remoteness_level: RA_NAMES[1],
-        seifa_decile_sa: 5,
-      }),
-    ];
-    const result = checkSuburbMetadata(addresses, suburbs);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("fails when SEIFA doesn't match", () => {
-    const suburbs = [
-      createSuburb({
-        name: "ADELAIDE",
-        council: "Adelaide City Council",
-        ra: 0,
-        decileSa: 5,
-      }),
-    ];
-    const addresses = [
-      createValidAddress({
-        suburb: "ADELAIDE",
-        council: "Adelaide City Council",
-        remoteness_level: RA_NAMES[0],
-        seifa_decile_sa: 3,
-      }),
-    ];
-    const result = checkSuburbMetadata(addresses, suburbs);
-
-    expect(result.passed).toBe(0);
-    expect(result.failed).toBe(1);
-  });
-
-  it("passes when suburb not found", () => {
-    const suburbs = [createSuburb()];
-    const addresses = [createValidAddress({ suburb: "NONEXISTENT" })];
-    const result = checkSuburbMetadata(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(0);
-  });
-
-  it("handles mixed batch with multiple failures", () => {
-    const suburbs = [
-      createSuburb({
-        name: "ADELAIDE",
-        council: "Adelaide City Council",
-        ra: 0,
-        decileSa: 5,
-      }),
-      createSuburb({
-        code: "40002",
-        name: "GLENELG",
-        council: "Holdfast Bay Council",
-        ra: 0,
-        decileSa: 8,
-      }),
-    ];
-    const addresses = [
-      createValidAddress({
-        id: 1,
-        suburb: "ADELAIDE",
-        council: "Adelaide City Council",
-        remoteness_level: RA_NAMES[0],
-        seifa_decile_sa: 5,
-      }),
-      createValidAddress({
-        id: 2,
-        suburb: "GLENELG",
-        council: "Wrong Council",
-        remoteness_level: RA_NAMES[0],
-        seifa_decile_sa: 8,
-      }),
-      createValidAddress({
-        id: 3,
-        suburb: "ADELAIDE",
-        council: "Wrong Council",
-        remoteness_level: RA_NAMES[1],
-        seifa_decile_sa: 3,
-      }),
-    ];
-    const result = checkSuburbMetadata(addresses, suburbs);
-
-    expect(result.passed).toBe(1);
-    expect(result.failed).toBe(2);
-    expect(result.failedIds).toEqual([2, 3]);
-  });
-});
-
-describe("batch checks with mixed pass/fail", () => {
-  it("handles large mixed batches correctly", () => {
-    const addresses: MockAddress[] = [];
-    for (let i = 1; i <= 100; i++) {
-      addresses.push(
-        createValidAddress({
-          id: i,
-          postcode: i % 5 === 0 ? "4999" : "5000",
-        }),
-      );
+describe("record checks on a set from the site's own generator", () => {
+  it("pass every check on every row", () => {
+    const checks = runRecordChecks(good, byCode, index);
+    expect(checks).toHaveLength(16);
+    expect(new Set(checks.map((c) => c.id)).size).toBe(16);
+    for (const c of checks) {
+      expect(c.failed, `${c.id}: ${c.failures[0]?.reason}`).toBe(0);
+      expect(c.passed + c.skipped, c.id).toBe(good.length);
+      expect(c.description.length, c.id).toBeGreaterThan(10);
     }
-    const result = checkPostcodeRange(addresses);
-
-    expect(result.passed).toBe(80);
-    expect(result.failed).toBe(20);
-    expect(result.failedIds.length).toBe(20);
-    expect(result.failedIds[0]).toBe(5);
-    expect(result.failedIds[1]).toBe(10);
   });
 
-  it("handles empty arrays gracefully", () => {
-    expect(checkRequiredFields([]).passed).toBe(0);
-    expect(checkStateIsSA([]).failed).toBe(0);
-    expect(checkPostcodeRange([]).failedIds).toEqual([]);
-    expect(checkNoDuplicateAddresses([]).passed).toBe(0);
+  it("pass with coordinates off, the point checks then not applying", () => {
+    const noCoords = generated({ coordinates: false, count: 100 });
+    const checks = runRecordChecks(noCoords, byCode, index);
+    for (const c of checks) expect(c.failed, c.id).toBe(0);
+    const pip = checks.find((c) => c.id === "point-in-suburb")!;
+    expect(pip.skipped).toBe(100);
+    expect(checks.find((c) => c.id === "no-duplicate-coordinates")!.skipped).toBe(100);
   });
 
-  it("handles single-element arrays", () => {
-    const addr = createValidAddress();
-    expect(checkRequiredFields([addr]).passed).toBe(1);
-    expect(checkStateIsSA([addr]).passed).toBe(1);
-    expect(checkMockStamp([addr]).failed).toBe(0);
+  it("pass for every design, including the APY Lands' 0872 postcode", () => {
+    for (const mode of ["remoteness", "seifa", "population", "stratified"] as const) {
+      const set = generated({ mode, count: 150, seed: 11 });
+      for (const c of runRecordChecks(set, byCode, index))
+        expect(c.failed, `${mode} ${c.id}`).toBe(0);
+    }
+    const remote = generated({ count: 40, filters: { suburb: "AMATA" } });
+    expect(remote.every((a) => a.postcode === "0872")).toBe(true);
+    for (const c of runRecordChecks(remote, byCode, index))
+      expect(c.failed, `AMATA ${c.id}`).toBe(0);
+  });
+});
+
+describe("required fields", () => {
+  it("fails a row with an empty field, a NaN number or half a coordinate", () => {
+    expectOnlyFailure(
+      checkRequiredFields(broken(good, 3, { council: "" })),
+      3,
+      "council is empty",
+    );
+    expectOnlyFailure(
+      checkRequiredFields(broken(good, 4, { street_number: Number.NaN })),
+      4,
+      "street_number",
+    );
+    expectOnlyFailure(
+      checkRequiredFields(broken(good, 5, { longitude: null })),
+      5,
+      "only one of latitude and longitude",
+    );
+    expectOnlyFailure(
+      checkRequiredFields(
+        broken(good, 6, { latitude: Number.NaN, longitude: Number.NaN }),
+      ),
+      6,
+      "not a number",
+    );
+    expectOnlyFailure(
+      checkRequiredFields(broken(good, 7, { seifa_decile_sa: 4.5 })),
+      7,
+      "seifa_decile_sa",
+    );
+  });
+
+  it("lists every problem on a row", () => {
+    const c = checkRequiredFields(broken(good, 2, { suburb: "", sal_code: "" }));
+    expect(c.failures[0].reason).toBe("suburb is empty, sal_code is empty");
+  });
+});
+
+describe("format", () => {
+  it("fails a missing or wrong MOCK marker", () => {
+    expectOnlyFailure(
+      checkMockStamp(broken(good, 9, { stamp: "" as typeof MOCK_STAMP })),
+      9,
+      "stamp",
+    );
+    expectOnlyFailure(
+      checkMockStamp(broken(good, 10, { stamp: "REAL" as typeof MOCK_STAMP })),
+      10,
+      '"REAL"',
+    );
+  });
+
+  it("fails an address that does not match its parts", () => {
+    expectOnlyFailure(
+      checkAddressFormat(broken(good, 11, { full_address: first.full_address })),
+      11,
+      "full_address",
+    );
+    expectOnlyFailure(
+      checkAddressFormat(broken(good, 12, { street_address: "1 Nowhere Lane" })),
+      12,
+      "street_address",
+    );
+  });
+
+  it("fails street numbers outside 1 to 999 and streets not on the 2025 list", () => {
+    expectOnlyFailure(checkStreetNumber(broken(good, 13, { street_number: 0 })), 13, "0");
+    expectOnlyFailure(
+      checkStreetNumber(broken(good, 14, { street_number: 1000 })),
+      14,
+      "1000",
+    );
+    expectOnlyFailure(
+      checkStreetName(broken(good, 15, { street_name: "Rundle Mall" })),
+      15,
+      "Rundle Mall",
+    );
+  });
+
+  it("fails an address in another state", () => {
+    const vic = broken(good, 16, { full_address: "1 Main Street, MELBOURNE VIC 3000" });
+    expectOnlyFailure(checkStateIsSA(vic), 16, "MELBOURNE VIC");
+  });
+
+  it("knows SA's postcodes, including 0872", () => {
+    expect(isSaPostcode("5000")).toBe(true);
+    expect(isSaPostcode("5999")).toBe(true);
+    expect(isSaPostcode("0872")).toBe(true);
+    for (const bad of ["4999", "6000", "3000", "0870", "500", "50000", "50a0", ""])
+      expect(isSaPostcode(bad), bad).toBe(false);
+    expectOnlyFailure(
+      checkPostcodeRange(broken(good, 17, { postcode: "3000" })),
+      17,
+      "3000",
+    );
+  });
+});
+
+describe("reference data", () => {
+  it("fails an unknown SAL code or a code that names another suburb", () => {
+    const unknown = broken(good, 20, { sal_code: "49999" });
+    expectOnlyFailure(
+      checkSuburbInReference(unknown, byCode),
+      20,
+      "not in the reference",
+    );
+    const swapped = broken(good, 21, { sal_code: ADELAIDE.code });
+    if (good[20].suburb !== "ADELAIDE")
+      expectOnlyFailure(checkSuburbInReference(swapped, byCode), 21, "is ADELAIDE");
+  });
+
+  it("skips the reference comparisons for a row whose suburb is unknown", () => {
+    const unknown = broken(good, 20, { sal_code: "49999", remoteness_level: "Nowhere" });
+    for (const check of [
+      checkPostcodeMatchesSuburb,
+      checkCouncilMatches,
+      checkRemotenessMatches,
+      checkIrsadMatches,
+    ]) {
+      const c = check(unknown, byCode);
+      expect(c.failed, c.id).toBe(0);
+      expect(c.skipped, c.id).toBe(1);
+    }
+  });
+
+  it("fails a postcode the suburb does not have", () => {
+    const row = asSuburb(first, ADELAIDE);
+    const set = [{ ...row, postcode: "5045" }];
+    const c = checkPostcodeMatchesSuburb(set, byCode);
+    expectOnlyFailure(c, first.id, "5045 is not a postcode of ADELAIDE (5000)");
+  });
+
+  it("fails a council that is not the suburb's", () => {
+    const set = [{ ...asSuburb(first, GLENELG), council: "Adelaide" }];
+    expectOnlyFailure(
+      checkCouncilMatches(set, byCode),
+      first.id,
+      'reference "Holdfast Bay"',
+    );
+  });
+
+  it("fails a remoteness class that is valid but not the suburb's", () => {
+    // Coober Pedy is Very Remote: "Remote Australia" is a valid class, but wrong here.
+    const row = asSuburb(first, COOBER_PEDY);
+    expect(row.remoteness_level).toBe("Very Remote Australia");
+    const set = [{ ...row, remoteness_level: RA_NAMES[3] }];
+    expectOnlyFailure(
+      checkRemotenessMatches(set, byCode),
+      first.id,
+      '"Remote Australia", reference "Very Remote Australia"',
+    );
+  });
+
+  it("fails an IRSAD decile that is in range but not the suburb's", () => {
+    const row = asSuburb(first, GLENELG);
+    expect(row.seifa_decile_sa).toBe(8);
+    expectOnlyFailure(
+      checkIrsadMatches([{ ...row, seifa_decile_sa: 7 }], byCode),
+      first.id,
+      "decile 7, reference 8",
+    );
+    expectOnlyFailure(
+      checkIrsadMatches([{ ...row, seifa_decile_sa: null }], byCode),
+      first.id,
+      "decile empty, reference 8",
+    );
+    const noSeifa = asSuburb(first, byName.get("ADELAIDE AIRPORT")!);
+    expect(noSeifa.seifa_decile_sa).toBeNull();
+    expect(checkIrsadMatches([noSeifa], byCode).passed).toBe(1);
+    expect(checkIrsadMatches([{ ...noSeifa, seifa_decile_sa: 5 }], byCode).failed).toBe(
+      1,
+    );
+  });
+
+  it("passes the APY Lands with their 0872 postcode", () => {
+    const row = asSuburb(first, AMATA);
+    expect(checkPostcodeRange([row]).passed).toBe(1);
+    expect(checkPostcodeMatchesSuburb([row], byCode).passed).toBe(1);
+  });
+});
+
+describe("point in polygon", () => {
+  const atGlenelg = asSuburb(first, GLENELG);
+
+  it("passes a point inside its own suburb", () => {
+    expect(checkPointInSuburb([atGlenelg], index, byCode).passed).toBe(1);
+    expect(checkPointInSouthAustralia([atGlenelg], index).passed).toBe(1);
+  });
+
+  it("fails a point that sits in the neighbouring suburb, and names it", () => {
+    const moved: MockAddress = {
+      ...atGlenelg,
+      longitude: GLENELG_NORTH.label[0],
+      latitude: GLENELG_NORTH.label[1],
+    };
+    expect(index.locate([moved.longitude!, moved.latitude!])).toBe(GLENELG_NORTH.code);
+    const c = checkPointInSuburb([moved], index, byCode);
+    expectOnlyFailure(c, first.id, "is outside GLENELG and falls in GLENELG NORTH");
+    // still in South Australia
+    expect(checkPointInSouthAustralia([moved], index).passed).toBe(1);
+  });
+
+  it("fails a point in another state or out at sea", () => {
+    const melbourne: MockAddress = {
+      ...atGlenelg,
+      longitude: 144.9631,
+      latitude: -37.8136,
+    };
+    expectOnlyFailure(
+      checkPointInSuburb([melbourne], index, byCode),
+      first.id,
+      "falls in no SA suburb",
+    );
+    expectOnlyFailure(
+      checkPointInSouthAustralia([melbourne], index),
+      first.id,
+      "is in no South Australian suburb",
+    );
+    const gulf: MockAddress = { ...atGlenelg, longitude: 138.2, latitude: -35.0 };
+    expect(index.locate([138.2, -35.0])).toBeNull();
+    expect(checkPointInSouthAustralia([gulf], index).failed).toBe(1);
+  });
+
+  it("fails a point whose SAL code has no boundary", () => {
+    const c = checkPointInSuburb([{ ...atGlenelg, sal_code: "49999" }], index, byCode);
+    expectOnlyFailure(c, first.id, 'no boundary for SAL code "49999"');
+  });
+
+  it("does not apply to rows without coordinates", () => {
+    const none: MockAddress = { ...atGlenelg, latitude: null, longitude: null };
+    expect(checkPointInSuburb([none], index, byCode).skipped).toBe(1);
+    expect(checkPointInSouthAustralia([none], index).skipped).toBe(1);
+  });
+
+  it("lists every failing row of a broken set, in id order", () => {
+    const set = good.map((a) =>
+      a.id % 50 === 0 ? { ...a, longitude: 144.9631, latitude: -37.8136 } : a,
+    );
+    const c = checkPointInSuburb(set, index, byCode);
+    expect(c.failedIds).toEqual([50, 100, 150, 200]);
+    expect(c.passed).toBe(196);
+  });
+});
+
+describe("duplicates", () => {
+  it("fails both rows of a repeated address", () => {
+    const set = broken(good, 30, {
+      full_address: good[0].full_address,
+    });
+    const c = checkDuplicateAddresses(set);
+    expect(c.failedIds).toEqual([1, 30]);
+    expect(c.failures[0].reason).toBe("shared with row 30");
+    expect(c.failures[1].reason).toBe("shared with row 1");
+  });
+
+  it("fails repeated coordinates and ignores rows without any", () => {
+    const set = broken(good, 31, {
+      latitude: good[1].latitude,
+      longitude: good[1].longitude,
+    });
+    expect(checkDuplicateCoordinates(set).failedIds).toEqual([2, 31]);
+    const none = good.map((a) => ({ ...a, latitude: null, longitude: null }));
+    const c = checkDuplicateCoordinates(none);
+    expect(c.failed).toBe(0);
+    expect(c.skipped).toBe(good.length);
   });
 });

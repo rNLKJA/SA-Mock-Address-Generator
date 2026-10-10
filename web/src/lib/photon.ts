@@ -6,6 +6,7 @@ import { z } from "@/lib/zod";
 import { SA_BBOX, inBBox, type LonLat } from "@/lib/geo";
 
 export const PHOTON_ENDPOINT = "https://photon.komoot.io/api/";
+export const PHOTON_REVERSE_ENDPOINT = "https://photon.komoot.io/reverse";
 export const USER_AGENT =
   "SA-Mock-Address-Lab/1.0 (+https://github.com/rNLKJA/SA-Mock-Address-Generator)";
 
@@ -16,6 +17,21 @@ export const geocodeQuerySchema = z.object({
     .min(3, "Type at least 3 characters.")
     .max(200, "Keep the search under 200 characters."),
   limit: z.coerce.number().int().min(1).max(8).default(6),
+});
+
+/**
+ * Reverse geocoding (used by the /verify spot check): one point inside South
+ * Australia's bounding box, to 6 decimal places like the generator's output.
+ */
+export const reverseQuerySchema = z.object({
+  lat: z.coerce
+    .number()
+    .min(SA_BBOX[1], "That point is outside South Australia.")
+    .max(SA_BBOX[3], "That point is outside South Australia."),
+  lon: z.coerce
+    .number()
+    .min(SA_BBOX[0], "That point is outside South Australia.")
+    .max(SA_BBOX[2], "That point is outside South Australia."),
 });
 
 const photonFeatureSchema = z.object({
@@ -61,6 +77,11 @@ export interface GeocodeResult {
   lonLat: LonLat;
   photonPostcode: string | null;
   photonLocality: string | null;
+  /**
+   * Every place name Photon gives for the hit (district, locality, city and,
+   * for a place feature, its name), for comparing with a suburb name.
+   */
+  photonPlaces: string[];
 }
 
 export function buildPhotonUrl(q: string, limit: number): string {
@@ -72,6 +93,18 @@ export function buildPhotonUrl(q: string, limit: number): string {
   });
   return `${PHOTON_ENDPOINT}?${params.toString()}`;
 }
+
+export function buildPhotonReverseUrl(lon: number, lat: number): string {
+  const params = new URLSearchParams({
+    lon: lon.toFixed(6),
+    lat: lat.toFixed(6),
+    limit: "1",
+    lang: "en",
+  });
+  return `${PHOTON_REVERSE_ENDPOINT}?${params.toString()}`;
+}
+
+const PLACE_TYPES = new Set(["district", "locality", "city", "county"]);
 
 /** Keep South Australian hits and turn them into display-ready rows. */
 export function normalisePhoton(response: PhotonResponse): GeocodeResult[] {
@@ -103,6 +136,16 @@ export function normalisePhoton(response: PhotonResponse): GeocodeResult[] {
       lonLat,
       photonPostcode: p.postcode ?? null,
       photonLocality: locality,
+      photonPlaces: [
+        ...new Set(
+          [
+            p.district,
+            p.locality,
+            p.city,
+            p.type && PLACE_TYPES.has(p.type) ? p.name : undefined,
+          ].filter((v): v is string => Boolean(v)),
+        ),
+      ],
     });
   }
   return out;

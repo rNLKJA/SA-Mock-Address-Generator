@@ -1,9 +1,11 @@
 import { describe, expect, it } from "vitest";
 import {
+  buildPhotonReverseUrl,
   buildPhotonUrl,
   geocodeQuerySchema,
   normalisePhoton,
   photonResponseSchema,
+  reverseQuerySchema,
 } from "./photon";
 
 const sample = {
@@ -78,5 +80,57 @@ describe("photon helpers", () => {
     ]);
     expect(rows[0].detail).toBe("North Terrace, Adelaide, 5000");
     expect(rows[1].photonLocality).toBe("Kapunda");
+  });
+
+  it("lists every place name a hit gives, for the /verify spot check", () => {
+    const rows = normalisePhoton(photonResponseSchema.parse(sample));
+    expect(rows[0].photonPlaces).toEqual(["Adelaide"]);
+    expect(rows[1].photonPlaces).toEqual(["Kapunda"]);
+    const reverse = normalisePhoton(
+      photonResponseSchema.parse({
+        type: "FeatureCollection",
+        features: [
+          {
+            type: "Feature",
+            properties: {
+              osm_type: "W",
+              osm_id: 1458247216,
+              type: "locality",
+              name: "Kingslea",
+              district: "Glenelg North",
+              city: "Adelaide",
+              state: "South Australia",
+              postcode: "5045",
+              countrycode: "AU",
+            },
+            geometry: { type: "Point", coordinates: [138.5228863, -34.9751022] },
+          },
+        ],
+      }),
+    );
+    expect(reverse[0].photonPlaces).toEqual(["Glenelg North", "Adelaide", "Kingslea"]);
+    expect(reverse[0].photonPostcode).toBe("5045");
+  });
+});
+
+describe("photon reverse geocoding", () => {
+  it("builds a one-result reverse URL to 6 decimal places", () => {
+    const url = new URL(buildPhotonReverseUrl(138.51557, -34.98087));
+    expect(url.origin + url.pathname).toBe("https://photon.komoot.io/reverse");
+    expect(url.searchParams.get("lon")).toBe("138.515570");
+    expect(url.searchParams.get("lat")).toBe("-34.980870");
+    expect(url.searchParams.get("limit")).toBe("1");
+  });
+
+  it("only accepts points inside South Australia's bounding box", () => {
+    expect(reverseQuerySchema.parse({ lat: "-34.98", lon: "138.51" })).toEqual({
+      lat: -34.98,
+      lon: 138.51,
+    });
+    expect(reverseQuerySchema.safeParse({ lat: "-37.81", lon: "144.96" }).success).toBe(
+      false,
+    );
+    expect(reverseQuerySchema.safeParse({ lat: "", lon: "" }).success).toBe(false);
+    expect(reverseQuerySchema.safeParse({ lat: "x", lon: "138" }).success).toBe(false);
   });
 });

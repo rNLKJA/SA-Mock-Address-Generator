@@ -226,6 +226,13 @@ export const SCREENSHOTS: readonly Screenshot[] = [
     caption: "A lookup result on a phone.",
     viewport: "mobile",
   },
+  {
+    id: "18-verify",
+    title: "Verification Lab",
+    caption:
+      "The 200-address run regenerated from its seed: every check passes, remoteness mix χ²(4) = 2.77.",
+    viewport: "desktop",
+  },
 ];
 
 /** Public paths of a walkthrough's media (the files live in web/public/showcase/). */

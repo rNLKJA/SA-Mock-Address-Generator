@@ -31,7 +31,7 @@ of the 2025 Python tool it grew out of.
 | ![Bring your own key](docs/showcase/11-ai-settings.png)<br>**Bring your own key.** AI settings: Anthropic by default, OpenAI optional; the key stays in this browser. | ![Describe a scenario (mocked reply)](docs/showcase/12-ai-proposal-mocked.png)<br>**Describe a scenario (mocked reply).** A mocked proposal for illustration: labelled AI-generated, reviewed field by field. |
 | ![AI audit log](docs/showcase/13-ai-log.png)<br>**AI audit log.** Every AI call with input, output, model, latency and your decision; JSON or CSV. | ![Methods](docs/showcase/14-methods.png)<br>**Methods.** Provenance, evaluation design, limitations, decision records and the AI use statement. |
 | ![Mobile: landing](docs/showcase/15-mobile-landing.png)<br>**Mobile: landing.** The landing page at 390 px. | ![Mobile: target check](docs/showcase/16-mobile-target-check.png)<br>**Mobile: target check.** The interval chart and the verdict on a phone. |
-| ![Mobile: lookup](docs/showcase/17-mobile-lookup.png)<br>**Mobile: lookup.** A lookup result on a phone. | |
+| ![Mobile: lookup](docs/showcase/17-mobile-lookup.png)<br>**Mobile: lookup.** A lookup result on a phone. | ![Verification Lab](docs/showcase/18-verify.png)<br>**Verification Lab.** The 200-address run regenerated from its seed: every check passes, remoteness mix χ²(4) = 2.77. |
 
 ### Workflow walkthrough
 
@@ -114,6 +114,22 @@ optional AI assistant that proposes settings for a person to review.
   is reported as "no clear gap" with a power caveat, not as "on target". A stratified
   sample is reported as "fixed by design" instead of tested, and a stratified run too
   small for every area to get a quota says so before and after generating.
+- **Verification Lab** (`/verify`): "Verify these results" on `/generate` carries the
+  run over (seed, count, design, filters, weights, coordinates), and the lab regenerates
+  the identical set with the site's own generator in a Web Worker. Sixteen record-level
+  checks run on every row (fields, MOCK marker, SA postcode including the APY Lands'
+  0872, suburb, postcode, council, remoteness class and IRSAD decile against the
+  reference table, point inside its own SAL boundary and inside South Australia, no
+  duplicates), with failing rows listed and downloadable. Set-level checks test the
+  remoteness and decile mix against the design's targets (chi-square, df, p-value,
+  Cohen's w, per-class Wilson intervals), the spatial spread (mean nearest-neighbour
+  distance against re-draws of the same suburbs, plus the classic Clark-Evans ratio
+  where one suburb holds 20 or more points, with the limitation stated), and
+  reproducibility (a second run compared byte for byte, with SHA-256). The three
+  statistical tests share one 5% false-alarm budget through Holm's adjustment. A CSV in
+  the site's export format can be checked too, and an optional live spot check
+  reverse-geocodes up to 10 points through `/api/geocode` (off by default, one run a
+  minute). The report downloads as Markdown or JSON.
 - **Sampling design** (`/sampling`): the three designs through the real generator over
   200 seeds each (spread against multinomial theory, Wilson coverage, the test's
   rejection rate with its own interval); the exact false-alarm rate of the exact and
@@ -218,15 +234,15 @@ SA-Mock-Address-Generator/
     │                        original-suburbs.json, provenance.json
     ├── public/showcase/     the /tour videos, posters, captions and screenshots
     └── src/
-        ├── app/             /, /generate, /sampling, /map, /lookup, /replay, /data,
-        │                    /methods, /ai-log, /tour, /api/geocode
-        ├── components/      ui/ (shadcn), layout/, common/, generate/, sampling/, ai/,
-        │                    methods/, map/, lookup/, replay/
+        ├── app/             /, /generate, /verify, /sampling, /map, /lookup, /replay,
+        │                    /data, /methods, /ai-log, /tour, /api/geocode
+        ├── components/      ui/ (shadcn), layout/, common/, generate/, verify/,
+        │                    sampling/, ai/, methods/, map/, lookup/, replay/
         ├── content/         copies of docs/ for the site (pnpm sync:docs)
-        ├── lib/             rng/, original/, generator/, stats/, sampling/, ai/, geo,
-        │                    photon, content (+ tests)
+        ├── lib/             rng/, original/, generator/, stats/, sampling/, verification/,
+        │                    ai/, geo, photon, content (+ tests)
         ├── hooks/           worker, data-loading and AI-settings hooks
-        └── workers/         generator Web Worker
+        └── workers/         generator and verification Web Workers
 ```
 
 ## Local development

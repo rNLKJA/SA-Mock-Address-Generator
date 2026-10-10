@@ -15,7 +15,10 @@ export function parseAddressesCSV(csv: string): ParseResult {
   const errors: string[] = [];
   const addresses: MockAddress[] = [];
 
-  const lines = csv.split(/\r?\n/).filter((l) => l.trim());
+  const lines = csv
+    .replace(/^\uFEFF/, "")
+    .split(/\r?\n/)
+    .filter((l) => l.trim());
   if (lines.length === 0) {
     errors.push("CSV is empty.");
     return { addresses, errors };
@@ -44,53 +47,46 @@ export function parseAddressesCSV(csv: string): ParseResult {
   // Parse data rows
   for (let rowNum = 1; rowNum < lines.length; rowNum++) {
     const fields = parseCSVLine(lines[rowNum]);
-    if (fields.length === 0) continue; // Skip empty lines
-
     if (fields.length !== CSV_COLUMNS.length) {
       errors.push(
         `Row ${rowNum + 1}: expected ${CSV_COLUMNS.length} fields, got ${fields.length}.`,
       );
       continue;
     }
-
-    try {
-      const addr: MockAddress = {
-        id: parseInt(fields[0], 10),
-        stamp: fields[1] as typeof MOCK_STAMP,
-        full_address: fields[2],
-        street_address: fields[3],
-        street_number: parseInt(fields[4], 10),
-        street_name: fields[5],
-        suburb: fields[6],
-        postcode: fields[7],
-        council: fields[8],
-        remoteness_level: fields[9],
-        seifa_decile_sa:
-          fields[10] && fields[10].trim() ? parseInt(fields[10], 10) : null,
-        latitude: fields[11] && fields[11].trim() ? parseFloat(fields[11]) : null,
-        longitude: fields[12] && fields[12].trim() ? parseFloat(fields[12]) : null,
-        sal_code: fields[13],
-      };
-
-      // Basic validation
-      if (isNaN(addr.id)) {
-        errors.push(`Row ${rowNum + 1}: invalid id "${fields[0]}".`);
-        continue;
-      }
-      if (isNaN(addr.street_number)) {
-        errors.push(`Row ${rowNum + 1}: invalid street_number "${fields[4]}".`);
-        continue;
-      }
-
-      addresses.push(addr);
-    } catch (e) {
-      errors.push(
-        `Row ${rowNum + 1}: ${e instanceof Error ? e.message : "parse error"}.`,
-      );
+    const id = wholeNumber(fields[0]);
+    if (id === null || id < 1) {
+      errors.push(`Row ${rowNum + 1}: invalid id "${fields[0]}".`);
+      continue;
     }
+    // Other malformed values are kept (as NaN) so the record checks can
+    // report them against the row, instead of the whole file being rejected.
+    addresses.push({
+      id,
+      stamp: fields[1] as typeof MOCK_STAMP,
+      full_address: fields[2],
+      street_address: fields[3],
+      street_number: numberOrNaN(fields[4]),
+      street_name: fields[5],
+      suburb: fields[6],
+      postcode: fields[7],
+      council: fields[8],
+      remoteness_level: fields[9],
+      seifa_decile_sa: fields[10].trim() ? numberOrNaN(fields[10]) : null,
+      latitude: fields[11].trim() ? numberOrNaN(fields[11]) : null,
+      longitude: fields[12].trim() ? numberOrNaN(fields[12]) : null,
+      sal_code: fields[13],
+    });
   }
 
   return { addresses, errors };
+}
+
+function wholeNumber(field: string): number | null {
+  return /^\s*\d+\s*$/.test(field) ? Number(field) : null;
+}
+
+function numberOrNaN(field: string): number {
+  return field.trim() === "" ? Number.NaN : Number(field);
 }
 
 /** Parse a single CSV line with RFC 4180 quoting and backslash-escaped commas. */
