@@ -8,6 +8,7 @@ import {
   Map as MapIcon,
   PlayCircle,
   Search,
+  ShieldCheck,
   Sigma,
   Sparkles,
   TerminalSquare,
@@ -35,6 +36,12 @@ const FEATURES = [
     icon: BarChart3,
     title: "Check the sample",
     body: "Realised shares with 95% Wilson intervals, and an exact or chi-square test with its effect size against the target the design promises.",
+  },
+  {
+    href: "/verify",
+    icon: ShieldCheck,
+    title: "Verification Lab",
+    body: "Every address checked inside its own suburb against ABS boundaries, target mix with chi-square and confidence intervals, spatial spread, and same-seed reproducibility.",
   },
   {
     href: "/sampling",
