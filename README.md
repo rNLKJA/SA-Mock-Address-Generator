@@ -124,8 +124,10 @@ optional AI assistant that proposes settings for a person to review.
   remoteness and decile mix against the design's targets (chi-square, df, p-value,
   Cohen's w, per-class Wilson intervals), the spatial spread (mean nearest-neighbour
   distance against re-draws of the same suburbs, plus the classic Clark-Evans ratio
-  where one suburb holds 20 or more points, with the limitation stated), and
-  reproducibility (a second run compared byte for byte, with SHA-256). The three
+  where one suburb holds 20 or more points, with the limitation stated: it has little
+  power when most suburbs hold a single point, so a statewide set with one address per
+  suburb on its suburb's centre point can pass), and reproducibility (a second run
+  compared byte for byte, with SHA-256). The three
   statistical tests share one 5% false-alarm budget through Holm's adjustment. A CSV in
   the site's export format can be checked too, and an optional live spot check
   reverse-geocodes up to 10 points through `/api/geocode` (off by default, one run a

@@ -188,7 +188,8 @@ export function SpotCheck({ points }: { points: SpotPoint[] }) {
             {formatInt(summary.postcodeAgree)} of {formatInt(summary.postcodeAsked)}
           </strong>{" "}
           <span className="text-muted-foreground">
-            ({formatInt(summary.answered)} of {formatInt(asked)} points answered so far).
+            ({formatInt(summary.answered)} of {formatInt(asked)} points answered
+            {running ? " so far" : ""}).
           </span>
         </p>
       )}

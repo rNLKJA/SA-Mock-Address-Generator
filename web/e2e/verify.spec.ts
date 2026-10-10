@@ -123,6 +123,9 @@ for (const viewport of [
       await expect(spatial).toContainText(/ratio R = \d\.\d{3}/);
       await expect(spatial).toContainText("Known limitation.");
       await expect(spatial).toContainText("Donnelly");
+      await expect(spatial).toContainText("one address per suburb nothing here flags it");
+      for (const text of await page.locator("article[data-check-id]").allInnerTexts())
+        expect(text).not.toContain("p-value p-value");
       const repro = setCheck(page, "reproducibility");
       await expect(repro).toContainText("byte-identical CSV");
       await expect(repro).toContainText(/SHA-256 A: [0-9a-f]{64}/);
@@ -242,6 +245,21 @@ for (const viewport of [
 }
 
 test.describe("/verify edge cases", () => {
+  test("a filter that leaves one class puts its 100% target inside the interval", async ({
+    page,
+  }) => {
+    const errors = watchConsole(page);
+    await page.goto(
+      "/verify?seed=7&count=300&mode=population&council=Port+Adelaide+Enfield&coords=0",
+    );
+    const ra = setCheck(page, "distribution-remoteness");
+    await expect(ra).toHaveAttribute("data-status", "not-run", { timeout: 60_000 });
+    await expect(ra).toContainText("Every target lies inside its 95% Wilson interval.");
+    await expect(ra.locator("tbody tr")).toHaveCount(1);
+    await expect(ra.locator("tbody tr td").last()).toHaveText("yes");
+    expect(errors).toEqual([]);
+  });
+
   test("a broken hand-off link explains itself", async ({ page }) => {
     const errors = watchConsole(page);
     await page.goto("/verify?seed=12&count=0");
@@ -282,6 +300,10 @@ test.describe("/verify live spot check", () => {
     });
     await expect(page.getByTestId("spot-check-summary")).toContainText(
       /Suburb agrees for \d+ of \d+, postcode for \d+ of \d+/,
+    );
+    // finished, so not "so far"
+    await expect(page.getByTestId("spot-check-summary")).toContainText(
+      /\(\d+ of 10 points answered\)\./,
     );
     expect(geocodeCalls).toHaveLength(10);
     for (const url of geocodeCalls)

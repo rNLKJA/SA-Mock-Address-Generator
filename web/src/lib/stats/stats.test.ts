@@ -41,6 +41,14 @@ describe("Wilson interval matches statsmodels proportion_confint(method='wilson'
       expect(hi).toBeCloseTo(c.hi, 10);
     });
   }
+
+  it("reaches exactly 0 at k = 0 and exactly 1 at k = n", () => {
+    // Floating point used to give 0.9999999999999998 at 300 of 300.
+    for (let n = 1; n <= 5000; n++) {
+      expect(wilson(0, n)[0], `0/${n}`).toBe(0);
+      expect(wilson(n, n)[1], `${n}/${n}`).toBe(1);
+    }
+  });
 });
 
 describe("logGamma", () => {
