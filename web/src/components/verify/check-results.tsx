@@ -5,7 +5,7 @@ import { ScrollTable } from "@/components/common/scroll-table";
 import { Button } from "@/components/ui/button";
 import { csvField } from "@/lib/generator/format";
 import { downloadText } from "@/lib/download";
-import { FIT_METHOD_LABEL, cohensWLabel } from "@/lib/stats";
+import { cohensWLabel, type FitMethod } from "@/lib/stats";
 import { cn, formatInt, formatP, formatPctFixed } from "@/lib/utils";
 import { overallPassed } from "@/lib/verification/report";
 import type {
@@ -267,6 +267,13 @@ function SetCheckCard({ check }: { check: SetCheck }) {
   );
 }
 
+/** The label over the p-value of the test the site ran at this n. */
+const METHOD_P_LABEL: Record<FitMethod, string> = {
+  exact: "Exact multinomial p-value",
+  "chi-square": "Asymptotic χ² p-value",
+  "monte-carlo": "Monte Carlo χ² p-value",
+};
+
 /** "0.60" or "< 0.001", for a value under a "p-value" label. */
 const pv = (p: number) => formatP(p).replace(/^p = /, "").replace(/^p /, "");
 
@@ -312,10 +319,7 @@ function DistributionDetailsView({ check }: { check: DistributionCheck }) {
           <Stat label="Degrees of freedom" value={String(t.df)} />
           <Stat label="Asymptotic χ² p-value" value={pv(t.chiSquareP)} />
           {t.method !== "chi-square" && (
-            <Stat
-              label={`${FIT_METHOD_LABEL[t.method][0].toUpperCase()}${FIT_METHOD_LABEL[t.method].slice(1)} p-value`}
-              value={pv(t.pValue)}
-            />
+            <Stat label={METHOD_P_LABEL[t.method]} value={pv(t.pValue)} />
           )}
           {d.holm && d.holm.tests > 1 && (
             <Stat

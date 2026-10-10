@@ -173,6 +173,15 @@ describe("distribution against the design's targets", () => {
     expect(one.summary).toContain("Only one class");
   });
 
+  it("puts a 100% target inside the interval of a set that is 100% that class", () => {
+    // A council or remoteness filter leaves one class: 300 of 300 against 100%.
+    const c = checkDistribution("remoteness", [300, 0, 0, 0, 0], [1, 0, 0, 0, 0]);
+    expect(c.details!.rows).toHaveLength(1);
+    expect(c.details!.rows[0]).toMatchObject({ k: 300, hi: 1, target: 1 });
+    expect(c.details!.rows[0].targetInside).toBe(true);
+    expect(c.summary).toContain("Every target lies inside its 95% Wilson interval.");
+  });
+
   it("holds a stratified sample to its quotas exactly", () => {
     const opts = { mode: "stratified" as const, count: 20 };
     const r = generateMockAddresses(rows, index, options(opts));
@@ -240,6 +249,26 @@ describe("spatial spread", () => {
     expect(c.status).toBe("fail");
     expect(c.details!.ratio).toBeLessThan(0.7);
     expect(c.summary).toContain("more clustered");
+  });
+
+  it("cannot see the 2025 approach with one address per suburb, and says so", () => {
+    // The stated limitation: with one point per suburb the distances are
+    // between suburbs, so moving every point onto its suburb's label point
+    // goes unnoticed.
+    const set = generated({ count: 25 });
+    expect(new Set(set.map((a) => a.sal_code)).size).toBe(25);
+    const at = movePoints(set, (a) => byCode.get(a.sal_code)!.label);
+    const c = checkSpatialSpread(at, index, byCode);
+    expect(c.status).toBe("pass");
+    expect(c.summary).toContain("weak evidence of an even spread");
+    expect(c.limitation).toContain("one address per suburb nothing here flags it");
+    // with several points per suburb the note is not added
+    const busy = checkSpatialSpread(
+      generated({ count: 60, filters: { suburb: "ADELAIDE" } }),
+      index,
+      byCode,
+    );
+    expect(busy.summary).not.toContain("weak evidence");
   });
 
   it("fails a clustered set: points within about 100 m of the suburb's label point", () => {

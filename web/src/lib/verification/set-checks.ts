@@ -264,7 +264,7 @@ export function checkDistribution(
 export const CLARK_EVANS_MIN = 20;
 
 export const SPATIAL_LIMITATION =
-  "A nearest-neighbour statistic only sees how far points sit from each other. It catches points piled together (for example one geocoded point per suburb, as in 2025) and spacing that is too regular, but not every departure from uniform: points pushed to one side of every suburb can pass. The classic Clark-Evans ratio assumes complete spatial randomness in a single region, and Donnelly's edge correction was derived for rectangles, so for irregular suburbs it is an approximation that needs many points in one suburb. A statewide set has a point or two per suburb, so the lab compares the set with re-draws of the same suburbs instead. Both use the simplified boundaries the generator samples from.";
+  'A nearest-neighbour statistic only sees how far points sit from each other. When suburbs hold several points each, it catches points piled together (for example every address in a suburb on one geocoded point, as in 2025) and spacing that is too regular, but not every departure from uniform: points pushed to one side of every suburb can pass. When most suburbs hold a single point, the distances are mostly between suburbs and the test has little power. A statewide set built the 2025 way can then pass: where a suburb repeats, the shared points fail "No duplicate coordinates", but with one address per suburb nothing here flags it unless the seed is given for the byte-for-byte comparison. The classic Clark-Evans ratio assumes complete spatial randomness in a single region, and Donnelly\'s edge correction was derived for rectangles, so for irregular suburbs it is an approximation that needs many points in one suburb. A statewide set has a point or two per suburb, so the lab compares the set with re-draws of the same suburbs instead. Both use the simplified boundaries the generator samples from.';
 
 function meanNn(points: readonly XY[]): number {
   const nn = nearestNeighbourDistances(points);
@@ -401,7 +401,7 @@ export function spatialCheck(
     ...base,
     status: pass ? "pass" : "fail",
     summary: pass
-      ? `Spread consistent with points drawn uniformly inside each suburb at α = ${d.alpha}. ${stat}${classic}`
+      ? `Spread consistent with points drawn uniformly inside each suburb at α = ${d.alpha}. ${stat}${classic}${d.points < 2 * d.suburbs ? " Most suburbs hold a single point, so the distances are mostly between suburbs and this is weak evidence of an even spread inside them." : ""}`
       : `The points are ${d.ratio < 1 ? "more clustered" : "more evenly spaced"} than uniform draws inside the same suburbs would be at α = ${d.alpha}. ${stat}${classic}`,
     details: d,
   };
