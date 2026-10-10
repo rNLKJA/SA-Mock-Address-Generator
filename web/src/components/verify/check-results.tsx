@@ -2,7 +2,11 @@
 
 import { useState } from "react";
 import { Download, ChevronDown, ChevronUp } from "lucide-react";
-import type { VerificationResult, DistributionCheck, SpatialCheck } from "@/lib/verification/types";
+import type {
+  VerificationResult,
+  DistributionCheck,
+  SpatialCheck,
+} from "@/lib/verification/types";
 import { Button } from "@/components/ui/button";
 import { downloadText } from "@/lib/download";
 import { cn, formatInt, formatPctFixed, formatP } from "@/lib/utils";
@@ -12,7 +16,8 @@ interface CheckResultsProps {
 }
 
 export function CheckResults({ result }: CheckResultsProps) {
-  const allPassed = result.totalFailedRows === 0 && result.setChecks.every((c) => c.passed);
+  const allPassed =
+    result.totalFailedRows === 0 && result.setChecks.every((c) => c.passed);
 
   const downloadFailedIds = (checkId: string, failedIds: number[]) => {
     const csv = `id\n${failedIds.join("\n")}\n`;
@@ -28,7 +33,7 @@ export function CheckResults({ result }: CheckResultsProps) {
           "rounded-lg border p-4",
           allPassed
             ? "border-green-600/40 bg-green-600/[0.06]"
-            : "border-amber-600/40 bg-amber-600/[0.06]"
+            : "border-amber-600/40 bg-amber-600/[0.06]",
         )}
       >
         <h3 className="text-sm font-semibold">
@@ -43,33 +48,38 @@ export function CheckResults({ result }: CheckResultsProps) {
 
       {/* Record-level checks */}
       <section aria-labelledby="record-checks-heading">
-        <h3 id="record-checks-heading" className="mb-3 font-heading text-base font-semibold">
+        <h3
+          id="record-checks-heading"
+          className="mb-3 font-heading text-base font-semibold"
+        >
           Record-Level Checks
         </h3>
         <div className="space-y-3">
           {result.recordChecks.map((check) => {
             const allPass = check.failed === 0;
-            const failureRate = check.passed + check.failed > 0
-              ? check.failed / (check.passed + check.failed)
-              : 0;
+            const failureRate =
+              check.passed + check.failed > 0
+                ? check.failed / (check.passed + check.failed)
+                : 0;
 
             return (
               <article
                 key={check.id}
                 className={cn(
                   "rounded-lg border p-3",
-                  allPass ? "border-border" : "border-amber-600/40 bg-amber-600/[0.04]"
+                  allPass ? "border-border" : "border-amber-600/40 bg-amber-600/[0.04]",
                 )}
                 aria-label={`${check.label} check result`}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <h4 className="text-sm font-medium">
                       <span aria-hidden>{allPass ? "✅" : "⚠️"}</span> {check.label}
                       <span className="sr-only">{allPass ? "passed" : "failed"}</span>
                     </h4>
                     <p className="mt-1 text-xs text-muted-foreground">
-                      Passed: {formatInt(check.passed)} · Failed: {formatInt(check.failed)}
+                      Passed: {formatInt(check.passed)} · Failed:{" "}
+                      {formatInt(check.failed)}
                       {!allPass && (
                         <span className="ml-1">
                           ({formatPctFixed(failureRate, 2)} failure rate)
@@ -77,14 +87,16 @@ export function CheckResults({ result }: CheckResultsProps) {
                       )}
                     </p>
                     {check.failed > 0 && check.failedIds.length <= 20 && (
-                      <p className="mt-1 font-mono text-xs text-muted-foreground break-all">
+                      <p className="mt-1 font-mono text-xs break-all text-muted-foreground">
                         IDs: {check.failedIds.join(", ")}
                       </p>
                     )}
                     {check.failed > 20 && (
                       <p className="mt-1 font-mono text-xs text-muted-foreground">
                         IDs: {check.failedIds.slice(0, 20).join(", ")} …{" "}
-                        <span className="text-foreground">({formatInt(check.failed - 20)} more)</span>
+                        <span className="text-foreground">
+                          ({formatInt(check.failed - 20)} more)
+                        </span>
                       </p>
                     )}
                   </div>
@@ -139,12 +151,12 @@ function SetCheckCard({ check }: SetCheckCardProps) {
     <article
       className={cn(
         "rounded-lg border p-3",
-        check.passed ? "border-border" : "border-amber-600/40 bg-amber-600/[0.04]"
+        check.passed ? "border-border" : "border-amber-600/40 bg-amber-600/[0.04]",
       )}
       aria-label={`${check.label} check result`}
     >
       <div className="flex items-start justify-between gap-3">
-        <div className="flex-1 min-w-0">
+        <div className="min-w-0 flex-1">
           <h4 className="text-sm font-medium">
             <span aria-hidden>{check.passed ? "✅" : "⚠️"}</span> {check.label}
             <span className="sr-only">{check.passed ? "passed" : "failed"}</span>
@@ -154,12 +166,8 @@ function SetCheckCard({ check }: SetCheckCardProps) {
           {/* Expandable details */}
           {expanded && hasDetails && (
             <div className="mt-3 space-y-2 rounded-md bg-muted/40 p-2.5 text-xs">
-              {isDistributionCheck(check) && (
-                <DistributionDetails check={check} />
-              )}
-              {isSpatialCheck(check) && (
-                <SpatialDetails check={check} />
-              )}
+              {isDistributionCheck(check) && <DistributionDetails check={check} />}
+              {isSpatialCheck(check) && <SpatialDetails check={check} />}
               {!isDistributionCheck(check) && !isSpatialCheck(check) && (
                 <pre className="overflow-auto font-mono text-[0.7rem]">
                   {JSON.stringify(check.details, null, 2)}
@@ -196,7 +204,9 @@ function DistributionDetails({ check }: { check: DistributionCheck }) {
     <dl className="space-y-1.5">
       <div>
         <dt className="inline font-medium">Dimension:</dt>{" "}
-        <dd className="inline">{dimension === "remoteness" ? "Remoteness" : "SEIFA decile"}</dd>
+        <dd className="inline">
+          {dimension === "remoteness" ? "Remoteness" : "SEIFA decile"}
+        </dd>
       </div>
       <div>
         <dt className="inline font-medium">Method:</dt>{" "}
@@ -215,7 +225,7 @@ function DistributionDetails({ check }: { check: DistributionCheck }) {
         <dd className="inline font-mono">{fit.df}</dd>
       </div>
       <div>
-        <dt className="inline font-medium">Effect size (Cohen's w):</dt>{" "}
+        <dt className="inline font-medium">Effect size (Cohen&apos;s w):</dt>{" "}
         <dd className="inline font-mono">{fit.w.toFixed(4)}</dd>
       </div>
     </dl>

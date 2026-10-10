@@ -33,12 +33,16 @@ for (const viewport of [
       await textarea.fill(SAMPLE_CSV);
 
       // Click verify button
-      const verifyButton = page.locator('button[type="submit"]', { hasText: /Verify CSV/i });
+      const verifyButton = page.locator('button[type="submit"]', {
+        hasText: /Verify CSV/i,
+      });
       await verifyButton.click();
 
       // Wait for results
-      await expect(page.locator('text=Record-Level Checks')).toBeVisible({ timeout: 10000 });
-      await expect(page.locator('text=Set-Level Checks')).toBeVisible();
+      await expect(page.locator("text=Record-Level Checks")).toBeVisible({
+        timeout: 10000,
+      });
+      await expect(page.locator("text=Set-Level Checks")).toBeVisible();
 
       // Check for check results - look for the summary box
       const summary = page.locator('section[aria-label="Verification summary"]');
@@ -53,7 +57,9 @@ for (const viewport of [
 
       if (box) {
         // Check no horizontal scroll
-        const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+        const scrollWidth = await page.evaluate(
+          () => document.documentElement.scrollWidth,
+        );
         expect(scrollWidth).toBeLessThanOrEqual(viewport.width + 1); // +1 for rounding
       }
     });
@@ -64,14 +70,18 @@ for (const viewport of [
       const textarea = page.locator('textarea[id$="-csv"]');
       await textarea.fill(SAMPLE_CSV);
 
-      const verifyButton = page.locator('button[type="submit"]', { hasText: /Verify CSV/i });
+      const verifyButton = page.locator('button[type="submit"]', {
+        hasText: /Verify CSV/i,
+      });
       await verifyButton.click();
 
-      await expect(page.locator('text=Record-Level Checks')).toBeVisible({ timeout: 10000 });
+      await expect(page.locator("text=Record-Level Checks")).toBeVisible({
+        timeout: 10000,
+      });
 
       // Check download buttons exist
-      const markdownButton = page.locator('button', { hasText: /Markdown/i });
-      const jsonButton = page.locator('button', { hasText: /JSON/i });
+      const markdownButton = page.locator("button", { hasText: /Markdown/i });
+      const jsonButton = page.locator("button", { hasText: /JSON/i });
 
       await expect(markdownButton).toBeVisible();
       await expect(jsonButton).toBeVisible();

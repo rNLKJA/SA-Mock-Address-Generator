@@ -1,10 +1,8 @@
 "use client";
 
-import { useCallback, useId, useState } from "react";
+import { useCallback, useState } from "react";
 import { AlertCircle, CheckCircle2, Loader2, MapPin, Search, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import type { GeocodeResult } from "@/lib/photon";
 import { cn, formatInt } from "@/lib/utils";
 
@@ -55,7 +53,6 @@ function haversineDistance(
  * real geocoding results to check coordinate quality.
  */
 export function SpotCheck({ addresses }: SpotCheckProps) {
-  const formId = useId();
   const [results, setResults] = useState<CheckResult[]>(
     addresses.map((a) => ({
       id: a.id,
@@ -127,9 +124,7 @@ export function SpotCheck({ addresses }: SpotCheckProps) {
 
         setResults((prev) =>
           prev.map((r, i) =>
-            i === index
-              ? { ...r, status: "found", geocoded, distance, error: null }
-              : r,
+            i === index ? { ...r, status: "found", geocoded, distance, error: null } : r,
           ),
         );
       } catch (e) {
@@ -186,8 +181,9 @@ export function SpotCheck({ addresses }: SpotCheckProps) {
         <div className="space-y-1">
           <h3 className="font-heading text-base font-semibold">Geocode Spot Check</h3>
           <p className="text-sm text-muted-foreground">
-            Verify {addresses.length} sample {addresses.length === 1 ? "address" : "addresses"}{" "}
-            against real geocoding to check coordinate quality.
+            Verify {addresses.length} sample{" "}
+            {addresses.length === 1 ? "address" : "addresses"} against real geocoding to
+            check coordinate quality.
           </p>
         </div>
         <div className="flex gap-2">
@@ -200,7 +196,11 @@ export function SpotCheck({ addresses }: SpotCheckProps) {
             <X aria-hidden /> Reset
           </Button>
           <Button size="sm" onClick={checkAll} disabled={busy}>
-            {busy ? <Loader2 className="animate-spin" aria-hidden /> : <Search aria-hidden />}
+            {busy ? (
+              <Loader2 className="animate-spin" aria-hidden />
+            ) : (
+              <Search aria-hidden />
+            )}
             {busy ? "Checking…" : "Check all"}
           </Button>
         </div>
@@ -212,7 +212,8 @@ export function SpotCheck({ addresses }: SpotCheckProps) {
             <strong className="font-medium">
               {formatInt(checkedCount)} of {formatInt(addresses.length)}
             </strong>{" "}
-            checked · <strong className="font-medium">{formatInt(foundCount)}</strong> found
+            checked · <strong className="font-medium">{formatInt(foundCount)}</strong>{" "}
+            found
           </p>
         </div>
       )}
@@ -301,14 +302,14 @@ export function SpotCheck({ addresses }: SpotCheckProps) {
       <div className="rounded-lg border border-dashed bg-muted/20 px-3.5 py-3 text-xs text-muted-foreground">
         <p>
           <strong className="font-medium text-foreground">How it works:</strong> Each mock
-          address is searched via Photon (OpenStreetMap). The geocoded coordinates are compared
-          with the generated ones to check they're in a reasonable range. Large distances
-          suggest the mock suburb might not match real boundaries, or the generated coordinates
-          fell outside the expected area.
+          address is searched via Photon (OpenStreetMap). The geocoded coordinates are
+          compared with the generated ones to check they&rsquo;re in a reasonable range.
+          Large distances suggest the mock suburb might not match real boundaries, or the
+          generated coordinates fell outside the expected area.
         </p>
         <p className="mt-2">
-          <strong className="font-medium text-foreground">Rate limiting:</strong> Requests are
-          spaced 1 second apart to respect the geocoding service.
+          <strong className="font-medium text-foreground">Rate limiting:</strong> Requests
+          are spaced 1 second apart to respect the geocoding service.
         </p>
       </div>
     </div>

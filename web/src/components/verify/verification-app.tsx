@@ -7,7 +7,11 @@ import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import type { VerificationResult } from "@/lib/verification/types";
 import { parseAddressesCSV } from "@/lib/verification/csv-parser";
-import { generateMarkdownReport, generateJSONReport, type ReportData } from "@/lib/verification/report";
+import {
+  generateMarkdownReport,
+  generateJSONReport,
+  type ReportData,
+} from "@/lib/verification/report";
 import { downloadText } from "@/lib/download";
 import { CheckResults } from "./check-results";
 import { PageHeader } from "@/components/common/page-header";
@@ -59,7 +63,7 @@ export function VerificationApp() {
         setBusy(false);
       }
     },
-    [suburbs]
+    [suburbs],
   );
 
   const onPasteSubmit = (e: React.FormEvent) => {
@@ -80,21 +84,28 @@ export function VerificationApp() {
       result: run.result,
       addresses: [],
     };
-    const content = format === "md" ? generateMarkdownReport(reportData) : generateJSONReport(reportData);
+    const content =
+      format === "md"
+        ? generateMarkdownReport(reportData)
+        : generateJSONReport(reportData);
     const ext = format === "md" ? "md" : "json";
-    const mime = format === "md" ? "text/markdown;charset=utf-8" : "application/json;charset=utf-8";
+    const mime =
+      format === "md" ? "text/markdown;charset=utf-8" : "application/json;charset=utf-8";
     const timestamp = new Date().toISOString().slice(0, 19).replace(/:/g, "-");
     downloadText(`verification-report_${timestamp}.${ext}`, content, mime);
   };
 
   return (
     <>
-      <PageHeader eyebrow="Verification Lab" title="Verify mock address generation results">
+      <PageHeader
+        eyebrow="Verification Lab"
+        title="Verify mock address generation results"
+      >
         <p>
-          Upload or paste a generated CSV to run comprehensive checks: record-level validation
-          (required fields, SA postcodes, reference data matches, point-in-polygon, duplicates),
-          set-level tests (distribution goodness-of-fit, spatial spread, reproducibility), and a
-          downloadable verification report.
+          Upload or paste a generated CSV to run comprehensive checks: record-level
+          validation (required fields, SA postcodes, reference data matches,
+          point-in-polygon, duplicates), set-level tests (distribution goodness-of-fit,
+          spatial spread, reproducibility), and a downloadable verification report.
         </p>
       </PageHeader>
 
@@ -117,7 +128,11 @@ export function VerificationApp() {
               onChange={(e) => setCsvText(e.target.value)}
             />
             <Button type="submit" className="w-full" disabled={busy || !csvText.trim()}>
-              {busy ? <Loader2 className="animate-spin" aria-hidden /> : <Play aria-hidden />}
+              {busy ? (
+                <Loader2 className="animate-spin" aria-hidden />
+              ) : (
+                <Play aria-hidden />
+              )}
               {busy ? "Verifying…" : "Verify CSV"}
             </Button>
           </form>
@@ -137,7 +152,9 @@ export function VerificationApp() {
               htmlFor={`${formId}-file`}
               className={cn(
                 "flex cursor-pointer items-center justify-center gap-2 rounded-md border-2 border-dashed px-4 py-8 text-sm transition-colors",
-                busy ? "cursor-not-allowed opacity-50" : "hover:border-primary hover:bg-muted/50"
+                busy
+                  ? "cursor-not-allowed opacity-50"
+                  : "hover:border-primary hover:bg-muted/50",
               )}
             >
               <Upload className="size-5" aria-hidden />
@@ -163,7 +180,8 @@ export function VerificationApp() {
               </h2>
               {run && (
                 <p className="text-sm text-muted-foreground">
-                  {run.result.count} addresses · {run.result.totalFailedRows} failed at least one check
+                  {run.result.count} addresses · {run.result.totalFailedRows} failed at
+                  least one check
                   {run.result.seed !== null && ` · seed ${run.result.seed}`}
                 </p>
               )}
@@ -173,7 +191,11 @@ export function VerificationApp() {
                 <Button variant="outline" size="sm" onClick={() => downloadReport("md")}>
                   <Download aria-hidden /> Markdown
                 </Button>
-                <Button variant="outline" size="sm" onClick={() => downloadReport("json")}>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => downloadReport("json")}
+                >
                   <Download aria-hidden /> JSON
                 </Button>
               </div>
@@ -198,12 +220,17 @@ export function VerificationApp() {
 
           {busy && (
             <div className="flex h-64 items-center justify-center gap-2 rounded-xl border border-dashed text-sm text-muted-foreground">
-              <Loader2 className="size-4 animate-spin" aria-hidden /> Running verification checks…
+              <Loader2 className="size-4 animate-spin" aria-hidden /> Running verification
+              checks…
             </div>
           )}
 
           {run && (
-            <Tabs value={tab} onValueChange={setTab} className={cn(busy && "opacity-60 transition-opacity")}>
+            <Tabs
+              value={tab}
+              onValueChange={setTab}
+              className={cn(busy && "opacity-60 transition-opacity")}
+            >
               <TabsList className="h-9">
                 <TabsTrigger value="results">Results</TabsTrigger>
               </TabsList>
