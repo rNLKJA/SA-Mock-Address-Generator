@@ -57,6 +57,7 @@ import type { GeneratorSettings } from "@/lib/ai/scenario-config";
 import type { FilterOptions } from "@/lib/server/data";
 import { RA_SHORT, shortRemoteness } from "@/lib/suburbs";
 import { cn, formatInt } from "@/lib/utils";
+import { verifyHref } from "@/lib/verification/params";
 import { TargetCheck, emptyQuotaText } from "./target-check";
 import { WeightsEditor } from "./weights-editor";
 
@@ -592,31 +593,11 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
             </div>
             {run && (
               <div className="flex flex-wrap items-center gap-2">
-                <Link
-                  href={`/verify?seed=${run.options.seed}&count=${run.result.addresses.length}&mode=${run.options.mode}${
-                    run.options.filters.suburb
-                      ? `&suburb=${encodeURIComponent(run.options.filters.suburb)}`
-                      : ""
-                  }${
-                    run.options.filters.council
-                      ? `&council=${encodeURIComponent(run.options.filters.council)}`
-                      : ""
-                  }${
-                    run.options.filters.ra !== null &&
-                    run.options.filters.ra !== undefined
-                      ? `&ra=${run.options.filters.ra}`
-                      : ""
-                  }${
-                    run.options.filters.decile !== null &&
-                    run.options.filters.decile !== undefined
-                      ? `&decile=${run.options.filters.decile}`
-                      : ""
-                  }`}
-                >
-                  <Button variant="secondary" size="sm">
+                <Button variant="secondary" size="sm" asChild>
+                  <Link href={verifyHref(run.options)}>
                     <CheckCircle2 aria-hidden /> Verify these results
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
                 <ToggleGroup
                   type="single"
                   variant="outline"

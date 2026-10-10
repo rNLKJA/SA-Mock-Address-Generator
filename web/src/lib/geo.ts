@@ -129,6 +129,11 @@ export class GeometryIndex {
     return this.byCode.get(code)?.bbox ?? null;
   }
 
+  /** The simplified boundary of one suburb, or null for an unknown code. */
+  geometry(code: string): Polygon | MultiPolygon | null {
+    return this.byCode.get(code)?.geometry ?? null;
+  }
+
   /** SAL code containing the point, or null (offshore, interstate). */
   locate(point: LonLat): string | null {
     for (const e of this.entries) {

@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import type { Polygon } from "geojson";
 import {
+  holmAdjust,
   FIT_METHOD_LABEL,
   Z95,
   bonferroniConfidence,
@@ -260,5 +261,20 @@ describe("spatial statistics", () => {
     const r = clarkEvans(pts, 4, 8)!;
     expect(r.r).toBe(0);
     expect(r.pValue).toBeLessThan(1e-10);
+  });
+});
+
+describe("Holm's adjustment", () => {
+  it("matches R's p.adjust(p, 'holm')", () => {
+    // p.adjust(c(0.01, 0.04, 0.03), "holm") = 0.03 0.06 0.06
+    const adj = holmAdjust([0.01, 0.04, 0.03]);
+    expect(adj[0]).toBeCloseTo(0.03, 12);
+    expect(adj[1]).toBeCloseTo(0.06, 12);
+    expect(adj[2]).toBeCloseTo(0.06, 12);
+    // p.adjust(c(0.5, 0.001, 0.2, 0.9), "holm") = 1.000 0.004 0.600 1.000
+    const b = holmAdjust([0.5, 0.001, 0.2, 0.9]);
+    expect(b.map((v) => Number(v.toFixed(6)))).toEqual([1, 0.004, 0.6, 1]);
+    expect(holmAdjust([0.2])).toEqual([0.2]);
+    expect(holmAdjust([])).toEqual([]);
   });
 });

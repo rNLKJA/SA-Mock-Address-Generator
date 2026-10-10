@@ -9,3 +9,4 @@ export * from "./goodness-of-fit";
 export * from "./sample-size";
 export * from "./resampling";
 export * from "./spatial";
+export * from "./multiple-testing";
