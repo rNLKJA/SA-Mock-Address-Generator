@@ -39,9 +39,7 @@ test.describe("Landing page Verification Lab card", () => {
     expect(errors).toEqual([]);
   });
 
-  test("should display the Verification Lab card and link at 390px", async ({
-    page,
-  }) => {
+  test("should display the Verification Lab card and link at 390px", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");
 
