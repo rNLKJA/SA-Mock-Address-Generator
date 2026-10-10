@@ -1,8 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
-import { Copy, Dices, Download, Loader2, MapPinned, Play, X } from "lucide-react";
+import { Copy, Dices, Download, Loader2, MapPinned, Play, X, CheckCircle2 } from "lucide-react";
 import { toast } from "sonner";
+import Link from "next/link";
 import { ScenarioAssistant } from "@/components/ai/scenario-assistant";
 import { AddressTag } from "@/components/common/address-tag";
 import { MockNotice } from "@/components/common/mock-notice";
@@ -582,6 +583,30 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
             </div>
             {run && (
               <div className="flex flex-wrap items-center gap-2">
+                <Link
+                  href={`/verify?seed=${run.options.seed}&count=${run.result.addresses.length}&mode=${run.options.mode}${
+                    run.options.filters.suburb
+                      ? `&suburb=${encodeURIComponent(run.options.filters.suburb)}`
+                      : ""
+                  }${
+                    run.options.filters.council
+                      ? `&council=${encodeURIComponent(run.options.filters.council)}`
+                      : ""
+                  }${
+                    run.options.filters.ra !== null && run.options.filters.ra !== undefined
+                      ? `&ra=${run.options.filters.ra}`
+                      : ""
+                  }${
+                    run.options.filters.decile !== null &&
+                    run.options.filters.decile !== undefined
+                      ? `&decile=${run.options.filters.decile}`
+                      : ""
+                  }`}
+                >
+                  <Button variant="secondary" size="sm">
+                    <CheckCircle2 aria-hidden /> Verify these results
+                  </Button>
+                </Link>
                 <ToggleGroup
                   type="single"
                   variant="outline"

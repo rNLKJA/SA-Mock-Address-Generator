@@ -10,6 +10,7 @@ export const site = {
 
 export const nav = [
   { href: "/generate", label: "Generate" },
+  { href: "/verify", label: "Verify" },
   { href: "/sampling", label: "Sampling" },
   { href: "/map", label: "Map" },
   { href: "/lookup", label: "Lookup" },
