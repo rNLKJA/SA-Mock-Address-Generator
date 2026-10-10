@@ -822,6 +822,29 @@ test.describe("screenshots", () => {
     await context.close();
   });
 
+  test("verification lab at 1440 × 900", async ({ browser }) => {
+    test.setTimeout(3 * 60_000);
+    const context = await desktop(browser);
+    const page = await context.newPage();
+    await page.goto("/generate");
+    await generatorReady(page);
+    await quickTourSample(page);
+    await expect(gen.status(page)).toHaveText(RESULT_TEXT.remoteness, {
+      timeout: 60_000,
+    });
+    await page.getByRole("link", { name: "Verify these results" }).click();
+    const summary = page.locator('section[aria-label="Verification summary"]');
+    await expect(summary).toHaveAttribute("data-verdict", "pass", { timeout: 60_000 });
+    await expect(summary).toContainText("16 record-level checks on 200 rows");
+    await expect(page.locator('article[data-status="pass"]')).toHaveCount(4);
+    await settle(page);
+    await shot(page, "18-verify", {
+      target: page.getByRole("heading", { name: "Set-level checks" }),
+      offset: 76,
+    });
+    await context.close();
+  });
+
   test("mobile at 390 × 844", async ({ browser }) => {
     test.setTimeout(5 * 60_000);
     const context = await mobile(browser);
