@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { MockAddress } from "@/lib/generator/generate";
 import type { Suburb } from "@/lib/suburbs";
 import { MOCK_STAMP, RA_NAMES } from "@/lib/suburbs";
-import type { Polygon, MultiPolygon } from "geojson";
+import type { Polygon } from "geojson";
 import {
   checkRequiredFields,
   checkStateIsSA,
@@ -261,9 +261,7 @@ describe("checkPostcodeMatchesSuburb", () => {
   });
 
   it("fails when postcode doesn't match suburb", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb({ postcodes: ["5000"] })],
-    ]);
+    const suburbs = new Map([["ADELAIDE", createSuburb({ postcodes: ["5000"] })]]);
     const addresses = [
       createValidAddress({ postcode: "5045" }),
       createValidAddress({ id: 2, postcode: "5000" }),
@@ -319,9 +317,7 @@ describe("checkSuburbExists", () => {
   });
 
   it("fails when suburb doesn't exist", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb()],
-    ]);
+    const suburbs = new Map([["ADELAIDE", createSuburb()]]);
     const addresses = [
       createValidAddress({ suburb: "NONEXISTENT" }),
       createValidAddress({ id: 2, suburb: "ADELAIDE" }),
@@ -361,9 +357,7 @@ describe("checkRemotenessMatches", () => {
   });
 
   it("fails when remoteness doesn't match", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb({ ra: 0 })],
-    ]);
+    const suburbs = new Map([["ADELAIDE", createSuburb({ ra: 0 })]]);
     const addresses = [
       createValidAddress({ remoteness_level: RA_NAMES[1] }),
       createValidAddress({ id: 2, remoteness_level: RA_NAMES[0] }),
@@ -423,9 +417,7 @@ describe("checkSeifaMatches", () => {
   });
 
   it("fails when SEIFA doesn't match", () => {
-    const suburbs = new Map([
-      ["ADELAIDE", createSuburb({ decileSa: 5 })],
-    ]);
+    const suburbs = new Map([["ADELAIDE", createSuburb({ decileSa: 5 })]]);
     const addresses = [
       createValidAddress({ seifa_decile_sa: 3 }),
       createValidAddress({ id: 2, seifa_decile_sa: 5 }),
@@ -438,12 +430,8 @@ describe("checkSeifaMatches", () => {
   });
 
   it("passes when both are null", () => {
-    const suburbs = new Map([
-      ["NO_SEIFA", createSuburb({ decileSa: null })],
-    ]);
-    const addresses = [
-      createValidAddress({ suburb: "NO_SEIFA", seifa_decile_sa: null }),
-    ];
+    const suburbs = new Map([["NO_SEIFA", createSuburb({ decileSa: null })]]);
+    const addresses = [createValidAddress({ suburb: "NO_SEIFA", seifa_decile_sa: null })];
     const result = checkSeifaMatches(addresses, suburbs);
 
     expect(result.passed).toBe(1);
@@ -477,10 +465,7 @@ describe("checkSeifaMatches", () => {
 
 describe("checkMockStamp", () => {
   it("passes when stamp is correct", () => {
-    const addresses = [
-      createValidAddress(),
-      createValidAddress({ id: 2 }),
-    ];
+    const addresses = [createValidAddress(), createValidAddress({ id: 2 })];
     const result = checkMockStamp(addresses);
 
     expect(result.passed).toBe(2);
@@ -645,9 +630,7 @@ describe("checkCoordsInSA", () => {
   });
 
   it("passes when coordinates are null", () => {
-    const addresses = [
-      createValidAddress({ latitude: null, longitude: null }),
-    ];
+    const addresses = [createValidAddress({ latitude: null, longitude: null })];
     const result = checkCoordsInSA(addresses);
 
     expect(result.passed).toBe(1);
@@ -724,9 +707,7 @@ describe("checkPointInSuburb", () => {
 
   it("passes when point is inside suburb polygon", () => {
     const geoms = new Map<string, Polygon>([["40001", square]]);
-    const addresses = [
-      createValidAddress({ latitude: -34.9, longitude: 138.6 }),
-    ];
+    const addresses = [createValidAddress({ latitude: -34.9, longitude: 138.6 })];
     const result = checkPointInSuburb(addresses, geoms);
 
     expect(result.passed).toBe(1);
@@ -748,9 +729,7 @@ describe("checkPointInSuburb", () => {
 
   it("passes when coordinates are null", () => {
     const geoms = new Map<string, Polygon>([["40001", square]]);
-    const addresses = [
-      createValidAddress({ latitude: null, longitude: null }),
-    ];
+    const addresses = [createValidAddress({ latitude: null, longitude: null })];
     const result = checkPointInSuburb(addresses, geoms);
 
     expect(result.passed).toBe(1);
@@ -759,9 +738,7 @@ describe("checkPointInSuburb", () => {
 
   it("passes when geometry not found", () => {
     const geoms = new Map();
-    const addresses = [
-      createValidAddress({ latitude: -34.9, longitude: 138.6 }),
-    ];
+    const addresses = [createValidAddress({ latitude: -34.9, longitude: 138.6 })];
     const result = checkPointInSuburb(addresses, geoms);
 
     expect(result.passed).toBe(1);
@@ -838,9 +815,7 @@ describe("checkAddressFormat", () => {
   });
 
   it("fails when street_address doesn't match components", () => {
-    const addresses = [
-      createValidAddress({ street_address: "WRONG" }),
-    ];
+    const addresses = [createValidAddress({ street_address: "WRONG" })];
     const result = checkAddressFormat(addresses);
 
     expect(result.passed).toBe(0);
@@ -848,9 +823,7 @@ describe("checkAddressFormat", () => {
   });
 
   it("fails when full_address doesn't match components", () => {
-    const addresses = [
-      createValidAddress({ full_address: "WRONG" }),
-    ];
+    const addresses = [createValidAddress({ full_address: "WRONG" })];
     const result = checkAddressFormat(addresses);
 
     expect(result.passed).toBe(0);
@@ -959,9 +932,7 @@ describe("checkSeifaDecileRange", () => {
   });
 
   it("passes null SEIFA decile", () => {
-    const addresses = [
-      createValidAddress({ seifa_decile_sa: null }),
-    ];
+    const addresses = [createValidAddress({ seifa_decile_sa: null })];
     const result = checkSeifaDecileRange(addresses);
 
     expect(result.passed).toBe(1);
@@ -1044,9 +1015,7 @@ describe("checkRemotenessLevel", () => {
   });
 
   it("fails empty remoteness level", () => {
-    const addresses = [
-      createValidAddress({ remoteness_level: "" }),
-    ];
+    const addresses = [createValidAddress({ remoteness_level: "" })];
     const result = checkRemotenessLevel(addresses);
 
     expect(result.passed).toBe(0);
@@ -1055,7 +1024,7 @@ describe("checkRemotenessLevel", () => {
 
   it("handles all five valid remoteness levels", () => {
     const addresses = RA_NAMES.map((ra, i) =>
-      createValidAddress({ id: i + 1, remoteness_level: ra })
+      createValidAddress({ id: i + 1, remoteness_level: ra }),
     );
     const result = checkRemotenessLevel(addresses);
 
@@ -1066,9 +1035,7 @@ describe("checkRemotenessLevel", () => {
 
 describe("checkCoordinateConsistency", () => {
   it("passes when both coordinates are present", () => {
-    const addresses = [
-      createValidAddress({ latitude: -34.9, longitude: 138.6 }),
-    ];
+    const addresses = [createValidAddress({ latitude: -34.9, longitude: 138.6 })];
     const result = checkCoordinateConsistency(addresses);
 
     expect(result.passed).toBe(1);
@@ -1076,9 +1043,7 @@ describe("checkCoordinateConsistency", () => {
   });
 
   it("passes when both coordinates are null", () => {
-    const addresses = [
-      createValidAddress({ latitude: null, longitude: null }),
-    ];
+    const addresses = [createValidAddress({ latitude: null, longitude: null })];
     const result = checkCoordinateConsistency(addresses);
 
     expect(result.passed).toBe(1);
@@ -1127,7 +1092,12 @@ describe("checkCoordinateConsistency", () => {
 describe("checkSuburbMetadata", () => {
   it("passes when all metadata matches", () => {
     const suburbs = [
-      createSuburb({ name: "ADELAIDE", council: "Adelaide City Council", ra: 0, decileSa: 5 }),
+      createSuburb({
+        name: "ADELAIDE",
+        council: "Adelaide City Council",
+        ra: 0,
+        decileSa: 5,
+      }),
     ];
     const addresses = [
       createValidAddress({
@@ -1145,7 +1115,12 @@ describe("checkSuburbMetadata", () => {
 
   it("fails when council doesn't match", () => {
     const suburbs = [
-      createSuburb({ name: "ADELAIDE", council: "Adelaide City Council", ra: 0, decileSa: 5 }),
+      createSuburb({
+        name: "ADELAIDE",
+        council: "Adelaide City Council",
+        ra: 0,
+        decileSa: 5,
+      }),
     ];
     const addresses = [
       createValidAddress({
@@ -1163,7 +1138,12 @@ describe("checkSuburbMetadata", () => {
 
   it("fails when remoteness doesn't match", () => {
     const suburbs = [
-      createSuburb({ name: "ADELAIDE", council: "Adelaide City Council", ra: 0, decileSa: 5 }),
+      createSuburb({
+        name: "ADELAIDE",
+        council: "Adelaide City Council",
+        ra: 0,
+        decileSa: 5,
+      }),
     ];
     const addresses = [
       createValidAddress({
@@ -1181,7 +1161,12 @@ describe("checkSuburbMetadata", () => {
 
   it("fails when SEIFA doesn't match", () => {
     const suburbs = [
-      createSuburb({ name: "ADELAIDE", council: "Adelaide City Council", ra: 0, decileSa: 5 }),
+      createSuburb({
+        name: "ADELAIDE",
+        council: "Adelaide City Council",
+        ra: 0,
+        decileSa: 5,
+      }),
     ];
     const addresses = [
       createValidAddress({
@@ -1199,9 +1184,7 @@ describe("checkSuburbMetadata", () => {
 
   it("passes when suburb not found", () => {
     const suburbs = [createSuburb()];
-    const addresses = [
-      createValidAddress({ suburb: "NONEXISTENT" }),
-    ];
+    const addresses = [createValidAddress({ suburb: "NONEXISTENT" })];
     const result = checkSuburbMetadata(addresses, suburbs);
 
     expect(result.passed).toBe(1);
@@ -1210,7 +1193,12 @@ describe("checkSuburbMetadata", () => {
 
   it("handles mixed batch with multiple failures", () => {
     const suburbs = [
-      createSuburb({ name: "ADELAIDE", council: "Adelaide City Council", ra: 0, decileSa: 5 }),
+      createSuburb({
+        name: "ADELAIDE",
+        council: "Adelaide City Council",
+        ra: 0,
+        decileSa: 5,
+      }),
       createSuburb({
         code: "40002",
         name: "GLENELG",
@@ -1258,7 +1246,7 @@ describe("batch checks with mixed pass/fail", () => {
         createValidAddress({
           id: i,
           postcode: i % 5 === 0 ? "4999" : "5000",
-        })
+        }),
       );
     }
     const result = checkPostcodeRange(addresses);
@@ -1284,4 +1272,3 @@ describe("batch checks with mixed pass/fail", () => {
     expect(checkMockStamp([addr]).failed).toBe(0);
   });
 });
-

@@ -1,7 +1,7 @@
 /**
  * Verification report generation (Markdown and JSON).
  */
-import type { VerificationResult, RecordCheck, SetCheck } from "./types";
+import type { VerificationResult } from "./types";
 import type { MockAddress } from "@/lib/generator/generate";
 
 export interface ReportData {
@@ -10,7 +10,7 @@ export interface ReportData {
 }
 
 export function generateMarkdownReport(data: ReportData): string {
-  const { result, addresses } = data;
+  const { result } = data;
   const lines: string[] = [];
 
   lines.push("# Verification Report");
@@ -23,13 +23,16 @@ export function generateMarkdownReport(data: ReportData): string {
   lines.push("");
 
   // Summary
-  const allPassed = result.totalFailedRows === 0 && result.setChecks.every((c) => c.passed);
+  const allPassed =
+    result.totalFailedRows === 0 && result.setChecks.every((c) => c.passed);
   lines.push("## Summary");
   lines.push("");
   if (allPassed) {
     lines.push("✅ **All checks passed.**");
   } else {
-    lines.push(`⚠️ **${result.totalFailedRows} unique records failed at least one check.**`);
+    lines.push(
+      `⚠️ **${result.totalFailedRows} unique records failed at least one check.**`,
+    );
     const failedSetChecks = result.setChecks.filter((c) => !c.passed);
     if (failedSetChecks.length > 0) {
       lines.push(`⚠️ **${failedSetChecks.length} set-level checks failed.**`);
@@ -49,7 +52,9 @@ export function generateMarkdownReport(data: ReportData): string {
     if (check.failed > 0 && check.failedIds.length <= 20) {
       lines.push(`- **Failed IDs:** ${check.failedIds.join(", ")}`);
     } else if (check.failed > 20) {
-      lines.push(`- **Failed IDs:** ${check.failedIds.slice(0, 20).join(", ")} … (${check.failed - 20} more)`);
+      lines.push(
+        `- **Failed IDs:** ${check.failedIds.slice(0, 20).join(", ")} … (${check.failed - 20} more)`,
+      );
     }
     lines.push("");
   }
@@ -74,21 +79,23 @@ export function generateMarkdownReport(data: ReportData): string {
 }
 
 export function generateJSONReport(data: ReportData): string {
-  return JSON.stringify(
-    {
-      timestamp: data.result.timestamp,
-      seed: data.result.seed,
-      count: data.result.count,
-      summary: {
-        totalFailedRows: data.result.totalFailedRows,
-        allChecksPassed:
-          data.result.totalFailedRows === 0 &&
-          data.result.setChecks.every((c) => c.passed),
+  return (
+    JSON.stringify(
+      {
+        timestamp: data.result.timestamp,
+        seed: data.result.seed,
+        count: data.result.count,
+        summary: {
+          totalFailedRows: data.result.totalFailedRows,
+          allChecksPassed:
+            data.result.totalFailedRows === 0 &&
+            data.result.setChecks.every((c) => c.passed),
+        },
+        recordChecks: data.result.recordChecks,
+        setChecks: data.result.setChecks,
       },
-      recordChecks: data.result.recordChecks,
-      setChecks: data.result.setChecks,
-    },
-    null,
-    2
-  ) + "\n";
+      null,
+      2,
+    ) + "\n"
+  );
 }

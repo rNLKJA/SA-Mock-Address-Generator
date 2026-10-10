@@ -26,7 +26,7 @@ export function parseAddressesCSV(csv: string): ParseResult {
   if (header.length !== CSV_COLUMNS.length) {
     errors.push(
       `Expected ${CSV_COLUMNS.length} columns, got ${header.length}. ` +
-      `Expected: ${CSV_COLUMNS.join(", ")}`
+        `Expected: ${CSV_COLUMNS.join(", ")}`,
     );
     return { addresses, errors };
   }
@@ -47,7 +47,9 @@ export function parseAddressesCSV(csv: string): ParseResult {
     if (fields.length === 0) continue; // Skip empty lines
 
     if (fields.length !== CSV_COLUMNS.length) {
-      errors.push(`Row ${rowNum + 1}: expected ${CSV_COLUMNS.length} fields, got ${fields.length}.`);
+      errors.push(
+        `Row ${rowNum + 1}: expected ${CSV_COLUMNS.length} fields, got ${fields.length}.`,
+      );
       continue;
     }
 
@@ -63,7 +65,8 @@ export function parseAddressesCSV(csv: string): ParseResult {
         postcode: fields[7],
         council: fields[8],
         remoteness_level: fields[9],
-        seifa_decile_sa: fields[10] && fields[10].trim() ? parseInt(fields[10], 10) : null,
+        seifa_decile_sa:
+          fields[10] && fields[10].trim() ? parseInt(fields[10], 10) : null,
         latitude: fields[11] && fields[11].trim() ? parseFloat(fields[11]) : null,
         longitude: fields[12] && fields[12].trim() ? parseFloat(fields[12]) : null,
         sal_code: fields[13],
@@ -81,7 +84,9 @@ export function parseAddressesCSV(csv: string): ParseResult {
 
       addresses.push(addr);
     } catch (e) {
-      errors.push(`Row ${rowNum + 1}: ${e instanceof Error ? e.message : "parse error"}.`);
+      errors.push(
+        `Row ${rowNum + 1}: ${e instanceof Error ? e.message : "parse error"}.`,
+      );
     }
   }
 
@@ -112,9 +117,9 @@ function parseCSVLine(line: string): string[] {
     } else {
       if (char === '"') {
         inQuotes = true;
-      } else if (char === '\\' && i + 1 < line.length && line[i + 1] === ',') {
+      } else if (char === "\\" && i + 1 < line.length && line[i + 1] === ",") {
         // Handle backslash-escaped comma
-        field += ',';
+        field += ",";
         i++; // Skip the comma
       } else if (char === ",") {
         result.push(field);

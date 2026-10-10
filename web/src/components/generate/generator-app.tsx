@@ -1,7 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from "react";
-import { Copy, Dices, Download, Loader2, MapPinned, Play, X, CheckCircle2 } from "lucide-react";
+import {
+  Copy,
+  Dices,
+  Download,
+  Loader2,
+  MapPinned,
+  Play,
+  X,
+  CheckCircle2,
+} from "lucide-react";
 import { toast } from "sonner";
 import Link from "next/link";
 import { ScenarioAssistant } from "@/components/ai/scenario-assistant";
@@ -593,7 +602,8 @@ export function GeneratorApp({ options: filterOptions }: { options: FilterOption
                       ? `&council=${encodeURIComponent(run.options.filters.council)}`
                       : ""
                   }${
-                    run.options.filters.ra !== null && run.options.filters.ra !== undefined
+                    run.options.filters.ra !== null &&
+                    run.options.filters.ra !== undefined
                       ? `&ra=${run.options.filters.ra}`
                       : ""
                   }${

@@ -247,7 +247,9 @@ export function checkMockStamp(addresses: readonly MockAddress[]): RecordCheck {
 /**
  * Check that no duplicate full_address values exist.
  */
-export function checkNoDuplicateAddresses(addresses: readonly MockAddress[]): RecordCheck {
+export function checkNoDuplicateAddresses(
+  addresses: readonly MockAddress[],
+): RecordCheck {
   const seen = new Map<string, number[]>();
 
   for (const addr of addresses) {
@@ -509,7 +511,9 @@ export function checkRemotenessLevel(addresses: readonly MockAddress[]): RecordC
   };
 }
 
-export function checkCoordinateConsistency(addresses: readonly MockAddress[]): RecordCheck {
+export function checkCoordinateConsistency(
+  addresses: readonly MockAddress[],
+): RecordCheck {
   // Both coordinates should be present or both null
   const failedIds: number[] = [];
   let passed = 0;
@@ -578,6 +582,8 @@ export function checkDuplicateAddresses(addresses: readonly MockAddress[]): Reco
   return checkNoDuplicateAddresses(addresses);
 }
 
-export function checkDuplicateCoordinates(addresses: readonly MockAddress[]): RecordCheck {
+export function checkDuplicateCoordinates(
+  addresses: readonly MockAddress[],
+): RecordCheck {
   return checkNoDuplicateCoords(addresses);
 }
