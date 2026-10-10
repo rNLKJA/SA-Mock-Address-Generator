@@ -40,9 +40,9 @@ for (const viewport of [
       await expect(page.locator('text=Record-Level Checks')).toBeVisible({ timeout: 10000 });
       await expect(page.locator('text=Set-Level Checks')).toBeVisible();
 
-      // Check for check results
-      const results = page.locator('[class*="rounded-lg border"]');
-      await expect(results.first()).toBeVisible();
+      // Check for check results - look for the summary box
+      const summary = page.locator('section[aria-label="Verification summary"]');
+      await expect(summary).toBeVisible();
     });
 
     test("no layout overflow", async ({ page }) => {
